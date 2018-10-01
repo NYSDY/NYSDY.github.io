@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-29T09:03:10.277Z</updated>
+  <updated>2018-10-01T14:29:37.635Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CN-DBpedia A Never-Ending Chinese Knowledge Extraction SystemCN-DBpedia System</title>
+    <link href="http://yoursite.com/2018/10/01/CN-DBpedia-A-Never-Ending-Chinese-Knowledge-Extraction-SystemCN-DBpedia-System/"/>
+    <id>http://yoursite.com/2018/10/01/CN-DBpedia-A-Never-Ending-Chinese-Knowledge-Extraction-SystemCN-DBpedia-System/</id>
+    <published>2018-10-01T14:27:25.000Z</published>
+    <updated>2018-10-01T14:29:37.635Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>本篇论文为2016年的一篇论文，主要介绍了作者构建中文知识图谱所遇到的一些问题和解决方法。</p></blockquote><a id="more"></a><h3 id="challenge"><a href="#challenge" class="headerlink" title="challenge"></a>challenge</h3><ol><li>如何降低人力成本？</li><li>如何保持知识库的新鲜度？</li></ol><h3 id="贡献"><a href="#贡献" class="headerlink" title="贡献"></a>贡献</h3><ol><li>在构建中文知识库中降低了人力成本：<ul><li>重复利用已经存在的本体论</li><li>提出了一个不用人工监督的端到端的深度学习模型</li></ul></li><li>提出了一个智能主动更新策略</li></ol><h3 id="系统结构"><a href="#系统结构" class="headerlink" title="系统结构"></a>系统结构</h3><p><img src="https://i.loli.net/2018/09/26/5baaf081b2644.jpg" alt=""></p><p>提高知识库质量：</p><ol><li><strong>Normalization</strong>： normalize the attributes and values</li><li><strong>Enrichment</strong>：reuse the ontology</li><li><strong>Correction</strong>：two steps<ol><li>error detection:<ul><li>rule-based detection</li><li>based on user feedbacks</li></ul></li><li>error correction<ul><li>crowd-sourcing</li></ul></li></ol></li></ol><h3 id="降低人力成本"><a href="#降低人力成本" class="headerlink" title="降低人力成本"></a>降低人力成本</h3><p>这部分作者采用了两种方法：</p><ol><li>重复利用已经存在在知识库的本体论和类型化的中文实体</li><li>构建一个端到端提取器</li></ol><h4 id="Cross-Lingual-Entity-Typing（跨语言的实体类型）"><a href="#Cross-Lingual-Entity-Typing（跨语言的实体类型）" class="headerlink" title="Cross-Lingual Entity Typing（跨语言的实体类型）"></a>Cross-Lingual Entity Typing（跨语言的实体类型）</h4><ul><li>第一步是通过用英文DBpedia类型来类型化中文实体。为了达到这个目的，作者提出了如下系统：<img src="https://i.loli.net/2018/10/01/5bb2273b35ab0.jpg" alt="">系统建立了监督层次分类模型，系统输入为没有标记类型的中文实体，输出为在DB中所有有效的英文类型。作者将中文实体与共享相同中文标签名称的英语实体配对，这样中文实体以及配对英语实体的类型自然是标记样本。</li><li>用上述方法得到的训练集可能出现下面一些问题：<ul><li>英文DBpedia实体类型在许多情况下可能不完全；</li><li>英文DBpedia实体类型在许多情况下可能是错误的；</li><li>中英文链接可能出错；</li><li>中文实体的特征通常不完整。</li></ul></li><li>为了解决以上问题，作者提出了两种方法：<ul><li>完善英文DBpedia实体类型；</li><li>设计一个过滤步骤来剔除错误样本。</li></ul></li></ul><h4 id="infobox-completion"><a href="#infobox-completion" class="headerlink" title="infobox completion"></a>infobox completion</h4><blockquote><p>Infobox completion is a task to extract object for a given pair of entity and predicate from encyclopedia articles.</p></blockquote><p>作者建模了一个seq2seq模型，输入为包含tokens的自然语言句子，输出为每个token的标签。对于标签为0或1。</p><p>对于建立一个有效的提取器有以下两个关键：</p><ol><li>如何构建训练集：作者采用远程监督方法（利用Wikipedia）</li><li>如何选取期望的提取模型：LSTM-RNN，如图所示<img src="https://i.loli.net/2018/10/01/5bb22b72af582.jpg" alt=""></li></ol><h3 id="知识库更新"><a href="#知识库更新" class="headerlink" title="知识库更新"></a>知识库更新</h3><p>作者采用动态更新：识别新实体或可能包含新事实的旧实体</p><p>作者根据以下两方面来辨别这些实体：</p><ul><li>近期热点新闻中提及的实体</li><li>在搜索引擎的流行搜索关键字或其他流行网页中提到的实体</li></ul><p>对于如何从新闻标题和搜素指令中提取实体名字，作者采用简单的词分割方法，从百科全书中判断其是否为实体，并提出IDF值低的分割子串。</p><h3 id="统计数据"><a href="#统计数据" class="headerlink" title="统计数据"></a>统计数据</h3><p><img src="https://i.loli.net/2018/10/01/5bb22d57ab3ec.jpg" alt=""></p><h3 id="论文下载地址"><a href="#论文下载地址" class="headerlink" title="论文下载地址"></a><a href="https://www.researchgate.net/publication/318144300_CN-DBpedia_A_Never-Ending_Chinese_Knowledge_Extraction_System" target="_blank" rel="noopener">论文下载地址</a></h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;本篇论文为2016年的一篇论文，主要介绍了作者构建中文知识图谱所遇到的一些问题和解决方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="RNN" scheme="http://yoursite.com/tags/RNN/"/>
+    
+  </entry>
   
   <entry>
     <title>Ontology reasoning with deep neural networks</title>
@@ -36,11 +64,11 @@
       <category term="论文" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87/"/>
     
     
+      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
       <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="Ontology" scheme="http://yoursite.com/tags/Ontology/"/>
-    
-      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
     
   </entry>
   
