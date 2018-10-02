@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="知识图谱,深度学习,Ontology," />
 
 
 
@@ -96,13 +96,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="NYSDY">
-<meta property="og:url" content="http://yoursite.com/tags/深度学习/index.html">
+<meta name="description" content="Ontology reasoning with deep neural networks（基于深度神经网络的本体推理）前言 本论文属于知识图谱的下游任务，也就是知识图谱的应用的一个例子。这篇论文的方法根据作者描述RRN是第一个基于深度学习的全面本体推理方法。">
+<meta name="keywords" content="知识图谱,深度学习,Ontology">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ontology reasoning with deep neural networks">
+<meta property="og:url" content="http://yoursite.com/2018/09/29/Ontology-reasoning-with-deep-neural-networks/index.html">
 <meta property="og:site_name" content="NYSDY">
+<meta property="og:description" content="Ontology reasoning with deep neural networks（基于深度神经网络的本体推理）前言 本论文属于知识图谱的下游任务，也就是知识图谱的应用的一个例子。这篇论文的方法根据作者描述RRN是第一个基于深度学习的全面本体推理方法。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2018/09/04/5b8e474079995.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/09/04/5b8e6d1edbfdc.jpg">
+<meta property="og:updated_time" content="2018-10-02T07:13:58.996Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NYSDY">
+<meta name="twitter:title" content="Ontology reasoning with deep neural networks">
+<meta name="twitter:description" content="Ontology reasoning with deep neural networks（基于深度神经网络的本体推理）前言 本论文属于知识图谱的下游任务，也就是知识图谱的应用的一个例子。这篇论文的方法根据作者描述RRN是第一个基于深度学习的全面本体推理方法。">
+<meta name="twitter:image" content="https://i.loli.net/2018/09/04/5b8e474079995.jpg">
 
 
 
@@ -131,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/深度学习/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/29/Ontology-reasoning-with-deep-neural-networks/"/>
 
 
 
 
 
-  <title>标签: 深度学习 | NYSDY</title>
+  <title>Ontology reasoning with deep neural networks | NYSDY</title>
   
 
 
@@ -247,7 +255,7 @@ $(function() {
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
     <a href="https://github.com/NYSDY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -385,54 +393,238 @@ $(function() {
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>深度学习<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/29/Ontology-reasoning-with-deep-neural-networks/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NYSDY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i.loli.net/2018/09/24/5ba86696be366.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NYSDY">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/29/Ontology-reasoning-with-deep-neural-networks/" itemprop="url">
-              
-                <span itemprop="name">Ontology reasoning with deep neural networks</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Ontology reasoning with deep neural networks</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-29T16:29:49+08:00"
-              content="2018-09-29" >
-          09-29
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T16:29:49+08:00">
+                2018-09-29
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文阅读笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/29/Ontology-reasoning-with-deep-neural-networks/" class="leancloud_visitors" data-flag-title="Ontology reasoning with deep neural networks">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Ontology-reasoning-with-deep-neural-networks（基于深度神经网络的本体推理）"><a href="#Ontology-reasoning-with-deep-neural-networks（基于深度神经网络的本体推理）" class="headerlink" title="Ontology reasoning with deep neural networks（基于深度神经网络的本体推理）"></a>Ontology reasoning with deep neural networks（基于深度神经网络的本体推理）</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>本论文属于知识图谱的下游任务，也就是知识图谱的应用的一个例子。这篇论文的方法根据作者描述RRN是第一个基于深度学习的全面本体推理方法。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>获得一个可以在不同的场景进行有效推理的模</p>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>基于机器学习的推理文章通常假设了一个特定的应用案例：自然语言或视觉输入的推理。<br>作者采用一个不同的方法：将正式的推理问题作为起点。<br>对于特定的问题选择：选择一种在表现力与另一方面复杂性之间取得适当平衡的方法通常是明智的。<br>OWL RL<br>本体推理是指一种常见的场景，在这种场景中，用于推理的推理规则（在此上下文中称为本体）与我们寻求推理的事实信息一起指定。  </p>
+<p>本体推理是一种非常灵活的工具，它允许对大量不同的场景进行建模，因此满足了我们对适用于各种应用的系统的需求。<br>==首先引出了什么是本质推理，然后进一步阐述为什么要用机器学习==</p>
+<p>今天用于推理的大多数KRR形式都植根于符号逻辑,这些方法在实践中会遇到许多问题：例如处理不完整，冲突或不确定数据的困难<br>机器学习模型通常具有高度可扩展性，更能抵抗数据中的干扰，并且即使所提供的形式是错误的也能够提供预测。</p>
+<p><strong>作者的目标是通过采用尖端的深度学习技术，目标是在近似于形式方法的高度期望（理论）属性和另一方面利用机器学习的稳健性之间管理平衡行为。</strong>  </p>
+<p>对于用于推理的知识图谱：作者采用的是由个体、类和二元关系组成的信息构成，其中个体对应于顶点，关系对应于被标记的有向边缘，类对应于二进制顶点标签。关系是主体和客体之间的关系或者个人和类之间的关系。这与关系学习不同：在关系学习的背景下，知识图通常通过将类视为个人以及将成员视为普通关系来简化。然而，就作者的目的而言，明确区分类和关系是很重要的，因为在用于推理的知识图谱中类和关系可能不同。  </p>
+<h3 id="模型总览"><a href="#模型总览" class="headerlink" title="模型总览"></a>模型总览</h3><p><img src="https://i.loli.net/2018/09/04/5b8e474079995.jpg" alt=""><br>整个模型是以RRN为基础进行构建的，每个RRN都针对特定的本体进行训练。当训练模型应用于一组特定的事实时，它分为如下两个步骤：</p>
+<ol>
+<li>它为所有的步骤生成矢量表示，也就是嵌入在所考虑数据中出现的个体。</li>
+<li>它仅基于这些生成向量计算查询预测</li>
+</ol>
+<p>在图中，</p>
+<ul>
+<li>a中它考虑一个事实三元组，并根据数据集重复多次。</li>
+<li>b中它每读取一个事实就获取三元组中的个体潜入，并将他们的反馈送入更新层，该层产生已提供的嵌入的更新版本，然后将其存储在前一个版本的位置。 </li>
+<li>c中从随机生成的向量开始，逐步更新嵌入，以便对关于它们所代表的个体的事实和推论进行编码。</li>
+</ul>
+<h3 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h3><p>作者在四个不同的数据集上训练和评估了RRN，其中两个是人工生成的玩具数据集，两个是从现实世界的数据库中提取的。这样做的原因：</p>
+<ol>
+<li>玩具问题具有很大的优势，即很明显某些推论是多么困难，从而为我们提供了对模型能力的相当好的印象。</li>
+<li>在现实环境中评估方法当然是性能不可或缺的衡量标准</li>
+</ol>
+<p>作者为了评估真实世界数据的RRN模型，还从从两个著名的知识库DBpedia和Claros中提取了数据集。</p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p><img src="https://i.loli.net/2018/09/04/5b8e6d1edbfdc.jpg" alt=""></p>
+<ol>
+<li>RRN能够有效地编码提供的关于类和关系的事实</li>
+<li>对于关系的推理，可以看到DBpedia的准确度略低于98.9％，而其他数据集中的可导出关系在所有情况中至少99.6％被正确预测。</li>
+<li>可以预测该模型在预测可推断类别方面比在关系方面表现更好，因为大多数这些都是仅依赖于单个三元组的推论。  </li>
+</ol>
+<p>为了评估作者提出的KRR方法常常遇到的问题，作者进行了如下实验：</p>
+<ol>
+<li>对于缺少信息的问题，作者随机删除了一个无法通过每个样本的符号推理推断出的事实，并检查模型是否能够正确地重建它。结果：对于DBpedia来说，33.8％的失踪三元组就是这种情况，而对于Claros来说，38.4％被正确预测</li>
+<li>对于冲突的问题，作者通过在每个测试样本中随机选择一个事实来测试模型解决冲突的能力，并添加相同的否定版本作为另一个事实。对于DBpedia，RRN正确解决了88.4％的引入冲突，而对于Claros，它甚至达到了96.2％。然而，最重要的是，对于任何一个损坏的数据集，之前报告的总精度都没有下降超过0.9。</li>
+</ol>
+<p>所有RRN的查询预测都完全基于它为各个数据集中的个体生成的嵌入，这就是为什么仔细研究这样一组嵌入向量是有益的。</p>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>本论文属于知识图谱的下游任务，也就是知识图谱的应用的一个例子。这篇论文的方法根据作者描述RRN是第一个基于深度学习的全面本体推理方法。但是具体的操作方法论文中写的比较清晰，感觉自己是理解了。重点就是对于个体的嵌入表示，如果类比的话就是词向量，作者通过不断的处理更新这个词向量，最后通过所获的词向量进行推理。并且从这篇文章中可以看到作者使用的知识图谱和我之前在弄的关系三元组有所区别。</p>
+<h3 id="论文下载链接"><a href="#论文下载链接" class="headerlink" title="论文下载链接"></a><a href="https://arxiv.org/abs/1808.07980" target="_blank" rel="noopener">论文下载链接</a></h3>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
       
     </div>
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/知识图谱/" rel="tag"><i class="fa fa-tag"></i> 知识图谱</a>
+          
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+          
+            <a href="/tags/Ontology/" rel="tag"><i class="fa fa-tag"></i> Ontology</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/21/初次见面，你好NYSDY！/" rel="next" title="初次见面，你好NYSDY！">
+                <i class="fa fa-chevron-left"></i> 初次见面，你好NYSDY！
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/01/CN-DBpedia-A-Never-Ending-Chinese-Knowledge-Extraction-SystemCN-DBpedia-System/" rel="prev" title="CN-DBpedia A Never-Ending Chinese Knowledge Extraction SystemCN-DBpedia System">
+                CN-DBpedia A Never-Ending Chinese Knowledge Extraction SystemCN-DBpedia System <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -440,6 +632,10 @@ $(function() {
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -460,8 +656,17 @@ $(function() {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://i.loli.net/2018/09/24/5ba86696be366.jpg"
@@ -557,6 +762,22 @@ $(function() {
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ontology-reasoning-with-deep-neural-networks（基于深度神经网络的本体推理）"><span class="nav-number">1.</span> <span class="nav-text">Ontology reasoning with deep neural networks（基于深度神经网络的本体推理）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.0.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标"><span class="nav-number">1.0.2.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.0.3.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型总览"><span class="nav-number">1.0.4.</span> <span class="nav-text">模型总览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估"><span class="nav-number">1.0.5.</span> <span class="nav-text">评估</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果"><span class="nav-number">1.0.6.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思考"><span class="nav-number">1.0.7.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#论文下载链接"><span class="nav-number">1.0.8.</span> <span class="nav-text">论文下载链接</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -697,10 +918,10 @@ $(function() {
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
