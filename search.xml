@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[《Bidirectional LSTM-CRF Models for Sequence Tagging》阅读笔记]]></title>
+    <url>%2Fpost%2Fread_Bidirectional_LSTM-CRF_Models_for_Sequence_Tagging%2F</url>
+    <content type="text"><![CDATA[这篇论文可以作为一个RNN和LSTM学习的一个例子来看，有利于新手对LSTM的理解。对于NER的处理主要是作为一个序列标注问题。但是作为经典文章还是可以读一读了解一下的。 在本篇论文中，作者提出了4种模型：LSTM、BI-LSTM、LSTM-CRF和BI-LSTM-CRF。 contribution(贡献) 作者在NLP标注数据集上系统的对比了以上四个模型； 作者是首先提出把BI-LSTM-CRF模型用于NLP序列标注，并且达到了state-of-the-art的水平； 作者展示了BI-LSTM-CRF是robust，并且极少依赖于词向量。 model(模型)LSTM首先，作者先介绍了RNN的结构和工作原理，如图： 其中输入为句子：EU rejects German call to boycott British lamb。输出为标签：B-ORG O B-MISC O O O B-MISC O O，其中B-，I-表示实体开始和中间位置。标签种类为：other (O)和四种实体标签：Person (PER), Location (LOC), Organization (ORG), and Miscellaneous (MISC). 输入层表示在时间步 t 的特征。它们可以是 one-hot-encoding 的词特征，稠密或者稀疏的向量特征。输入层与特征有相同大小的维度。输出层表示在时间步 t 的标签上的概率分布，维度与标注数量相同。相比前馈神经网络，RNN 引入前一个隐藏状态和当前隐藏状态的结合，因此可以储存历史信息。 涉及公式为： 其中，U，W，V都是权重，函数f，g分别为sigmoid和softmax函数。 接下来，作者展示了LSTM的结构和原理，如图： 公式： 其中，σ是逻辑sigmoid函数，i, f, o 和 c分别是输入门，忘记门，输出门和细胞向量，所有的大小都和向量h一样。w权重的含义如其下表所示。 LSTM序列标注模型如图所示： 其中，中间的画斜线的格子即为图2中所示部分。 Bidirectional LSTM(双向LSTM)作者展示了双向LSTM的结构，如图所示： 双向LSTM网络可以有效利用过去特征和未来特征。在作者的实现中，对于整个句子的前向和后向操作，作者只需要在每个句子开始时将隐藏状态重置为0。作者采用批处理，使得可以同时处理多个句子。 CRF使用邻居标记信息预测当前标记有两种不同的方法： 预测每个时间步长的标签分布，然后使用波束式解码来找到最优的标签序列，代表方法：MEMMs 注重句子层次而不是个体位置，代表方法：CRF，输入和输出是直接相连的；如图： 研究表明，CRFs一般能够产生更高的标签精度。 LSTM-CRF作者展示了LSTM-CRF的结构，如图： 这网络可以有效地通过 LSTM 利用过去的输入特征和通过 CRF 利用句子级的标注信息。图中CRF层由连接连续输出层的线表示。CRF层有一个状态转移矩阵作为参数。 公式为： 函数f为网络的输出分数，[x]为输入， [fθ]i,t 为带有参数θ（句子x，第i 个标签，第t个单词）的网络输出； [A]i,j为转移分数，从连续的时间步i状态到j状态的转移分数。注意，该转换矩阵是位置无关的。 BI-LSTM-CRF作者展示了BI-LSTM-CRF的结构，如图所示： 作者在实验中展示了额外的未来特征可以提高标签的准确率。 训练过程本文使用的所有模型都共享一个通用SGD前向和后向训练过程。作者展示了BI-LSTM-CRF的算法，如图 作者设置了批次大小为100。 实验data作者在以下三个数据集上测试自己的模型：Penn TreeBank (PTB) POS tagging, CoNLL 2000 chunking, and CoNLL 2003 named entity tagging.数据集信息展示如下： Features作者从三个数据集中提取出其公共特征。特征可以分为拼写特征和上下文特征。最终，作者对于POS（词性标注）、chunking（组块）和NER（命名实体识别）分别提取401K，76K和341K个特征。 spelling features（拼写特征）除了小写字母特征之外，我们提取给定单词的以下特征。 context featurs（上下文特征）对于单词特征，作者使用unigram和bi-grams特征。对于在CoNLL2000数据集中的POS特征和在CoNLL2003数据集中的 POS &amp; CHUNK特征，作者使用了unigram，bi-gram和tri-gram特征。 词向量词向量在改进序列标注任务的表现方面起着至关重要的作用，我们使用 130K 词汇并且每个词汇的词向量维度是 50 维。我们将 one-hot-encoding词表示替换每个词对应的词向量。 Features connection tricks我们可以将拼写和上下文特征与单词特征一样对待。这样网络的输入包括单词，单词的拼写和上下文特征。然而，==我们发现将拼写和上下文特征与输出直接连接可以加速训练过程，同时也能保持标注的准确率，==如下图所示： 我们注意到，这种特征的使用与使用的最大熵特征类似。区别在于采用特征三列技术可能会发生特征冲突。由于序列标注数据集中的输出标签小于语言模型（通常为数十万），所以我们可以在特征和输出之间建立完整的连接，以避免潜在的特征冲突。 结果在相同的数据集上分别训练LSTM，BI-LSTM，CRF，LSTM-CRF和BI-LSTM-CRF模型，并且采用两种方式初始化word embedding：随机和Senna方式。模型的训练速率为0.1，隐藏层数量为300.不同模型在不同word embedding下的结果如表2所示，同时列出了之前最好模型Cov-CRF。 与Cov-CRF比较 实验中设置了3个基准模型，分别为LSTM、BI-LSTM和CRF，结果中LSTM在三个数据集中效果最差，BI-LSTM跟CRF在POS和chunking中效果接近，但是在NER中后者要优于前者。有趣的是表现最好的模型BI-LSTM-CRF相对于Cov-CRF来说对Senna embedding的依赖程度更小。 (robustness)模型鲁棒性 为验证模型的鲁棒性，对不同模型只采用word feature特征进行训练，训练结果如表3，括号中数字表示相比于全部特征，模型的结果下降数值。 与其他系统的比较 这里就不贴图了，总之就是阐述作者自己模型好。 结论总之作者的模型是基于之前模型的一些改进，主要运用了IBI-LSTM和CRF的结合。 论文下载地址]]></content>
+      <categories>
+        <category>阅读笔记</category>
+      </categories>
+      <tags>
+        <tag>LSTM</tag>
+        <tag>NER</tag>
+        <tag>BI-LSTM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CN-DBpedia A Never-Ending Chinese Knowledge Extraction SystemCN-DBpedia System]]></title>
-    <url>%2F2018%2F10%2F01%2FCN-DBpedia-A-Never-Ending-Chinese-Knowledge-Extraction-SystemCN-DBpedia-System%2F</url>
+    <url>%2Fpost%2Fessay%2F</url>
     <content type="text"><![CDATA[前言 本篇论文为2016年的一篇论文，主要介绍了作者构建中文知识图谱所遇到的一些问题和解决方法。 challenge 如何降低人力成本？ 如何保持知识库的新鲜度？ 贡献 在构建中文知识库中降低了人力成本： 重复利用已经存在的本体论 提出了一个不用人工监督的端到端的深度学习模型 提出了一个智能主动更新策略 系统结构 提高知识库质量： Normalization： normalize the attributes and values Enrichment：reuse the ontology Correction：two steps error detection: rule-based detection based on user feedbacks error correction crowd-sourcing 降低人力成本这部分作者采用了两种方法： 重复利用已经存在在知识库的本体论和类型化的中文实体 构建一个端到端提取器 Cross-Lingual Entity Typing（跨语言的实体类型） 第一步是通过用英文DBpedia类型来类型化中文实体。为了达到这个目的，作者提出了如下系统：系统建立了监督层次分类模型，系统输入为没有标记类型的中文实体，输出为在DB中所有有效的英文类型。作者将中文实体与共享相同中文标签名称的英语实体配对，这样中文实体以及配对英语实体的类型自然是标记样本。 用上述方法得到的训练集可能出现下面一些问题： 英文DBpedia实体类型在许多情况下可能不完全； 英文DBpedia实体类型在许多情况下可能是错误的； 中英文链接可能出错； 中文实体的特征通常不完整。 为了解决以上问题，作者提出了两种方法： 完善英文DBpedia实体类型； 设计一个过滤步骤来剔除错误样本。 infobox completion Infobox completion is a task to extract object for a given pair of entity and predicate from encyclopedia articles. 作者建模了一个seq2seq模型，输入为包含tokens的自然语言句子，输出为每个token的标签。对于标签为0或1。 对于建立一个有效的提取器有以下两个关键： 如何构建训练集：作者采用远程监督方法（利用Wikipedia） 如何选取期望的提取模型：LSTM-RNN，如图所示 知识库更新作者采用动态更新：识别新实体或可能包含新事实的旧实体 作者根据以下两方面来辨别这些实体： 近期热点新闻中提及的实体 在搜索引擎的流行搜索关键字或其他流行网页中提到的实体 对于如何从新闻标题和搜素指令中提取实体名字，作者采用简单的词分割方法，从百科全书中判断其是否为实体，并提出IDF值低的分割子串。 统计数据 论文下载链接]]></content>
       <categories>
         <category>论文阅读笔记</category>
@@ -15,7 +28,7 @@
   </entry>
   <entry>
     <title><![CDATA[Ontology reasoning with deep neural networks]]></title>
-    <url>%2F2018%2F09%2F29%2FOntology-reasoning-with-deep-neural-networks%2F</url>
+    <url>%2Fpost%2Fessay%2F</url>
     <content type="text"><![CDATA[Ontology reasoning with deep neural networks（基于深度神经网络的本体推理）前言 本论文属于知识图谱的下游任务，也就是知识图谱的应用的一个例子。这篇论文的方法根据作者描述RRN是第一个基于深度学习的全面本体推理方法。 目标获得一个可以在不同的场景进行有效推理的模 问题描述基于机器学习的推理文章通常假设了一个特定的应用案例：自然语言或视觉输入的推理。作者采用一个不同的方法：将正式的推理问题作为起点。对于特定的问题选择：选择一种在表现力与另一方面复杂性之间取得适当平衡的方法通常是明智的。OWL RL本体推理是指一种常见的场景，在这种场景中，用于推理的推理规则（在此上下文中称为本体）与我们寻求推理的事实信息一起指定。 本体推理是一种非常灵活的工具，它允许对大量不同的场景进行建模，因此满足了我们对适用于各种应用的系统的需求。==首先引出了什么是本质推理，然后进一步阐述为什么要用机器学习== 今天用于推理的大多数KRR形式都植根于符号逻辑,这些方法在实践中会遇到许多问题：例如处理不完整，冲突或不确定数据的困难机器学习模型通常具有高度可扩展性，更能抵抗数据中的干扰，并且即使所提供的形式是错误的也能够提供预测。 作者的目标是通过采用尖端的深度学习技术，目标是在近似于形式方法的高度期望（理论）属性和另一方面利用机器学习的稳健性之间管理平衡行为。 对于用于推理的知识图谱：作者采用的是由个体、类和二元关系组成的信息构成，其中个体对应于顶点，关系对应于被标记的有向边缘，类对应于二进制顶点标签。关系是主体和客体之间的关系或者个人和类之间的关系。这与关系学习不同：在关系学习的背景下，知识图通常通过将类视为个人以及将成员视为普通关系来简化。然而，就作者的目的而言，明确区分类和关系是很重要的，因为在用于推理的知识图谱中类和关系可能不同。 模型总览整个模型是以RRN为基础进行构建的，每个RRN都针对特定的本体进行训练。当训练模型应用于一组特定的事实时，它分为如下两个步骤： 它为所有的步骤生成矢量表示，也就是嵌入在所考虑数据中出现的个体。 它仅基于这些生成向量计算查询预测 在图中， a中它考虑一个事实三元组，并根据数据集重复多次。 b中它每读取一个事实就获取三元组中的个体潜入，并将他们的反馈送入更新层，该层产生已提供的嵌入的更新版本，然后将其存储在前一个版本的位置。 c中从随机生成的向量开始，逐步更新嵌入，以便对关于它们所代表的个体的事实和推论进行编码。 评估作者在四个不同的数据集上训练和评估了RRN，其中两个是人工生成的玩具数据集，两个是从现实世界的数据库中提取的。这样做的原因： 玩具问题具有很大的优势，即很明显某些推论是多么困难，从而为我们提供了对模型能力的相当好的印象。 在现实环境中评估方法当然是性能不可或缺的衡量标准 作者为了评估真实世界数据的RRN模型，还从从两个著名的知识库DBpedia和Claros中提取了数据集。 结果 RRN能够有效地编码提供的关于类和关系的事实 对于关系的推理，可以看到DBpedia的准确度略低于98.9％，而其他数据集中的可导出关系在所有情况中至少99.6％被正确预测。 可以预测该模型在预测可推断类别方面比在关系方面表现更好，因为大多数这些都是仅依赖于单个三元组的推论。 为了评估作者提出的KRR方法常常遇到的问题，作者进行了如下实验： 对于缺少信息的问题，作者随机删除了一个无法通过每个样本的符号推理推断出的事实，并检查模型是否能够正确地重建它。结果：对于DBpedia来说，33.8％的失踪三元组就是这种情况，而对于Claros来说，38.4％被正确预测 对于冲突的问题，作者通过在每个测试样本中随机选择一个事实来测试模型解决冲突的能力，并添加相同的否定版本作为另一个事实。对于DBpedia，RRN正确解决了88.4％的引入冲突，而对于Claros，它甚至达到了96.2％。然而，最重要的是，对于任何一个损坏的数据集，之前报告的总精度都没有下降超过0.9。 所有RRN的查询预测都完全基于它为各个数据集中的个体生成的嵌入，这就是为什么仔细研究这样一组嵌入向量是有益的。 思考本论文属于知识图谱的下游任务，也就是知识图谱的应用的一个例子。这篇论文的方法根据作者描述RRN是第一个基于深度学习的全面本体推理方法。但是具体的操作方法论文中写的比较清晰，感觉自己是理解了。重点就是对于个体的嵌入表示，如果类比的话就是词向量，作者通过不断的处理更新这个词向量，最后通过所获的词向量进行推理。并且从这篇文章中可以看到作者使用的知识图谱和我之前在弄的关系三元组有所区别。 论文下载链接]]></content>
       <categories>
         <category>论文阅读笔记</category>
@@ -28,7 +41,7 @@
   </entry>
   <entry>
     <title><![CDATA[初次见面，你好NYSDY！]]></title>
-    <url>%2F2018%2F09%2F21%2F%E5%88%9D%E6%AC%A1%E8%A7%81%E9%9D%A2%EF%BC%8C%E4%BD%A0%E5%A5%BDNYSDY%EF%BC%81%2F</url>
+    <url>%2Fpost%2Fessay%2F</url>
     <content type="text"></content>
   </entry>
 </search>
