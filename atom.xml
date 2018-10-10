@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-05T05:11:42.122Z</updated>
+  <updated>2018-10-10T08:21:08.779Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Neo4j初始化节点显示设置</title>
+    <link href="http://yoursite.com/post/Neo4j_initializes_the_node_display_Settings/"/>
+    <id>http://yoursite.com/post/Neo4j_initializes_the_node_display_Settings/</id>
+    <published>2018-10-10T08:13:05.000Z</published>
+    <updated>2018-10-10T08:21:08.779Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p>neo4j中有默认的初始化节点显示设置为300个节点，如果想要显示的节点多于300个，则会只显示300个，并给予以下提示语句：</p><p><code>Not all return nodes are being displayed due to Initial Node Display setting. Only 300 of 300 nodes are being displayed.</code></p><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>在如图所示<code>initial Node Display</code>处可以修改，在此处修改为300000.<img src="https://i.loli.net/2018/10/10/5bbdb388a368b.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;问题描述：&quot;&gt;&lt;a href=&quot;#问题描述：&quot; class=&quot;headerlink&quot; title=&quot;问题描述：&quot;&gt;&lt;/a&gt;问题描述：&lt;/h3&gt;&lt;p&gt;neo4j中有默认的初始化节点显示设置为300个节点，如果想要显示的节点多于300个，则会只显示300个，并给予以下
+      
+    
+    </summary>
+    
+      <category term="Neo4j" scheme="http://yoursite.com/categories/Neo4j/"/>
+    
+    
+      <category term="Neo4j" scheme="http://yoursite.com/tags/Neo4j/"/>
+    
+      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>《Bidirectional LSTM-CRF Models for Sequence Tagging》阅读笔记</title>
