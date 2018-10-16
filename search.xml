@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[用python3读写csv文档]]></title>
+    <url>%2Fpost%2Fread%20the%20CSV%20document%20using%20python3%2F</url>
+    <content type="text"><![CDATA[对于大多数的CSV格式的数据读写问题，都可以使用 csv 库。 例如：假设你在一个名叫stocks.csv文件中有一些股票市场数据，就像这样： 1234567Symbol,Price,Date,Time,Change,Volume&quot;AA&quot;,39.48,&quot;6/11/2007&quot;,&quot;9:36am&quot;,-0.18,181800&quot;AIG&quot;,71.38,&quot;6/11/2007&quot;,&quot;9:36am&quot;,-0.15,195500&quot;AXP&quot;,62.58,&quot;6/11/2007&quot;,&quot;9:36am&quot;,-0.46,935000&quot;BA&quot;,98.31,&quot;6/11/2007&quot;,&quot;9:36am&quot;,+0.12,104800&quot;C&quot;,53.08,&quot;6/11/2007&quot;,&quot;9:36am&quot;,-0.25,360900&quot;CAT&quot;,78.29,&quot;6/11/2007&quot;,&quot;9:36am&quot;,-0.23,225400 csv文档的读取1. 常规读取下面向你展示如何将这些数据读取为一个元组的序列： 1234567import csvwith open('stocks.csv') as f: f_csv = csv.reader(f) headers = next(f_csv) for row in f_csv: # Process row ... 在上面的代码中， row 会是一个列表。因此，为了访问某个字段，你需要使用下标，如 row[0]访问Symbol， row[4] 访问Change。==这样可以通过外建字典来存储读出的csv数据。== 2. 命名元组由于这种下标访问通常会引起混淆，你可以考虑使用==命名元组==。例如： 123456789from collections import namedtuplewith open('stock.csv') as f: f_csv = csv.reader(f) headings = next(f_csv) Row = namedtuple('Row', headings) for r in f_csv: row = Row(*r) # Process row ... 它允许你使用列名如 row.Symbol 和 row.Change 代替下标访问。 需要注意的是这个只有在列名是合法的Python标识符的时候才生效。如果不是的话， 你可能需要修改下原始的列名(如将非标识符字符替换成下划线之类的)。 3. 字典另外一个选择就是将数据读取到一个字典序列中去。可以这样做： 123456import csvwith open('stocks.csv') as f: f_csv = csv.DictReader(f) for row in f_csv: # process row ... 在这个版本中，你可以使用列名去访问每一行的数据了。比如，row[&#39;Symbol&#39;] 或者 row[&#39;Change&#39;]。 fieldnames 是dict_reader的一个属性，表示CSV文档的数据名称。可以通过f_csv.fieldnames来访问数据名称那一行。 CSV文件写入为了写入CSV数据，你仍然可以使用csv模块，不过这时候先创建一个 writer 对象。例如: 12345678910headers = ['Symbol','Price','Date','Time','Change','Volume']rows = [('AA', 39.48, '6/11/2007', '9:36am', -0.18, 181800), ('AIG', 71.38, '6/11/2007', '9:36am', -0.15, 195500), ('AXP', 62.58, '6/11/2007', '9:36am', -0.46, 935000), ]with open('stocks.csv','w') as f: f_csv = csv.writer(f) f_csv.writerow(headers) f_csv.writerows(rows) 如果你有一个字典序列的数据，可以像这样做： 12345678910111213headers = ['Symbol', 'Price', 'Date', 'Time', 'Change', 'Volume']rows = [&#123;'Symbol':'AA', 'Price':39.48, 'Date':'6/11/2007', 'Time':'9:36am', 'Change':-0.18, 'Volume':181800&#125;, &#123;'Symbol':'AIG', 'Price': 71.38, 'Date':'6/11/2007', 'Time':'9:36am', 'Change':-0.15, 'Volume': 195500&#125;, &#123;'Symbol':'AXP', 'Price': 62.58, 'Date':'6/11/2007', 'Time':'9:36am', 'Change':-0.46, 'Volume': 935000&#125;, ]with open('stocks.csv','w') as f: f_csv = csv.DictWriter(f, headers) f_csv.writeheader() f_csv.writerows(rows) 其中f_csv.writeheader()也可以替换成f_csv.writerow(dict(zip(headers, headers))) 参考链接 https://python3-cookbook.readthedocs.io/zh_CN/latest/c06/p01_read_write_csv_data.html https://blog.csdn.net/guoziqing506/article/details/52014506]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>文件读取</tag>
+        <tag>csv</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Neo4j初始化节点显示设置]]></title>
     <url>%2Fpost%2FNeo4j_initializes_the_node_display_Settings%2F</url>
     <content type="text"><![CDATA[问题描述：neo4j中有默认的初始化节点显示设置为300个节点，如果想要显示的节点多于300个，则会只显示300个，并给予以下提示语句： Not all return nodes are being displayed due to Initial Node Display setting. Only 300 of 300 nodes are being displayed. 解决方法：在如图所示initial Node Display处可以修改，在此处修改为300000.]]></content>
