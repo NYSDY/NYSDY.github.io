@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python爬取中文网页时中文字符变英文的解决方法]]></title>
+    <url>%2Fpost%2Fsolution_of_python_for_Chinese_characters_to_become_English_when_crawling_Chinese_web_pages%2F</url>
+    <content type="text"><![CDATA[使用python的scrapy爬取网页时，源代码中的中文字符在爬取下来后变成了英文字符。 问题举例例如，原网页为： 爬取结果为： 解决方法修改请求头：在settings.py文件中找到下属代码： 12345# Override the default request headers:#DEFAULT_REQUEST_HEADERS = &#123;# 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',# 'Accept-Language': 'en',#&#125; 改为： 12345# Override the default request headers:DEFAULT_REQUEST_HEADERS = &#123; 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Accept-Language': 'zh-CN',&#125; 修改结果展示： 参考链接 https://blog.csdn.net/wuqili_1025/article/details/79690103]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>爬虫</tag>
+        <tag>python</tag>
+        <tag>scrapy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python动态网页爬取之安装docker和splash]]></title>
     <url>%2Fpost%2FPython_dynamic_web_crawler_installed_docker_and_splash%2F</url>
     <content type="text"><![CDATA[利用python进行动态网页爬取时，在安装docker和splash时踩过的坑，记录了一下自己的安装过程。用的系统是mac os。 安装scrapy-splash 利用pip安装scrapy-splash库：$ pip install scrapy-splash 安装Docker==下面👇这样安不下去了== 如果是Mac的话需要使用brew安装，如下：brew install docker 报错： 1Error: Failure while executing; `git config --local --replace-all homebrew.private true` exited with 1. 解决方法： 1xcode-select --install 然后在执行： 1brew install docker 再继续： service docker start 报错： -bash: service: command not found上网上查一堆乱七八糟的解决方式，该路径啥的，真的不想改路径，怕把其他的改崩了。最后放弃这种方式，如果有兴趣也可以尝试解决。 ==尝试如下安装DOCKER方法== 去官网下载这种方法下载docker客户端需要从服务器下载，自己电脑下载12k/s，简直慢死了。 拉取镜像(pull the image)：docker pull scrapinghub/splash 用docker运行scrapinghub/splash： docker run -p 8050:8050 scrapinghub/splash 在浏览器中输入localhost:8050 ==安装成功== 参考链接 http://www.morecoder.com/article/1001249.html https://www.jianshu.com/p/e54a407c8a0a]]></content>
@@ -8,8 +21,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>爬虫</tag>
+        <tag>python</tag>
         <tag>splash</tag>
         <tag>docker</tag>
       </tags>
