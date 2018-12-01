@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[pandas的数据类型操作]]></title>
+    <url>%2Fpost%2FPandas_data_type_manipulation%2F</url>
+    <content type="text"><![CDATA[在原文链接中摘抄出部分信息作为记录形成本文。 数据类型 Pandas dtype Python 类型 NumPy 类型 用途 object str string_, unicode_ 文本 int64 int int_, int8, int16, int32, int64, uint8, uint16, uint32, uint64 整数 float64 float float_, float16, float32, float64 浮点数 bool bool bool_ 布尔值 datetime64 NA NA 日期时间 timedelta[ns] NA NA 时间差 category NA NA 有限长度的文本值列表 数据类型操作 使用df.dtypes可以显示数据所有列的类型 df.info（） 函数可以显示更有用的信息 使用 astype() 函数使用条件 数据是干净的，可以简单地解释为一个数字 你想要将一个数值转换为一个字符串对象 如果数据具有非数字字符或它们间不同质（homogeneous），那么 astype() 并不是类型转换的好选择。你需要进行额外的变换才能完成正确的类型转换。 使用方式为了真正修改原始 dataframe 中数据类型，记得把 astype() 函数的返回值重新赋值给 dataframe，因为 astype() 仅返回数据的副本而不原地修改。 参考链接 https://juejin.im/post/5acc36e66fb9a028d043c2a5]]></content>
+      <categories>
+        <category>pandas</category>
+      </categories>
+      <tags>
+        <tag>pandas</tag>
+        <tag>python</tag>
+        <tag>数据分析</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python爬取中文网页时中文字符变英文的解决方法]]></title>
     <url>%2Fpost%2Fsolution_of_python_for_Chinese_characters_to_become_English_when_crawling_Chinese_web_pages%2F</url>
     <content type="text"><![CDATA[使用python的scrapy爬取网页时，源代码中的中文字符在爬取下来后变成了英文字符。 问题举例例如，原网页为： 爬取结果为： 解决方法修改请求头：在settings.py文件中找到下属代码： 12345# Override the default request headers:#DEFAULT_REQUEST_HEADERS = &#123;# 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',# 'Accept-Language': 'en',#&#125; 改为： 12345# Override the default request headers:DEFAULT_REQUEST_HEADERS = &#123; 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Accept-Language': 'zh-CN',&#125; 修改结果展示： 参考链接 https://blog.csdn.net/wuqili_1025/article/details/79690103]]></content>
@@ -8,8 +21,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>爬虫</tag>
         <tag>python</tag>
+        <tag>爬虫</tag>
         <tag>scrapy</tag>
       </tags>
   </entry>
@@ -21,8 +34,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>爬虫</tag>
         <tag>python</tag>
+        <tag>爬虫</tag>
         <tag>splash</tag>
         <tag>docker</tag>
       </tags>

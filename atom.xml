@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-25T07:03:47.014Z</updated>
+  <updated>2018-12-01T05:18:49.278Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>pandas的数据类型操作</title>
+    <link href="http://yoursite.com/post/Pandas_data_type_manipulation/"/>
+    <id>http://yoursite.com/post/Pandas_data_type_manipulation/</id>
+    <published>2018-12-01T05:11:30.000Z</published>
+    <updated>2018-12-01T05:18:49.278Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>在<a href="https://juejin.im/post/5acc36e66fb9a028d043c2a5" target="_blank" rel="noopener">原文链接</a>中摘抄出部分信息作为记录形成本文。</p></blockquote><a id="more"></a><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><table><thead><tr><th>Pandas dtype</th><th>Python 类型</th><th>NumPy 类型</th><th>用途</th></tr></thead><tbody><tr><td>object</td><td>str</td><td>string_, unicode_</td><td>文本</td></tr><tr><td>int64</td><td>int</td><td>int_, int8, int16, int32, int64, uint8, uint16, uint32, uint64</td><td>整数</td></tr><tr><td>float64</td><td>float</td><td>float_, float16, float32, float64</td><td>浮点数</td></tr><tr><td>bool</td><td>bool</td><td>bool_</td><td>布尔值</td></tr><tr><td>datetime64</td><td>NA</td><td>NA</td><td>日期时间</td></tr><tr><td>timedelta[ns]</td><td>NA</td><td>NA</td><td>时间差</td></tr><tr><td>category</td><td>NA</td><td>NA</td><td>有限长度的文本值列表</td></tr></tbody></table><h3 id="数据类型操作"><a href="#数据类型操作" class="headerlink" title="数据类型操作"></a>数据类型操作</h3><ul><li><p>使用<code>df.dtypes</code>可以显示数据所有列的类型</p></li><li><p><code>df.info（）</code> 函数可以显示更有用的信息</p></li></ul><h2 id="使用-astype-函数"><a href="#使用-astype-函数" class="headerlink" title="使用 astype() 函数"></a>使用 <code>astype()</code> 函数</h2><h3 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h3><ul><li>数据是干净的，可以简单地解释为一个数字</li><li>你想要将一个数值转换为一个字符串对象</li></ul><p>如果数据具有非数字字符或它们间不同质（homogeneous），那么 <code>astype()</code> 并不是类型转换的好选择。你需要进行额外的变换才能完成正确的类型转换。</p><h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>为了真正修改原始 dataframe 中数据类型，记得把 <code>astype()</code> 函数的返回值重新赋值给 dataframe，因为 <code>astype()</code> 仅返回数据的副本而不原地修改。</p><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul><li><a href="https://juejin.im/post/5acc36e66fb9a028d043c2a5" target="_blank" rel="noopener">https://juejin.im/post/5acc36e66fb9a028d043c2a5</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;在&lt;a href=&quot;https://juejin.im/post/5acc36e66fb9a028d043c2a5&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原文链接&lt;/a&gt;中摘抄出部分信息作为记录形成本文。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="pandas" scheme="http://yoursite.com/categories/pandas/"/>
+    
+    
+      <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
   
   <entry>
     <title>python爬取中文网页时中文字符变英文的解决方法</title>
@@ -36,9 +64,9 @@
       <category term="爬虫" scheme="http://yoursite.com/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="scrapy" scheme="http://yoursite.com/tags/scrapy/"/>
     
@@ -64,9 +92,9 @@
       <category term="爬虫" scheme="http://yoursite.com/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="splash" scheme="http://yoursite.com/tags/splash/"/>
     
