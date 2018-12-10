@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-01T05:18:49.278Z</updated>
+  <updated>2018-12-10T03:19:22.276Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A Discourse-Level Named Entity Recognition and Relation Extraction Dataset for Chinese Literature Text 阅读笔记</title>
+    <link href="http://yoursite.com/post/READ_A_Discourse-Level_Named_Entity_Recognition_and_Relation_Extraction_Dataset_for_Chinese_Literature_Text/"/>
+    <id>http://yoursite.com/post/READ_A_Discourse-Level_Named_Entity_Recognition_and_Relation_Extraction_Dataset_for_Chinese_Literature_Text/</id>
+    <published>2018-12-10T03:07:23.000Z</published>
+    <updated>2018-12-10T03:19:22.276Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>该论文最主要的贡献就是这个数据，<a href="https://github.com/lancopku/Chinese-Literature-NER-RE-Dataset" target="_blank" rel="noopener">数据集地址</a>。论文中提到的标标签过程也是一个创新点，运用了启发式和机器辅助标标签，这样可以提高准确度并减少标注人员工作。</p></blockquote><a id="more"></a><h2 id="contribution"><a href="#contribution" class="headerlink" title="contribution"></a>contribution</h2><ul><li>provide a new dataset for joint learning of NER and RE for <strong>Chinese literature text</strong></li><li>the proposed dataset is based on the <strong>discourse level</strong> which provides additional context information</li><li>introduce some widely used models to conduct experiments </li></ul><h2 id="tagging-process"><a href="#tagging-process" class="headerlink" title="tagging process"></a>tagging process</h2><p><strong>two methods:</strong>one is a <strong>heuristic tagging</strong> method and another is a <strong>machine auxiliary tagging</strong> method. </p><h3 id="Step-1-First-Tagging-Process"><a href="#Step-1-First-Tagging-Process" class="headerlink" title="Step 1: First Tagging Process"></a>Step 1: First Tagging Process</h3><p>find a problem of data inconsistency.</p><h3 id="Step-2-Heuristic-Tagging-Based-on-Generic-disambiguating-Rules"><a href="#Step-2-Heuristic-Tagging-Based-on-Generic-disambiguating-Rules" class="headerlink" title="Step 2: Heuristic Tagging Based on Generic disambiguating Rules"></a>Step 2: Heuristic Tagging Based on Generic disambiguating Rules</h3><ul><li>For example, remove all adjective words and only tag “entity header” .</li><li><strong>re-annotate</strong> all articles and <strong>correct</strong> all inconsistency entities and relations based on the heuristic rules.</li></ul><h3 id="Step-3-Machine-Auxiliary-Tagging"><a href="#Step-3-Machine-Auxiliary-Tagging" class="headerlink" title="Step 3: Machine Auxiliary Tagging"></a>Step 3: Machine Auxiliary Tagging</h3><ul><li>The core idea is to train a model to <strong>learn annotation guidelines</strong> on the subset of the corpus and produce predicted tags on the rest data. </li><li>CRF</li></ul><h2 id="tagging-set"><a href="#tagging-set" class="headerlink" title="tagging set"></a><img src="https://i.loli.net/2018/12/10/5c0dd578c91a0.jpg" alt="">tagging set</h2><p><img src="https://i.loli.net/2018/12/10/5c0dd6230f1c3.jpg" alt=""></p><h2 id="Annotation-Format"><a href="#Annotation-Format" class="headerlink" title="Annotation Format"></a>Annotation Format</h2><h3 id="Entity"><a href="#Entity" class="headerlink" title="Entity"></a>Entity</h3><p>Each entity is identified by T tag, which takes several attributes.</p><ul><li>Id: a unique number identifying the entity within the document. It starts at 0, and is incremented every time a new entity is identified within the same document.</li><li>Type: one of the entity tags.</li><li>Begin Index: the begin index of an entity. It starts at 0, and is incremented every character.</li><li>End Index: the end index of an entity. It starts at 0, and is incremented every character.</li><li>Value: words being referred to an identifiable object.</li></ul><h3 id="Relation"><a href="#Relation" class="headerlink" title="Relation"></a>Relation</h3><p>Each relation is identified by R tag, which can take several attributes:</p><ul><li>Id: a unique number identifying the relation within the document. It starts at 0, and is incremented every time a new relation is identified within the same document.</li><li>Arg1 and Arg2: two entities associated with a relation.</li><li>Type: one of the relation tags.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;该论文最主要的贡献就是这个数据，&lt;a href=&quot;https://github.com/lancopku/Chinese-Literature-NER-RE-Dataset&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;数据集地址&lt;/a&gt;。论文中提到的标标签过程也是一个创新点，运用了启发式和机器辅助标标签，这样可以提高准确度并减少标注人员工作。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="NER" scheme="http://yoursite.com/tags/NER/"/>
+    
+      <category term="RE" scheme="http://yoursite.com/tags/RE/"/>
+    
+  </entry>
   
   <entry>
     <title>pandas的数据类型操作</title>
@@ -36,9 +62,9 @@
       <category term="pandas" scheme="http://yoursite.com/categories/pandas/"/>
     
     
-      <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
     
       <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
@@ -177,9 +203,9 @@
       <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="LSTM" scheme="http://yoursite.com/tags/LSTM/"/>
-    
       <category term="NER" scheme="http://yoursite.com/tags/NER/"/>
+    
+      <category term="LSTM" scheme="http://yoursite.com/tags/LSTM/"/>
     
       <category term="BI-LSTM" scheme="http://yoursite.com/tags/BI-LSTM/"/>
     
