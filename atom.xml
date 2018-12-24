@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-10T03:19:22.276Z</updated>
+  <updated>2018-12-24T07:18:49.884Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《Differentiating Concepts and Instances for Knowledge Graph Embedding》阅读笔记</title>
+    <link href="http://yoursite.com/post/read_Differentiating_Concepts_and_Instances_for_Knowledge_Graph_Embedding/"/>
+    <id>http://yoursite.com/post/read_Differentiating_Concepts_and_Instances_for_Knowledge_Graph_Embedding/</id>
+    <published>2018-12-24T07:15:30.000Z</published>
+    <updated>2018-12-24T07:18:49.884Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>这篇文章最大的亮点就是把concept映射为一个球面，然后把instance映射为一个向量，通过这种空间关系来进行embedding。如果instance和concept满足InstanceOf的关系，则instance应该在球内；如果两个concept满足SubClassOf的关系，则一个球会在另一个球面内。</p></blockquote><h3 id="concept"><a href="#concept" class="headerlink" title="concept"></a>concept</h3><p>A concept is a fundamental category of existence (Rosch, 1973) and can be reified by all of its actual or potential instances.Concepts, which <strong>represent a group of different instances sharing common properties</strong>, are essential information in knowledge representation. </p><p><img src="https://i.loli.net/2018/12/16/5c1634f6c26c3.jpg" alt=""></p><h2 id="drawback-of-the-previous-method"><a href="#drawback-of-the-previous-method" class="headerlink" title="drawback of the previous method"></a>drawback of the previous method</h2><p> ignore to distinguish between concepts and instances will lead to two drawbacks:</p><ul><li><p><strong>Insufficient concept representation</strong>：</p><p>cannot explicitly represent the difference between concepts and instances</p></li><li><p><strong>Lack transitivity of both isA relations</strong>:</p><p><em>instanceOf</em> and <em>subClassOf</em> (generally known as isA)isA relations exhibit transitivity</p></li></ul><h2 id="contributions"><a href="#contributions" class="headerlink" title="contributions"></a>contributions</h2><ul><li><strong>the first to propose</strong> and formalize the problem of knowledge graph embedding which <strong>differentiates</strong> between concepts and instances</li><li>a novel knowledge embedding method named <strong>TransC</strong></li><li><strong>state-of-the-art</strong> on link prediction and triple classification</li></ul><h2 id="Translation-based-Models"><a href="#Translation-based-Models" class="headerlink" title="Translation-based Models"></a>Translation-based Models</h2><h3 id="TransE"><a href="#TransE" class="headerlink" title="TransE"></a>TransE</h3><ul><li>triple (h, r, t) should satisfy <strong>h + r ≈ t</strong></li><li>loss function:$f_r(h,t) = ||h + r - t||^2_2$</li><li>suitable for 1-to-1 relations</li></ul><h3 id="TransH"><a href="#TransH" class="headerlink" title="TransH"></a>TransH</h3><ul><li>It regards a relation vector r as a translation on a hyperplane with $w_r$ as the normal vector. </li><li>loss function:$f_r(h,t) = ||h_{\bot} + r - t_{\bot}||^2_2$，其中$h_{\bot}=h-w^{\top}_r h w_r$，$t_{\bot}=t-w^{\top}_r t w_r$</li><li>suitable for 1-to-N, N-to-1, and N-to-N relations</li></ul><h3 id="TransR-CTransR"><a href="#TransR-CTransR" class="headerlink" title="TransR/CTransR"></a>TransR/CTransR</h3><ul><li>addresses the issue in TransE and TransH that some entities are <strong>similar in the entity space</strong> but comparably <strong>different in other specific aspects</strong>.</li><li>loss function:$f_r(h,t) = ||M_rh +r -M_rt||^2_2$，$M_r$ for each relation r</li></ul><h3 id="TransD"><a href="#TransD" class="headerlink" title="TransD"></a>TransD</h3><ul><li>considers the different types of entities and relations at the same time</li><li>loss function:$f_r(h,t) = ||h_{\bot} + r - t_{\bot}||^2_2$，$h_{\bot} = M_{rh}h$和$t_{\bot} = M_{rt}t$，$M_{r,e}$ for each relation-entity pair (r, e)</li></ul><h2 id="Bilinear-Models"><a href="#Bilinear-Models" class="headerlink" title="Bilinear Models"></a>Bilinear Models</h2><h3 id="RESCAL"><a href="#RESCAL" class="headerlink" title="RESCAL"></a>RESCAL</h3><ul><li>the <strong>first</strong> bilinear model</li><li>It associates each entity with a vector to capture its <strong>latent semantics</strong>. Each relation is represented as a <strong>matrix</strong> which models pairwise interactions between latent factors.</li></ul><h2 id="External-Information-Learning-Models"><a href="#External-Information-Learning-Models" class="headerlink" title="External Information Learning Models"></a>External Information Learning Models</h2><ul><li>textual information</li><li>entity descriptions</li></ul><h2 id="TranC"><a href="#TranC" class="headerlink" title="TranC"></a>TranC</h2><p>Specifically, TransC encodes each concept in knowledge graph as a sphere and each instance as a vector in the same semantic space. </p><h3 id="InstanceOf-Triple-Representation"><a href="#InstanceOf-Triple-Representation" class="headerlink" title="InstanceOf Triple Representation"></a>InstanceOf Triple Representation</h3><h3 id="SubClassOf-Triple-Representation"><a href="#SubClassOf-Triple-Representation" class="headerlink" title="SubClassOf Triple Representation"></a>SubClassOf Triple Representation</h3><p><img src="/Users/dy/Library/Application%20Support/typora-user-images/image-20181216173058465.png" alt="image-20181216173058465"></p><h3 id="SubClassOf-Triple-Representation-1"><a href="#SubClassOf-Triple-Representation-1" class="headerlink" title="SubClassOf Triple Representation"></a>SubClassOf Triple Representation</h3><h2 id="train-model"><a href="#train-model" class="headerlink" title="train model"></a>train model</h2><h3 id="margin-based-loss详解"><a href="#margin-based-loss详解" class="headerlink" title="margin based loss详解"></a><a href="https://zhuanlan.zhihu.com/p/27748177" target="_blank" rel="noopener">margin based loss</a>详解</h3><h3 id="unit-and-bern"><a href="#unit-and-bern" class="headerlink" title="unit and bern"></a><a href="https://pdfs.semanticscholar.org/2a3f/862199883ceff5e3c74126f0c80770653e05.pdf" target="_blank" rel="noopener">unit and bern</a></h3><h2 id="the-following-research-directions"><a href="#the-following-research-directions" class="headerlink" title="the following research directions"></a>the following research directions</h2><ul><li><p>find a more expressive model instead of spheres to represent concepts</p></li><li><p>A concept may have different meanings in different triples. </p><p>use several typical vectors of instances as a concept’s centers to represent different meanings of a concept. </p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;这篇文章最大的亮点就是把concept映射为一个球面，然后把instance映射为一个向量，通过这种空间关系来进行embedding。如果instance和concept满足InstanceOf的关系，则instance应该在球内；如果两个conc
+      
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
+  </entry>
   
   <entry>
     <title>A Discourse-Level Named Entity Recognition and Relation Extraction Dataset for Chinese Literature Text 阅读笔记</title>
@@ -62,9 +88,9 @@
       <category term="pandas" scheme="http://yoursite.com/categories/pandas/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
