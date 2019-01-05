@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[《Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation》阅读笔记]]></title>
+    <url>%2Fpost%2FLearning_Phrase_Representations_using_RNN_Encoder%E2%80%93Decoder_for_Statistical_Machine_Translation%2F</url>
+    <content type="text"><![CDATA[原文链接。该论文是Sequence to Sequence学习的最早原型，论文中提出一种崭新的RNN Encoder-Decoder算法，虽然文章属于比较旧的文章，但作为seq2seq的基础原型，还是需要阅读了解一下的。文章写的比较详细，各部分细节都有讲解。 文章的主要结构 contribution a novel RNN Encoder–Decoder 能够处理变长序列 a novel hidden unit reset gate update gate RNN Encoder–Decoder模型结构图如下： 文中作者对齐进行总体概述为： From a probabilistic perspective, this new model is a general method to learn the conditional distribution over a variable-length sequence conditioned on yet another variable-length sequence 从概率的角度来看，这个新模型是学习在另一个可变长度序列条件下的可变长度序列上的条件分布的一般方法 Encoder这部分是一个RNN单元。每个时间步，我们向Encoder中输入一个字/词（一般为向量形式），直到我们输入这个句子的最后一个字/词$X_T$，然后输入整个句子的语义向量c。由于RNN的特带你就是把前面每一步的输入信息都考虑进来，所以理论上这个c就包含了整个句子的所有信息。我们可以把当成这个句子的一个语义表示。 DecoderDecoder是另一个RNN，其被训练出来以通过预测隐藏状态$h_t$的下一个符号$y_t$来生成输出序列。计算公式如下 $$h_t = f(h_{t-1},y_{t-1},c)$$ 下一个序列的计算公式如下： $$P(y_t|y_{t-1},y_{t-2},\dots,y_1,c)=g(h_t,y_{t-1},c)$$ Hidden Unit该部分是对各部分具体的公式讲解，实际是GRU的具体公式算法，不再此详细叙述了。 reset gate In this formulation, when the reset gate is close to 0, the hidden state is forced to ignore the pre- vious hidden state and reset with the current input only. This effectively allows the hidden state to drop any information that is found to be irrelevant later in the future, thus, allowing a more compact representation. 这段原文主要讲解了复位门的作用：有效地允许隐藏状态丢弃在将来稍后发现不相关的任何信息，从而允许更紧凑的表示。 当捕获短期依赖时，复位门活跃 update gate the update gate controls how much information from the previous hidden state will carry over to the current hidden state. 更新门控制来自先前隐藏状态的多少信息将转移到当前隐藏状态。 当捕获长期依赖时，更新门活跃 Statistical Machine Translation(SMT) Experiments这部分作者主要做了量化分析和性质分析，主要就是说他的模型怎么厉害。。。（没有具体的数值指标，翻译的还不是中英翻译，想看的话可以去看一下，就不贴实验结果了）。 future这里作者提出了可以用decoder生成的目标短语来替换原句中短语的思路，如果没记错的话，这个想法好像对后面的机器翻译有很大的指导作用。]]></content>
+      <categories>
+        <category>论文阅读笔记</category>
+      </categories>
+      <tags>
+        <tag>RNN</tag>
+        <tag>seq2seq</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[《Differentiating Concepts and Instances for Knowledge Graph Embedding》阅读笔记]]></title>
     <url>%2Fpost%2Fread_Differentiating_Concepts_and_Instances_for_Knowledge_Graph_Embedding%2F</url>
     <content type="text"><![CDATA[这篇文章最大的亮点就是把concept映射为一个球面，然后把instance映射为一个向量，通过这种空间关系来进行embedding。如果instance和concept满足InstanceOf的关系，则instance应该在球内；如果两个concept满足SubClassOf的关系，则一个球会在另一个球面内。 conceptA concept is a fundamental category of existence (Rosch, 1973) and can be reified by all of its actual or potential instances.Concepts, which represent a group of different instances sharing common properties, are essential information in knowledge representation. drawback of the previous method ignore to distinguish between concepts and instances will lead to two drawbacks: Insufficient concept representation： cannot explicitly represent the difference between concepts and instances Lack transitivity of both isA relations: instanceOf and subClassOf (generally known as isA)isA relations exhibit transitivity contributions the first to propose and formalize the problem of knowledge graph embedding which differentiates between concepts and instances a novel knowledge embedding method named TransC state-of-the-art on link prediction and triple classification Translation-based ModelsTransE triple (h, r, t) should satisfy h + r ≈ t loss function:$f_r(h,t) = ||h + r - t||^2_2$ suitable for 1-to-1 relations TransH It regards a relation vector r as a translation on a hyperplane with $w_r$ as the normal vector. loss function:$f_r(h,t) = ||h_{\bot} + r - t_{\bot}||^2_2$，其中$h_{\bot}=h-w^{\top}_r h w_r$，$t_{\bot}=t-w^{\top}_r t w_r$ suitable for 1-to-N, N-to-1, and N-to-N relations TransR/CTransR addresses the issue in TransE and TransH that some entities are similar in the entity space but comparably different in other specific aspects. loss function:$f_r(h,t) = ||M_rh +r -M_rt||^2_2$，$M_r$ for each relation r TransD considers the different types of entities and relations at the same time loss function:$f_r(h,t) = ||h_{\bot} + r - t_{\bot}||^2_2$，$h_{\bot} = M_{rh}h$和$t_{\bot} = M_{rt}t$，$M_{r,e}$ for each relation-entity pair (r, e) Bilinear ModelsRESCAL the first bilinear model It associates each entity with a vector to capture its latent semantics. Each relation is represented as a matrix which models pairwise interactions between latent factors. External Information Learning Models textual information entity descriptions TranCSpecifically, TransC encodes each concept in knowledge graph as a sphere and each instance as a vector in the same semantic space. InstanceOf Triple RepresentationSubClassOf Triple Representation SubClassOf Triple Representationtrain modelmargin based loss详解unit and bernthe following research directions find a more expressive model instead of spheres to represent concepts A concept may have different meanings in different triples. use several typical vectors of instances as a concept’s centers to represent different meanings of a concept.]]></content>
@@ -31,8 +43,8 @@
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>python</tag>
+        <tag>pandas</tag>
         <tag>数据分析</tag>
       </tags>
   </entry>
