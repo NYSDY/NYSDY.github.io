@@ -96,21 +96,21 @@
 
 
 
-<meta name="description" content="原文链接。该论文是Sequence to Sequence学习的最早原型，论文中提出一种崭新的RNN Encoder-Decoder算法，虽然文章属于比较旧的文章，但作为seq2seq的基础原型，还是需要阅读了解一下的。文章写的比较详细，各部分细节都有讲解。  文章的主要结构 contribution a novel RNN Encoder–Decoder 能够处理变长序列  a novel h">
+<meta name="description" content="原文链接。该论文是Sequence to Sequence学习的最早原型，论文中提出一种崭新的RNN(GRU) Encoder-Decoder算法，虽然文章属于比较旧的文章，但作为seq2seq的基础原型，还是需要阅读了解一下的。文章写的比较详细，各部分细节都有讲解。">
 <meta name="keywords" content="RNN,seq2seq">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation》阅读笔记">
 <meta property="og:url" content="http://yoursite.com/post/Learning_Phrase_Representations_using_RNN_Encoder–Decoder_for_Statistical_Machine_Translation/index.html">
 <meta property="og:site_name" content="NYSDY">
-<meta property="og:description" content="原文链接。该论文是Sequence to Sequence学习的最早原型，论文中提出一种崭新的RNN Encoder-Decoder算法，虽然文章属于比较旧的文章，但作为seq2seq的基础原型，还是需要阅读了解一下的。文章写的比较详细，各部分细节都有讲解。  文章的主要结构 contribution a novel RNN Encoder–Decoder 能够处理变长序列  a novel h">
+<meta property="og:description" content="原文链接。该论文是Sequence to Sequence学习的最早原型，论文中提出一种崭新的RNN(GRU) Encoder-Decoder算法，虽然文章属于比较旧的文章，但作为seq2seq的基础原型，还是需要阅读了解一下的。文章写的比较详细，各部分细节都有讲解。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/01/05/5c3019fd55653.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/01/05/5c301b9717fd8.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/01/05/5c30217d42b8e.jpg">
-<meta property="og:updated_time" content="2019-01-05T03:21:52.999Z">
+<meta property="og:updated_time" content="2019-01-06T06:45:24.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation》阅读笔记">
-<meta name="twitter:description" content="原文链接。该论文是Sequence to Sequence学习的最早原型，论文中提出一种崭新的RNN Encoder-Decoder算法，虽然文章属于比较旧的文章，但作为seq2seq的基础原型，还是需要阅读了解一下的。文章写的比较详细，各部分细节都有讲解。  文章的主要结构 contribution a novel RNN Encoder–Decoder 能够处理变长序列  a novel h">
+<meta name="twitter:description" content="原文链接。该论文是Sequence to Sequence学习的最早原型，论文中提出一种崭新的RNN(GRU) Encoder-Decoder算法，虽然文章属于比较旧的文章，但作为seq2seq的基础原型，还是需要阅读了解一下的。文章写的比较详细，各部分细节都有讲解。">
 <meta name="twitter:image" content="https://i.loli.net/2019/01/05/5c3019fd55653.jpg">
 
 
@@ -511,8 +511,9 @@ $(function() {
 
       
         <blockquote>
-<p><a href="https://www.aclweb.org/anthology/D14-1179" target="_blank" rel="noopener">原文链接</a>。该论文是Sequence to Sequence学习的最早原型，论文中提出一种崭新的RNN Encoder-Decoder算法，虽然文章属于比较旧的文章，但作为seq2seq的基础原型，还是需要阅读了解一下的。文章写的比较详细，各部分细节都有讲解。</p>
+<p><a href="https://www.aclweb.org/anthology/D14-1179" target="_blank" rel="noopener">原文链接</a>。该论文是Sequence to Sequence学习的最早原型，论文中提出一种崭新的RNN(GRU) Encoder-Decoder算法，虽然文章属于比较旧的文章，但作为seq2seq的基础原型，还是需要阅读了解一下的。文章写的比较详细，各部分细节都有讲解。</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="文章的主要结构"><a href="#文章的主要结构" class="headerlink" title="文章的主要结构"></a>文章的主要结构</h2><p><img src="https://i.loli.net/2019/01/05/5c3019fd55653.jpg" alt=""></p>
 <h2 id="contribution"><a href="#contribution" class="headerlink" title="contribution"></a>contribution</h2><ul>
 <li><p>a novel RNN Encoder–Decoder</p>
@@ -603,6 +604,10 @@ $(function() {
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/post/Understanding LSTM Networks/" rel="prev" title="Understanding LSTM Networks">
+                Understanding LSTM Networks <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -678,7 +683,7 @@ $(function() {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -689,7 +694,7 @@ $(function() {
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -834,7 +839,7 @@ $(function() {
 <div class="theme-info">
   <div class="powered-by">
   <i class="fas fa-pencil-alt"></i>
-  <span class="post-count">博客全站共7.4k字</span>
+  <span class="post-count">博客全站共9.7k字</span>
   </div>
 </div>
 
