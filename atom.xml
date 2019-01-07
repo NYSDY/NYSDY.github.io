@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-06T06:47:07.555Z</updated>
+  <updated>2019-01-07T01:37:11.397Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《RECURRENT NEURAL NETWORK REGULARIZATION》阅读笔记</title>
+    <link href="http://yoursite.com/post/RECURRENT%20NEURAL%20NETWORK%20REGULARIZATION/"/>
+    <id>http://yoursite.com/post/RECURRENT NEURAL NETWORK REGULARIZATION/</id>
+    <published>2019-01-07T00:56:13.000Z</published>
+    <updated>2019-01-07T01:37:11.397Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="http://arxiv.org/abs/1409.2329" target="_blank" rel="noopener">论文链接</a>。这篇论文提出了LSTM的dropout策略来防止过拟合，即只在非循环链接处采取dropout。在BasicLSTMCell的接口就是依据这篇论文实现的。</p></blockquote><h2 id="文章整体架构和重点"><a href="#文章整体架构和重点" class="headerlink" title="文章整体架构和重点"></a>文章整体架构和重点</h2><p><img src="https://i.loli.net/2019/01/07/5c32ad34c99e0.jpg" alt=""></p><h2 id="contribution"><a href="#contribution" class="headerlink" title="contribution"></a>contribution</h2><ul><li>present a simple regularization technique</li></ul><h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><ul><li><p>dropout Srivastava(2013)，对于前向反馈网络最有力的正则化方法并不能很好的应用在RNNs上。这导致RNNs规模都很小，因为太大会过拟合。</p></li><li><p>Bayer et al. (2013)指出了卷积dropout不能在RNNs上很好工作的原因是循环会放大噪音。</p></li></ul><h2 id="model"><a href="#model" class="headerlink" title="model"></a>model</h2><h3 id="仿射变换（affine-transform）"><a href="#仿射变换（affine-transform）" class="headerlink" title="仿射变换（affine transform）"></a>仿射变换（affine transform）</h3><p>关于仿射变换：线性变换加上平移，盗个知乎上的图（<a href="https://www.zhihu.com/question/20666664" target="_blank" rel="noopener">原文链接</a>）</p><p><img src="https://i.loli.net/2019/01/07/5c32a7c05c698.jpg" alt=""></p><h3 id="模型主体"><a href="#模型主体" class="headerlink" title="模型主体"></a>模型主体</h3><p>采用的是Graves et al. (2013)<img src="https://i.loli.net/2019/01/07/5c32aaae11c93.jpg" alt=""></p><h3 id="dropout策略"><a href="#dropout策略" class="headerlink" title="dropout策略"></a>dropout策略</h3><blockquote><p>The main contribution of this paper is a recipe for applying dropout to LSTMs in a way that success- fully reduces overfitting. The main idea is to apply the dropout operator only to the non-recurrent connections.</p></blockquote><p><img src="https://i.loli.net/2019/01/07/5c32aaf4084fc.jpg" alt=""></p><p>观察公式，实际上就是通过在层间传递中应用dropout。如下图中虚线所示。</p><p><img src="https://i.loli.net/2019/01/07/5c32a99676abf.jpg" alt=""></p><p>从上图中也可以看到，该dropout的次数只和网络深度有关（数值为网络深度+1）。</p><h3 id="experiments"><a href="#experiments" class="headerlink" title="experiments"></a>experiments</h3><p>实验部分作者做了4部分实验来证明自己采用的方法有效，分别为language modeling, speech recognition, machine translation, image caption generation。这部分没什么需要解释了，感兴趣可以自己看一下实验。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://arxiv.org/abs/1409.2329&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文链接&lt;/a&gt;。这篇论文提出了LSTM的dropout策略来防止过拟合，即只在非循环链接处采取drop
+      
+    
+    </summary>
+    
+      <category term="神经网络" scheme="http://yoursite.com/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="RNN" scheme="http://yoursite.com/tags/RNN/"/>
+    
+      <category term="LSTM" scheme="http://yoursite.com/tags/LSTM/"/>
+    
+  </entry>
   
   <entry>
     <title>Understanding LSTM Networks</title>
