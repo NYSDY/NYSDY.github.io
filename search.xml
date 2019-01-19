@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[《An Automatic Knowledge Graph Construction System for K-12 Education》阅读笔记]]></title>
+    <url>%2Fpost%2FAn%20Automatic%20Knowledge%20Graph%20Construction%20System%20for%20K-12%20Education%2F</url>
+    <content type="text"><![CDATA[论文原址。本篇文章主要提出了一个自动化构建数学领域知识图谱的系统，主要应用的事NER和数据挖掘技术，其中NER主要是抽取数学概念，概念间的关系是作者自己构建的（例如先修关系）。对于数据集，作者主要从the Chinese curriculum standards of mathematics上提取的概念实体，从自己的SLP平台上，通过对学生表现来提取关系（把这部分作为数据挖掘）。本篇文章实际上可以作为构建特定领域的知识图谱的一个参考。 challenges the desired educational concept entities are more abstract than real world entities like PERSON, ORGANIZATION, LOCATION the desired relations are more cognitive and implicit, so cannot be derived from the literal meanings of text like generic knowledge graphs contributions a novel but practical system entity recognition (NER) &amp; association rule mining algorithms demonstrate an exemplary case with constructing a knowledge graph for the subject of mathematics SYSTEM OVERVIEW Educational Concept Extraction Module: Implicit Relation Identification Module CONCEPT EXTRACTION 线性链式CRF模型 标签预测 RELATION IDENTIFICATION两种方法 support confidence From the perspective of prerequisite relation, if concept si is a prerequisite of concept sj, learners who do not master sivery likely do not master sj, and learners who master sjmost likely master si. EXEMPLARY CASE AND SYSTEM EVALUATIONConcept ExtractionDatasetthe Chinese curriculum standards of mathematics published by the ministry of education as the main data source Evaluation adopt precision, recall and F1- score The ground truth is manually labeled by two domain experts. Relation IdentificationDataset students’ performance data collected by our SLP platform. EvaluationThe ground truth of the prerequisite relations between selected 9 concepts are annotated manually by two domain experts.]]></content>
+      <categories>
+        <category>论文阅读笔记</category>
+      </categories>
+      <tags>
+        <tag>NER</tag>
+        <tag>知识图谱</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[《RECURRENT NEURAL NETWORK REGULARIZATION》阅读笔记]]></title>
     <url>%2Fpost%2FRECURRENT%20NEURAL%20NETWORK%20REGULARIZATION%2F</url>
     <content type="text"><![CDATA[论文链接。这篇论文提出了LSTM的dropout策略来防止过拟合，即只在非循环链接处采取dropout。在BasicLSTMCell的接口就是依据这篇论文实现的。 文章整体架构和重点 contribution present a simple regularization technique background dropout Srivastava(2013)，对于前向反馈网络最有力的正则化方法并不能很好的应用在RNNs上。这导致RNNs规模都很小，因为太大会过拟合。 Bayer et al. (2013)指出了卷积dropout不能在RNNs上很好工作的原因是循环会放大噪音。 model仿射变换（affine transform）关于仿射变换：线性变换加上平移，盗个知乎上的图（原文链接） 模型主体采用的是Graves et al. (2013) dropout策略 The main contribution of this paper is a recipe for applying dropout to LSTMs in a way that success- fully reduces overfitting. The main idea is to apply the dropout operator only to the non-recurrent connections. 观察公式，实际上就是通过在层间传递中应用dropout。如下图中虚线所示。 从上图中也可以看到，该dropout的次数只和网络深度有关（数值为网络深度+1）。 experiments实验部分作者做了4部分实验来证明自己采用的方法有效，分别为language modeling, speech recognition, machine translation, image caption generation。这部分没什么需要解释了，感兴趣可以自己看一下实验。]]></content>
@@ -67,8 +79,8 @@
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>python</tag>
+        <tag>pandas</tag>
         <tag>数据分析</tag>
       </tags>
   </entry>

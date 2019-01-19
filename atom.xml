@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-07T01:37:11.397Z</updated>
+  <updated>2019-01-19T02:34:06.787Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《An Automatic Knowledge Graph Construction System for K-12 Education》阅读笔记</title>
+    <link href="http://yoursite.com/post/An%20Automatic%20Knowledge%20Graph%20Construction%20System%20for%20K-12%20Education/"/>
+    <id>http://yoursite.com/post/An Automatic Knowledge Graph Construction System for K-12 Education/</id>
+    <published>2019-01-19T02:32:57.000Z</published>
+    <updated>2019-01-19T02:34:06.787Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="http://delivery.acm.org/10.1145/3240000/3231698/a40-chen.pdf?ip=59.64.129.211&amp;id=3231698&amp;acc=NO%20RULES&amp;key=BF85BBA5741FDC6E%2E66A15327C2E204FC%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;__acm__=1547779677_7b4dce90b008fa6300a47916eeb139d9" target="_blank" rel="noopener">论文原址</a>。本篇文章主要提出了一个自动化构建数学领域知识图谱的系统，主要应用的事NER和数据挖掘技术，其中NER主要是抽取数学概念，概念间的关系是作者自己构建的（例如先修关系）。对于数据集，作者主要从the Chinese curriculum standards of mathematics上提取的概念实体，从自己的SLP平台上，通过对学生表现来提取关系（把这部分作为数据挖掘）。<strong>本篇文章实际上可以作为构建特定领域的知识图谱的一个参考。</strong></p></blockquote><a id="more"></a><h3 id="challenges"><a href="#challenges" class="headerlink" title="challenges"></a>challenges</h3><ul><li>the desired educational concept entities are more abstract than real world entities like PERSON, ORGANIZATION, LOCATION</li><li>the desired relations are more cognitive and implicit, so cannot be derived from the literal meanings of text like generic knowledge graphs</li></ul><h3 id="contributions"><a href="#contributions" class="headerlink" title="contributions"></a>contributions</h3><ul><li>a novel but practical system</li><li>entity recognition (NER) &amp; association rule mining algorithms</li><li>demonstrate an exemplary case with constructing a knowledge graph for the subject of mathematics</li></ul><h2 id="SYSTEM-OVERVIEW"><a href="#SYSTEM-OVERVIEW" class="headerlink" title="SYSTEM OVERVIEW"></a>SYSTEM OVERVIEW</h2><p><img src="https://i.loli.net/2019/01/19/5c428c37364b4.jpg" alt=""></p><ul><li>Educational Concept Extraction Module:</li><li>Implicit Relation Identification Module</li></ul><h2 id="CONCEPT-EXTRACTION"><a href="#CONCEPT-EXTRACTION" class="headerlink" title="CONCEPT EXTRACTION"></a>CONCEPT EXTRACTION</h2><ul><li><p>线性链式CRF模型</p><p><img src="https://i.loli.net/2019/01/18/5c4141ca00be1.jpg" alt=""></p></li><li><p>标签预测</p><p><img src="https://i.loli.net/2019/01/18/5c4141ed6ac27.jpg" alt=""></p></li></ul><h2 id="RELATION-IDENTIFICATION"><a href="#RELATION-IDENTIFICATION" class="headerlink" title="RELATION IDENTIFICATION"></a>RELATION IDENTIFICATION</h2><h3 id="两种方法"><a href="#两种方法" class="headerlink" title="两种方法"></a>两种方法</h3><ul><li>support</li><li>confidence</li></ul><blockquote><p>From the perspective of prerequisite relation, if concept si is a prerequisite of concept sj, learners who do not master sivery likely do not master sj, and learners who master sjmost likely master si. </p><p><img src="https://i.loli.net/2019/01/18/5c41425aafc99.jpg" alt=""></p></blockquote><h2 id="EXEMPLARY-CASE-AND-SYSTEM-EVALUATION"><a href="#EXEMPLARY-CASE-AND-SYSTEM-EVALUATION" class="headerlink" title="EXEMPLARY CASE AND SYSTEM EVALUATION"></a>EXEMPLARY CASE AND SYSTEM EVALUATION</h2><h3 id="Concept-Extraction"><a href="#Concept-Extraction" class="headerlink" title="Concept Extraction"></a>Concept Extraction</h3><h4 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h4><p>the Chinese curriculum standards of mathematics published by the ministry of education as the main data source</p><h4 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h4><ul><li>adopt precision, recall and F1- score </li><li>The ground truth is manually labeled by two domain experts.</li></ul><h3 id="Relation-Identification"><a href="#Relation-Identification" class="headerlink" title="Relation Identification"></a>Relation Identification</h3><h4 id="Dataset-1"><a href="#Dataset-1" class="headerlink" title="Dataset"></a>Dataset</h4><p> students’ performance data collected by our SLP platform.</p><h4 id="Evaluation-1"><a href="#Evaluation-1" class="headerlink" title="Evaluation"></a>Evaluation</h4><p>The ground truth of the prerequisite relations between selected 9 concepts are annotated manually by two domain experts.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://delivery.acm.org/10.1145/3240000/3231698/a40-chen.pdf?ip=59.64.129.211&amp;amp;id=3231698&amp;amp;acc=NO%20RULES&amp;amp;key=BF85BBA5741FDC6E%2E66A15327C2E204FC%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;amp;__acm__=1547779677_7b4dce90b008fa6300a47916eeb139d9&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文原址&lt;/a&gt;。本篇文章主要提出了一个自动化构建数学领域知识图谱的系统，主要应用的事NER和数据挖掘技术，其中NER主要是抽取数学概念，概念间的关系是作者自己构建的（例如先修关系）。对于数据集，作者主要从the Chinese curriculum standards of mathematics上提取的概念实体，从自己的SLP平台上，通过对学生表现来提取关系（把这部分作为数据挖掘）。&lt;strong&gt;本篇文章实际上可以作为构建特定领域的知识图谱的一个参考。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="NER" scheme="http://yoursite.com/tags/NER/"/>
+    
+      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
+  </entry>
   
   <entry>
     <title>《RECURRENT NEURAL NETWORK REGULARIZATION》阅读笔记</title>
@@ -168,9 +194,9 @@
       <category term="pandas" scheme="http://yoursite.com/categories/pandas/"/>
     
     
-      <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
     
       <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
