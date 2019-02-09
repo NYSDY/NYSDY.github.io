@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2019年计划]]></title>
+    <url>%2Fpost%2F2019-plans%2F</url>
+    <content type="text"><![CDATA[读个博吉他可以弹唱几首流行歌曲假期报个班，请老师指点一下 精读50篇论文平均下来，每周都需要读一篇，每一篇都要勾划，发博客。 发2篇paper上半年积累知识，做实验，暑假开始写 考托福过90上半年背单词等 买个微单学个拍照不急，现在没钱，下半年入手一个吧 自己出门旅行一次嗯，要是论文写完就去吧！目前计划去山东，顺便看一下我二姑。5天左右的旅行吧！ 学习滑板开始健身每周去三次健身房]]></content>
+      <categories>
+        <category>annual plans</category>
+      </categories>
+      <tags>
+        <tag>plan</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[《An Automatic Knowledge Graph Construction System for K-12 Education》阅读笔记]]></title>
     <url>%2Fpost%2FAn%20Automatic%20Knowledge%20Graph%20Construction%20System%20for%20K-12%20Education%2F</url>
     <content type="text"><![CDATA[论文原址。本篇文章主要提出了一个自动化构建数学领域知识图谱的系统，主要应用的事NER和数据挖掘技术，其中NER主要是抽取数学概念，概念间的关系是作者自己构建的（例如先修关系）。对于数据集，作者主要从the Chinese curriculum standards of mathematics上提取的概念实体，从自己的SLP平台上，通过对学生表现来提取关系（把这部分作为数据挖掘）。本篇文章实际上可以作为构建特定领域的知识图谱的一个参考。 challenges the desired educational concept entities are more abstract than real world entities like PERSON, ORGANIZATION, LOCATION the desired relations are more cognitive and implicit, so cannot be derived from the literal meanings of text like generic knowledge graphs contributions a novel but practical system entity recognition (NER) &amp; association rule mining algorithms demonstrate an exemplary case with constructing a knowledge graph for the subject of mathematics SYSTEM OVERVIEW Educational Concept Extraction Module: Implicit Relation Identification Module CONCEPT EXTRACTION 线性链式CRF模型 标签预测 RELATION IDENTIFICATION两种方法 support confidence From the perspective of prerequisite relation, if concept si is a prerequisite of concept sj, learners who do not master sivery likely do not master sj, and learners who master sjmost likely master si. EXEMPLARY CASE AND SYSTEM EVALUATIONConcept ExtractionDatasetthe Chinese curriculum standards of mathematics published by the ministry of education as the main data source Evaluation adopt precision, recall and F1- score The ground truth is manually labeled by two domain experts. Relation IdentificationDataset students’ performance data collected by our SLP platform. EvaluationThe ground truth of the prerequisite relations between selected 9 concepts are annotated manually by two domain experts.]]></content>
@@ -79,8 +90,8 @@
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>python</tag>
         <tag>数据分析</tag>
       </tags>
   </entry>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-19T02:34:06.787Z</updated>
+  <updated>2019-02-09T02:16:25.285Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2019年计划</title>
+    <link href="http://yoursite.com/post/2019-plans/"/>
+    <id>http://yoursite.com/post/2019-plans/</id>
+    <published>2019-02-09T02:14:09.000Z</published>
+    <updated>2019-02-09T02:16:25.285Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="读个博"><a href="#读个博" class="headerlink" title="读个博"></a>读个博</h3><h3 id="吉他可以弹唱几首流行歌曲"><a href="#吉他可以弹唱几首流行歌曲" class="headerlink" title="吉他可以弹唱几首流行歌曲"></a>吉他可以弹唱几首流行歌曲</h3><p>假期报个班，请老师指点一下</p><h3 id="精读50篇论文"><a href="#精读50篇论文" class="headerlink" title="精读50篇论文"></a>精读50篇论文</h3><p>平均下来，每周都需要读一篇，每一篇都要勾划，发博客。</p><h3 id="发2篇paper"><a href="#发2篇paper" class="headerlink" title="发2篇paper"></a>发2篇paper</h3><p>上半年积累知识，做实验，暑假开始写</p><h3 id="考托福过90"><a href="#考托福过90" class="headerlink" title="考托福过90"></a>考托福过90</h3><p>上半年背单词等</p><h3 id="买个微单学个拍照"><a href="#买个微单学个拍照" class="headerlink" title="买个微单学个拍照"></a>买个微单学个拍照</h3><p>不急，现在没钱，下半年入手一个吧</p><h3 id="自己出门旅行一次"><a href="#自己出门旅行一次" class="headerlink" title="自己出门旅行一次"></a>自己出门旅行一次</h3><p>嗯，要是论文写完就去吧！目前计划去山东，顺便看一下我二姑。5天左右的旅行吧！</p><h3 id="学习滑板"><a href="#学习滑板" class="headerlink" title="学习滑板"></a>学习滑板</h3><h3 id="开始健身"><a href="#开始健身" class="headerlink" title="开始健身"></a>开始健身</h3><p>每周去三次健身房</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;读个博&quot;&gt;&lt;a href=&quot;#读个博&quot; class=&quot;headerlink&quot; title=&quot;读个博&quot;&gt;&lt;/a&gt;读个博&lt;/h3&gt;&lt;h3 id=&quot;吉他可以弹唱几首流行歌曲&quot;&gt;&lt;a href=&quot;#吉他可以弹唱几首流行歌曲&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+      <category term="annual plans" scheme="http://yoursite.com/categories/annual-plans/"/>
+    
+    
+      <category term="plan" scheme="http://yoursite.com/tags/plan/"/>
+    
+  </entry>
   
   <entry>
     <title>《An Automatic Knowledge Graph Construction System for K-12 Education》阅读笔记</title>
@@ -194,9 +219,9 @@
       <category term="pandas" scheme="http://yoursite.com/categories/pandas/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
