@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LSTM,RNN," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -96,33 +96,13 @@
 
 
 
-<meta name="description" content="原文链接。这篇文章很好很细的一步一步的分解讲解了LSTM，之前看过一篇翻译的博客，现在自己翻译一遍，感觉对LSTM的认识加深了许多，虽然还是对LSTM中存有一些问题，比如为什么用tanh，sigmoid，为什不采用其他的？，但是看过之后至少对LSTM没有那么畏惧，不觉得过于复杂了。">
-<meta name="keywords" content="LSTM,RNN">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Understanding LSTM Networks">
-<meta property="og:url" content="http://yoursite.com/post/Understanding LSTM Networks/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NYSDY">
+<meta property="og:url" content="http://yoursite.com/tags/正则表达式/index.html">
 <meta property="og:site_name" content="NYSDY">
-<meta property="og:description" content="原文链接。这篇文章很好很细的一步一步的分解讲解了LSTM，之前看过一篇翻译的博客，现在自己翻译一遍，感觉对LSTM的认识加深了许多，虽然还是对LSTM中存有一些问题，比如为什么用tanh，sigmoid，为什不采用其他的？，但是看过之后至少对LSTM没有那么畏惧，不觉得过于复杂了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c31826c20c5f.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c3189b3b43e8.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c31942fa0852.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c3195013e06a.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c319541ec43b.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c31965a2ea97.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c3196e0eb9e6.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c31997a2ecec.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c319afb31868.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c319c9f37f63.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c319da831938.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c319ec053e96.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c31a06e327f5.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/06/5c31a1285f207.jpg">
-<meta property="og:updated_time" content="2019-01-06T06:47:07.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Understanding LSTM Networks">
-<meta name="twitter:description" content="原文链接。这篇文章很好很细的一步一步的分解讲解了LSTM，之前看过一篇翻译的博客，现在自己翻译一遍，感觉对LSTM的认识加深了许多，虽然还是对LSTM中存有一些问题，比如为什么用tanh，sigmoid，为什不采用其他的？，但是看过之后至少对LSTM没有那么畏惧，不觉得过于复杂了。">
-<meta name="twitter:image" content="https://i.loli.net/2019/01/06/5c31826c20c5f.jpg">
+<meta name="twitter:title" content="NYSDY">
 
 
 
@@ -151,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/post/Understanding LSTM Networks/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/正则表达式/"/>
 
 
 
 
 
-  <title>Understanding LSTM Networks | NYSDY</title>
+  <title>标签: 正则表达式 | NYSDY</title>
   
 
 
@@ -268,7 +248,7 @@ $(function() {
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
     <a href="https://github.com/NYSDY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -406,270 +386,54 @@ $(function() {
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>正则表达式<small>标签</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/Understanding LSTM Networks/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="NYSDY">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://i.loli.net/2018/09/24/5ba86696be366.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NYSDY">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/post/Regular expression/" itemprop="url">
+              
+                <span itemprop="name">正则表达式</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">Understanding LSTM Networks</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-06T14:44:13+08:00">
-                2019-01-06
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-02-18T19:57:01+08:00"
+              content="2019-02-18" >
+          02-18
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/神经网络/" itemprop="url" rel="index">
-                    <span itemprop="name">神经网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/post/Understanding LSTM Networks/" class="leancloud_visitors" data-flag-title="Understanding LSTM Networks">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <blockquote>
-<p><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">原文链接</a>。这篇文章很好很细的一步一步的分解讲解了LSTM，之前看过一篇翻译的博客，现在自己翻译一遍，感觉对LSTM的认识加深了许多，虽然还是对LSTM中存有一些问题，比如为什么用tanh，sigmoid，为什不采用其他的？，但是看过之后至少对LSTM没有那么畏惧，不觉得过于复杂了。</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h1><h2 id="Recurrent-Neural-Networks"><a href="#Recurrent-Neural-Networks" class="headerlink" title="Recurrent Neural Networks"></a>Recurrent Neural Networks</h2><p><img src="https://i.loli.net/2019/01/06/5c31826c20c5f.jpg" alt=""></p>
-<p>循环允许信息从一个网络传入下一个。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c3189b3b43e8.jpg" alt=""></p>
-<p>一个循环网络可以被认为是相同网络的多个复制，每一个网络都将信息传递给后继者。这种类似链的性质表明，递归神经网络与序列和列表密切相关。</p>
-<h2 id="The-Problem-of-Long-Term-Dependencies"><a href="#The-Problem-of-Long-Term-Dependencies" class="headerlink" title="The Problem of Long-Term Dependencies"></a>The Problem of Long-Term Dependencies</h2><p>RNN的一个吸引力是他们可能能够将先前信息连接到当前任务。</p>
-<ul>
-<li><p>有时，我们只需要查看最近的信息来执行当前任务。例如：</p>
-<blockquote>
-<p>If we are trying to predict the last word in “the clouds are in the <em>sky</em>,” we don’t need any further context – it’s pretty obvious the next word is going to be sky.</p>
-</blockquote>
-<p> 在这种情况下，如果相关信息与待预测地方之间的差距很小，RNN可以学习使用过去的信息。</p>
-</li>
-<li><p>但是，对于一些情况，我们需要更多的上下文信息。</p>
-<blockquote>
-<p>Consider trying to predict the last word in the text “I grew up in France… I speak fluent <em>French</em>.”</p>
-</blockquote>
-<p>这时，相关信息与需要变得非常大的点之间的差距完全有可能。不幸的是，随着差距的扩大，RNN无法学会连接信息。</p>
-<blockquote>
-<p>The problem was explored in depth by <a href="http://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf" target="_blank" rel="noopener">Hochreiter (1991) [German]</a> and <a href="http://www-dsi.ing.unifi.it/~paolo/ps/tnn-94-gradient.pdf" target="_blank" rel="noopener">Bengio, et al. (1994)</a>, who found some pretty fundamental reasons why it might be difficult.</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="LSTM-Networks"><a href="#LSTM-Networks" class="headerlink" title="LSTM Networks"></a>LSTM Networks</h2><blockquote>
-<p>LSTMs are explicitly designed to avoid the long-term dependency problem. Remembering information for long periods of time is practically their default behavior, not something they struggle to learn!</p>
-</blockquote>
-<p>标准RNNs的重复模块只有一个简单的结构，比如tanh层。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c31942fa0852.jpg" alt=""></p>
-<p>LSTMs也有像这种链式结构，但是它的重复模块具有不同的结构。 有四个，而不是一个神经网络层，以一种非常特殊的方式进行交互。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c3195013e06a.jpg" alt=""></p>
-<p>基本符号如下：</p>
-<p><img src="https://i.loli.net/2019/01/06/5c319541ec43b.jpg" alt=""></p>
-<p>在上图中，每一行都携带一个完整的向量，从一个节点的输出到其他节点的输入。 粉色圆圈表示逐点运算，如矢量加法，而黄色框表示神经网络层。 行合并表示连接，而行分叉表示其内容被复制，副本将转移到不同的位置。</p>
-<h2 id="The-Core-Idea-Behind-LSTMs"><a href="#The-Core-Idea-Behind-LSTMs" class="headerlink" title="The Core Idea Behind LSTMs"></a>The Core Idea Behind LSTMs</h2><p><strong>LSTM的关键是单元状态</strong>，水平线贯穿图的顶部。</p>
-<p>单元状态有点像传送带。 它直接沿着整个链运行，只有一些微小的线性相互作用。 信息很容易沿着它不变地流动。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c31965a2ea97.jpg" alt=""></p>
-<p>LSTM确实能够移除或添加信息到细胞状态，由称为门的结构精心调节。</p>
-<p>门是一种可选择通过信息的方式。 它们由Sigmoid神经网络层和逐点乘法运算组成。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c3196e0eb9e6.jpg" alt=""></p>
-<p>sigmoid层输出0到1之间的数字，描述每个组件应该通过多少。 值为零意味着“不让任何东西通过”，而值为1则意味着“让一切都通过！”</p>
-<p>LSTM具有三个这样的门，用于保护和控制单元状态。</p>
-<h2 id="Step-by-Step-LSTM-Walk-Through"><a href="#Step-by-Step-LSTM-Walk-Through" class="headerlink" title="Step-by-Step LSTM Walk Through"></a>Step-by-Step LSTM Walk Through</h2><p>我们的第一步就是确定我们将从单元状态中丢弃的信息。这个决定是由一个称为“遗忘门层”的sigmoid层决定的。它查看$h_{t-1}$和$x_t$，并为单元状态$C_{t-1}$中的每一个数字输出一个介于0和1之间的数字。1代表“完全保留这个”，而0代表“完全舍弃这个”。</p>
-<p>让我们回到我们的语言模型示例，试图根据以前的所有单词预测下一个单词。 在这样的问题中，单元状态可能包括当前受试者的性别，因此可以使用正确的代词。 当我们看到一个新主题时，我们想要忘记旧主题的性别。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c31997a2ecec.jpg" alt=""></p>
-<p>下一步是确定我们将在单元状态中存储哪些新信息。 这有两个部分。 首先，称为“输入门层”的sigmoid层决定我们将更新哪些值。 接下来，tanh层创建可以添加到状态的新候选值$\tilde{C}_t$的向量。 在下一步中，我们将结合这两个来创建状态更新。</p>
-<p>在我们的语言模型的例子中，我们想要将新主题的性别添加到单元格状态，以替换我们忘记的旧主题。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c319afb31868.jpg" alt=""></p>
-<p>现在是时候将旧的单元状态$C_{T-1}$更新为新的单元状态$C_t$。 前面的步骤已经决定要做什么，我们只需要实际做到这一点。</p>
-<p>我们将旧状态乘以$f_t$，忘记我们之前决定忘记的事情。 然后我们添加$i_t * \tilde{C}_t$。 这是新的候选值，根据我们决定更新每个状态的值来缩放。</p>
-<p>在语言模型的情况下，我们实际上放弃了关于旧主题的性别的信息并添加新信息，正如我们在前面的步骤中所做的那样。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c319c9f37f63.jpg" alt=""></p>
-<p>最后，我们需要决定我们要输出的内容。 此输出将基于我们的单元状态，但将是过滤版本。 首先，我们运行一个sigmoid层，它决定我们要输出的单元状态的哪些部分。 然后，我们将单元格状态设置为tanh（将值推到介于-1和1之间）并将其乘以sigmoid门的输出，以便我们只输出我们决定的部分。</p>
-<p>对于语言模型示例，由于它只是看到一个主题，它可能想要输出与动词相关的信息，以防接下来会发生什么。 例如，它可能输出主语是单数还是复数，以便我们知道动词应该与什么形式共轭，如果接下来的话。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c319da831938.jpg" alt=""></p>
-<h2 id="Variants-on-Long-Short-Term-Memory"><a href="#Variants-on-Long-Short-Term-Memory" class="headerlink" title="Variants on Long Short Term Memory"></a>Variants on Long Short Term Memory</h2><p>到目前为止我所描述的是一个非常正常的LSTM。 但并非所有LSTM都与上述相同。 事实上，似乎几乎所有涉及LSTM的论文都使用略有不同的版本。 差异很小，但值得一提的是其中一些。</p>
-<blockquote>
-<p>One popular LSTM variant, introduced by <a href="ftp://ftp.idsia.ch/pub/juergen/TimeCount-IJCNN2000.pdf" target="_blank" rel="noopener">Gers &amp; Schmidhuber (2000)</a>, is adding “peephole connections.” This means that we let the gate layers look at the cell state.</p>
-</blockquote>
-<p><img src="https://i.loli.net/2019/01/06/5c319ec053e96.jpg" alt=""></p>
-<p>上面的图表为所有门增加了窥视孔（peephole），但是许多论文会给一些窥视孔而不是其他的。</p>
-<p>另一种变化是使用耦合的遗忘和输入门。 我们不是单独决定忘记什么以及应该添加新信息，而是一起做出这些决定。<strong>我们仅仅会当我们在当前位置将要输入时忘记。我们仅仅输入新的值到那些我们已经忘记旧的信息的那些状态</strong> 。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c31a06e327f5.jpg" alt=""></p>
-<p>另一个改动较大的变体是 Gated Recurrent Unit (GRU)，这是由 <a href="http://arxiv.org/pdf/1406.1078v3.pdf" target="_blank" rel="noopener">Cho, et al. (2014)</a> 提出。它将遗忘和输入门组合成一个“更新门”。它还合并了单元状态和隐藏状态，并进行了一些其他更改。 由此产生的模型比标准LSTM模型简单，并且越来越受欢迎。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c31a1285f207.jpg" alt=""></p>
-<p>这些只是最着名的LSTM变种中的一小部分。 还有很多其他的东西，如 <a href="http://arxiv.org/pdf/1508.03790v2.pdf" target="_blank" rel="noopener">Yao, et al. (2015)</a> 提出的 Depth Gated RNN。 还有一些完全不同的解决长期依赖关系的方法，如 <a href="http://arxiv.org/pdf/1402.3511v1.pdf" target="_blank" rel="noopener">Koutnik, et al. (2014)</a> 提出的 Clockwork RNN。</p>
-<p>哪种变体最好？ 差异是否重要？  <a href="http://arxiv.org/pdf/1503.04069.pdf" target="_blank" rel="noopener">Greff, et al. (2015)</a> 对流行变体进行了很好的比较，发现它们几乎完全相同。<a href="http://jmlr.org/proceedings/papers/v37/jozefowicz15.pdf" target="_blank" rel="noopener">Jozefowicz, et al. (2015)</a> 测试了超过一万个RNN架构，找到了一些在某些任务上比LSTM更好的架构。</p>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>早些时候，我提到了人们用RNN取得的显着成果。基本上所有这些都是使用LSTM实现的。对于大多数任务来说，它们确实工作得更好！</p>
-<p>作为一组方程写下来，LSTM看起来非常令人生畏。希望，在这篇文章中逐步走过它们使他们更加平易近人。</p>
-<p>LSTM是我们用RNN实现的重要一步。很自然地想知道：还有另一个重要的一步吗？研究人员的共同观点是：“是的！下一步是它的注意！“我们的想法是让RNN的每一步都从一些更大的信息集中选择信息。例如，如果您使用RNN创建描述图像的标题，则可能会选择图像的一部分来查看其输出的每个单词。</p>
-<p>事实上， <a href="http://arxiv.org/pdf/1502.03044v2.pdf" target="_blank" rel="noopener">Xu, <em>et al.</em>(2015)</a> 做到这一点 - 如果你想探索注意力，这可能是一个有趣的起点！使用注意力已经取得了许多非常令人兴奋的结果，似乎还有更多的事情即将来临……</p>
-<p>注意力不是RNN研究中唯一令人兴奋的问题。例如，<a href="http://arxiv.org/pdf/1507.01526v1.pdf" target="_blank" rel="noopener">Kalchbrenner, <em>et al.</em> (2015)</a> 的Grid LSTMs似乎非常有希望。在生成模型中使用RNN工作 - 例如<a href="http://arxiv.org/pdf/1502.04623.pdf" target="_blank" rel="noopener">Gregor, <em>et al.</em> (2015)</a>, <a href="http://arxiv.org/pdf/1506.02216v3.pdf" target="_blank" rel="noopener">Chung, <em>et al.</em> (2015)</a>, 或者 <a href="http://arxiv.org/pdf/1411.7610v3.pdf" target="_blank" rel="noopener">Bayer &amp; Osendorfer (2015)</a>  似乎也很有趣。过去几年对于反复出现的神经网络来说是一个激动人心的时刻，即将到来的那些承诺只会更加如此！</p>
-
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-        <div>
-    
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
-    
-</div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/LSTM/" rel="tag"><i class="fa fa-tag"></i> LSTM</a>
-          
-            <a href="/tags/RNN/" rel="tag"><i class="fa fa-tag"></i> RNN</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/post/Learning_Phrase_Representations_using_RNN_Encoder–Decoder_for_Statistical_Machine_Translation/" rel="next" title="《Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation》阅读笔记">
-                <i class="fa fa-chevron-left"></i> 《Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation》阅读笔记
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/post/RECURRENT NEURAL NETWORK REGULARIZATION/" rel="prev" title="《RECURRENT NEURAL NETWORK REGULARIZATION》阅读笔记">
-                《RECURRENT NEURAL NETWORK REGULARIZATION》阅读笔记 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
 
 
           </div>
@@ -677,10 +441,6 @@ $(function() {
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -701,17 +461,8 @@ $(function() {
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://i.loli.net/2018/09/24/5ba86696be366.jpg"
@@ -818,22 +569,6 @@ $(function() {
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LSTM"><span class="nav-number">1.</span> <span class="nav-text">LSTM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Recurrent-Neural-Networks"><span class="nav-number">1.1.</span> <span class="nav-text">Recurrent Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Problem-of-Long-Term-Dependencies"><span class="nav-number">1.2.</span> <span class="nav-text">The Problem of Long-Term Dependencies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSTM-Networks"><span class="nav-number">1.3.</span> <span class="nav-text">LSTM Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Core-Idea-Behind-LSTMs"><span class="nav-number">1.4.</span> <span class="nav-text">The Core Idea Behind LSTMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-by-Step-LSTM-Walk-Through"><span class="nav-number">1.5.</span> <span class="nav-text">Step-by-Step LSTM Walk Through</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Variants-on-Long-Short-Term-Memory"><span class="nav-number">1.6.</span> <span class="nav-text">Variants on Long Short Term Memory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">1.7.</span> <span class="nav-text">Conclusion</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -974,10 +709,10 @@ $(function() {
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-
+  
 
   
 
