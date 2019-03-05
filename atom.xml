@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-03T13:35:53.689Z</updated>
+  <updated>2019-03-05T07:42:15.366Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>《Differentiable Learning of Logical Rules for Knowledge Base Reasoning》阅读笔记</title>
+    <link href="http://yoursite.com/post/Differentiable%20Learning%20of%20Logical%20Rules%20for%20Knowledge%20Base%20Reasoning/"/>
+    <id>http://yoursite.com/post/Differentiable Learning of Logical Rules for Knowledge Base Reasoning/</id>
+    <published>2019-03-05T07:34:05.000Z</published>
+    <updated>2019-03-05T07:42:15.366Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>论文<a href="http://papers.nips.cc/paper/6826-differentiable-learning-of-logical-rules-for-knowledge-base-reasoning.pdf" target="_blank" rel="noopener">下载地址</a>，本文研究用于于知识图谱推理的学习概率一阶逻辑规则的问题，提出了Neural Logic Programming（Neural-LP）框架，它结合了端到端可微分模型中一阶逻辑规则的参数和结构学习。为了在可微分的框架中同时学习参数和结构，作者设计了一个具有注意机制和记忆的神经控制器系统，以学习顺序组成TensorLog使用的原始可微操作。作者采用的注意机制是作为逻辑规则的置信度并且有寓意含义的。</p></blockquote><a id="more"></a><p>下图展示了一个使用逻辑规则进行知识图谱推理的例子</p><p><img src="https://i.loli.net/2019/03/05/5c7dc90edacd1.jpg" alt=""></p><p>使用概率逻辑的优点是通过为逻辑规则配备概率，可以更好地模拟统计复杂和噪声数据。</p><p>statistical relational learning（统计关系学习）：学习关系规则的集合</p><p>==inductive logic programming（归纳逻辑规划）：==当学习涉及提出新的逻辑规则时。（这应该和我正在做的方向是相关的，都是带有归纳性质的，有新的东西产生）。</p><p>Framework</p><h2 id="Knowledge-base-reasoning"><a href="#Knowledge-base-reasoning" class="headerlink" title="Knowledge base reasoning"></a>Knowledge base reasoning</h2><p>为了推理知识库，对于每个查询我们都有兴趣学习以下形式的加权链式逻辑规则，类似于<strong>==随机逻辑程序==</strong>：</p><p><img src="https://i.loli.net/2019/03/05/5c7dcd6e1a5ac.jpg" alt=""></p><p>其中$\alpha$是和规则有关的置信度，R是知识库中的关系，query(Y,X) 表示一个三元组，query 表示一个关系。</p><h2 id="TensorLog-for-KB-reasoning"><a href="#TensorLog-for-KB-reasoning" class="headerlink" title="TensorLog for KB reasoning"></a>TensorLog for KB reasoning</h2><p>将实体转换成one-hot变量；并用一个矩阵$M_R$表示关系，该矩阵只在（i，j）处为1，i、j为第i、j个实体。</p><p>结合两个操作，逻辑规则推理$R(Y,X) \gets P(Y,X) \bigwedge Q(Z,X)$可以被表示为：$M_P \cdot M_P \cdot v_x \doteq s$，向量s中为1的位置就是Y的答案。</p><p>对于一条查询，所有的逻辑规则的右边部分被表示为以下形式：</p><p><img src="https://i.loli.net/2019/03/05/5c7dda071bcef.jpg" alt=""></p><p>其中，l表示所有的可能规则的个数，$\alpha_l$是规则l的置信度，$\beta_l$是某特定关系里的有序关系列表，所以在inference时，给定实体 <img src="https://www.zhihu.com/equation?tex=v_x" alt="v_x"> ，实体y的score等于向量s中的对应y的位置的值。对于推理，给定实体x，实体y的score等于向量s中的对应y的位置的值。</p><p><img src="/Users/dy/Library/Application%20Support/typora-user-images/image-20190305141704458.png" alt="image-20190305141704458"></p><p>所以总结本文关心的优化问题如下：</p><p><img src="https://i.loli.net/2019/03/05/5c7e1568d9ec7.jpg" alt=""></p><h2 id="Learning-the-logical-rules"><a href="#Learning-the-logical-rules" class="headerlink" title="Learning the logical rules"></a>Learning the logical rules</h2><p>在上式的优化问题中，算法需要学习的部分分为两个：一个是规则的结构，即一个规则是由哪些条件组合而成的；另一个是规则的置信度。由于每一条规则的置信度都是依赖于具体的规则形式，而规则结构的组成也是一个离散化的过程，因此上式整体是不可微的。因此作者对前面的式子做了以下更改：<img src="https://i.loli.net/2019/03/05/5c7e160404436.jpg" alt=""></p><p>对比与式（2）：主要交换了连乘和累加的计算顺序，对预一个关系的相关的规则，为每个关系在每个步骤都学习了一个权重，即上式的 $a_t^k$。</p><p>由于上式固定了每个规则的长度都为 T，这显然是不合适的。为了能够学习到变长的规则，Neural LP中设计了记忆向量 $u_t$,表示每个步骤输出的答案–每个实体作为答案的概率分布，还设计了两个注意力向量：一个为记忆注意力向量 $b_t$ ——表示在步骤 t 时对于之前每个步骤的注意力；一个为算子注意力向量 $a_t$ ——表示在步骤 t 时对于每个关系算子的注意力。每个步骤的输出由下面三个式子生成：<img src="https://i.loli.net/2019/03/05/5c7e18ac09662.jpg" alt=""></p><p>其中$b_t$和$a_t$由以下公式通过RNN获得：</p><p><img src="https://i.loli.net/2019/03/05/5c7e1a015f0ac.jpg" alt=""></p><p>推理机的整体框架是：</p><p><img src="https://i.loli.net/2019/03/05/5c7e1aec1aea9.jpg" alt=""></p><p>其中memory存的就是每步的推理结果（实体），最后的输出（例如$u_{T+1}$，目标就是最大化 $logv_y^Tu$，加log是因为非线性能让效果变好。</p><p>整个算法如下：<img src="https://i.loli.net/2019/03/05/5c7e1c0d5cf32.jpg" alt=""></p><h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="（1）-两个标准数据集上的统计关系学习相关的实验"><a href="#（1）-两个标准数据集上的统计关系学习相关的实验" class="headerlink" title="（1） 两个标准数据集上的统计关系学习相关的实验"></a>（1） 两个标准数据集上的统计关系学习相关的实验</h2><ul><li>Unified Medical Language System (UMLS)：The entities are biomedical concepts (e.g. disease, antibiotic) and relations are like treats and diagnoses.</li><li>Kinship：contains kinship relationships among members of the Alyawarra tribe from Central Australia [</li></ul><p><img src="https://i.loli.net/2019/03/05/5c7e2270289d0.jpg" alt=""></p><h2 id="（2）-在-16-16-的网格上的路径寻找的实验"><a href="#（2）-在-16-16-的网格上的路径寻找的实验" class="headerlink" title="（2） 在$16*16$的网格上的路径寻找的实验"></a>（2） 在$16*16$的网格上的路径寻找的实验</h2><p><img src="https://i.loli.net/2019/03/05/5c7e235b430cb.jpg" alt=""></p><h2 id="（3）-知识库补全实验"><a href="#（3）-知识库补全实验" class="headerlink" title="（3） 知识库补全实验"></a>（3） 知识库补全实验</h2><p>实验所用数据集信息：</p><p>FB15KSelected：这是通过从FB15K中去除近似重复和反向关系而构造的</p><p><img src="https://i.loli.net/2019/03/05/5c7e2378e1c64.jpg" alt=""></p><p>实验结果：<img src="https://i.loli.net/2019/03/05/5c7e23c43db48.jpg" alt=""></p><p>为了证明Neural LP的归纳推理的能力，本文还特别设计了一个实验，在训练数据集中去掉所有涉及测试集中包含的实体的三元组，然后训练并预测，得到结果如下：<img src="https://i.loli.net/2019/03/05/5c7e23ebbca69.jpg" alt=""></p><h2 id="（4）-知识库问答的实验"><a href="#（4）-知识库问答的实验" class="headerlink" title="（4） 知识库问答的实验"></a>（4） 知识库问答的实验</h2><p><img src="https://i.loli.net/2019/03/05/5c7e24aa6a427.jpg" alt=""></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h1><p>本文提出了一个可微的规则学习模型，并强调了知识库中的规则应该是实体无关的，对于我目前在做的方向，本体论也是与实体无关的，这种规则学习有一定的借鉴性，但是好像所区别。这个规则推理也可以看成某些关系之间的包含关系3.1中举的HasOfficeInCity(New York,Uber) and CityInCountry(USA,New York)的例子，可以看作是2对于1有包含关系。并且可以看到本篇论文中，作者设计了丰富的实验。</p><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul><li><a href="https://toutiao.io/posts/wrxf4z/preview" target="_blank" rel="noopener">https://toutiao.io/posts/wrxf4z/preview</a></li><li><a href="https://zhuanlan.zhihu.com/p/46024825" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/46024825</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;论文&lt;a href=&quot;http://papers.nips.cc/paper/6826-differentiable-learning-of-logical-rules-for-knowledge-base-reasoning.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;下载地址&lt;/a&gt;，本文研究用于于知识图谱推理的学习概率一阶逻辑规则的问题，提出了Neural Logic Programming（Neural-LP）框架，它结合了端到端可微分模型中一阶逻辑规则的参数和结构学习。为了在可微分的框架中同时学习参数和结构，作者设计了一个具有注意机制和记忆的神经控制器系统，以学习顺序组成TensorLog使用的原始可微操作。作者采用的注意机制是作为逻辑规则的置信度并且有寓意含义的。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
+      <category term="知识图谱推理" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8E%A8%E7%90%86/"/>
+    
+      <category term="规则学习" scheme="http://yoursite.com/tags/%E8%A7%84%E5%88%99%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《OK Google, What Is Your Ontology? Or/ Exploring Freebase Classification to Understand Google’s Knowledge Graph？》阅读笔记</title>
-    <link href="http://yoursite.com/post/null/"/>
-    <id>http://yoursite.com/post/null/</id>
+    <link href="http://yoursite.com/post/OK%20Google,%20What%20Is%20Your%20Ontology?%20Or/%20Exploring%20Freebase%20Classification%20to%20Understand%20Google%E2%80%99s%20Knowledge%20Graph%EF%BC%9F/"/>
+    <id>http://yoursite.com/post/OK Google, What Is Your Ontology? Or/ Exploring Freebase Classification to Understand Google’s Knowledge Graph？/</id>
     <published>2019-03-03T13:29:07.000Z</published>
-    <updated>2019-03-03T13:35:53.689Z</updated>
+    <updated>2019-03-05T00:44:53.321Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。<a href="https://arxiv.org/pdf/1805.03885.pdf" target="_blank" rel="noopener">论文下载地址</a></p></blockquote><p>这篇论文重构了Freebase数据转储来理解谷歌语义搜索特征背后的本体。论文将会探索Freebase本体如何由许多力量塑造的，这些力量也通过深入研究本体论和一个小的相关性研究来形成分类系统。这些发现将会提供知识图谱专有黑盒的一瞥。</p><blockquote><p>The structures found in the Freebase/Knowledge Graph ontology will be analyzed in light of the findings on classification systems in a key text by Bowker and Star (2000) [5].</p></blockquote><h1 id="术语定义"><a href="#术语定义" class="headerlink" title="术语定义"></a>术语定义</h1><p><img src="https://i.loli.net/2019/03/03/5c7b61c1bd122.jpg" alt=""></p><h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><p>Freebase对象是一个全局唯一的标识符，它是Freebase中世界上某种东西的表示。</p><h3 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h3><p>Freebase类型用来表达类的概念。</p><h3 id="Property"><a href="#Property" class="headerlink" title="Property"></a>Property</h3><p>Freebase属性是描述对象如何链接到其他值或对象的关系。</p><h3 id="Property-Detail"><a href="#Property-Detail" class="headerlink" title="Property Detail"></a>Property Detail</h3><p>属性详细信息指的是可以通过属性链接的对象或值的约束。</p><h3 id="RDF-triple"><a href="#RDF-triple" class="headerlink" title="RDF triple"></a>RDF triple</h3><p>资源描述格式（RDF）是用于“三元组”（或N = 3元组）格式的数据表示的规范[17]。</p><h3 id="Ontology"><a href="#Ontology" class="headerlink" title="Ontology"></a>Ontology</h3><p>对于本文，Freebase本体是类型，属性和属性详细信息的正式结构和描述，用于指定对象如何相互关联。</p><h3 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h3><p>在本文中，架构指的是可以在本体中找到的一般模式和关系。</p><p><strong>==本体是否允许类（或Freebase用语中的类型）之间的继承？ 是否有与属性相关的默认值？ 如何处理“零”或空值？ 这些类型的问题不一定关注本体（飞机，火车或汽车）中具体表达的内容，而是关于本体表达方式的更多问题应该通过检查架构来解决。==</strong></p><h1 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h1><p>作者把数据进行切分：按照RDF中三元组的谓语进行分类，例如：<img src="https://i.loli.net/2019/03/03/5c7bc58f2052d.jpg" alt=""></p><h1 id="Freebase-Ontology-and-Classification"><a href="#Freebase-Ontology-and-Classification" class="headerlink" title="Freebase Ontology and Classification"></a>Freebase Ontology and Classification</h1><blockquote><p> As Bowker and Star note, “Information infrastructure is a tricky thing to analyze…the easier they are to use, the harder they are to see.” [5]. What does the system make sense of? What is left out? What is privileged and by extension what is ignored by Google?</p></blockquote><p>虽然Freebase本体可能不会立即看起来像一个分类系统，但类型（类）和属性的结构是一个基于对各种事物进行分类的系统。</p><p>作为对世界事物表征进行排序和分类的系统，将根据Bowker和Star的分类结果讨论Freebase本体。他们将对亚里士多德和原型分类（Aristotelian and prototype classification）进行了区分。</p><p>亚里士多德的分类“按照一组二元特征进行操作，被分类的物体呈现或不呈现”，而原型分类则认为“在我们心目中对于椅子是什么的广泛描述; 我们用隐喻和类比来扩展这张图片“</p><h2 id="5-1-Freebase’s-Type-System"><a href="#5-1-Freebase’s-Type-System" class="headerlink" title="5.1. Freebase’s Type System"></a>5.1. Freebase’s Type System</h2><p>不兼容性的概念出现在Freebase系统中，用于表示对象如何具有某些类型，而这些类型必须将其排除在其他类型之外。</p><p>没有继承（not implement inheritance）：上述不兼容性在确保数据不表达可能在Google KP中提供的令人尴尬，有害或不正确的陈述方面发挥了足够强大的作用。</p><p>缺乏继承也可能是一种允许实体具有更大灵活性的特征。这里作者举了一个狗为电影演员的例子。</p><h2 id="5-2-Has-Value-or-Has-No-Value"><a href="#5-2-Has-Value-or-Has-No-Value" class="headerlink" title="5.2. Has Value or Has No Value?"></a>5.2. Has Value or Has No Value?</h2><p>三元组如何表达估计值，不确定值或空值？实际处理时用“Has Value” (HV) and “Has No Value” (HNV)来分别表达不确定值和空值。</p><p>以这种方式表达未知数和空值的有趣实现可能表明Freebase / KG最初并不是为了支持这种不确定性而建立的。Google的数据编码某些不确定性的概念并未向最终用户公开，尽管它肯定以这种独特的方式实现。</p><h2 id="5-3-Dealing-with-Doppelgangers-and-Chimeras"><a href="#5-3-Dealing-with-Doppelgangers-and-Chimeras" class="headerlink" title="5.3. Dealing with Doppelgangers and Chimeras"></a>5.3. Dealing with Doppelgangers and Chimeras</h2><p>涉及Freebase如何处理“合并”重复对象（doppelgangers）和“拆分”混合对象（嵌合体）。 </p><blockquote><p>the property “/dataworld/gardening hint/replaced by” is used to implement merges be- tween various objects (e.g. by saying “/m/xyz123 - Replaced By - /m/abc123”).</p></blockquote><h1 id="A-Small-Correlational-Study"><a href="#A-Small-Correlational-Study" class="headerlink" title="A Small Correlational Study"></a>A Small Correlational Study</h1><p>主要探索这个问题：域的本体的复杂性（人物，电影等领域的类型，属性等）与表达与本体相关的事实（“知识库”）的三元组数量之间是否存在关联？</p><p>对于本研究，通过考虑与域相关的属性详细信息量（多少描述，约束等）来实现“复杂性”和“成熟度”。</p><p>对于89个域中的每一个，获得了关于每个域的本体的以下统计：</p><ul><li>==<strong>域中的类型和属性数</strong>==</li><li>==<strong>每种类型和属性的描述数</strong>==</li><li>==<strong>每种类型和属性的属性详细信息数==</strong></li></ul><p><strong>通过获取域中每种类型和属性的平均描述数和属性详细信息来计算简单的复杂性分数。 所有域的RDF三元组计数与此复杂性得分之间的Pearson相关系数与0.2824呈正相关，简单线性回归的斜率为78,424.08（见图6）。 当排除异常音乐切片时，相关性和斜率分别变为0.6680和33,899.53。 虽然需要进一步的工作来探索这个研究问题，但这个小的相关性研究为进一步的实验提供了一些有希望的初步结果</strong></p><h1 id="discussion"><a href="#discussion" class="headerlink" title="discussion"></a>discussion</h1><p>考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。此外，还进行了一项小型相关研究，以检验基于Bowker和Star推动的预感的假设。在很大程度上，分类系统中的许多特征也可以在Freebase的本体和体系结构中找到。</p><p>本文具体而言，探讨了支持整个交付流程的基础结构（本体和体系结构），而不是Freebase / KG中表示的特定事实。</p><h1 id="conclusion"><a href="#conclusion" class="headerlink" title="conclusion"></a>conclusion</h1><p> 应通过探索Freebase本体和体系结构的其他方面以及对Freebase进行更全面的实验分析来进行进一步的研究。 </p>]]></content>
     
@@ -115,9 +143,9 @@
       <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="NER" scheme="http://yoursite.com/tags/NER/"/>
-    
       <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
+      <category term="NER" scheme="http://yoursite.com/tags/NER/"/>
     
   </entry>
   
@@ -301,9 +329,9 @@
       <category term="爬虫" scheme="http://yoursite.com/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="scrapy" scheme="http://yoursite.com/tags/scrapy/"/>
     
@@ -329,9 +357,9 @@
       <category term="爬虫" scheme="http://yoursite.com/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="splash" scheme="http://yoursite.com/tags/splash/"/>
     

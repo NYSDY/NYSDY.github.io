@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[《Differentiable Learning of Logical Rules for Knowledge Base Reasoning》阅读笔记]]></title>
+    <url>%2Fpost%2FDifferentiable%20Learning%20of%20Logical%20Rules%20for%20Knowledge%20Base%20Reasoning%2F</url>
+    <content type="text"><![CDATA[论文下载地址，本文研究用于于知识图谱推理的学习概率一阶逻辑规则的问题，提出了Neural Logic Programming（Neural-LP）框架，它结合了端到端可微分模型中一阶逻辑规则的参数和结构学习。为了在可微分的框架中同时学习参数和结构，作者设计了一个具有注意机制和记忆的神经控制器系统，以学习顺序组成TensorLog使用的原始可微操作。作者采用的注意机制是作为逻辑规则的置信度并且有寓意含义的。 下图展示了一个使用逻辑规则进行知识图谱推理的例子 使用概率逻辑的优点是通过为逻辑规则配备概率，可以更好地模拟统计复杂和噪声数据。 statistical relational learning（统计关系学习）：学习关系规则的集合 ==inductive logic programming（归纳逻辑规划）：==当学习涉及提出新的逻辑规则时。（这应该和我正在做的方向是相关的，都是带有归纳性质的，有新的东西产生）。 Framework Knowledge base reasoning为了推理知识库，对于每个查询我们都有兴趣学习以下形式的加权链式逻辑规则，类似于==随机逻辑程序==： 其中$\alpha$是和规则有关的置信度，R是知识库中的关系，query(Y,X) 表示一个三元组，query 表示一个关系。 TensorLog for KB reasoning将实体转换成one-hot变量；并用一个矩阵$M_R$表示关系，该矩阵只在（i，j）处为1，i、j为第i、j个实体。 结合两个操作，逻辑规则推理$R(Y,X) \gets P(Y,X) \bigwedge Q(Z,X)$可以被表示为：$M_P \cdot M_P \cdot v_x \doteq s$，向量s中为1的位置就是Y的答案。 对于一条查询，所有的逻辑规则的右边部分被表示为以下形式： 其中，l表示所有的可能规则的个数，$\alpha_l$是规则l的置信度，$\beta_l$是某特定关系里的有序关系列表，所以在inference时，给定实体 ，实体y的score等于向量s中的对应y的位置的值。对于推理，给定实体x，实体y的score等于向量s中的对应y的位置的值。 所以总结本文关心的优化问题如下： Learning the logical rules在上式的优化问题中，算法需要学习的部分分为两个：一个是规则的结构，即一个规则是由哪些条件组合而成的；另一个是规则的置信度。由于每一条规则的置信度都是依赖于具体的规则形式，而规则结构的组成也是一个离散化的过程，因此上式整体是不可微的。因此作者对前面的式子做了以下更改： 对比与式（2）：主要交换了连乘和累加的计算顺序，对预一个关系的相关的规则，为每个关系在每个步骤都学习了一个权重，即上式的 $a_t^k$。 由于上式固定了每个规则的长度都为 T，这显然是不合适的。为了能够学习到变长的规则，Neural LP中设计了记忆向量 $u_t$,表示每个步骤输出的答案–每个实体作为答案的概率分布，还设计了两个注意力向量：一个为记忆注意力向量 $b_t$ ——表示在步骤 t 时对于之前每个步骤的注意力；一个为算子注意力向量 $a_t$ ——表示在步骤 t 时对于每个关系算子的注意力。每个步骤的输出由下面三个式子生成： 其中$b_t$和$a_t$由以下公式通过RNN获得： 推理机的整体框架是： 其中memory存的就是每步的推理结果（实体），最后的输出（例如$u_{T+1}$，目标就是最大化 $logv_y^Tu$，加log是因为非线性能让效果变好。 整个算法如下： 实验（1） 两个标准数据集上的统计关系学习相关的实验 Unified Medical Language System (UMLS)：The entities are biomedical concepts (e.g. disease, antibiotic) and relations are like treats and diagnoses. Kinship：contains kinship relationships among members of the Alyawarra tribe from Central Australia [ （2） 在$16*16$的网格上的路径寻找的实验 （3） 知识库补全实验实验所用数据集信息： FB15KSelected：这是通过从FB15K中去除近似重复和反向关系而构造的 实验结果： 为了证明Neural LP的归纳推理的能力，本文还特别设计了一个实验，在训练数据集中去掉所有涉及测试集中包含的实体的三元组，然后训练并预测，得到结果如下： （4） 知识库问答的实验 总结本文提出了一个可微的规则学习模型，并强调了知识库中的规则应该是实体无关的，对于我目前在做的方向，本体论也是与实体无关的，这种规则学习有一定的借鉴性，但是好像所区别。这个规则推理也可以看成某些关系之间的包含关系3.1中举的HasOfficeInCity(New York,Uber) and CityInCountry(USA,New York)的例子，可以看作是2对于1有包含关系。并且可以看到本篇论文中，作者设计了丰富的实验。 参考链接 https://toutiao.io/posts/wrxf4z/preview https://zhuanlan.zhihu.com/p/46024825]]></content>
+      <categories>
+        <category>论文阅读笔记</category>
+      </categories>
+      <tags>
+        <tag>知识图谱</tag>
+        <tag>知识图谱推理</tag>
+        <tag>规则学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[《OK Google, What Is Your Ontology? Or/ Exploring Freebase Classification to Understand Google’s Knowledge Graph？》阅读笔记]]></title>
-    <url>%2Fpost%2Fnull%2F</url>
+    <url>%2Fpost%2FOK%20Google%2C%20What%20Is%20Your%20Ontology%3F%20Or%2F%20Exploring%20Freebase%20Classification%20to%20Understand%20Google%E2%80%99s%20Knowledge%20Graph%EF%BC%9F%2F</url>
     <content type="text"><![CDATA[本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。论文下载地址 这篇论文重构了Freebase数据转储来理解谷歌语义搜索特征背后的本体。论文将会探索Freebase本体如何由许多力量塑造的，这些力量也通过深入研究本体论和一个小的相关性研究来形成分类系统。这些发现将会提供知识图谱专有黑盒的一瞥。 The structures found in the Freebase/Knowledge Graph ontology will be analyzed in light of the findings on classification systems in a key text by Bowker and Star (2000) [5]. 术语定义 ObjectFreebase对象是一个全局唯一的标识符，它是Freebase中世界上某种东西的表示。 TypeFreebase类型用来表达类的概念。 PropertyFreebase属性是描述对象如何链接到其他值或对象的关系。 Property Detail属性详细信息指的是可以通过属性链接的对象或值的约束。 RDF triple资源描述格式（RDF）是用于“三元组”（或N = 3元组）格式的数据表示的规范[17]。 Ontology对于本文，Freebase本体是类型，属性和属性详细信息的正式结构和描述，用于指定对象如何相互关联。 Architecture在本文中，架构指的是可以在本体中找到的一般模式和关系。 ==本体是否允许类（或Freebase用语中的类型）之间的继承？ 是否有与属性相关的默认值？ 如何处理“零”或空值？ 这些类型的问题不一定关注本体（飞机，火车或汽车）中具体表达的内容，而是关于本体表达方式的更多问题应该通过检查架构来解决。== Methodology作者把数据进行切分：按照RDF中三元组的谓语进行分类，例如： Freebase Ontology and Classification As Bowker and Star note, “Information infrastructure is a tricky thing to analyze…the easier they are to use, the harder they are to see.” [5]. What does the system make sense of? What is left out? What is privileged and by extension what is ignored by Google? 虽然Freebase本体可能不会立即看起来像一个分类系统，但类型（类）和属性的结构是一个基于对各种事物进行分类的系统。 作为对世界事物表征进行排序和分类的系统，将根据Bowker和Star的分类结果讨论Freebase本体。他们将对亚里士多德和原型分类（Aristotelian and prototype classification）进行了区分。 亚里士多德的分类“按照一组二元特征进行操作，被分类的物体呈现或不呈现”，而原型分类则认为“在我们心目中对于椅子是什么的广泛描述; 我们用隐喻和类比来扩展这张图片“ 5.1. Freebase’s Type System不兼容性的概念出现在Freebase系统中，用于表示对象如何具有某些类型，而这些类型必须将其排除在其他类型之外。 没有继承（not implement inheritance）：上述不兼容性在确保数据不表达可能在Google KP中提供的令人尴尬，有害或不正确的陈述方面发挥了足够强大的作用。 缺乏继承也可能是一种允许实体具有更大灵活性的特征。这里作者举了一个狗为电影演员的例子。 5.2. Has Value or Has No Value?三元组如何表达估计值，不确定值或空值？实际处理时用“Has Value” (HV) and “Has No Value” (HNV)来分别表达不确定值和空值。 以这种方式表达未知数和空值的有趣实现可能表明Freebase / KG最初并不是为了支持这种不确定性而建立的。Google的数据编码某些不确定性的概念并未向最终用户公开，尽管它肯定以这种独特的方式实现。 5.3. Dealing with Doppelgangers and Chimeras涉及Freebase如何处理“合并”重复对象（doppelgangers）和“拆分”混合对象（嵌合体）。 the property “/dataworld/gardening hint/replaced by” is used to implement merges be- tween various objects (e.g. by saying “/m/xyz123 - Replaced By - /m/abc123”). A Small Correlational Study主要探索这个问题：域的本体的复杂性（人物，电影等领域的类型，属性等）与表达与本体相关的事实（“知识库”）的三元组数量之间是否存在关联？ 对于本研究，通过考虑与域相关的属性详细信息量（多少描述，约束等）来实现“复杂性”和“成熟度”。 对于89个域中的每一个，获得了关于每个域的本体的以下统计： ==域中的类型和属性数== ==每种类型和属性的描述数== ==每种类型和属性的属性详细信息数== 通过获取域中每种类型和属性的平均描述数和属性详细信息来计算简单的复杂性分数。 所有域的RDF三元组计数与此复杂性得分之间的Pearson相关系数与0.2824呈正相关，简单线性回归的斜率为78,424.08（见图6）。 当排除异常音乐切片时，相关性和斜率分别变为0.6680和33,899.53。 虽然需要进一步的工作来探索这个研究问题，但这个小的相关性研究为进一步的实验提供了一些有希望的初步结果 discussion考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。此外，还进行了一项小型相关研究，以检验基于Bowker和Star推动的预感的假设。在很大程度上，分类系统中的许多特征也可以在Freebase的本体和体系结构中找到。 本文具体而言，探讨了支持整个交付流程的基础结构（本体和体系结构），而不是Freebase / KG中表示的特定事实。 conclusion 应通过探索Freebase本体和体系结构的其他方面以及对Freebase进行更全面的实验分析来进行进一步的研究。]]></content>
       <categories>
         <category>论文阅读笔记</category>
@@ -43,8 +56,8 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>NER</tag>
         <tag>知识图谱</tag>
+        <tag>NER</tag>
       </tags>
   </entry>
   <entry>
@@ -127,8 +140,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>爬虫</tag>
+        <tag>python</tag>
         <tag>scrapy</tag>
       </tags>
   </entry>
@@ -140,8 +153,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>爬虫</tag>
+        <tag>python</tag>
         <tag>splash</tag>
         <tag>docker</tag>
       </tags>
