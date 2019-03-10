@@ -96,20 +96,20 @@
 
 
 
-<meta name="description" content="本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。论文下载地址  这篇论文重构了Freebase数据转储来理解谷歌语义搜索特征背后的本体。论文将会探索Freebase本体如何由许多力量塑造的，这些力量也通过深入研究本体论和一个小的相关性">
+<meta name="description" content="本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。论文下载地址">
 <meta name="keywords" content="Ontology,知识图谱,freebase">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《OK Google, What Is Your Ontology? Or&#x2F; Exploring Freebase Classification to Understand Google’s Knowledge Graph？》阅读笔记">
 <meta property="og:url" content="http://yoursite.com/post/OK Google, What Is Your Ontology">
 <meta property="og:site_name" content="NYSDY">
-<meta property="og:description" content="本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。论文下载地址  这篇论文重构了Freebase数据转储来理解谷歌语义搜索特征背后的本体。论文将会探索Freebase本体如何由许多力量塑造的，这些力量也通过深入研究本体论和一个小的相关性">
+<meta property="og:description" content="本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。论文下载地址">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/03/03/5c7b61c1bd122.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/03/03/5c7bc58f2052d.jpg">
-<meta property="og:updated_time" content="2019-03-05T00:44:53.321Z">
+<meta property="og:updated_time" content="2019-03-10T13:52:42.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《OK Google, What Is Your Ontology? Or&#x2F; Exploring Freebase Classification to Understand Google’s Knowledge Graph？》阅读笔记">
-<meta name="twitter:description" content="本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。论文下载地址  这篇论文重构了Freebase数据转储来理解谷歌语义搜索特征背后的本体。论文将会探索Freebase本体如何由许多力量塑造的，这些力量也通过深入研究本体论和一个小的相关性">
+<meta name="twitter:description" content="本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。论文下载地址">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/03/5c7b61c1bd122.jpg">
 
 
@@ -512,6 +512,7 @@ $(function() {
         <blockquote>
 <p>本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。<a href="https://arxiv.org/pdf/1805.03885.pdf" target="_blank" rel="noopener">论文下载地址</a></p>
 </blockquote>
+<a id="more"></a>
 <p>这篇论文重构了Freebase数据转储来理解谷歌语义搜索特征背后的本体。论文将会探索Freebase本体如何由许多力量塑造的，这些力量也通过深入研究本体论和一个小的相关性研究来形成分类系统。这些发现将会提供知识图谱专有黑盒的一瞥。</p>
 <blockquote>
 <p>The structures found in the Freebase/Knowledge Graph ontology will be analyzed in light of the findings on classification systems in a key text by Bowker and Star (2000) [5].</p>

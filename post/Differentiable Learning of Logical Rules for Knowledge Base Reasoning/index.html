@@ -107,8 +107,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/03/05/5c7dc90edacd1.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/03/05/5c7dcd6e1a5ac.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/03/05/5c7dda071bcef.jpg">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=v_x">
-<meta property="og:image" content="http://yoursite.com/Users/dy/Library/Application%20Support/typora-user-images/image-20190305141704458.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/10/5c85104e2a53b.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/03/05/5c7e1568d9ec7.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/03/05/5c7e160404436.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/03/05/5c7e18ac09662.jpg">
@@ -121,7 +120,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/03/05/5c7e23c43db48.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/03/05/5c7e23ebbca69.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/03/05/5c7e24aa6a427.jpg">
-<meta property="og:updated_time" content="2019-03-05T07:45:16.864Z">
+<meta property="og:updated_time" content="2019-03-10T13:25:50.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Differentiable Learning of Logical Rules for Knowledge Base Reasoning》阅读笔记">
 <meta name="twitter:description" content="论文下载地址，本文研究用于于知识图谱推理的学习概率一阶逻辑规则的问题，提出了Neural Logic Programming（Neural-LP）框架，它结合了端到端可微分模型中一阶逻辑规则的参数和结构学习。为了在可微分的框架中同时学习参数和结构，作者设计了一个具有注意机制和记忆的神经控制器系统，以学习顺序组成TensorLog使用的原始可微操作。作者采用的注意机制是作为逻辑规则的置信度并且有寓">
@@ -540,8 +539,8 @@ $(function() {
 <p>结合两个操作，逻辑规则推理$R(Y,X) \gets P(Y,X) \bigwedge Q(Z,X)$可以被表示为：$M_P \cdot M_P \cdot v_x \doteq s$，向量s中为1的位置就是Y的答案。</p>
 <p>对于一条查询，所有的逻辑规则的右边部分被表示为以下形式：</p>
 <p><img src="https://i.loli.net/2019/03/05/5c7dda071bcef.jpg" alt=""></p>
-<p>其中，l表示所有的可能规则的个数，$\alpha_l$是规则l的置信度，$\beta_l$是某特定关系里的有序关系列表，所以在inference时，给定实体 <img src="https://www.zhihu.com/equation?tex=v_x" alt="v_x"> ，实体y的score等于向量s中的对应y的位置的值。对于推理，给定实体x，实体y的score等于向量s中的对应y的位置的值。</p>
-<p><img src="/Users/dy/Library/Application%20Support/typora-user-images/image-20190305141704458.png" alt="image-20190305141704458"></p>
+<p>其中，l表示所有的可能规则的个数，$\alpha_l$是规则l的置信度，$\beta_l$是某特定关系里的有序关系列表，所以在inference时，给定实体$v_x​$，实体y的score等于向量s中的对应y的位置的值。对于推理，给定实体x，实体y的score等于向量s中的对应y的位置的值。</p>
+<p><img src="https://i.loli.net/2019/03/10/5c85104e2a53b.jpg" alt=""></p>
 <p>所以总结本文关心的优化问题如下：</p>
 <p><img src="https://i.loli.net/2019/03/05/5c7e1568d9ec7.jpg" alt=""></p>
 <h2 id="Learning-the-logical-rules"><a href="#Learning-the-logical-rules" class="headerlink" title="Learning the logical rules"></a>Learning the logical rules</h2><p>在上式的优化问题中，算法需要学习的部分分为两个：一个是规则的结构，即一个规则是由哪些条件组合而成的；另一个是规则的置信度。由于每一条规则的置信度都是依赖于具体的规则形式，而规则结构的组成也是一个离散化的过程，因此上式整体是不可微的。因此作者对前面的式子做了以下更改：<img src="https://i.loli.net/2019/03/05/5c7e160404436.jpg" alt=""></p>
