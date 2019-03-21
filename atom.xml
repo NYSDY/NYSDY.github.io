@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-10T13:25:50.136Z</updated>
+  <updated>2019-03-21T07:04:08.630Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《Interaction Embeddings for Prediction and Explanation》阅读笔记</title>
+    <link href="http://yoursite.com/post/Interaction%20Embeddings%20for%20Prediction%20and%20Explanation/"/>
+    <id>http://yoursite.com/post/Interaction Embeddings for Prediction and Explanation/</id>
+    <published>2019-03-21T06:07:37.000Z</published>
+    <updated>2019-03-21T07:04:08.630Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://www.zora.uzh.ch/id/eprint/162876/1/interaction-embeddings-prediction_merlin_version.pdf" target="_blank" rel="noopener">论文下载地址</a>，此论文主要提出了实体和关系的交互作用对于知识图谱嵌入的影响，和提出了新的嵌入评估方案 - 搜索预测解释。</p></blockquote><a id="more"></a><h2 id="论文贡献"><a href="#论文贡献" class="headerlink" title="论文贡献"></a>论文贡献</h2><ul><li>提出了CrossE，一种通过学习一个交互矩阵来给实体和关系的交互建模的新型知识图谱嵌入。</li><li>我们使用三个基准数据集评估CrossE与链接预测任务上的各种其他KGE的比较，并显示CrossE在具有适度参数大小的复杂且更具挑战性的数据集上实现最先进的结果。</li><li>我们提出了一种新的嵌入评估方案 - 搜索预测解释，并表明CrossE能够生成比其他方法更可靠的解释。 这表明交互嵌入更能在不同的三元组环境中捕捉实体和关系之间的相似性。</li></ul><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>给定知识图谱和一个要预测的三元组的头实体和关系，在预测尾实体的过程中，头实体和关系之间是有交叉交互的crossover interaction, 即关系决定了在预测的过程中哪些头实体的信息是有用的，而对预测有用的头实体的信息又决定了采用什么逻辑去推理出尾实体，文中通过一个模拟的知识图谱进行了说明如下图所示：</p><p><img src="http://image.nysdy.com/20190321155314902217434.png" alt="20190321155314902217434.png"></p><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul><li><a href="http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-interaction-embeddings-for-prediction-and-explanation/" target="_blank" rel="noopener">http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-interaction-embeddings-for-prediction-and-explanation/</a></li></ul><h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p>论文中在这部分对KGE（Knowledge graph embedding）进行了分类总结：</p><ul><li>KGEs with general embeddings</li><li>KGEs with multiple embeddings.</li><li>KGEs that utilize extra information.</li></ul><p>这部分总结中对大量的方法进行描述，可以作为背景知识进行阅读。</p><h2 id="CrossE模型"><a href="#CrossE模型" class="headerlink" title="CrossE模型"></a>CrossE模型</h2><p>基于对头实体和关系之间交叉交互的观察，本文提出了一个新的知识图谱表示学习模型CrossE. CrossE除了学习实体和关系的向量表示，同时还学习了一个交互矩阵C，C与关系相关，并且用于生成实体和关系经过交互之后的向量表示，所以在CrossE中实体和关系不仅仅有通用向量表示，同时还有很多交互向量表示。CrossE核心想法如下图：<img src="http://image.nysdy.com/20190321155314970714298.png" alt="20190321155314970714298.png"></p><p>目标函数粉四步生成：</p><ol><li>Interaction Embedding for Entities：根据头实体向量和交互矩阵（以关系确定的）来确定头实体的交互表示。</li><li>Interaction Embedding for Relations：根据头实体的交互表示和关系作用生成关系的交互表示</li><li>Combination Operator：将头实体的交互表示和关系的交互表示相结合，并进行非线性处理（tanh）</li><li>Similarity Operator：计算结合后表示和尾实体表示之间的相似度。</li></ol><p>最后分数函数：</p><p><img src="http://image.nysdy.com/20190321155315073712112.png" alt="20190321155315073712112.png"></p><p>损失函数：（这里就是一个交叉熵函数，但是写的有问题f(x)项应该在括号外）<img src="http://image.nysdy.com/20190321155315081421205.png" alt="20190321155315081421205.png"></p><h2 id="对于预测的解释"><a href="#对于预测的解释" class="headerlink" title="对于预测的解释"></a>对于预测的解释</h2><p>这部分作者描述了如何生成预测三元组的解释，并介绍了基于嵌入的路径搜索算法，主要步骤如下：</p><ol><li>Search for similar relations：修剪掉不合理路径</li><li>Search for paths between h and t：作者定义了6种路径（班汉一个或两个关系）</li><li>Search similar entities：捕获实体之间的相似性方面越有能力，就越有可能存在（hs，r，ts）</li><li>: Search for similar structures as supports：我们只将知识图中至少有一个支持的路径视为解释。</li></ol><h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><p><img src="http://image.nysdy.com/20190321155315142112584.png" alt="20190321155315142112584.png"></p><h3 id="链接预测"><a href="#链接预测" class="headerlink" title="链接预测"></a>链接预测</h3><p><img src="/Users/dy/Library/Application Support/typora-user-images/image-20190321145750608.png" alt="image-20190321145750608"></p><p><img src="http://image.nysdy.com/20190321155315147862891.png" alt="20190321155315147862891.png"></p><p>从实验结果中我们可以看出，CrossE实现了较好的链接预测结果。我们去除CrossE中的头实体和关系的交叉交互，构造了模型 CrossES，CrossE 和 CrossES 的比较说明了交叉交互的有效性。</p><h3 id="生成解释"><a href="#生成解释" class="headerlink" title="生成解释"></a>生成解释</h3><p>我们提出了一种基于相似结构通过知识图谱的表示学习结果生成预测结果解释的方法，并提出了两种衡量解释结果的指标，AvgSupport和Recall。Recall是指模型能给出解释的预测结果的占比，其介于0和1之间且值越大越好；AvgSupport是模型能给出解释的预测结果的平均support个数，AvgSupport是一个大于0的数且越大越好。可解释的评估结果如下：</p><p><img src="http://image.nysdy.com/2019032115531515625385.png" alt="2019032115531515625385.png"></p><p>链接预测和可解释的实验从两个不同的方面评估了知识图谱表示学习的效果，同时也说明了链接预测的准确性和可解释性没有必然联系，链接预测效果好的模型并不一定能够更好地提供解释，反之亦然。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.zora.uzh.ch/id/eprint/162876/1/interaction-embeddings-prediction_merlin_version.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;，此论文主要提出了实体和关系的交互作用对于知识图谱嵌入的影响，和提出了新的嵌入评估方案 - 搜索预测解释。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
+      <category term="知识图谱嵌入" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%B5%8C%E5%85%A5/"/>
+    
+      <category term="知识图谱推理" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8E%A8%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>《Differentiable Learning of Logical Rules for Knowledge Base Reasoning》阅读笔记</title>
@@ -169,9 +197,9 @@
       <category term="神经网络" scheme="http://yoursite.com/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="LSTM" scheme="http://yoursite.com/tags/LSTM/"/>
-    
       <category term="RNN" scheme="http://yoursite.com/tags/RNN/"/>
+    
+      <category term="LSTM" scheme="http://yoursite.com/tags/LSTM/"/>
     
   </entry>
   
@@ -195,9 +223,9 @@
       <category term="神经网络" scheme="http://yoursite.com/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="LSTM" scheme="http://yoursite.com/tags/LSTM/"/>
-    
       <category term="RNN" scheme="http://yoursite.com/tags/RNN/"/>
+    
+      <category term="LSTM" scheme="http://yoursite.com/tags/LSTM/"/>
     
   </entry>
   
@@ -299,9 +327,9 @@
       <category term="pandas" scheme="http://yoursite.com/categories/pandas/"/>
     
     
-      <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
     
       <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
@@ -470,9 +498,9 @@
     
       <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
     
-      <category term="RNN" scheme="http://yoursite.com/tags/RNN/"/>
-    
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="RNN" scheme="http://yoursite.com/tags/RNN/"/>
     
   </entry>
   
