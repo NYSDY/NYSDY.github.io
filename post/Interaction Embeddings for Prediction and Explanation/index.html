@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="知识图谱,知识图谱嵌入,知识图谱推理," />
+  <meta name="keywords" content="知识图谱,知识图谱推理,知识图谱嵌入," />
 
 
 
@@ -97,7 +97,7 @@
 
 
 <meta name="description" content="论文下载地址，此论文主要提出了实体和关系的交互作用对于知识图谱嵌入的影响，和提出了新的嵌入评估方案 - 搜索预测解释。">
-<meta name="keywords" content="知识图谱,知识图谱嵌入,知识图谱推理">
+<meta name="keywords" content="知识图谱,知识图谱推理,知识图谱嵌入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Interaction Embeddings for Prediction and Explanation》阅读笔记">
 <meta property="og:url" content="http://yoursite.com/post/Interaction Embeddings for Prediction and Explanation/index.html">
@@ -112,7 +112,7 @@
 <meta property="og:image" content="http://yoursite.com/Users/dy/Library/Application%20Support/typora-user-images/image-20190321145750608.png">
 <meta property="og:image" content="http://image.nysdy.com/20190321155315147862891.png">
 <meta property="og:image" content="http://image.nysdy.com/2019032115531515625385.png">
-<meta property="og:updated_time" content="2019-03-21T07:04:08.630Z">
+<meta property="og:updated_time" content="2019-03-25T01:59:25.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Interaction Embeddings for Prediction and Explanation》阅读笔记">
 <meta name="twitter:description" content="论文下载地址，此论文主要提出了实体和关系的交互作用对于知识图谱嵌入的影响，和提出了新的嵌入评估方案 - 搜索预测解释。">
@@ -526,9 +526,6 @@ $(function() {
 </ul>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>给定知识图谱和一个要预测的三元组的头实体和关系，在预测尾实体的过程中，头实体和关系之间是有交叉交互的crossover interaction, 即关系决定了在预测的过程中哪些头实体的信息是有用的，而对预测有用的头实体的信息又决定了采用什么逻辑去推理出尾实体，文中通过一个模拟的知识图谱进行了说明如下图所示：</p>
 <p><img src="http://image.nysdy.com/20190321155314902217434.png" alt="20190321155314902217434.png"></p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-interaction-embeddings-for-prediction-and-explanation/" target="_blank" rel="noopener">http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-interaction-embeddings-for-prediction-and-explanation/</a></li>
-</ul>
 <h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p>论文中在这部分对KGE（Knowledge graph embedding）进行了分类总结：</p>
 <ul>
 <li>KGEs with general embeddings</li>
@@ -561,6 +558,10 @@ $(function() {
 <h3 id="生成解释"><a href="#生成解释" class="headerlink" title="生成解释"></a>生成解释</h3><p>我们提出了一种基于相似结构通过知识图谱的表示学习结果生成预测结果解释的方法，并提出了两种衡量解释结果的指标，AvgSupport和Recall。Recall是指模型能给出解释的预测结果的占比，其介于0和1之间且值越大越好；AvgSupport是模型能给出解释的预测结果的平均support个数，AvgSupport是一个大于0的数且越大越好。可解释的评估结果如下：</p>
 <p><img src="http://image.nysdy.com/2019032115531515625385.png" alt="2019032115531515625385.png"></p>
 <p>链接预测和可解释的实验从两个不同的方面评估了知识图谱表示学习的效果，同时也说明了链接预测的准确性和可解释性没有必然联系，链接预测效果好的模型并不一定能够更好地提供解释，反之亦然。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-interaction-embeddings-for-prediction-and-explanation/" target="_blank" rel="noopener">http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-interaction-embeddings-for-prediction-and-explanation/</a></li>
+</ul>
+<p>## </p>
 
       
     </div>
@@ -590,9 +591,9 @@ $(function() {
           
             <a href="/tags/知识图谱/" rel="tag"><i class="fa fa-tag"></i> 知识图谱</a>
           
-            <a href="/tags/知识图谱嵌入/" rel="tag"><i class="fa fa-tag"></i> 知识图谱嵌入</a>
-          
             <a href="/tags/知识图谱推理/" rel="tag"><i class="fa fa-tag"></i> 知识图谱推理</a>
+          
+            <a href="/tags/知识图谱嵌入/" rel="tag"><i class="fa fa-tag"></i> 知识图谱嵌入</a>
           
         </div>
       
@@ -792,7 +793,7 @@ $(function() {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#论文贡献"><span class="nav-number">1.</span> <span class="nav-text">论文贡献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">3.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关工作"><span class="nav-number">4.</span> <span class="nav-text">相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CrossE模型"><span class="nav-number">5.</span> <span class="nav-text">CrossE模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于预测的解释"><span class="nav-number">6.</span> <span class="nav-text">对于预测的解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">7.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据集"><span class="nav-number">7.1.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接预测"><span class="nav-number">7.2.</span> <span class="nav-text">链接预测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成解释"><span class="nav-number">7.3.</span> <span class="nav-text">生成解释</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#论文贡献"><span class="nav-number">1.</span> <span class="nav-text">论文贡献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关工作"><span class="nav-number">3.</span> <span class="nav-text">相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CrossE模型"><span class="nav-number">4.</span> <span class="nav-text">CrossE模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于预测的解释"><span class="nav-number">5.</span> <span class="nav-text">对于预测的解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">6.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据集"><span class="nav-number">6.1.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接预测"><span class="nav-number">6.2.</span> <span class="nav-text">链接预测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成解释"><span class="nav-number">6.3.</span> <span class="nav-text">生成解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">7.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
