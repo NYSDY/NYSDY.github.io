@@ -43,6 +43,32 @@
   </entry>
   
   <entry>
+    <title>《RelNN A Deep Neural Model for Relational Learning》阅读笔记</title>
+    <link href="http://yoursite.com/post/RelNN%20A%20Deep%20Neural%20Model%20for%20Relational%20Learning/"/>
+    <id>http://yoursite.com/post/RelNN A Deep Neural Model for Relational Learning/</id>
+    <published>2019-03-25T01:34:57.000Z</published>
+    <updated>2019-04-01T02:34:41.280Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://arxiv.org/pdf/1712.02831.pdf" target="_blank" rel="noopener">论文下载地址</a>，这篇文章相当于结合了统计学习和深度神经网络。里面有些公式没有理解，应该是有许多先前论文需要阅读。但是本篇论文扩展了思路如何结合统计学和深度学习，并且基于其余数据来预测一个类中对象的一个属性，想法也比较好。</p></blockquote><a id="more"></a><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>作者主要集中于基于其余数据来预测一个类中对象的一个属性。</p><h2 id="Challenge"><a href="#Challenge" class="headerlink" title="Challenge"></a>Challenge</h2><p>当类中每个对象的属性依赖于不同数量的其他对象的属性和关系时，此问题具有挑战性。 在StarAI社区中，此问题称为聚合（aggregation）。</p><h2 id="Relational-Logistic-Regression-and-Markov-Logic-Networks"><a href="#Relational-Logistic-Regression-and-Markov-Logic-Networks" class="headerlink" title="Relational Logistic Regression and Markov Logic Networks"></a>Relational Logistic Regression and Markov Logic Networks</h2><p>StarAI模型旨在模拟对象之间关系的概率。 </p><h3 id="Relational-logistic-regression-RLR-Kazemi-et-al-2014"><a href="#Relational-logistic-regression-RLR-Kazemi-et-al-2014" class="headerlink" title="Relational logistic regression (RLR) (Kazemi et al. 2014)"></a>Relational logistic regression (RLR) (Kazemi et al. 2014)</h3><p>定义的概率公式如下：</p><p><img src="http://image.nysdy.com/20190327155364804947436.png" alt="20190327155364804947436.png"></p><p>上面定义的RLR模型仅适用于布尔值或多值父项。作者采用的是连续的原子（continuous atoms）（Fatemi, Kazemi, and Poole (2016)）</p><h3 id="Relational-Neural-Networks"><a href="#Relational-Neural-Networks" class="headerlink" title="Relational Neural Networks"></a>Relational Neural Networks</h3><p>作者通过设计神经网络中线性层（LL），激活层（AL）和误差层（EL）的关系对应物，对具有分层架构的RLR / MLN模型进行编码。</p><p>关系神经网络（RelNN）是包含作为图形彼此连接的若干RLL和RAL的结构。</p><p><img src="http://image.nysdy.com/20190327155364863172988.png" alt="20190327155364863172988.png"></p><h2 id="Motivations-for-hidden-layers"><a href="#Motivations-for-hidden-layers" class="headerlink" title="Motivations for hidden layers"></a>Motivations for hidden layers</h2><ul><li>使喜欢看动作电影的人数增加时，男性的概率变为[0, 1]重的任何数值，不至于直接变为0或者1。</li><li>因此，隐藏层通过使模型能够学习通用规则并相应地对对象进行分类，然后以不同方式处理不同类别的对象，从而提高了建模能力。</li><li>使用RLR表示不同类型的现有显式聚合器，然而有些情况需要使用2个RLLs和2个RALs</li></ul><h2 id="Learning-latent-properties-directly"><a href="#Learning-latent-properties-directly" class="headerlink" title="Learning latent properties directly"></a>Learning latent properties directly</h2><p>对象可能包含无法使用常规规则指定的潜在属性，但可以在训练期间直接从数据中学习。</p><p><img src="http://image.nysdy.com/20190327155364936417890.png" alt="20190327155364936417890.png"></p><p>考虑图2中的模型，让Latent（m）成为电影的数字潜在属性，其值将在训练期间学习。</p><h2 id="From-ConvNet-Primitives-to-RelNNs"><a href="#From-ConvNet-Primitives-to-RelNNs" class="headerlink" title="From ConvNet Primitives to RelNNs"></a>From ConvNet Primitives to RelNNs</h2><p>我们解释为什么RelNN也可以被视为ConvNets的一个实例。</p><p>ConvNets的输入矩阵中的单元（例如，图像像素）具有空间相关性和空间冗余：彼此更接近的单元比更远的单元更依赖。 例如，如果M表示图像的输入通道，则M [i，j]和M [i + 1，j + 1]之间的依赖性可能远大于M [i，j]和M [i，j+20]之间的依赖性。</p><p>对于关系数据，输入矩阵中的依赖关系（关系）是不同的：同一行或列中的单元（即同一对象的关系）具有比不同行和列中的单元更高的依赖性（即不同对象的关系）。 因此，为了使ConvNets适应关系数据，我们需要矢量形状的过滤器，这些过滤器对行和列交换是不变的，并且更好地捕获关系依赖性和可交换性假设。</p><p><img src="http://image.nysdy.com/2019032715536511162060.png" alt="2019032715536511162060.png"></p><h2 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h2><h3 id="Movielens-1M-dataset-Harper-and-Konstan-2015"><a href="#Movielens-1M-dataset-Harper-and-Konstan-2015" class="headerlink" title="Movielens 1M dataset (Harper and Konstan 2015)"></a>Movielens 1M dataset (Harper and Konstan 2015)</h3><p>第一个数据集是Movielens 1M dataset (Harper and Konstan 2015)，忽略了实际的评级，只考虑电影是否被评级，只考虑动作和戏剧类型。</p><h3 id="PAKDD15"><a href="#PAKDD15" class="headerlink" title="PAKDD15"></a>PAKDD15</h3><p><a href="https://knowledgepit.fedcsis.org/contest/view.php?id=107" target="_blank" rel="noopener">获取地址</a></p><h3 id="all-Chinese-and-Mexican-restaurants-in-Yelp-dataset-challenge"><a href="#all-Chinese-and-Mexican-restaurants-in-Yelp-dataset-challenge" class="headerlink" title="all Chinese and Mexican restaurants in Yelp dataset challenge"></a>all Chinese and Mexican restaurants in Yelp dataset challenge</h3><p><a href="https://www.yelp.com/dataset_challenge" target="_blank" rel="noopener">获取地址</a></p><h2 id="Empirical-Results"><a href="#Empirical-Results" class="headerlink" title="Empirical Results"></a>Empirical Results</h2><p>作者提出了三个问题来进行实验：</p><h3 id="Q1：RelNN的性能与其他众所周知的关系学习算法相比如何？"><a href="#Q1：RelNN的性能与其他众所周知的关系学习算法相比如何？" class="headerlink" title="Q1：RelNN的性能与其他众所周知的关系学习算法相比如何？"></a>Q1：RelNN的性能与其他众所周知的关系学习算法相比如何？</h3><p><img src="http://image.nysdy.com/20190327155365126319780.png" alt="20190327155365126319780.png"></p><h3 id="Q2：基于数字和规则的潜在属性如何影响RelNN的性能"><a href="#Q2：基于数字和规则的潜在属性如何影响RelNN的性能" class="headerlink" title="Q2：基于数字和规则的潜在属性如何影响RelNN的性能?"></a>Q2：基于数字和规则的潜在属性如何影响RelNN的性能?</h3><p>更改了RelNN中隐藏图层和数字潜在属性的数量，以查看它们如何影响性能。</p><p><img src="http://image.nysdy.com/20190327155365168099042.png" alt="20190327155365168099042.png"></p><p>请注意，添加图层只会添加一定数量的参数，但添加k个数字潜在属性会增加k * |Δm|参数。</p><h3 id="Q3：RelNN如何推断出看不见的案例并解决指向的规模大小问题-（Poole-et-al-2014）"><a href="#Q3：RelNN如何推断出看不见的案例并解决指向的规模大小问题-（Poole-et-al-2014）" class="headerlink" title="Q3：RelNN如何推断出看不见的案例并解决指向的规模大小问题 （Poole et al.2014）?"></a>Q3：RelNN如何推断出看不见的案例并解决指向的规模大小问题 （Poole et al.2014）?</h3><p>作者实施了两个实验：</p><ul><li>我们在大量数据中训练一个RelNN，并在一小数据上进行测试：该实验可以看作每个模型受冷启动问题的严重程度</li><li>然后我们在一小数据上训练一个RelNN并在一大数据上进行测试：可以看作这些模型对更大群体的推断</li></ul><p><img src="http://image.nysdy.com/20190327155365190971381.png" alt="20190327155365190971381.png"></p><h2 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h2><p>作者将从数据中自动学习这些结构的问题留作未来的工作。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://arxiv.org/pdf/1712.02831.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;，这篇文章相当于结合了统计学习和深度神经网络。里面有些公式没有理解，应该是有许多先前论文需要阅读。但是本篇论文扩展了思路如何结合统计学和深度学习，并且基于其余数据来预测一个类中对象的一个属性，想法也比较好。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="关系抽取" scheme="http://yoursite.com/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/"/>
+    
+      <category term="统计学习" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《Interaction Embeddings for Prediction and Explanation》阅读笔记</title>
     <link href="http://yoursite.com/post/Interaction%20Embeddings%20for%20Prediction%20and%20Explanation/"/>
     <id>http://yoursite.com/post/Interaction Embeddings for Prediction and Explanation/</id>
@@ -527,34 +553,6 @@
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="RNN" scheme="http://yoursite.com/tags/RNN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ontology reasoning with deep neural networks</title>
-    <link href="http://yoursite.com/post/essay/"/>
-    <id>http://yoursite.com/post/essay/</id>
-    <published>2018-09-29T08:29:49.000Z</published>
-    <updated>2018-10-02T07:13:58.996Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Ontology-reasoning-with-deep-neural-networks（基于深度神经网络的本体推理）"><a href="#Ontology-reasoning-with-deep-neural-networks（基于深度神经网络的本体推理）" class="headerlink" title="Ontology reasoning with deep neural networks（基于深度神经网络的本体推理）"></a>Ontology reasoning with deep neural networks（基于深度神经网络的本体推理）</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote><p>本论文属于知识图谱的下游任务，也就是知识图谱的应用的一个例子。这篇论文的方法根据作者描述RRN是第一个基于深度学习的全面本体推理方法。</p></blockquote><a id="more"></a><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>获得一个可以在不同的场景进行有效推理的模</p><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>基于机器学习的推理文章通常假设了一个特定的应用案例：自然语言或视觉输入的推理。<br>作者采用一个不同的方法：将正式的推理问题作为起点。<br>对于特定的问题选择：选择一种在表现力与另一方面复杂性之间取得适当平衡的方法通常是明智的。<br>OWL RL<br>本体推理是指一种常见的场景，在这种场景中，用于推理的推理规则（在此上下文中称为本体）与我们寻求推理的事实信息一起指定。  </p><p>本体推理是一种非常灵活的工具，它允许对大量不同的场景进行建模，因此满足了我们对适用于各种应用的系统的需求。<br>==首先引出了什么是本质推理，然后进一步阐述为什么要用机器学习==</p><p>今天用于推理的大多数KRR形式都植根于符号逻辑,这些方法在实践中会遇到许多问题：例如处理不完整，冲突或不确定数据的困难<br>机器学习模型通常具有高度可扩展性，更能抵抗数据中的干扰，并且即使所提供的形式是错误的也能够提供预测。</p><p><strong>作者的目标是通过采用尖端的深度学习技术，目标是在近似于形式方法的高度期望（理论）属性和另一方面利用机器学习的稳健性之间管理平衡行为。</strong>  </p><p>对于用于推理的知识图谱：作者采用的是由个体、类和二元关系组成的信息构成，其中个体对应于顶点，关系对应于被标记的有向边缘，类对应于二进制顶点标签。关系是主体和客体之间的关系或者个人和类之间的关系。这与关系学习不同：在关系学习的背景下，知识图通常通过将类视为个人以及将成员视为普通关系来简化。然而，就作者的目的而言，明确区分类和关系是很重要的，因为在用于推理的知识图谱中类和关系可能不同。  </p><h3 id="模型总览"><a href="#模型总览" class="headerlink" title="模型总览"></a>模型总览</h3><p><img src="https://i.loli.net/2018/09/04/5b8e474079995.jpg" alt=""><br>整个模型是以RRN为基础进行构建的，每个RRN都针对特定的本体进行训练。当训练模型应用于一组特定的事实时，它分为如下两个步骤：</p><ol><li>它为所有的步骤生成矢量表示，也就是嵌入在所考虑数据中出现的个体。</li><li>它仅基于这些生成向量计算查询预测</li></ol><p>在图中，</p><ul><li>a中它考虑一个事实三元组，并根据数据集重复多次。</li><li>b中它每读取一个事实就获取三元组中的个体潜入，并将他们的反馈送入更新层，该层产生已提供的嵌入的更新版本，然后将其存储在前一个版本的位置。 </li><li>c中从随机生成的向量开始，逐步更新嵌入，以便对关于它们所代表的个体的事实和推论进行编码。</li></ul><h3 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h3><p>作者在四个不同的数据集上训练和评估了RRN，其中两个是人工生成的玩具数据集，两个是从现实世界的数据库中提取的。这样做的原因：</p><ol><li>玩具问题具有很大的优势，即很明显某些推论是多么困难，从而为我们提供了对模型能力的相当好的印象。</li><li>在现实环境中评估方法当然是性能不可或缺的衡量标准</li></ol><p>作者为了评估真实世界数据的RRN模型，还从从两个著名的知识库DBpedia和Claros中提取了数据集。</p><h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p><img src="https://i.loli.net/2018/09/04/5b8e6d1edbfdc.jpg" alt=""></p><ol><li>RRN能够有效地编码提供的关于类和关系的事实</li><li>对于关系的推理，可以看到DBpedia的准确度略低于98.9％，而其他数据集中的可导出关系在所有情况中至少99.6％被正确预测。</li><li>可以预测该模型在预测可推断类别方面比在关系方面表现更好，因为大多数这些都是仅依赖于单个三元组的推论。  </li></ol><p>为了评估作者提出的KRR方法常常遇到的问题，作者进行了如下实验：</p><ol><li>对于缺少信息的问题，作者随机删除了一个无法通过每个样本的符号推理推断出的事实，并检查模型是否能够正确地重建它。结果：对于DBpedia来说，33.8％的失踪三元组就是这种情况，而对于Claros来说，38.4％被正确预测</li><li>对于冲突的问题，作者通过在每个测试样本中随机选择一个事实来测试模型解决冲突的能力，并添加相同的否定版本作为另一个事实。对于DBpedia，RRN正确解决了88.4％的引入冲突，而对于Claros，它甚至达到了96.2％。然而，最重要的是，对于任何一个损坏的数据集，之前报告的总精度都没有下降超过0.9。</li></ol><p>所有RRN的查询预测都完全基于它为各个数据集中的个体生成的嵌入，这就是为什么仔细研究这样一组嵌入向量是有益的。</p><h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>本论文属于知识图谱的下游任务，也就是知识图谱的应用的一个例子。这篇论文的方法根据作者描述RRN是第一个基于深度学习的全面本体推理方法。但是具体的操作方法论文中写的比较清晰，感觉自己是理解了。重点就是对于个体的嵌入表示，如果类比的话就是词向量，作者通过不断的处理更新这个词向量，最后通过所获的词向量进行推理。并且从这篇文章中可以看到作者使用的知识图谱和我之前在弄的关系三元组有所区别。</p><h3 id="论文下载链接"><a href="#论文下载链接" class="headerlink" title="论文下载链接"></a><a href="https://arxiv.org/abs/1808.07980" target="_blank" rel="noopener">论文下载链接</a></h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Ontology-reasoning-with-deep-neural-networks（基于深度神经网络的本体推理）&quot;&gt;&lt;a href=&quot;#Ontology-reasoning-with-deep-neural-networks（基于深度神经网络的本体推理）&quot; class=&quot;headerlink&quot; title=&quot;Ontology reasoning with deep neural networks（基于深度神经网络的本体推理）&quot;&gt;&lt;/a&gt;Ontology reasoning with deep neural networks（基于深度神经网络的本体推理）&lt;/h1&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;本论文属于知识图谱的下游任务，也就是知识图谱的应用的一个例子。这篇论文的方法根据作者描述RRN是第一个基于深度学习的全面本体推理方法。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="Ontology" scheme="http://yoursite.com/tags/Ontology/"/>
-    
-      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
     
   </entry>
   

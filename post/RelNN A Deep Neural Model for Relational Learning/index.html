@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="关系抽取,统计学习," />
 
 
 
@@ -103,13 +103,26 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="NYSDY">
-<meta property="og:url" content="http://yoursite.com/tags/深度学习/index.html">
+<meta name="description" content="论文下载地址，这篇文章相当于结合了统计学习和深度神经网络。里面有些公式没有理解，应该是有许多先前论文需要阅读。但是本篇论文扩展了思路如何结合统计学和深度学习，并且基于其余数据来预测一个类中对象的一个属性，想法也比较好。">
+<meta name="keywords" content="关系抽取,统计学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《RelNN A Deep Neural Model for Relational Learning》阅读笔记">
+<meta property="og:url" content="http://yoursite.com/post/RelNN A Deep Neural Model for Relational Learning/index.html">
 <meta property="og:site_name" content="NYSDY">
+<meta property="og:description" content="论文下载地址，这篇文章相当于结合了统计学习和深度神经网络。里面有些公式没有理解，应该是有许多先前论文需要阅读。但是本篇论文扩展了思路如何结合统计学和深度学习，并且基于其余数据来预测一个类中对象的一个属性，想法也比较好。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://image.nysdy.com/20190327155364804947436.png">
+<meta property="og:image" content="http://image.nysdy.com/20190327155364863172988.png">
+<meta property="og:image" content="http://image.nysdy.com/20190327155364936417890.png">
+<meta property="og:image" content="http://image.nysdy.com/2019032715536511162060.png">
+<meta property="og:image" content="http://image.nysdy.com/20190327155365126319780.png">
+<meta property="og:image" content="http://image.nysdy.com/20190327155365168099042.png">
+<meta property="og:image" content="http://image.nysdy.com/20190327155365190971381.png">
+<meta property="og:updated_time" content="2019-04-01T02:34:41.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NYSDY">
+<meta name="twitter:title" content="《RelNN A Deep Neural Model for Relational Learning》阅读笔记">
+<meta name="twitter:description" content="论文下载地址，这篇文章相当于结合了统计学习和深度神经网络。里面有些公式没有理解，应该是有许多先前论文需要阅读。但是本篇论文扩展了思路如何结合统计学和深度学习，并且基于其余数据来预测一个类中对象的一个属性，想法也比较好。">
+<meta name="twitter:image" content="http://image.nysdy.com/20190327155364804947436.png">
 
 
 
@@ -138,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/深度学习/"/>
+  <link rel="canonical" href="http://yoursite.com/post/RelNN A Deep Neural Model for Relational Learning/"/>
 
 
 
 
 
-  <title>标签: 深度学习 | NYSDY</title>
+  <title>《RelNN A Deep Neural Model for Relational Learning》阅读笔记 | NYSDY</title>
   
 
 
@@ -255,7 +268,7 @@ $(function() {
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
     <a href="https://github.com/NYSDY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -393,54 +406,236 @@ $(function() {
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>深度学习<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/RelNN A Deep Neural Model for Relational Learning/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NYSDY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i.loli.net/2018/09/24/5ba86696be366.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NYSDY">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/post/essay/" itemprop="url">
-              
-                <span itemprop="name">Ontology reasoning with deep neural networks</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">《RelNN A Deep Neural Model for Relational Learning》阅读笔记</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-29T16:29:49+08:00"
-              content="2018-09-29" >
-          09-29
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T09:34:57+08:00">
+                2019-03-25
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文阅读笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/post/RelNN A Deep Neural Model for Relational Learning/" class="leancloud_visitors" data-flag-title="《RelNN A Deep Neural Model for Relational Learning》阅读笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="https://arxiv.org/pdf/1712.02831.pdf" target="_blank" rel="noopener">论文下载地址</a>，这篇文章相当于结合了统计学习和深度神经网络。里面有些公式没有理解，应该是有许多先前论文需要阅读。但是本篇论文扩展了思路如何结合统计学和深度学习，并且基于其余数据来预测一个类中对象的一个属性，想法也比较好。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>作者主要集中于基于其余数据来预测一个类中对象的一个属性。</p>
+<h2 id="Challenge"><a href="#Challenge" class="headerlink" title="Challenge"></a>Challenge</h2><p>当类中每个对象的属性依赖于不同数量的其他对象的属性和关系时，此问题具有挑战性。 在StarAI社区中，此问题称为聚合（aggregation）。</p>
+<h2 id="Relational-Logistic-Regression-and-Markov-Logic-Networks"><a href="#Relational-Logistic-Regression-and-Markov-Logic-Networks" class="headerlink" title="Relational Logistic Regression and Markov Logic Networks"></a>Relational Logistic Regression and Markov Logic Networks</h2><p>StarAI模型旨在模拟对象之间关系的概率。 </p>
+<h3 id="Relational-logistic-regression-RLR-Kazemi-et-al-2014"><a href="#Relational-logistic-regression-RLR-Kazemi-et-al-2014" class="headerlink" title="Relational logistic regression (RLR) (Kazemi et al. 2014)"></a>Relational logistic regression (RLR) (Kazemi et al. 2014)</h3><p>定义的概率公式如下：</p>
+<p><img src="http://image.nysdy.com/20190327155364804947436.png" alt="20190327155364804947436.png"></p>
+<p>上面定义的RLR模型仅适用于布尔值或多值父项。作者采用的是连续的原子（continuous atoms）（Fatemi, Kazemi, and Poole (2016)）</p>
+<h3 id="Relational-Neural-Networks"><a href="#Relational-Neural-Networks" class="headerlink" title="Relational Neural Networks"></a>Relational Neural Networks</h3><p>作者通过设计神经网络中线性层（LL），激活层（AL）和误差层（EL）的关系对应物，对具有分层架构的RLR / MLN模型进行编码。</p>
+<p>关系神经网络（RelNN）是包含作为图形彼此连接的若干RLL和RAL的结构。</p>
+<p><img src="http://image.nysdy.com/20190327155364863172988.png" alt="20190327155364863172988.png"></p>
+<h2 id="Motivations-for-hidden-layers"><a href="#Motivations-for-hidden-layers" class="headerlink" title="Motivations for hidden layers"></a>Motivations for hidden layers</h2><ul>
+<li>使喜欢看动作电影的人数增加时，男性的概率变为[0, 1]重的任何数值，不至于直接变为0或者1。</li>
+<li>因此，隐藏层通过使模型能够学习通用规则并相应地对对象进行分类，然后以不同方式处理不同类别的对象，从而提高了建模能力。</li>
+<li>使用RLR表示不同类型的现有显式聚合器，然而有些情况需要使用2个RLLs和2个RALs</li>
+</ul>
+<h2 id="Learning-latent-properties-directly"><a href="#Learning-latent-properties-directly" class="headerlink" title="Learning latent properties directly"></a>Learning latent properties directly</h2><p>对象可能包含无法使用常规规则指定的潜在属性，但可以在训练期间直接从数据中学习。</p>
+<p><img src="http://image.nysdy.com/20190327155364936417890.png" alt="20190327155364936417890.png"></p>
+<p>考虑图2中的模型，让Latent（m）成为电影的数字潜在属性，其值将在训练期间学习。</p>
+<h2 id="From-ConvNet-Primitives-to-RelNNs"><a href="#From-ConvNet-Primitives-to-RelNNs" class="headerlink" title="From ConvNet Primitives to RelNNs"></a>From ConvNet Primitives to RelNNs</h2><p>我们解释为什么RelNN也可以被视为ConvNets的一个实例。</p>
+<p>ConvNets的输入矩阵中的单元（例如，图像像素）具有空间相关性和空间冗余：彼此更接近的单元比更远的单元更依赖。 例如，如果M表示图像的输入通道，则M [i，j]和M [i + 1，j + 1]之间的依赖性可能远大于M [i，j]和M [i，j+20]之间的依赖性。</p>
+<p>对于关系数据，输入矩阵中的依赖关系（关系）是不同的：同一行或列中的单元（即同一对象的关系）具有比不同行和列中的单元更高的依赖性（即不同对象的关系）。 因此，为了使ConvNets适应关系数据，我们需要矢量形状的过滤器，这些过滤器对行和列交换是不变的，并且更好地捕获关系依赖性和可交换性假设。</p>
+<p><img src="http://image.nysdy.com/2019032715536511162060.png" alt="2019032715536511162060.png"></p>
+<h2 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h2><h3 id="Movielens-1M-dataset-Harper-and-Konstan-2015"><a href="#Movielens-1M-dataset-Harper-and-Konstan-2015" class="headerlink" title="Movielens 1M dataset (Harper and Konstan 2015)"></a>Movielens 1M dataset (Harper and Konstan 2015)</h3><p>第一个数据集是Movielens 1M dataset (Harper and Konstan 2015)，忽略了实际的评级，只考虑电影是否被评级，只考虑动作和戏剧类型。</p>
+<h3 id="PAKDD15"><a href="#PAKDD15" class="headerlink" title="PAKDD15"></a>PAKDD15</h3><p><a href="https://knowledgepit.fedcsis.org/contest/view.php?id=107" target="_blank" rel="noopener">获取地址</a></p>
+<h3 id="all-Chinese-and-Mexican-restaurants-in-Yelp-dataset-challenge"><a href="#all-Chinese-and-Mexican-restaurants-in-Yelp-dataset-challenge" class="headerlink" title="all Chinese and Mexican restaurants in Yelp dataset challenge"></a>all Chinese and Mexican restaurants in Yelp dataset challenge</h3><p><a href="https://www.yelp.com/dataset_challenge" target="_blank" rel="noopener">获取地址</a></p>
+<h2 id="Empirical-Results"><a href="#Empirical-Results" class="headerlink" title="Empirical Results"></a>Empirical Results</h2><p>作者提出了三个问题来进行实验：</p>
+<h3 id="Q1：RelNN的性能与其他众所周知的关系学习算法相比如何？"><a href="#Q1：RelNN的性能与其他众所周知的关系学习算法相比如何？" class="headerlink" title="Q1：RelNN的性能与其他众所周知的关系学习算法相比如何？"></a>Q1：RelNN的性能与其他众所周知的关系学习算法相比如何？</h3><p><img src="http://image.nysdy.com/20190327155365126319780.png" alt="20190327155365126319780.png"></p>
+<h3 id="Q2：基于数字和规则的潜在属性如何影响RelNN的性能"><a href="#Q2：基于数字和规则的潜在属性如何影响RelNN的性能" class="headerlink" title="Q2：基于数字和规则的潜在属性如何影响RelNN的性能?"></a>Q2：基于数字和规则的潜在属性如何影响RelNN的性能?</h3><p>更改了RelNN中隐藏图层和数字潜在属性的数量，以查看它们如何影响性能。</p>
+<p><img src="http://image.nysdy.com/20190327155365168099042.png" alt="20190327155365168099042.png"></p>
+<p>请注意，添加图层只会添加一定数量的参数，但添加k个数字潜在属性会增加k * |Δm|参数。</p>
+<h3 id="Q3：RelNN如何推断出看不见的案例并解决指向的规模大小问题-（Poole-et-al-2014）"><a href="#Q3：RelNN如何推断出看不见的案例并解决指向的规模大小问题-（Poole-et-al-2014）" class="headerlink" title="Q3：RelNN如何推断出看不见的案例并解决指向的规模大小问题 （Poole et al.2014）?"></a>Q3：RelNN如何推断出看不见的案例并解决指向的规模大小问题 （Poole et al.2014）?</h3><p>作者实施了两个实验：</p>
+<ul>
+<li>我们在大量数据中训练一个RelNN，并在一小数据上进行测试：该实验可以看作每个模型受冷启动问题的严重程度</li>
+<li>然后我们在一小数据上训练一个RelNN并在一大数据上进行测试：可以看作这些模型对更大群体的推断</li>
+</ul>
+<p><img src="http://image.nysdy.com/20190327155365190971381.png" alt="20190327155365190971381.png"></p>
+<h2 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h2><p>作者将从数据中自动学习这些结构的问题留作未来的工作。</p>
 
       
     </div>
+    
+    
+    
 
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/关系抽取/" rel="tag"><i class="fa fa-tag"></i> 关系抽取</a>
+          
+            <a href="/tags/统计学习/" rel="tag"><i class="fa fa-tag"></i> 统计学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/Interaction Embeddings for Prediction and Explanation/" rel="next" title="《Interaction Embeddings for Prediction and Explanation》阅读笔记">
+                <i class="fa fa-chevron-left"></i> 《Interaction Embeddings for Prediction and Explanation》阅读笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/Entity Alignment between Knowledge Graphs Using Attribute Embeddings/" rel="prev" title="《Entity Alignment between Knowledge Graphs Using Attribute Embeddings》阅读笔记">
+                《Entity Alignment between Knowledge Graphs Using Attribute Embeddings》阅读笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -448,6 +643,10 @@ $(function() {
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -468,8 +667,17 @@ $(function() {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://i.loli.net/2018/09/24/5ba86696be366.jpg"
@@ -576,6 +784,22 @@ $(function() {
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Challenge"><span class="nav-number">2.</span> <span class="nav-text">Challenge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relational-Logistic-Regression-and-Markov-Logic-Networks"><span class="nav-number">3.</span> <span class="nav-text">Relational Logistic Regression and Markov Logic Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Relational-logistic-regression-RLR-Kazemi-et-al-2014"><span class="nav-number">3.1.</span> <span class="nav-text">Relational logistic regression (RLR) (Kazemi et al. 2014)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Relational-Neural-Networks"><span class="nav-number">3.2.</span> <span class="nav-text">Relational Neural Networks</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Motivations-for-hidden-layers"><span class="nav-number">4.</span> <span class="nav-text">Motivations for hidden layers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-latent-properties-directly"><span class="nav-number">5.</span> <span class="nav-text">Learning latent properties directly</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#From-ConvNet-Primitives-to-RelNNs"><span class="nav-number">6.</span> <span class="nav-text">From ConvNet Primitives to RelNNs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Datasets"><span class="nav-number">7.</span> <span class="nav-text">Datasets</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Movielens-1M-dataset-Harper-and-Konstan-2015"><span class="nav-number">7.1.</span> <span class="nav-text">Movielens 1M dataset (Harper and Konstan 2015)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PAKDD15"><span class="nav-number">7.2.</span> <span class="nav-text">PAKDD15</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#all-Chinese-and-Mexican-restaurants-in-Yelp-dataset-challenge"><span class="nav-number">7.3.</span> <span class="nav-text">all Chinese and Mexican restaurants in Yelp dataset challenge</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Empirical-Results"><span class="nav-number">8.</span> <span class="nav-text">Empirical Results</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Q1：RelNN的性能与其他众所周知的关系学习算法相比如何？"><span class="nav-number">8.1.</span> <span class="nav-text">Q1：RelNN的性能与其他众所周知的关系学习算法相比如何？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q2：基于数字和规则的潜在属性如何影响RelNN的性能"><span class="nav-number">8.2.</span> <span class="nav-text">Q2：基于数字和规则的潜在属性如何影响RelNN的性能?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q3：RelNN如何推断出看不见的案例并解决指向的规模大小问题-（Poole-et-al-2014）"><span class="nav-number">8.3.</span> <span class="nav-text">Q3：RelNN如何推断出看不见的案例并解决指向的规模大小问题 （Poole et al.2014）?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Future"><span class="nav-number">9.</span> <span class="nav-text">Future</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -716,10 +940,10 @@ $(function() {
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
