@@ -21,8 +21,8 @@
       </categories>
       <tags>
         <tag>知识图谱</tag>
-        <tag>知识图谱推理</tag>
         <tag>知识图谱嵌入</tag>
+        <tag>知识图谱推理</tag>
       </tags>
   </entry>
   <entry>
@@ -46,8 +46,8 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>知识图谱</tag>
         <tag>Ontology</tag>
+        <tag>知识图谱</tag>
         <tag>freebase</tag>
       </tags>
   </entry>
@@ -152,8 +152,8 @@
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>python</tag>
+        <tag>pandas</tag>
         <tag>数据分析</tag>
       </tags>
   </entry>
@@ -165,8 +165,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>爬虫</tag>
+        <tag>python</tag>
         <tag>scrapy</tag>
       </tags>
   </entry>
@@ -178,8 +178,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>爬虫</tag>
+        <tag>python</tag>
         <tag>splash</tag>
         <tag>docker</tag>
       </tags>
@@ -243,9 +243,9 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>知识图谱</tag>
         <tag>深度学习</tag>
         <tag>Ontology</tag>
+        <tag>知识图谱</tag>
       </tags>
   </entry>
   <entry>

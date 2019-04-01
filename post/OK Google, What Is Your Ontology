@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="知识图谱,Ontology,freebase," />
+  <meta name="keywords" content="Ontology,知识图谱,freebase," />
 
 
 
@@ -97,7 +97,7 @@
 
 
 <meta name="description" content="本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。论文下载地址">
-<meta name="keywords" content="知识图谱,Ontology,freebase">
+<meta name="keywords" content="Ontology,知识图谱,freebase">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《OK Google, What Is Your Ontology? Or&#x2F; Exploring Freebase Classification to Understand Google’s Knowledge Graph？》阅读笔记">
 <meta property="og:url" content="http://yoursite.com/post/OK Google, What Is Your Ontology">
@@ -581,9 +581,9 @@ $(function() {
       
         <div class="post-tags">
           
-            <a href="/tags/知识图谱/" rel="tag"><i class="fa fa-tag"></i> 知识图谱</a>
-          
             <a href="/tags/Ontology/" rel="tag"><i class="fa fa-tag"></i> Ontology</a>
+          
+            <a href="/tags/知识图谱/" rel="tag"><i class="fa fa-tag"></i> 知识图谱</a>
           
             <a href="/tags/freebase/" rel="tag"><i class="fa fa-tag"></i> freebase</a>
           
