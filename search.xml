@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[《Bootstrapping Entity Alignment with Knowledge Graph Embedding》阅读笔记]]></title>
+    <url>%2Fpost%2FBootstrapping%20Entity%20Alignment%20with%20Knowledge%20Graph%20Embedding%2F</url>
+    <content type="text"><![CDATA[论文下载地址，采用了bootstrapping方法来解决缺乏训练数据的过程，提出了截断均匀负采样来提高负样例对于目标函数的贡献，采用基于限制的目标函数来按需调整正负样例的得分。 基于嵌入的实体对齐将不同的知识图谱（KG）表示为低维嵌入，并通过测量实体嵌入之间的相似性来查找实体对齐。其中，大量方法所面临的一个挑战是：缺乏足够的先前对齐作为标记的训练数据。 贡献 作者把实体对齐建模为一个分类问题，其基于KG嵌入来寻求最大化所有标记和未标记的实体对齐可能性 对于面向对齐的KG嵌入，作者提出了一种基于限制的目标函数；为了对不太可能区分的负三元组进行抽样，作者提出了一种截断均匀的负抽样方法。 作者提出了一个自举过程（bootstrapping）来克服缺乏足够训练数据，通过标记可能的对齐并迭代地将其添加到训练数据中来更新面向对齐的嵌入。 作者在三个跨语言和两个大型数据集上评估了所提出的方法，表明所提出的方法明显优于三种最先进的实体对齐方法。 问题描述最大似然准则指导选择实现最高对齐可能性的最佳θ 其中，L_x代表实体x的真实标签，1_[]是一个指示函数，表示给定命题的真值（0或1）。但是对于没有标签的实体，想要通过上述来得到theta就很困难。 模型面向对齐的KG嵌入作者提出了一个目标函数： 该目标函数有两个期望的属性： 预期正三元组得分较低，而负三元组得分较高。例如f(r)&lt;= r_1 并且 f(r’)&gt;=r_2，设置时r_2&gt;r_1,且r_1是一个小的正值。 仍然可以得到f(r’)-f(r)&gt;=r_2 - r_1，这表明所提出的目标函数仍然保留了基于边际排序损失的特征。 截断均匀负采样如果样例太容易区分，那么对整个的嵌入学习的贡献会很小。 所以，作者采用在嵌入空间中s最近的邻居作为候选集，剔除那些和实体x相似度过低的数据。 引导对齐（Bootstrapping Alignment）作者迭代地将可能的对齐标记作为训练数据，并使用它来进一步改进实体嵌入和对齐。 可能的对齐标签和编辑作者为了实现最大化对齐可能性并遵守一对一对齐约束，提出以下优化问题来标记第t次迭代： Y’_x = {y|y ∈ Y’ and π(y|x; Θ^(t)) &gt; γ3}代表标签x的候选集；ψ^(t)(·)是一个指示函数，只有当x在第t次迭代时标签为y时为1，其它情况为0。两个限制条件保证了一对一的标签。这时得到了一个新的标签对齐： 为了提高标签质量并满足一对一的对齐约束，在自举过程中，一旦被标记的实体可以在随后的标记中重新标记或变为未标记的实体。 当发生两个标签冲突时，我们通过计算下面的似然差异来确定保留哪个： 当该值大于0说明前者具有更大的对齐概率。 从整体角度学习为了获得标记和未标记实体的整理观察，作者定义了概率分布φx来描述所有x可能的概率分布。 由此，作者得到了最小化下面的似然函数来得到Θ： 因为，嵌入不仅应该捕获对齐可能性，还应该模拟KG的语义，所以作者最后定义联合目标函数： 实验数据集 DBP15K [Sun et al., 2017]包含三个跨语言数据集，这些数据集是从DBpedia的多语言版本构建的。DBPZH-EN(Chinese to English), DBPJA-EN(Japanese to English) and DBPFR-EN(French to English)每个数据集包含15，000个参考实体对齐。 DWY100K包含从DBpedia，Wikidata和YAGO3中提取的两个大型数据集，由DBP-WD和DBP-YG表示。 每个数据集都有10万个参考实体对齐 实验设置作者选取了三种最先进的基于嵌入的方法来实现实体对齐。 MTransE [Chen et al., 2017]，选取了第四种变体（表现最佳）。 IPTransE[Zhu et al., 2017]是一个迭代方法 JAPE [Sun et al., 2017]结合了实体对齐的关系和属性嵌入 AlignE面向对齐的KG嵌入模型的实现，具有截断的均匀负采样和参数交换，它优化了公式（3），但是没有自举 实验结果表2中我们观察到AlignE明显优于MTransE，IPTransE和JAPE，因为它采用面向对齐的嵌入。而BootEA显着改善了AlignE的结果，表明了自举的良好性能是由于其能够准确地将可能的对齐标记为训练数据。 分析截断均匀负抽样的有效性从图中可以看出，与MTransE，IPTransE和JAPE相比，具有均匀负采样的AlignE仍然获得了优异的结果，并且随着采样离x更加接近，效果呈上升趋势。 可能对齐的准确性可以看到以作者的标记方法S3表现最佳。这些结果证实作者的方法可以保证使用未标记数据的安全性。 对先前对准比例的敏感性 正如预期的那样，随着比例的增加，所有五个数据集的结果都变得更好，因为更多的先前对齐可以提供更多信息来对齐两个KG。 F1-score w.r.t. 关系三元数的分布 BootEA在所有时间间隔都优于MTransE，IPTransE和JAPE，这再次证实了BootEA的有效性。而且BootEA可以在稀疏数据上取得有希望的结果。]]></content>
+      <categories>
+        <category>论文阅读笔记</category>
+      </categories>
+      <tags>
+        <tag>知识图谱</tag>
+        <tag>知识图谱嵌入</tag>
+        <tag>实体对齐</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[《Entity Alignment between Knowledge Graphs Using Attribute Embeddings》阅读笔记]]></title>
     <url>%2Fpost%2FEntity%20Alignment%20between%20Knowledge%20Graphs%20Using%20Attribute%20Embeddings%2F</url>
     <content type="text"><![CDATA[论文下载地址，知识图之间的实体对齐的任务旨在在代表相同现实世界实体的两个知识图中找到实体。本文最主要就是提出了属性字符嵌入(attribute character embeddings)的方法。 Abstract我们的模型利用知识图中存在的大量属性三元组(attribute triples)并生成属性字符嵌入。 属性字符嵌入(attribute character embeddings)通过基于实体的属性计算实体之间的相似性，将实体嵌入从两个知识图移位到同一空间中。我们使用传递规则来进一步丰富实体的属性数量以增强属性字符嵌入。 Contribution 提出了两个KG之间实体对齐的框架，它由谓词对齐模块，嵌入学习模块和实体对齐模块组成。 提出了一种新颖的嵌入模型，它将实体嵌入与属性嵌入集成在一起，以便为两个KG学习统一的嵌入空间。 我们在三个真正的KG对上评估建议的模型。结果表明，我们的模型在实体对齐任务上始终优于最先进的模型，hits@1超过50％。 模型模型总览predicate alignment, embedding learning, and entity alignment Predicate Alignment谓词对齐模块通过使用统一的命名方案重命名两个KG的谓词来合并两个KG，以便为关系嵌入提供统一的向量空间。dbp:bornIn vs. yago:wasBornIn 统一命名为 :bornIn。 为了找到部分匹配的谓词，作者计算谓词URI的最后部分的编辑距离（例如，bornIn与wasBornIn）并将0.95设置为相似性阈值。 Embedding LearningStructure Embedding作者采用TransE来学习对于实体的结构嵌入。与TransE不同的是，模型希望更关注已对齐的三元组，也就是包含对齐谓词的三元组。模型通过添加权重来实现这一目的。Structure embedding的目标函数如下： count(r)是关系r出现的数量。 Attribute Character Embedding对于属性字符嵌入，也参考TransE的思想，将谓词r解释为从头部实体h到属性a的转换。但是，相同的属性a可以在两个KG中以不同的形式出现，例如50.9989对50.9988888889作为实体的纬度; “Barack Obama”与“Barack Hussein Obama”作为人名等。因此，本文提出使用组合函数对属性值进行编码，并将属性三元组中每个元素的关系定义为h +r≈fa（a）。 这里，fa（a）是组合函数，a是属性值a = {c1，c2，c3，…，ct}的字符序列。 组合函数将属性值编码为单个向量，并将类似的属性值映射到类似的向量表示。 作者定义了三个组成函数如下。 Sum compositional function (SUM)存在问题：包含相同字符不同顺序的属性值会有相同的向量表示 LSTM-based compositional function (LSTM). N-gram-based compositional function (N-gram) 最后attribute character embedding目标函数： Joint Learning of Structure Embedding and Attribute Character Embedding作者使用属性字符嵌入通过最小化以下目标函数将结构嵌入移动到相同的向量空间： 本文整体损失函数： Entity Alignment在经过上述训练过程之后，来自不同KG的相似的实体将会有相似的向量表示，因此可通过 获得潜在实体对齐对&lt;h_1, h_map&gt;。此外，模型设定相似度阈值来过滤潜在实体对齐对，得到最终的对齐结果。 Triple Enrichment via Transitivity Rule作者利用一阶逻辑传递关系来丰富三元组。即：存在&lt;h_1,t_1,t&gt;和&lt;t, r_2,t_2&gt;则可以推理出h_1+ (r_1.r_2) ≈ t_2 Database本文从 DBpedia (DBP)、LinkedGeoData (LGD)、Geonames (GEO) 和 YAGO 四个 KG 中抽取构建了三个数据集，分别是DBP-LGD、DBP-GEO和DBP-YAGO。具体的数据统计如下： ExperimentsEntity Alignment Results本文对比了三个相关的模型，分别是 TransE、MTransE 和 JAPE。试验结果表明，本文提出的模型在实体对齐任务上取得了全面的较大的提升，在三种组合函数中，N-gram函数的优势较为明显。此外，基于传递规则的三元组丰富模型对结果也有一定的提升。具体结果如下 Rule-based Entity Alignment Results为了进一步衡量 attribute character embedding 捕获实体间相似信息的能力，本文设计了基于规则的实体对齐模型。本实验对比了三种不同的模型：以label的字符串相似度作为基础模型；针对数据集特点，在基础模型的基础之上增加了坐标属性，以此作为第二个模型；第三个模型是把本文提出的模型作为附加模型，与基础模型相结合。具体结果如下： KG Completion Results本文还在KG补全任务上验证了模型的有效性。模型主要测试了链接预测和三元组分类两个标准任务，在这两个任务中，模型也取得了不错的效果。具体结果如下：]]></content>
@@ -58,8 +71,8 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>Ontology</tag>
         <tag>知识图谱</tag>
+        <tag>Ontology</tag>
         <tag>freebase</tag>
       </tags>
   </entry>
@@ -164,8 +177,8 @@
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>python</tag>
         <tag>数据分析</tag>
       </tags>
   </entry>
@@ -177,8 +190,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>爬虫</tag>
         <tag>python</tag>
+        <tag>爬虫</tag>
         <tag>scrapy</tag>
       </tags>
   </entry>
@@ -190,8 +203,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>爬虫</tag>
         <tag>python</tag>
+        <tag>爬虫</tag>
         <tag>splash</tag>
         <tag>docker</tag>
       </tags>
@@ -255,9 +268,9 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
+        <tag>知识图谱</tag>
         <tag>深度学习</tag>
         <tag>Ontology</tag>
-        <tag>知识图谱</tag>
       </tags>
   </entry>
   <entry>
