@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-09T02:58:37.713Z</updated>
+  <updated>2019-04-19T08:09:35.184Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Shared Embedding Based Neural Networks for Knowledge Graph Completion阅读笔记</title>
+    <link href="http://yoursite.com/post/Shared%20Embedding%20Based%20Neural%20Networks%20for%20Knowledge%20Graph%20Completion/"/>
+    <id>http://yoursite.com/post/Shared Embedding Based Neural Networks for Knowledge Graph Completion/</id>
+    <published>2019-04-19T06:52:38.000Z</published>
+    <updated>2019-04-19T08:09:35.184Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="http://delivery.acm.org/10.1145/3280000/3271704/p247-guan.pdf?ip=59.64.129.243&amp;id=3271704&amp;acc=ACTIVE%20SERVICE&amp;key=BF85BBA5741FDC6E%2E66A15327C2E204FC%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;__acm__=1555657159_db1582f1a6ea923a16011064e5cc7955" target="_blank" rel="noopener">原文下载链接</a>，知识图谱补全（KGC，Knowledge Graph Completion)是一种自动建立图谱内部知识关联的工作。目标是补全知识图谱中三元组的缺失部分。主要方法为基于张量（或者矩阵）和基于翻译两类。在本文中，作者提出了一种基于共享嵌入的神经网络的模型（SENN）来处理KGC。</p></blockquote><a id="more"></a><h2 id="Contribulation"><a href="#Contribulation" class="headerlink" title="Contribulation"></a>Contribulation</h2><ul><li>提出了SENN模型，该模型明确区分头实体、关系和为实体预测任务，并把它们整合到一个基于全连接神经网络框架中，该框架共享的实体和关系嵌入。</li><li>SENN提出了一个自适应全中损失机制，该方法可以很好的处理具有不同映射属性的三元组，并处理不同的预测任务。</li><li>由于关系预测通常比头尾实体预测具有更好的性能，我们把SENN应用到头尾实体预测，从而将SENN扩展到SENN+。</li></ul><h2 id="Related-works"><a href="#Related-works" class="headerlink" title="Related works"></a>Related works</h2><h3 id="Tensor-Matrix-Based-Methods"><a href="#Tensor-Matrix-Based-Methods" class="headerlink" title="Tensor/Matrix Based Methods"></a>Tensor/Matrix Based Methods</h3><p>RESCAL是一个典型的方法，该方法基于三向张量因子分解的方法。</p><p>目标函数为：<img src="http://image.nysdy.com/20190419155565817094503.png" alt="20190419155565817094503.png"></p><p>$M_r$是r的关系矩阵，大小为k x k。</p><p>ComlEx是最近提出的方法，该方法基于矩阵分解，并且它使用复数值来定义实体和关系的嵌入。</p><p>目标函数为：<img src="http://image.nysdy.com/20190419155565837140789.png" alt="20190419155565837140789.png"></p><p>Re(x)返回x的实部。</p><h3 id="Translation-Based-Methods"><a href="#Translation-Based-Methods" class="headerlink" title="Translation Based Methods"></a>Translation Based Methods</h3><p>代表模型为经典的TransE模型（这里不再赘述）</p><h3 id="Translation-Based-Methods-1"><a href="#Translation-Based-Methods-1" class="headerlink" title="Translation Based Methods"></a>Translation Based Methods</h3><p>ER-MLP使用多层感知器来捕获头实体，关系和尾实体之间的隐式交互。</p><p>目标函数为：<img src="http://image.nysdy.com/2019041915556586361053.png" alt="2019041915556586361053.png"></p><p>ProjE使用具有组合层和投影层的神经网络来对头尾实体预测建模。</p><h2 id="THE-SENN-METHOD"><a href="#THE-SENN-METHOD" class="headerlink" title="THE SENN METHOD"></a>THE SENN METHOD</h2><p>模型结构如图所示：<img src="http://image.nysdy.com/20190419155565880062506.png" alt="20190419155565880062506.png"></p><p>作者将框架划分为以下四个部分：</p><ol><li>三元组的批量预处理</li><li>知识图谱的Shared embeddings表示学习</li><li>独立的头尾实体及关系预测子模型训练与融合</li><li>联合损失函数构成</li></ol><p>整个KGC的流程可以描述如下：</p><ol><li>将训练数据中的完整三元组（知识图谱）划分批量后作为模型的输入</li><li>对于输入的三元组，分别训练得到实体（包括头尾实体）嵌入矩阵与关系嵌入矩阵（embeddings）</li><li>将头尾实体及关系embeddings分别输入到三个预测模型中（头实体预测（?, r, t），关系预测(h, ?, t)，尾实体预测(h, r, ?)）</li></ol><h3 id="The-Three-Substructures"><a href="#The-Three-Substructures" class="headerlink" title="The Three Substructures"></a>The Three Substructures</h3><p>预测子模型具有相似的结构如下图，模型输入关系向量与实体向量后，进入n层全连接层，得到预测向量，再经过一个sigmoid（或者softmax）层，输出预测标签向量。<img src="http://image.nysdy.com/20190419155565925349707.png" alt="20190419155565925349707.png"></p><p>头实体预测目标函数：<img src="http://image.nysdy.com/20190419155565929066802.png" alt="20190419155565929066802.png"></p><p>f(x)= max(0,x).</p><p>预测标签：<img src="http://image.nysdy.com/20190419155565936981620.png" alt="20190419155565936981620.png"></p><p>其它两种与此头实体类似。</p><h3 id="Model-Training"><a href="#Model-Training" class="headerlink" title="Model Training"></a>Model Training</h3><h4 id="The-General-Loss-Function"><a href="#The-General-Loss-Function" class="headerlink" title="The General Loss Function"></a>The General Loss Function</h4><p>模型目标标签向量表示为：<img src="http://image.nysdy.com/20190419155565949172586.png" alt="20190419155565949172586.png"></p><p>$I_h$是在训练集中给定r和t的所有有效头实体集。</p><p>三者的平滑向量表示为：<img src="http://image.nysdy.com/20190419155565967448577.png" alt="20190419155565967448577.png"></p><p>三个预测任务的损失函数为：<img src="http://image.nysdy.com/20190419155565972110097.png" alt="20190419155565972110097.png"></p><p>总损失函数为：<img src="http://image.nysdy.com/20190419155565974814392.png" alt="20190419155565974814392.png"></p><h4 id="The-Adaptively-Weighted-Loss-Mechanism"><a href="#The-Adaptively-Weighted-Loss-Mechanism" class="headerlink" title="The Adaptively Weighted Loss Mechanism."></a>The Adaptively Weighted Loss Mechanism.</h4><p>该方法的动机：</p><ul><li>在知识图谱中的三元组有4种类型：1-TO-1, 1-TO-M, M-TO-1 and M-TO-M。所以预测在训练集中具有的有效实体/关系越多，它就越不确定。所以作者将对应于头部实体预测，关系预测和尾部实体预测的损失的权重与有效实体的数量相关联。</li><li>因为关系预测比实体预测更加容易。所以作者加大对头尾实体的错误预测的惩罚。</li></ul><p>所以作者得到新的损失函数：<img src="http://image.nysdy.com/20190419155566013038361.png" alt="20190419155566013038361.png"></p><p>总损失函数变为：<img src="http://image.nysdy.com/20190419155566016395908.png" alt="20190419155566016395908.png"></p><h2 id="THE-SENN-METHOD-1"><a href="#THE-SENN-METHOD-1" class="headerlink" title="THE SENN+METHOD"></a>THE SENN+METHOD</h2><p>作者相信可以进一步利用关系预测的相当好的性能来辅助测试过程中的头部和尾部实体预测。</p><p>给定头部预测任务（？，r，t）并假设h是有效的头部实体。 如果我们采用SENN方法来预测h和t之间的关系，即执行关系预测任务（h，？，t），则关系r最有可能具有 预测标签高于其他关系，因此应排名高于其他关系。</p><p><img src="http://image.nysdy.com/20190419155566073220975.png" alt="20190419155566073220975.png"></p><p>其中Value（x，r）返回对应于关系r的向量x的条目; Rank（x，r）以降序返回对应于关系r的向量x的条目的等级。</p><p>最后SENN+种预测标签为：<img src="http://image.nysdy.com/20190419155566089424123.png" alt="20190419155566089424123.png"></p><p>其中<img src="http://image.nysdy.com/20190419155566090898589.png" alt="20190419155566090898589.png"></p><h2 id="EXPERIMENTS"><a href="#EXPERIMENTS" class="headerlink" title="EXPERIMENTS"></a>EXPERIMENTS</h2><h3 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h3><p><img src="http://image.nysdy.com/20190419155566095994824.png" alt="20190419155566095994824.png"></p><h3 id="Entity-Prediction"><a href="#Entity-Prediction" class="headerlink" title="Entity Prediction"></a>Entity Prediction</h3><p><img src="http://image.nysdy.com/20190419155566101939979.png" alt="20190419155566101939979.png"></p><p><img src="http://image.nysdy.com/20190419155566104394441.png" alt="20190419155566104394441.png"></p><h3 id="Relation-Prediction"><a href="#Relation-Prediction" class="headerlink" title="Relation Prediction"></a>Relation Prediction</h3><p><img src="http://image.nysdy.com/20190419155566106385514.png" alt="20190419155566106385514.png"></p><p>论文还进行了共享嵌入和自适应权重损失机制有效性的验证。</p><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul><li><a href="http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-%E9%9D%A2%E5%90%91%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E8%A1%A5%E5%85%A8%E7%9A%84%E5%85%B1%E4%BA%AB%E5%B5%8C%E5%85%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_blank" rel="noopener">http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-%E9%9D%A2%E5%90%91%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E8%A1%A5%E5%85%A8%E7%9A%84%E5%85%B1%E4%BA%AB%E5%B5%8C%E5%85%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://delivery.acm.org/10.1145/3280000/3271704/p247-guan.pdf?ip=59.64.129.243&amp;amp;id=3271704&amp;amp;acc=ACTIVE%20SERVICE&amp;amp;key=BF85BBA5741FDC6E%2E66A15327C2E204FC%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;amp;__acm__=1555657159_db1582f1a6ea923a16011064e5cc7955&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原文下载链接&lt;/a&gt;，知识图谱补全（KGC，Knowledge Graph Completion)是一种自动建立图谱内部知识关联的工作。目标是补全知识图谱中三元组的缺失部分。主要方法为基于张量（或者矩阵）和基于翻译两类。在本文中，作者提出了一种基于共享嵌入的神经网络的模型（SENN）来处理KGC。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
+      <category term="神经网络" scheme="http://yoursite.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="知识图谱补全" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E8%A1%A5%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>《Bootstrapping Entity Alignment with Knowledge Graph Embedding》阅读笔记</title>
@@ -118,9 +146,9 @@
     
       <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
     
-      <category term="知识图谱嵌入" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%B5%8C%E5%85%A5/"/>
-    
       <category term="知识图谱推理" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8E%A8%E7%90%86/"/>
+    
+      <category term="知识图谱嵌入" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%B5%8C%E5%85%A5/"/>
     
   </entry>
   
@@ -407,9 +435,9 @@
       <category term="pandas" scheme="http://yoursite.com/categories/pandas/"/>
     
     
-      <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
     
       <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
@@ -435,9 +463,9 @@
       <category term="爬虫" scheme="http://yoursite.com/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="scrapy" scheme="http://yoursite.com/tags/scrapy/"/>
     
@@ -463,9 +491,9 @@
       <category term="爬虫" scheme="http://yoursite.com/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="splash" scheme="http://yoursite.com/tags/splash/"/>
     
@@ -525,34 +553,6 @@
       <category term="Neo4j" scheme="http://yoursite.com/tags/Neo4j/"/>
     
       <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《Bidirectional LSTM-CRF Models for Sequence Tagging》阅读笔记</title>
-    <link href="http://yoursite.com/post/read_Bidirectional_LSTM-CRF_Models_for_Sequence_Tagging/"/>
-    <id>http://yoursite.com/post/read_Bidirectional_LSTM-CRF_Models_for_Sequence_Tagging/</id>
-    <published>2018-10-05T05:05:12.000Z</published>
-    <updated>2018-10-25T02:26:46.123Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>这篇论文可以作为一个RNN和LSTM学习的一个例子来看，有利于新手对LSTM的理解。对于NER的处理主要是作为一个序列标注问题。但是作为经典文章还是可以读一读了解一下的。</p></blockquote><a id="more"></a><p>在本篇论文中，作者提出了4种模型：LSTM、BI-LSTM、LSTM-CRF和BI-LSTM-CRF。</p><h2 id="contribution-贡献"><a href="#contribution-贡献" class="headerlink" title="contribution(贡献)"></a>contribution(贡献)</h2><ol><li>作者在NLP标注数据集上系统的对比了以上四个模型；</li><li>作者是首先提出把BI-LSTM-CRF模型用于NLP序列标注，并且达到了state-of-the-art的水平；</li><li>作者展示了BI-LSTM-CRF是robust，并且极少依赖于词向量。</li></ol><h2 id="model-模型"><a href="#model-模型" class="headerlink" title="model(模型)"></a>model(模型)</h2><h3 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h3><p>首先，作者先介绍了RNN的结构和工作原理，如图：<img src="https://i.loli.net/2018/10/04/5bb5a3e22e140.jpg" alt=""></p><p>其中输入为句子：EU rejects German call to boycott British lamb。输出为标签：B-ORG O B-MISC O O O B-MISC O O，其中B-，I-表示实体开始和中间位置。标签种类为：other (O)和四种实体标签：Person (PER), Location (LOC), Organization (ORG), and Miscellaneous (MISC).</p><p>输入层表示在时间步 t 的特征。它们可以是 one-hot-encoding 的词特征，稠密或者稀疏的向量特征。输入层与特征有相同大小的维度。输出层表示在时间步 t 的标签上的概率分布，维度与标注数量相同。相比前馈神经网络，RNN 引入前一个隐藏状态和当前隐藏状态的结合，因此可以储存历史信息。</p><p>涉及公式为：<img src="https://i.loli.net/2018/10/04/5bb5a556ad0ab.jpg" alt=""></p><p><img src="https://i.loli.net/2018/10/04/5bb5a57379fd7.jpg" alt=""></p><p>其中，U，W，V都是权重，函数f，g分别为sigmoid和softmax函数。  </p><p>接下来，作者展示了LSTM的结构和原理，如图：<img src="https://i.loli.net/2018/10/04/5bb5a61bdb483.jpg" alt=""></p><p>公式：<img src="https://i.loli.net/2018/10/04/5bb5a670e3b88.jpg" alt=""></p><p>其中，σ是逻辑sigmoid函数，i, f, o 和 c分别是输入门，忘记门，输出门和细胞向量，所有的大小都和向量h一样。w权重的含义如其下表所示。</p><p>LSTM序列标注模型如图所示：<img src="https://i.loli.net/2018/10/04/5bb5a84cd95d5.jpg" alt=""></p><p>其中，中间的画斜线的格子即为图2中所示部分。</p><h3 id="Bidirectional-LSTM-双向LSTM"><a href="#Bidirectional-LSTM-双向LSTM" class="headerlink" title="Bidirectional LSTM(双向LSTM)"></a>Bidirectional LSTM(双向LSTM)</h3><p>作者展示了双向LSTM的结构，如图所示：<img src="https://i.loli.net/2018/10/04/5bb5a8f44f16e.jpg" alt=""></p><p>双向LSTM网络可以有效利用过去特征和未来特征。在作者的实现中，对于整个句子的前向和后向操作，作者只需要在每个句子开始时将隐藏状态重置为0。作者采用批处理，使得可以同时处理多个句子。</p><h3 id="CRF"><a href="#CRF" class="headerlink" title="CRF"></a>CRF</h3><p>使用邻居标记信息预测当前标记有两种不同的方法：</p><ol><li>预测每个时间步长的标签分布，然后使用波束式解码来找到最优的标签序列，代表方法：MEMMs</li><li>注重句子层次而不是个体位置，代表方法：CRF，输入和输出是直接相连的；如图：<img src="https://i.loli.net/2018/10/04/5bb5ac191d2dd.jpg" alt=""></li></ol><p>研究表明，CRFs一般能够产生更高的标签精度。</p><h3 id="LSTM-CRF"><a href="#LSTM-CRF" class="headerlink" title="LSTM-CRF"></a>LSTM-CRF</h3><p>作者展示了LSTM-CRF的结构，如图：<img src="https://i.loli.net/2018/10/04/5bb5ad05ebec0.jpg" alt=""></p><p>这网络可以有效地通过 LSTM 利用过去的输入特征和通过 CRF 利用句子级的标注信息。图中CRF层由连接连续输出层的线表示。CRF层有一个状态转移矩阵作为参数。</p><p>公式为：<img src="https://i.loli.net/2018/10/04/5bb5b6ea7f87e.jpg" alt=""></p><p>函数f为网络的输出分数，[x]为输入， [fθ]i,t 为带有参数θ（句子x，第i 个标签，第t个单词）的网络输出；</p><p>[A]i,j为转移分数，从连续的时间步i状态到j状态的转移分数。注意，该转换矩阵是位置无关的。</p><h3 id="BI-LSTM-CRF"><a href="#BI-LSTM-CRF" class="headerlink" title="BI-LSTM-CRF"></a>BI-LSTM-CRF</h3><p>作者展示了BI-LSTM-CRF的结构，如图所示：<img src="https://i.loli.net/2018/10/04/5bb5b87ca950f.jpg" alt=""></p><p>作者在实验中展示了额外的未来特征可以提高标签的准确率。</p><h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><p>本文使用的所有模型都共享一个通用SGD前向和后向训练过程。作者展示了BI-LSTM-CRF的算法，如图<img src="https://i.loli.net/2018/10/04/5bb5ba7ce18c7.jpg" alt=""></p><p>作者设置了批次大小为100。</p><h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><p>作者在以下三个数据集上测试自己的模型：Penn TreeBank (PTB) POS tagging, CoNLL 2000 chunking, and CoNLL 2003 named entity tagging.数据集信息展示如下：<img src="https://i.loli.net/2018/10/04/5bb5bc263ec9f.jpg" alt=""></p><h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><p>作者从三个数据集中提取出其公共特征。特征可以分为拼写特征和上下文特征。最终，作者对于POS（词性标注）、chunking（组块）和NER（命名实体识别）分别提取401K，76K和341K个特征。</p><h3 id="spelling-features（拼写特征）"><a href="#spelling-features（拼写特征）" class="headerlink" title="spelling features（拼写特征）"></a>spelling features（拼写特征）</h3><p>除了小写字母特征之外，我们提取给定单词的以下特征。</p><p><img src="https://i.loli.net/2018/10/04/5bb5bdde879c9.jpg" alt=""></p><h3 id="context-featurs（上下文特征）"><a href="#context-featurs（上下文特征）" class="headerlink" title="context featurs（上下文特征）"></a>context featurs（上下文特征）</h3><p>对于单词特征，作者使用unigram和bi-grams特征。对于在CoNLL2000数据集中的POS特征和在CoNLL2003数据集中的 POS &amp; CHUNK特征，作者使用了unigram，bi-gram和tri-gram特征。</p><h3 id="词向量"><a href="#词向量" class="headerlink" title="词向量"></a>词向量</h3><p>词向量在改进序列标注任务的表现方面起着至关重要的作用，我们使用 130K 词汇并且每个词汇的词向量维度是 50 维。我们将 one-hot-encoding词表示替换每个词对应的词向量。</p><h3 id="Features-connection-tricks"><a href="#Features-connection-tricks" class="headerlink" title="Features connection tricks"></a>Features connection tricks</h3><p>我们可以将拼写和上下文特征与单词特征一样对待。这样网络的输入包括单词，单词的拼写和上下文特征。然而，==我们发现将拼写和上下文特征与输出直接连接可以加速训练过程，同时也能保持标注的准确率，==如下图所示：<img src="https://i.loli.net/2018/10/04/5bb5bfc63f961.jpg" alt=""></p><p>我们注意到，这种特征的使用与使用的最大熵特征类似。区别在于采用特征三列技术可能会发生特征冲突。由于序列标注数据集中的输出标签小于语言模型（通常为数十万），所以我们可以在特征和输出之间建立完整的连接，以避免潜在的特征冲突。</p><h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>在相同的数据集上分别训练LSTM，BI-LSTM，CRF，LSTM-CRF和BI-LSTM-CRF模型，并且采用两种方式初始化word embedding：随机和Senna方式。模型的训练速率为0.1，隐藏层数量为300.不同模型在不同word embedding下的结果如表2所示，同时列出了之前最好模型Cov-CRF。</p><p><img src="https://i.loli.net/2018/10/04/5bb5c1da95e97.jpg" alt=""></p><ul><li><p>与Cov-CRF比较</p><p>实验中设置了3个基准模型，分别为LSTM、BI-LSTM和CRF，结果中LSTM在三个数据集中效果最差，BI-LSTM跟CRF在POS和chunking中效果接近，但是在NER中后者要优于前者。有趣的是表现最好的模型BI-LSTM-CRF相对于Cov-CRF来说对Senna embedding的依赖程度更小。</p></li><li><p>(robustness)模型鲁棒性  </p><p>为验证模型的鲁棒性，对不同模型只采用word feature特征进行训练，训练结果如表3，括号中数字表示相比于全部特征，模型的结果下降数值。<img src="https://i.loli.net/2018/10/05/5bb6ee3958635.jpg" alt=""></p></li><li><p>与其他系统的比较</p><p>这里就不贴图了，总之就是阐述作者自己模型好。</p></li></ul><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>总之作者的模型是基于之前模型的一些改进，主要运用了IBI-LSTM和CRF的结合。</p><h3 id="论文下载地址"><a href="#论文下载地址" class="headerlink" title="论文下载地址"></a><a href="https://arxiv.org/pdf/1508.01991.pdf" target="_blank" rel="noopener">论文下载地址</a></h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;这篇论文可以作为一个RNN和LSTM学习的一个例子来看，有利于新手对LSTM的理解。对于NER的处理主要是作为一个序列标注问题。但是作为经典文章还是可以读一读了解一下的。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="NER" scheme="http://yoursite.com/tags/NER/"/>
-    
-      <category term="LSTM" scheme="http://yoursite.com/tags/LSTM/"/>
-    
-      <category term="BI-LSTM" scheme="http://yoursite.com/tags/BI-LSTM/"/>
     
   </entry>
   

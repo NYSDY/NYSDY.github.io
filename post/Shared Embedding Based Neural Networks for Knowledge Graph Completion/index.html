@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="知识图谱,Ontology,freebase," />
+  <meta name="keywords" content="知识图谱,神经网络,知识图谱补全," />
 
 
 
@@ -103,21 +103,39 @@
 
 
 
-<meta name="description" content="本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。论文下载地址">
-<meta name="keywords" content="知识图谱,Ontology,freebase">
+<meta name="description" content="原文下载链接，知识图谱补全（KGC，Knowledge Graph Completion)是一种自动建立图谱内部知识关联的工作。目标是补全知识图谱中三元组的缺失部分。主要方法为基于张量（或者矩阵）和基于翻译两类。在本文中，作者提出了一种基于共享嵌入的神经网络的模型（SENN）来处理KGC。">
+<meta name="keywords" content="知识图谱,神经网络,知识图谱补全">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《OK Google, What Is Your Ontology? Or&#x2F; Exploring Freebase Classification to Understand Google’s Knowledge Graph？》阅读笔记">
-<meta property="og:url" content="http://yoursite.com/post/OK Google, What Is Your Ontology">
+<meta property="og:title" content="Shared Embedding Based Neural Networks for Knowledge Graph Completion阅读笔记">
+<meta property="og:url" content="http://yoursite.com/post/Shared Embedding Based Neural Networks for Knowledge Graph Completion/index.html">
 <meta property="og:site_name" content="NYSDY">
-<meta property="og:description" content="本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。论文下载地址">
+<meta property="og:description" content="原文下载链接，知识图谱补全（KGC，Knowledge Graph Completion)是一种自动建立图谱内部知识关联的工作。目标是补全知识图谱中三元组的缺失部分。主要方法为基于张量（或者矩阵）和基于翻译两类。在本文中，作者提出了一种基于共享嵌入的神经网络的模型（SENN）来处理KGC。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2019/03/03/5c7b61c1bd122.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/03/03/5c7bc58f2052d.jpg">
-<meta property="og:updated_time" content="2019-03-10T13:52:42.099Z">
+<meta property="og:image" content="http://image.nysdy.com/20190419155565817094503.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155565837140789.png">
+<meta property="og:image" content="http://image.nysdy.com/2019041915556586361053.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155565880062506.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155565925349707.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155565929066802.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155565936981620.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155565949172586.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155565967448577.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155565972110097.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155565974814392.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155566013038361.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155566016395908.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155566073220975.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155566089424123.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155566090898589.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155566095994824.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155566101939979.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155566104394441.png">
+<meta property="og:image" content="http://image.nysdy.com/20190419155566106385514.png">
+<meta property="og:updated_time" content="2019-04-19T08:09:35.184Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《OK Google, What Is Your Ontology? Or&#x2F; Exploring Freebase Classification to Understand Google’s Knowledge Graph？》阅读笔记">
-<meta name="twitter:description" content="本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。论文下载地址">
-<meta name="twitter:image" content="https://i.loli.net/2019/03/03/5c7b61c1bd122.jpg">
+<meta name="twitter:title" content="Shared Embedding Based Neural Networks for Knowledge Graph Completion阅读笔记">
+<meta name="twitter:description" content="原文下载链接，知识图谱补全（KGC，Knowledge Graph Completion)是一种自动建立图谱内部知识关联的工作。目标是补全知识图谱中三元组的缺失部分。主要方法为基于张量（或者矩阵）和基于翻译两类。在本文中，作者提出了一种基于共享嵌入的神经网络的模型（SENN）来处理KGC。">
+<meta name="twitter:image" content="http://image.nysdy.com/20190419155565817094503.png">
 
 
 
@@ -146,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/post/OK Google, What Is Your Ontology"/>
+  <link rel="canonical" href="http://yoursite.com/post/Shared Embedding Based Neural Networks for Knowledge Graph Completion/"/>
 
 
 
 
 
-  <title>《OK Google, What Is Your Ontology? Or/ Exploring Freebase Classification to Understand Google’s Knowledge Graph？》阅读笔记 | NYSDY</title>
+  <title>Shared Embedding Based Neural Networks for Knowledge Graph Completion阅读笔记 | NYSDY</title>
   
 
 
@@ -415,7 +433,7 @@ $(function() {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/OK Google, What Is Your Ontology? Or/ Exploring Freebase Classification to Understand Google’s Knowledge Graph？/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/Shared Embedding Based Neural Networks for Knowledge Graph Completion/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="NYSDY">
@@ -432,7 +450,7 @@ $(function() {
 
         
         
-          <h1 class="post-title" itemprop="name headline">《OK Google, What Is Your Ontology? Or/ Exploring Freebase Classification to Understand Google’s Knowledge Graph？》阅读笔记</h1>
+          <h1 class="post-title" itemprop="name headline">Shared Embedding Based Neural Networks for Knowledge Graph Completion阅读笔记</h1>
         
 
         <div class="post-meta">
@@ -444,8 +462,8 @@ $(function() {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T21:29:07+08:00">
-                2019-03-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T14:52:38+08:00">
+                2019-04-19
               </time>
             
 
@@ -484,7 +502,7 @@ $(function() {
 
           
           
-             <span id="/post/OK Google, What Is Your Ontology? Or/ Exploring Freebase Classification to Understand Google’s Knowledge Graph？/" class="leancloud_visitors" data-flag-title="《OK Google, What Is Your Ontology? Or/ Exploring Freebase Classification to Understand Google’s Knowledge Graph？》阅读笔记">
+             <span id="/post/Shared Embedding Based Neural Networks for Knowledge Graph Completion/" class="leancloud_visitors" data-flag-title="Shared Embedding Based Neural Networks for Knowledge Graph Completion阅读笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -517,50 +535,69 @@ $(function() {
 
       
         <blockquote>
-<p>本论文详细阐述Freebase中的数据格式，并进行了重构。通过考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。来对本体进行阐述。<a href="https://arxiv.org/pdf/1805.03885.pdf" target="_blank" rel="noopener">论文下载地址</a></p>
+<p><a href="http://delivery.acm.org/10.1145/3280000/3271704/p247-guan.pdf?ip=59.64.129.243&amp;id=3271704&amp;acc=ACTIVE%20SERVICE&amp;key=BF85BBA5741FDC6E%2E66A15327C2E204FC%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;__acm__=1555657159_db1582f1a6ea923a16011064e5cc7955" target="_blank" rel="noopener">原文下载链接</a>，知识图谱补全（KGC，Knowledge Graph Completion)是一种自动建立图谱内部知识关联的工作。目标是补全知识图谱中三元组的缺失部分。主要方法为基于张量（或者矩阵）和基于翻译两类。在本文中，作者提出了一种基于共享嵌入的神经网络的模型（SENN）来处理KGC。</p>
 </blockquote>
 <a id="more"></a>
-<p>这篇论文重构了Freebase数据转储来理解谷歌语义搜索特征背后的本体。论文将会探索Freebase本体如何由许多力量塑造的，这些力量也通过深入研究本体论和一个小的相关性研究来形成分类系统。这些发现将会提供知识图谱专有黑盒的一瞥。</p>
-<blockquote>
-<p>The structures found in the Freebase/Knowledge Graph ontology will be analyzed in light of the findings on classification systems in a key text by Bowker and Star (2000) [5].</p>
-</blockquote>
-<h1 id="术语定义"><a href="#术语定义" class="headerlink" title="术语定义"></a>术语定义</h1><p><img src="https://i.loli.net/2019/03/03/5c7b61c1bd122.jpg" alt=""></p>
-<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><p>Freebase对象是一个全局唯一的标识符，它是Freebase中世界上某种东西的表示。</p>
-<h3 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h3><p>Freebase类型用来表达类的概念。</p>
-<h3 id="Property"><a href="#Property" class="headerlink" title="Property"></a>Property</h3><p>Freebase属性是描述对象如何链接到其他值或对象的关系。</p>
-<h3 id="Property-Detail"><a href="#Property-Detail" class="headerlink" title="Property Detail"></a>Property Detail</h3><p>属性详细信息指的是可以通过属性链接的对象或值的约束。</p>
-<h3 id="RDF-triple"><a href="#RDF-triple" class="headerlink" title="RDF triple"></a>RDF triple</h3><p>资源描述格式（RDF）是用于“三元组”（或N = 3元组）格式的数据表示的规范[17]。</p>
-<h3 id="Ontology"><a href="#Ontology" class="headerlink" title="Ontology"></a>Ontology</h3><p>对于本文，Freebase本体是类型，属性和属性详细信息的正式结构和描述，用于指定对象如何相互关联。</p>
-<h3 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h3><p>在本文中，架构指的是可以在本体中找到的一般模式和关系。</p>
-<p><strong>==本体是否允许类（或Freebase用语中的类型）之间的继承？ 是否有与属性相关的默认值？ 如何处理“零”或空值？ 这些类型的问题不一定关注本体（飞机，火车或汽车）中具体表达的内容，而是关于本体表达方式的更多问题应该通过检查架构来解决。==</strong></p>
-<h1 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h1><p>作者把数据进行切分：按照RDF中三元组的谓语进行分类，例如：<img src="https://i.loli.net/2019/03/03/5c7bc58f2052d.jpg" alt=""></p>
-<h1 id="Freebase-Ontology-and-Classification"><a href="#Freebase-Ontology-and-Classification" class="headerlink" title="Freebase Ontology and Classification"></a>Freebase Ontology and Classification</h1><blockquote>
-<p> As Bowker and Star note, “Information infrastructure is a tricky thing to analyze…the easier they are to use, the harder they are to see.” [5]. What does the system make sense of? What is left out? What is privileged and by extension what is ignored by Google?</p>
-</blockquote>
-<p>虽然Freebase本体可能不会立即看起来像一个分类系统，但类型（类）和属性的结构是一个基于对各种事物进行分类的系统。</p>
-<p>作为对世界事物表征进行排序和分类的系统，将根据Bowker和Star的分类结果讨论Freebase本体。他们将对亚里士多德和原型分类（Aristotelian and prototype classification）进行了区分。</p>
-<p>亚里士多德的分类“按照一组二元特征进行操作，被分类的物体呈现或不呈现”，而原型分类则认为“在我们心目中对于椅子是什么的广泛描述; 我们用隐喻和类比来扩展这张图片“</p>
-<h2 id="5-1-Freebase’s-Type-System"><a href="#5-1-Freebase’s-Type-System" class="headerlink" title="5.1. Freebase’s Type System"></a>5.1. Freebase’s Type System</h2><p>不兼容性的概念出现在Freebase系统中，用于表示对象如何具有某些类型，而这些类型必须将其排除在其他类型之外。</p>
-<p>没有继承（not implement inheritance）：上述不兼容性在确保数据不表达可能在Google KP中提供的令人尴尬，有害或不正确的陈述方面发挥了足够强大的作用。</p>
-<p>缺乏继承也可能是一种允许实体具有更大灵活性的特征。这里作者举了一个狗为电影演员的例子。</p>
-<h2 id="5-2-Has-Value-or-Has-No-Value"><a href="#5-2-Has-Value-or-Has-No-Value" class="headerlink" title="5.2. Has Value or Has No Value?"></a>5.2. Has Value or Has No Value?</h2><p>三元组如何表达估计值，不确定值或空值？实际处理时用“Has Value” (HV) and “Has No Value” (HNV)来分别表达不确定值和空值。</p>
-<p>以这种方式表达未知数和空值的有趣实现可能表明Freebase / KG最初并不是为了支持这种不确定性而建立的。Google的数据编码某些不确定性的概念并未向最终用户公开，尽管它肯定以这种独特的方式实现。</p>
-<h2 id="5-3-Dealing-with-Doppelgangers-and-Chimeras"><a href="#5-3-Dealing-with-Doppelgangers-and-Chimeras" class="headerlink" title="5.3. Dealing with Doppelgangers and Chimeras"></a>5.3. Dealing with Doppelgangers and Chimeras</h2><p>涉及Freebase如何处理“合并”重复对象（doppelgangers）和“拆分”混合对象（嵌合体）。 </p>
-<blockquote>
-<p>the property “/dataworld/gardening hint/replaced by” is used to implement merges be- tween various objects (e.g. by saying “/m/xyz123 - Replaced By - /m/abc123”).</p>
-</blockquote>
-<h1 id="A-Small-Correlational-Study"><a href="#A-Small-Correlational-Study" class="headerlink" title="A Small Correlational Study"></a>A Small Correlational Study</h1><p>主要探索这个问题：域的本体的复杂性（人物，电影等领域的类型，属性等）与表达与本体相关的事实（“知识库”）的三元组数量之间是否存在关联？</p>
-<p>对于本研究，通过考虑与域相关的属性详细信息量（多少描述，约束等）来实现“复杂性”和“成熟度”。</p>
-<p>对于89个域中的每一个，获得了关于每个域的本体的以下统计：</p>
-<ul>
-<li>==<strong>域中的类型和属性数</strong>==</li>
-<li>==<strong>每种类型和属性的描述数</strong>==</li>
-<li>==<strong>每种类型和属性的属性详细信息数==</strong></li>
+<h2 id="Contribulation"><a href="#Contribulation" class="headerlink" title="Contribulation"></a>Contribulation</h2><ul>
+<li>提出了SENN模型，该模型明确区分头实体、关系和为实体预测任务，并把它们整合到一个基于全连接神经网络框架中，该框架共享的实体和关系嵌入。</li>
+<li>SENN提出了一个自适应全中损失机制，该方法可以很好的处理具有不同映射属性的三元组，并处理不同的预测任务。</li>
+<li>由于关系预测通常比头尾实体预测具有更好的性能，我们把SENN应用到头尾实体预测，从而将SENN扩展到SENN+。</li>
 </ul>
-<p><strong>通过获取域中每种类型和属性的平均描述数和属性详细信息来计算简单的复杂性分数。 所有域的RDF三元组计数与此复杂性得分之间的Pearson相关系数与0.2824呈正相关，简单线性回归的斜率为78,424.08（见图6）。 当排除异常音乐切片时，相关性和斜率分别变为0.6680和33,899.53。 虽然需要进一步的工作来探索这个研究问题，但这个小的相关性研究为进一步的实验提供了一些有希望的初步结果</strong></p>
-<h1 id="discussion"><a href="#discussion" class="headerlink" title="discussion"></a>discussion</h1><p>考虑整体架构的三个部分：Freebase类型系统及其缺乏继承和依赖于不兼容性，允许表示值的不确定性的实现，以及合并和拆分对象的实现。此外，还进行了一项小型相关研究，以检验基于Bowker和Star推动的预感的假设。在很大程度上，分类系统中的许多特征也可以在Freebase的本体和体系结构中找到。</p>
-<p>本文具体而言，探讨了支持整个交付流程的基础结构（本体和体系结构），而不是Freebase / KG中表示的特定事实。</p>
-<h1 id="conclusion"><a href="#conclusion" class="headerlink" title="conclusion"></a>conclusion</h1><p> 应通过探索Freebase本体和体系结构的其他方面以及对Freebase进行更全面的实验分析来进行进一步的研究。 </p>
+<h2 id="Related-works"><a href="#Related-works" class="headerlink" title="Related works"></a>Related works</h2><h3 id="Tensor-Matrix-Based-Methods"><a href="#Tensor-Matrix-Based-Methods" class="headerlink" title="Tensor/Matrix Based Methods"></a>Tensor/Matrix Based Methods</h3><p>RESCAL是一个典型的方法，该方法基于三向张量因子分解的方法。</p>
+<p>目标函数为：<img src="http://image.nysdy.com/20190419155565817094503.png" alt="20190419155565817094503.png"></p>
+<p>$M_r$是r的关系矩阵，大小为k x k。</p>
+<p>ComlEx是最近提出的方法，该方法基于矩阵分解，并且它使用复数值来定义实体和关系的嵌入。</p>
+<p>目标函数为：<img src="http://image.nysdy.com/20190419155565837140789.png" alt="20190419155565837140789.png"></p>
+<p>Re(x)返回x的实部。</p>
+<h3 id="Translation-Based-Methods"><a href="#Translation-Based-Methods" class="headerlink" title="Translation Based Methods"></a>Translation Based Methods</h3><p>代表模型为经典的TransE模型（这里不再赘述）</p>
+<h3 id="Translation-Based-Methods-1"><a href="#Translation-Based-Methods-1" class="headerlink" title="Translation Based Methods"></a>Translation Based Methods</h3><p>ER-MLP使用多层感知器来捕获头实体，关系和尾实体之间的隐式交互。</p>
+<p>目标函数为：<img src="http://image.nysdy.com/2019041915556586361053.png" alt="2019041915556586361053.png"></p>
+<p>ProjE使用具有组合层和投影层的神经网络来对头尾实体预测建模。</p>
+<h2 id="THE-SENN-METHOD"><a href="#THE-SENN-METHOD" class="headerlink" title="THE SENN METHOD"></a>THE SENN METHOD</h2><p>模型结构如图所示：<img src="http://image.nysdy.com/20190419155565880062506.png" alt="20190419155565880062506.png"></p>
+<p>作者将框架划分为以下四个部分：</p>
+<ol>
+<li>三元组的批量预处理</li>
+<li>知识图谱的Shared embeddings表示学习</li>
+<li>独立的头尾实体及关系预测子模型训练与融合</li>
+<li>联合损失函数构成</li>
+</ol>
+<p>整个KGC的流程可以描述如下：</p>
+<ol>
+<li>将训练数据中的完整三元组（知识图谱）划分批量后作为模型的输入</li>
+<li>对于输入的三元组，分别训练得到实体（包括头尾实体）嵌入矩阵与关系嵌入矩阵（embeddings）</li>
+<li>将头尾实体及关系embeddings分别输入到三个预测模型中（头实体预测（?, r, t），关系预测(h, ?, t)，尾实体预测(h, r, ?)）</li>
+</ol>
+<h3 id="The-Three-Substructures"><a href="#The-Three-Substructures" class="headerlink" title="The Three Substructures"></a>The Three Substructures</h3><p>预测子模型具有相似的结构如下图，模型输入关系向量与实体向量后，进入n层全连接层，得到预测向量，再经过一个sigmoid（或者softmax）层，输出预测标签向量。<img src="http://image.nysdy.com/20190419155565925349707.png" alt="20190419155565925349707.png"></p>
+<p>头实体预测目标函数：<img src="http://image.nysdy.com/20190419155565929066802.png" alt="20190419155565929066802.png"></p>
+<p>f(x)= max(0,x).</p>
+<p>预测标签：<img src="http://image.nysdy.com/20190419155565936981620.png" alt="20190419155565936981620.png"></p>
+<p>其它两种与此头实体类似。</p>
+<h3 id="Model-Training"><a href="#Model-Training" class="headerlink" title="Model Training"></a>Model Training</h3><h4 id="The-General-Loss-Function"><a href="#The-General-Loss-Function" class="headerlink" title="The General Loss Function"></a>The General Loss Function</h4><p>模型目标标签向量表示为：<img src="http://image.nysdy.com/20190419155565949172586.png" alt="20190419155565949172586.png"></p>
+<p>$I_h$是在训练集中给定r和t的所有有效头实体集。</p>
+<p>三者的平滑向量表示为：<img src="http://image.nysdy.com/20190419155565967448577.png" alt="20190419155565967448577.png"></p>
+<p>三个预测任务的损失函数为：<img src="http://image.nysdy.com/20190419155565972110097.png" alt="20190419155565972110097.png"></p>
+<p>总损失函数为：<img src="http://image.nysdy.com/20190419155565974814392.png" alt="20190419155565974814392.png"></p>
+<h4 id="The-Adaptively-Weighted-Loss-Mechanism"><a href="#The-Adaptively-Weighted-Loss-Mechanism" class="headerlink" title="The Adaptively Weighted Loss Mechanism."></a>The Adaptively Weighted Loss Mechanism.</h4><p>该方法的动机：</p>
+<ul>
+<li>在知识图谱中的三元组有4种类型：1-TO-1, 1-TO-M, M-TO-1 and M-TO-M。所以预测在训练集中具有的有效实体/关系越多，它就越不确定。所以作者将对应于头部实体预测，关系预测和尾部实体预测的损失的权重与有效实体的数量相关联。</li>
+<li>因为关系预测比实体预测更加容易。所以作者加大对头尾实体的错误预测的惩罚。</li>
+</ul>
+<p>所以作者得到新的损失函数：<img src="http://image.nysdy.com/20190419155566013038361.png" alt="20190419155566013038361.png"></p>
+<p>总损失函数变为：<img src="http://image.nysdy.com/20190419155566016395908.png" alt="20190419155566016395908.png"></p>
+<h2 id="THE-SENN-METHOD-1"><a href="#THE-SENN-METHOD-1" class="headerlink" title="THE SENN+METHOD"></a>THE SENN+METHOD</h2><p>作者相信可以进一步利用关系预测的相当好的性能来辅助测试过程中的头部和尾部实体预测。</p>
+<p>给定头部预测任务（？，r，t）并假设h是有效的头部实体。 如果我们采用SENN方法来预测h和t之间的关系，即执行关系预测任务（h，？，t），则关系r最有可能具有 预测标签高于其他关系，因此应排名高于其他关系。</p>
+<p><img src="http://image.nysdy.com/20190419155566073220975.png" alt="20190419155566073220975.png"></p>
+<p>其中Value（x，r）返回对应于关系r的向量x的条目; Rank（x，r）以降序返回对应于关系r的向量x的条目的等级。</p>
+<p>最后SENN+种预测标签为：<img src="http://image.nysdy.com/20190419155566089424123.png" alt="20190419155566089424123.png"></p>
+<p>其中<img src="http://image.nysdy.com/20190419155566090898589.png" alt="20190419155566090898589.png"></p>
+<h2 id="EXPERIMENTS"><a href="#EXPERIMENTS" class="headerlink" title="EXPERIMENTS"></a>EXPERIMENTS</h2><h3 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h3><p><img src="http://image.nysdy.com/20190419155566095994824.png" alt="20190419155566095994824.png"></p>
+<h3 id="Entity-Prediction"><a href="#Entity-Prediction" class="headerlink" title="Entity Prediction"></a>Entity Prediction</h3><p><img src="http://image.nysdy.com/20190419155566101939979.png" alt="20190419155566101939979.png"></p>
+<p><img src="http://image.nysdy.com/20190419155566104394441.png" alt="20190419155566104394441.png"></p>
+<h3 id="Relation-Prediction"><a href="#Relation-Prediction" class="headerlink" title="Relation Prediction"></a>Relation Prediction</h3><p><img src="http://image.nysdy.com/20190419155566106385514.png" alt="20190419155566106385514.png"></p>
+<p>论文还进行了共享嵌入和自适应权重损失机制有效性的验证。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-%E9%9D%A2%E5%90%91%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E8%A1%A5%E5%85%A8%E7%9A%84%E5%85%B1%E4%BA%AB%E5%B5%8C%E5%85%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_blank" rel="noopener">http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-%E9%9D%A2%E5%90%91%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E8%A1%A5%E5%85%A8%E7%9A%84%E5%85%B1%E4%BA%AB%E5%B5%8C%E5%85%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</a></li>
+</ul>
 
       
     </div>
@@ -590,9 +627,9 @@ $(function() {
           
             <a href="/tags/知识图谱/" rel="tag"><i class="fa fa-tag"></i> 知识图谱</a>
           
-            <a href="/tags/Ontology/" rel="tag"><i class="fa fa-tag"></i> Ontology</a>
+            <a href="/tags/神经网络/" rel="tag"><i class="fa fa-tag"></i> 神经网络</a>
           
-            <a href="/tags/freebase/" rel="tag"><i class="fa fa-tag"></i> freebase</a>
+            <a href="/tags/知识图谱补全/" rel="tag"><i class="fa fa-tag"></i> 知识图谱补全</a>
           
         </div>
       
@@ -605,8 +642,8 @@ $(function() {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/Regular expression/" rel="next" title="正则表达式">
-                <i class="fa fa-chevron-left"></i> 正则表达式
+              <a href="/post/Bootstrapping Entity Alignment with Knowledge Graph Embedding/" rel="next" title="《Bootstrapping Entity Alignment with Knowledge Graph Embedding》阅读笔记">
+                <i class="fa fa-chevron-left"></i> 《Bootstrapping Entity Alignment with Knowledge Graph Embedding》阅读笔记
               </a>
             
           </div>
@@ -614,10 +651,6 @@ $(function() {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/post/Differentiable Learning of Logical Rules for Knowledge Base Reasoning/" rel="prev" title="《Differentiable Learning of Logical Rules for Knowledge Base Reasoning》阅读笔记">
-                《Differentiable Learning of Logical Rules for Knowledge Base Reasoning》阅读笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -796,7 +829,7 @@ $(function() {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#术语定义"><span class="nav-number">1.</span> <span class="nav-text">术语定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object"><span class="nav-number">1.0.1.</span> <span class="nav-text">Object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Type"><span class="nav-number">1.0.2.</span> <span class="nav-text">Type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Property"><span class="nav-number">1.0.3.</span> <span class="nav-text">Property</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Property-Detail"><span class="nav-number">1.0.4.</span> <span class="nav-text">Property Detail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDF-triple"><span class="nav-number">1.0.5.</span> <span class="nav-text">RDF triple</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ontology"><span class="nav-number">1.0.6.</span> <span class="nav-text">Ontology</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Architecture"><span class="nav-number">1.0.7.</span> <span class="nav-text">Architecture</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Methodology"><span class="nav-number">2.</span> <span class="nav-text">Methodology</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Freebase-Ontology-and-Classification"><span class="nav-number">3.</span> <span class="nav-text">Freebase Ontology and Classification</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-Freebase’s-Type-System"><span class="nav-number">3.1.</span> <span class="nav-text">5.1. Freebase’s Type System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-Has-Value-or-Has-No-Value"><span class="nav-number">3.2.</span> <span class="nav-text">5.2. Has Value or Has No Value?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-Dealing-with-Doppelgangers-and-Chimeras"><span class="nav-number">3.3.</span> <span class="nav-text">5.3. Dealing with Doppelgangers and Chimeras</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#A-Small-Correlational-Study"><span class="nav-number">4.</span> <span class="nav-text">A Small Correlational Study</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#discussion"><span class="nav-number">5.</span> <span class="nav-text">discussion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#conclusion"><span class="nav-number">6.</span> <span class="nav-text">conclusion</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Contribulation"><span class="nav-number">1.</span> <span class="nav-text">Contribulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-works"><span class="nav-number">2.</span> <span class="nav-text">Related works</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tensor-Matrix-Based-Methods"><span class="nav-number">2.1.</span> <span class="nav-text">Tensor/Matrix Based Methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Translation-Based-Methods"><span class="nav-number">2.2.</span> <span class="nav-text">Translation Based Methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Translation-Based-Methods-1"><span class="nav-number">2.3.</span> <span class="nav-text">Translation Based Methods</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THE-SENN-METHOD"><span class="nav-number">3.</span> <span class="nav-text">THE SENN METHOD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Three-Substructures"><span class="nav-number">3.1.</span> <span class="nav-text">The Three Substructures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-Training"><span class="nav-number">3.2.</span> <span class="nav-text">Model Training</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-General-Loss-Function"><span class="nav-number">3.2.1.</span> <span class="nav-text">The General Loss Function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Adaptively-Weighted-Loss-Mechanism"><span class="nav-number">3.2.2.</span> <span class="nav-text">The Adaptively Weighted Loss Mechanism.</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THE-SENN-METHOD-1"><span class="nav-number">4.</span> <span class="nav-text">THE SENN+METHOD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EXPERIMENTS"><span class="nav-number">5.</span> <span class="nav-text">EXPERIMENTS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Datasets"><span class="nav-number">5.1.</span> <span class="nav-text">Datasets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Entity-Prediction"><span class="nav-number">5.2.</span> <span class="nav-text">Entity Prediction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Relation-Prediction"><span class="nav-number">5.3.</span> <span class="nav-text">Relation Prediction</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">6.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
