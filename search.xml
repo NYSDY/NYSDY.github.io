@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[《Efficient Estimation of Word Representations in Vector Space》阅读笔记]]></title>
+    <url>%2Fpost%2FEfficient%20Estimation%20of%20Word%20Representations%20in%20Vector%20Space%2F</url>
+    <content type="text"><![CDATA[论文下载地址，该篇论文的大篇幅都在讨论实验结果的分析，模型的部分比较简单，没有详细分析，本来是想读一下CBOW和skip-gram的原始论文，发现并没有想象中的那么大的用处。 Goals of paper 开发了两种新模型，并保留了单词之间的线性规律 设计了一个新的综合测试集，用于测量句法和语义规律 讨论了训练时间和准确性如何取决于单词向量的维度和训练数据的数量 Model Architectures训练复杂度： 其中，E是训练次数，T是训练集单词数量，Q是模型结构。 Feedforward Neural Net Language Model (NNLM)它由输入，映射，隐藏和输出层组成。通过简化方法，Q= N x D x H Recurrent Neural Net Language Model (RNNLM)克服了模型需要固定的上下文长度的问题，并且只有输入，隐藏和输出层。 Q= H x H + H x V，其中H = D（单词表示），H x V 可以通过分级softmax被简化为H x log_2(V)。所以主要的复杂度来自于H x H。 Parallel Training of Neural Networks模型使用的DistBelief框架允许我们并行运行同一模型的多个副本，每个副本通过集中的服务器同步其梯度更新，该服务器保留所有参数 New Log-linear Models大多数复杂性是由于模型中的非线性隐藏层引起的。模型结构如下： Continuous Bag-of-Words Model(CBOW)第一个提出的体系结构类似于前馈NNLM，其中去除了非线性隐藏层，并且所有单词（不仅仅是投影矩阵）共享投影层。 因此，所有单词都被投射到相同的位置（它们的向量被平均）。 将这个架构称为词袋模型，因为历史中的单词顺序不会影响投影。 模型的复杂度：Q = N × D + D × log_2(V ) Continuous Skip-gram Model基于同一句子中的另一个单词最大化单词的分类。 更准确地说，使用每个当前单词作为具有连续投影层的对数线性分类器的输入，并预测当前单词之前和之后的特定范围内的单词。 模型的复杂度：Q = C × (D + D × log2(V ))，其中C是单词的最大距离。 实验任务描述为了度量词向量的质量，我们定义了一个复杂的测试集，它包括了五种类型的语义问题。九个类型的句法问题。包括每个类别的两个样本集在上表展示；总之，共拥有8869个语义问题和10675个句法问题 作者通过：最大化精确度 ，模型体系结构的比较，模型的大规模并行训练来证明提出模型的运速度和精确的优势。]]></content>
+      <categories>
+        <category>论文阅读笔记</category>
+      </categories>
+      <tags>
+        <tag>word2vec</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Shared Embedding Based Neural Networks for Knowledge Graph Completion阅读笔记]]></title>
     <url>%2Fpost%2FShared%20Embedding%20Based%20Neural%20Networks%20for%20Knowledge%20Graph%20Completion%2F</url>
     <content type="text"><![CDATA[原文下载链接，知识图谱补全（KGC，Knowledge Graph Completion)是一种自动建立图谱内部知识关联的工作。目标是补全知识图谱中三元组的缺失部分。主要方法为基于张量（或者矩阵）和基于翻译两类。在本文中，作者提出了一种基于共享嵌入的神经网络的模型（SENN）来处理KGC。 Contribulation 提出了SENN模型，该模型明确区分头实体、关系和为实体预测任务，并把它们整合到一个基于全连接神经网络框架中，该框架共享的实体和关系嵌入。 SENN提出了一个自适应全中损失机制，该方法可以很好的处理具有不同映射属性的三元组，并处理不同的预测任务。 由于关系预测通常比头尾实体预测具有更好的性能，我们把SENN应用到头尾实体预测，从而将SENN扩展到SENN+。 Related worksTensor/Matrix Based MethodsRESCAL是一个典型的方法，该方法基于三向张量因子分解的方法。 目标函数为： $M_r$是r的关系矩阵，大小为k x k。 ComlEx是最近提出的方法，该方法基于矩阵分解，并且它使用复数值来定义实体和关系的嵌入。 目标函数为： Re(x)返回x的实部。 Translation Based Methods代表模型为经典的TransE模型（这里不再赘述） Translation Based MethodsER-MLP使用多层感知器来捕获头实体，关系和尾实体之间的隐式交互。 目标函数为： ProjE使用具有组合层和投影层的神经网络来对头尾实体预测建模。 THE SENN METHOD模型结构如图所示： 作者将框架划分为以下四个部分： 三元组的批量预处理 知识图谱的Shared embeddings表示学习 独立的头尾实体及关系预测子模型训练与融合 联合损失函数构成 整个KGC的流程可以描述如下： 将训练数据中的完整三元组（知识图谱）划分批量后作为模型的输入 对于输入的三元组，分别训练得到实体（包括头尾实体）嵌入矩阵与关系嵌入矩阵（embeddings） 将头尾实体及关系embeddings分别输入到三个预测模型中（头实体预测（?, r, t），关系预测(h, ?, t)，尾实体预测(h, r, ?)） The Three Substructures预测子模型具有相似的结构如下图，模型输入关系向量与实体向量后，进入n层全连接层，得到预测向量，再经过一个sigmoid（或者softmax）层，输出预测标签向量。 头实体预测目标函数： f(x)= max(0,x). 预测标签： 其它两种与此头实体类似。 Model TrainingThe General Loss Function模型目标标签向量表示为： $I_h$是在训练集中给定r和t的所有有效头实体集。 三者的平滑向量表示为： 三个预测任务的损失函数为： 总损失函数为： The Adaptively Weighted Loss Mechanism.该方法的动机： 在知识图谱中的三元组有4种类型：1-TO-1, 1-TO-M, M-TO-1 and M-TO-M。所以预测在训练集中具有的有效实体/关系越多，它就越不确定。所以作者将对应于头部实体预测，关系预测和尾部实体预测的损失的权重与有效实体的数量相关联。 因为关系预测比实体预测更加容易。所以作者加大对头尾实体的错误预测的惩罚。 所以作者得到新的损失函数： 总损失函数变为： THE SENN+METHOD作者相信可以进一步利用关系预测的相当好的性能来辅助测试过程中的头部和尾部实体预测。 给定头部预测任务（？，r，t）并假设h是有效的头部实体。 如果我们采用SENN方法来预测h和t之间的关系，即执行关系预测任务（h，？，t），则关系r最有可能具有 预测标签高于其他关系，因此应排名高于其他关系。 其中Value（x，r）返回对应于关系r的向量x的条目; Rank（x，r）以降序返回对应于关系r的向量x的条目的等级。 最后SENN+种预测标签为： 其中 EXPERIMENTSDatasets Entity Prediction Relation Prediction 论文还进行了共享嵌入和自适应权重损失机制有效性的验证。 参考链接 http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-%E9%9D%A2%E5%90%91%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E8%A1%A5%E5%85%A8%E7%9A%84%E5%85%B1%E4%BA%AB%E5%B5%8C%E5%85%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/]]></content>
@@ -59,8 +70,8 @@
       </categories>
       <tags>
         <tag>知识图谱</tag>
-        <tag>知识图谱推理</tag>
         <tag>知识图谱嵌入</tag>
+        <tag>知识图谱推理</tag>
       </tags>
   </entry>
   <entry>
@@ -190,8 +201,8 @@
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>python</tag>
         <tag>数据分析</tag>
       </tags>
   </entry>
@@ -203,8 +214,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>爬虫</tag>
         <tag>python</tag>
+        <tag>爬虫</tag>
         <tag>scrapy</tag>
       </tags>
   </entry>
@@ -216,8 +227,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>爬虫</tag>
         <tag>python</tag>
+        <tag>爬虫</tag>
         <tag>splash</tag>
         <tag>docker</tag>
       </tags>

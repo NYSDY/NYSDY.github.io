@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-19T08:09:35.184Z</updated>
+  <updated>2019-05-06T09:00:22.589Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《Efficient Estimation of Word Representations in Vector Space》阅读笔记</title>
+    <link href="http://yoursite.com/post/Efficient%20Estimation%20of%20Word%20Representations%20in%20Vector%20Space/"/>
+    <id>http://yoursite.com/post/Efficient Estimation of Word Representations in Vector Space/</id>
+    <published>2019-04-30T02:37:23.000Z</published>
+    <updated>2019-05-06T09:00:22.589Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://arxiv.org/pdf/1301.3781.pdf" target="_blank" rel="noopener">论文下载地址</a>，该篇论文的大篇幅都在讨论实验结果的分析，模型的部分比较简单，没有详细分析，本来是想读一下CBOW和skip-gram的原始论文，发现并没有想象中的那么大的用处。</p></blockquote><a id="more"></a><h2 id="Goals-of-paper"><a href="#Goals-of-paper" class="headerlink" title="Goals of paper"></a>Goals of paper</h2><ul><li>开发了两种新模型，并保留了单词之间的线性规律</li><li>设计了一个新的综合测试集，用于测量句法和语义规律</li><li>讨论了训练时间和准确性如何取决于单词向量的维度和训练数据的数量</li></ul><h2 id="Model-Architectures"><a href="#Model-Architectures" class="headerlink" title="Model Architectures"></a>Model Architectures</h2><p>训练复杂度：</p><p><img src="http://image.nysdy.com/20190506155712909488421.png" alt="20190506155712909488421.png"></p><p>其中，E是训练次数，T是训练集单词数量，Q是模型结构。</p><h3 id="Feedforward-Neural-Net-Language-Model-NNLM"><a href="#Feedforward-Neural-Net-Language-Model-NNLM" class="headerlink" title="Feedforward Neural Net Language Model (NNLM)"></a>Feedforward Neural Net Language Model (NNLM)</h3><p>它由输入，映射，隐藏和输出层组成。通过简化方法，Q= N x D x H</p><h3 id="Recurrent-Neural-Net-Language-Model-RNNLM"><a href="#Recurrent-Neural-Net-Language-Model-RNNLM" class="headerlink" title="Recurrent Neural Net Language Model (RNNLM)"></a>Recurrent Neural Net Language Model (RNNLM)</h3><p>克服了模型需要固定的上下文长度的问题，并且只有输入，隐藏和输出层。</p><p>Q= H x H + H x V，其中H = D（单词表示），H x V 可以通过分级softmax被简化为H x log_2(V)。所以主要的复杂度来自于H x H。</p><h3 id="Parallel-Training-of-Neural-Networks"><a href="#Parallel-Training-of-Neural-Networks" class="headerlink" title="Parallel Training of Neural Networks"></a>Parallel Training of Neural Networks</h3><p>模型使用的DistBelief框架允许我们并行运行同一模型的多个副本，每个副本通过集中的服务器同步其梯度更新，该服务器保留所有参数</p><h2 id="New-Log-linear-Models"><a href="#New-Log-linear-Models" class="headerlink" title="New Log-linear Models"></a>New Log-linear Models</h2><p>大多数复杂性是由于模型中的非线性隐藏层引起的。模型结构如下：<img src="http://image.nysdy.com/20190506155713050638684.png" alt="20190506155713050638684.png"></p><h3 id="Continuous-Bag-of-Words-Model-CBOW"><a href="#Continuous-Bag-of-Words-Model-CBOW" class="headerlink" title="Continuous Bag-of-Words Model(CBOW)"></a>Continuous Bag-of-Words Model(CBOW)</h3><p>第一个提出的体系结构类似于前馈NNLM，其中去除了非线性隐藏层，并且所有单词（不仅仅是投影矩阵）共享投影层。 因此，所有单词都被投射到相同的位置（它们的向量被平均）。 将这个架构称为词袋模型，因为历史中的单词顺序不会影响投影。</p><p>模型的复杂度：Q = N × D + D × log_2(V )</p><h3 id="Continuous-Skip-gram-Model"><a href="#Continuous-Skip-gram-Model" class="headerlink" title="Continuous Skip-gram Model"></a>Continuous Skip-gram Model</h3><p>基于同一句子中的另一个单词最大化单词的分类。 更准确地说，使用每个当前单词作为具有连续投影层的对数线性分类器的输入，并预测当前单词之前和之后的特定范围内的单词。</p><p>模型的复杂度：Q = C × (D + D × log2(V ))，其中C是单词的最大距离。</p><h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="任务描述"><a href="#任务描述" class="headerlink" title="任务描述"></a>任务描述</h3><p>为了度量词向量的质量，我们定义了一个复杂的测试集，它包括了五种类型的语义问题。九个类型的句法问题。包括每个类别的两个样本集在上表展示；总之，共拥有8869个语义问题和10675个句法问题</p><p>作者通过：最大化精确度 ，模型体系结构的比较，模型的大规模并行训练来证明提出模型的运速度和精确的优势。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://arxiv.org/pdf/1301.3781.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;，该篇论文的大篇幅都在讨论实验结果的分析，模型的部分比较简单，没有详细分析，本来是想读一下CBOW和skip-gram的原始论文，发现并没有想象中的那么大的用处。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="word2vec" scheme="http://yoursite.com/tags/word2vec/"/>
+    
+  </entry>
   
   <entry>
     <title>Shared Embedding Based Neural Networks for Knowledge Graph Completion阅读笔记</title>
@@ -146,9 +170,9 @@
     
       <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
     
-      <category term="知识图谱推理" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8E%A8%E7%90%86/"/>
-    
       <category term="知识图谱嵌入" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%B5%8C%E5%85%A5/"/>
+    
+      <category term="知识图谱推理" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8E%A8%E7%90%86/"/>
     
   </entry>
   
@@ -435,9 +459,9 @@
       <category term="pandas" scheme="http://yoursite.com/categories/pandas/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
@@ -463,9 +487,9 @@
       <category term="爬虫" scheme="http://yoursite.com/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="scrapy" scheme="http://yoursite.com/tags/scrapy/"/>
     
@@ -491,9 +515,9 @@
       <category term="爬虫" scheme="http://yoursite.com/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="splash" scheme="http://yoursite.com/tags/splash/"/>
     
@@ -526,33 +550,6 @@
       <category term="文件读取" scheme="http://yoursite.com/tags/%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/"/>
     
       <category term="csv" scheme="http://yoursite.com/tags/csv/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Neo4j初始化节点显示设置</title>
-    <link href="http://yoursite.com/post/Neo4j_initializes_the_node_display_Settings/"/>
-    <id>http://yoursite.com/post/Neo4j_initializes_the_node_display_Settings/</id>
-    <published>2018-10-10T08:13:05.000Z</published>
-    <updated>2018-10-10T08:21:08.779Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p>neo4j中有默认的初始化节点显示设置为300个节点，如果想要显示的节点多于300个，则会只显示300个，并给予以下提示语句：</p><p><code>Not all return nodes are being displayed due to Initial Node Display setting. Only 300 of 300 nodes are being displayed.</code></p><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>在如图所示<code>initial Node Display</code>处可以修改，在此处修改为300000.<img src="https://i.loli.net/2018/10/10/5bbdb388a368b.jpg" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;问题描述：&quot;&gt;&lt;a href=&quot;#问题描述：&quot; class=&quot;headerlink&quot; title=&quot;问题描述：&quot;&gt;&lt;/a&gt;问题描述：&lt;/h3&gt;&lt;p&gt;neo4j中有默认的初始化节点显示设置为300个节点，如果想要显示的节点多于300个，则会只显示300个，并给予以下
-      
-    
-    </summary>
-    
-      <category term="Neo4j" scheme="http://yoursite.com/categories/Neo4j/"/>
-    
-    
-      <category term="Neo4j" scheme="http://yoursite.com/tags/Neo4j/"/>
-    
-      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
