@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="embedding," />
 
 
 
@@ -103,13 +103,33 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="NYSDY">
-<meta property="og:url" content="http://yoursite.com/categories/论文阅读笔记/index.html">
+<meta name="description" content="论文下载地址，ELMo事先用语言模型学好一个单词的 Word Embedding，此时多义词无法区分，不过这没关系。在我实际使用 Word Embedding 的时候，单词已经具备了特定的上下文了，这个时候我可以根据上下文单词的语义去调整单词的 Word Embedding 表示，这样经过调整后的 Word Embedding 更能表达在这个上下文中的具体含义，自然也就解决了多义词的问题了。所以">
+<meta name="keywords" content="embedding">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep contextualized word representations 阅读笔记">
+<meta property="og:url" content="http://yoursite.com/post/Deep contextualized word representations/index.html">
 <meta property="og:site_name" content="NYSDY">
+<meta property="og:description" content="论文下载地址，ELMo事先用语言模型学好一个单词的 Word Embedding，此时多义词无法区分，不过这没关系。在我实际使用 Word Embedding 的时候，单词已经具备了特定的上下文了，这个时候我可以根据上下文单词的语义去调整单词的 Word Embedding 表示，这样经过调整后的 Word Embedding 更能表达在这个上下文中的具体含义，自然也就解决了多义词的问题了。所以">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://image.nysdy.com/20190512155766627486478.png">
+<meta property="og:image" content="http://image.nysdy.com/2019051215576663543534.png">
+<meta property="og:image" content="http://image.nysdy.com/20190512155766643539454.png">
+<meta property="og:image" content="http://image.nysdy.com/20190512155767113638451.png">
+<meta property="og:image" content="http://image.nysdy.com/20190512155767132777658.png">
+<meta property="og:image" content="http://image.nysdy.com/2019051315577106394943.png">
+<meta property="og:image" content="http://image.nysdy.com/20190512155767132777658.png">
+<meta property="og:image" content="http://image.nysdy.com/20190513155771140936480.png">
+<meta property="og:image" content="http://image.nysdy.com/20190513155771190646517.png">
+<meta property="og:image" content="http://image.nysdy.com/20190513155771262634271.png">
+<meta property="og:image" content="http://image.nysdy.com/20190513155771312514655.png">
+<meta property="og:image" content="http://image.nysdy.com/20190513155771328944169.png">
+<meta property="og:image" content="http://image.nysdy.com/20190513155771349825964.png">
+<meta property="og:image" content="http://image.nysdy.com/20190513155771355211483.png">
+<meta property="og:updated_time" content="2019-05-13T06:50:58.808Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NYSDY">
+<meta name="twitter:title" content="Deep contextualized word representations 阅读笔记">
+<meta name="twitter:description" content="论文下载地址，ELMo事先用语言模型学好一个单词的 Word Embedding，此时多义词无法区分，不过这没关系。在我实际使用 Word Embedding 的时候，单词已经具备了特定的上下文了，这个时候我可以根据上下文单词的语义去调整单词的 Word Embedding 表示，这样经过调整后的 Word Embedding 更能表达在这个上下文中的具体含义，自然也就解决了多义词的问题了。所以">
+<meta name="twitter:image" content="http://image.nysdy.com/20190512155766627486478.png">
 
 
 
@@ -138,13 +158,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/论文阅读笔记/"/>
+  <link rel="canonical" href="http://yoursite.com/post/Deep contextualized word representations/"/>
 
 
 
 
 
-  <title>分类: 论文阅读笔记 | NYSDY</title>
+  <title>Deep contextualized word representations 阅读笔记 | NYSDY</title>
   
 
 
@@ -255,7 +275,7 @@ $(function() {
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
     <a href="https://github.com/NYSDY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -393,311 +413,290 @@ $(function() {
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>论文阅读笔记<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/Deep contextualized word representations/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NYSDY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i.loli.net/2018/09/24/5ba86696be366.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NYSDY">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/post/Deep contextualized word representations/" itemprop="url">
-              
-                <span itemprop="name">Deep contextualized word representations 阅读笔记</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Deep contextualized word representations 阅读笔记</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-05-10T15:28:06+08:00"
-              content="2019-05-10" >
-          05-10
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-10T15:28:06+08:00">
+                2019-05-10
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文阅读笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/post/Deep contextualized word representations/" class="leancloud_visitors" data-flag-title="Deep contextualized word representations 阅读笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Efficient Estimation of Word Representations in Vector Space/" itemprop="url">
-              
-                <span itemprop="name">《Efficient Estimation of Word Representations in Vector Space》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-30T10:37:23+08:00"
-              content="2019-04-30" >
-          04-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Shared Embedding Based Neural Networks for Knowledge Graph Completion/" itemprop="url">
-              
-                <span itemprop="name">Shared Embedding Based Neural Networks for Knowledge Graph Completion阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-19T14:52:38+08:00"
-              content="2019-04-19" >
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Bootstrapping Entity Alignment with Knowledge Graph Embedding/" itemprop="url">
-              
-                <span itemprop="name">《Bootstrapping Entity Alignment with Knowledge Graph Embedding》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-09T09:01:13+08:00"
-              content="2019-04-09" >
-          04-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Entity Alignment between Knowledge Graphs Using Attribute Embeddings/" itemprop="url">
-              
-                <span itemprop="name">《Entity Alignment between Knowledge Graphs Using Attribute Embeddings》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-28T08:57:15+08:00"
-              content="2019-03-28" >
-          03-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/RelNN A Deep Neural Model for Relational Learning/" itemprop="url">
-              
-                <span itemprop="name">《RelNN A Deep Neural Model for Relational Learning》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-25T09:34:57+08:00"
-              content="2019-03-25" >
-          03-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Interaction Embeddings for Prediction and Explanation/" itemprop="url">
-              
-                <span itemprop="name">《Interaction Embeddings for Prediction and Explanation》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-21T14:07:37+08:00"
-              content="2019-03-21" >
-          03-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Differentiable Learning of Logical Rules for Knowledge Base Reasoning/" itemprop="url">
-              
-                <span itemprop="name">《Differentiable Learning of Logical Rules for Knowledge Base Reasoning》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-05T15:34:05+08:00"
-              content="2019-03-05" >
-          03-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/OK Google, What Is Your Ontology? Or/ Exploring Freebase Classification to Understand Google’s Knowledge Graph？/" itemprop="url">
-              
-                <span itemprop="name">《OK Google, What Is Your Ontology? Or/ Exploring Freebase Classification to Understand Google’s Knowledge Graph？》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-03T21:29:07+08:00"
-              content="2019-03-03" >
-          03-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/An Automatic Knowledge Graph Construction System for K-12 Education/" itemprop="url">
-              
-                <span itemprop="name">《An Automatic Knowledge Graph Construction System for K-12 Education》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-19T10:32:57+08:00"
-              content="2019-01-19" >
-          01-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <blockquote>
+<p><a href="https://arxiv.org/pdf/1802.05365.pdf" target="_blank" rel="noopener">论文下载地址</a>，ELMo事先用语言模型学好一个单词的 Word Embedding，此时多义词无法区分，不过这没关系。在我实际使用 Word Embedding 的时候，单词已经具备了特定的上下文了，这个时候我可以根据上下文单词的语义去调整单词的 Word Embedding 表示，这样经过调整后的 Word Embedding 更能表达在这个上下文中的具体含义，自然也就解决了多义词的问题了。<strong>所以 ELMO 本身是个根据当前上下文对 Word Embedding 动态调整的思路。</strong></p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="ELMo-Embedddings-from-Language-Models"><a href="#ELMo-Embedddings-from-Language-Models" class="headerlink" title="ELMo(Embedddings from Language Models):"></a>ELMo(Embedddings from Language Models):</h2><h3 id="why-call-ELMo"><a href="#why-call-ELMo" class="headerlink" title="why call ELMo:"></a>why call ELMo:</h3><p>Using vectors derived from a bidirectional LSTM that is trained with a coupled language model(LM) objective on a large text corups.</p>
+<h3 id="characteristics"><a href="#characteristics" class="headerlink" title="characteristics"></a>characteristics</h3><ul>
+<li><p>ELMo representations are a function of all of the internal layers of the biLM.</p>
+</li>
+<li><p>learn a linear combination of the vectors stacked above each input word for each end task</p>
+</li>
+<li><p>the higher-level LSTM states capture context-dependent aspects of word meaning</p>
+<p>the lower-level states model aspects of syntax</p>
+</li>
+</ul>
+<h3 id="Extensive-experiments"><a href="#Extensive-experiments" class="headerlink" title="Extensive experiments"></a>Extensive experiments</h3><ul>
+<li>EMLo representations can be easily added to existing models</li>
+<li>improve the state of art in every case</li>
+<li>ELMo outperform those derived from just the top layer of a LSTM</li>
+</ul>
+<h1 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h1><ul>
+<li><p>Some approaches for learning word vectors only allow a single context-independent representation for each word.</p>
+</li>
+<li><p>to overcome some shortcomings of traditional word vectors:</p>
+<ul>
+<li>enriching them with subword information</li>
+<li>learning separate vectors for each word sense</li>
+</ul>
+<p>Authors uses subword units through the use of character convolutions, seamlessly incorporate multi-sense information into downstream tasks without explicitly training to predict predefined sense classes.</p>
+</li>
+<li><p>context-depends representations</p>
+<p> Authors take full advantage of access to plentiful monolingual data</p>
+</li>
+<li><p>Previous work also shown that different layers of deep biRNNs encode different types of information</p>
+<ul>
+<li>introducing multi-task syntactic supervision at the lower levels of a deep LSTM can improve overall performance of higher level tasks</li>
+<li>the top layer of an LSTM for encoding word context (Melamud et al., 2016) has been shown to learn representations of word sense.</li>
+</ul>
+<p>ELMo representations can also induce similar signals.</p>
+</li>
+</ul>
+<h1 id="ELMo-Embeddings-from-Language-Models"><a href="#ELMo-Embeddings-from-Language-Models" class="headerlink" title="ELMo: Embeddings from Language Models"></a>ELMo: Embeddings from Language Models</h1><h2 id="Bidirectional-language-models"><a href="#Bidirectional-language-models" class="headerlink" title="Bidirectional language models"></a>Bidirectional language models</h2><ul>
+<li><p>model the probability of token $t_k$ given the history($t_1, … , t_{k-1}$):</p>
+<p><img src="http://image.nysdy.com/20190512155766627486478.png" alt="20190512155766627486478.png"></p>
+</li>
+<li><p>a backward LM:<img src="http://image.nysdy.com/2019051215576663543534.png" alt="2019051215576663543534.png"></p>
+</li>
+</ul>
+<p>Authors’ formulation jointly maximizes the log likelihood of the forward and backward directions:</p>
+<p><img src="http://image.nysdy.com/20190512155766643539454.png" alt="20190512155766643539454.png"></p>
+<h2 id="ELMo"><a href="#ELMo" class="headerlink" title="ELMo"></a>ELMo</h2><ul>
+<li><p>For each token $t_k$, a L-layer biLM computes a set of 2L + 1 representations:<img src="http://image.nysdy.com/20190512155767113638451.png" alt="20190512155767113638451.png"></p>
+</li>
+<li><p>For a downstream model, ELMo collapses all layers in R into a single vector.</p>
+<p>In the simplest case, ELMo just selects the top layer.</p>
+</li>
+<li><p>For a task specific weighting of all biLM layers:<img src="http://image.nysdy.com/20190512155767132777658.png" alt="20190512155767132777658.png"></p>
+<p>$s^{task}$ are softmax-normalized weithts and the scalar parameter $γ^{task}$ allows the task model to scale the entire ELMo vector</p>
+</li>
+</ul>
+<h2 id="Using-biLMs-for-supervised-NLP-tasks"><a href="#Using-biLMs-for-supervised-NLP-tasks" class="headerlink" title="Using biLMs for supervised NLP tasks"></a>Using biLMs for supervised NLP tasks</h2><ul>
+<li>Given a pre-trained biLM and a supervised architecture for a target NLP task</li>
+<li>let the end task model learn a linear combination of these representations<ol>
+<li>consider the lowest layers of th supervised model without the biLM</li>
+<li>add ELMo to the supervised model<ul>
+<li>freeze the weights of the biLM</li>
+<li>concatenate the ELMo vector $ELMo^{task}_k$ with $x_k$ and pass the ELMo enhanced representation $[x_k,;ELMo^{task}_k ]$ into the task RNN.</li>
+<li>for some tasks, authors also include ELMo ar the output of task RNN by introducing another set of out put specific linear weights and replacing $h_k$ with $[h_k,;ELMo^{task}_k ]$</li>
+<li>add a moderate amount of dropout to ELMo and in some case to regularize the ELMo weights</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="Pre-trained-bidirectional-language-model-architecture"><a href="#Pre-trained-bidirectional-language-model-architecture" class="headerlink" title="Pre-trained bidirectional language model architecture"></a>Pre-trained bidirectional language model architecture</h2><ul>
+<li>the biLM provides three layers of representations for each input token, both directions and a residual connection between LSTM layers </li>
+<li>fine tuning the biLM on domain specific data</li>
+</ul>
+<h1 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h1><p>the following picture shows the performance of ELMo in Question answering, Textual entailment, Semantic role labeling, Corefrence resolution, Named entity extraction, Sentiment analysis.</p>
+<p><img src="http://image.nysdy.com/2019051315577106394943.png" alt="2019051315577106394943.png"></p>
+<p>In every task considered, simply adding ELMo establishes a new state-of-the-art result.</p>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><h2 id="Alternate-layer-weighting-schemes"><a href="#Alternate-layer-weighting-schemes" class="headerlink" title="Alternate layer weighting schemes"></a>Alternate layer weighting schemes</h2><p><img src="http://image.nysdy.com/20190512155767132777658.png" alt="20190512155767132777658.png"></p>
+<p>the following picture compares these alternatives.</p>
+<p><img src="http://image.nysdy.com/20190513155771140936480.png" alt="20190513155771140936480.png"></p>
+<p>Including representations from all layers improves overall performance over just using the last layer, and including contextual representations from the last layer improves performace over the baseline.</p>
+<p>Also shows the $\lambda$ is important.</p>
+<h2 id="Where-to-include-ELMo"><a href="#Where-to-include-ELMo" class="headerlink" title="Where to include ELMo?"></a>Where to include ELMo?</h2><p>The ELMo can be included in both the input and output.</p>
+<p><img src="http://image.nysdy.com/20190513155771190646517.png" alt="20190513155771190646517.png"></p>
+<p>the results show including the ELMo in both input and output can preform better.</p>
+<h2 id="What-information-is-captured-by-the-biLM’s-representations"><a href="#What-information-is-captured-by-the-biLM’s-representations" class="headerlink" title="What information is captured by the biLM’s representations?"></a>What information is captured by the biLM’s representations?</h2><p>Intuitively, the biLM must be disambiguating the meaning of words using their context.<img src="http://image.nysdy.com/20190513155771262634271.png" alt="20190513155771262634271.png"></p>
+<p>The GloVe can only capure the speech. but the biLM is able to disambiguate both the part of speech and word sense in the source sentence.</p>
+<h3 id="Word-sense-disambiguation"><a href="#Word-sense-disambiguation" class="headerlink" title="Word sense disambiguation"></a>Word sense disambiguation</h3><p>given a sentence, predicting  the sense of a target word using a simple 1-nearst negihbor approach</p>
+<p><img src="http://image.nysdy.com/20190513155771312514655.png" alt="20190513155771312514655.png"></p>
+<h3 id="POS-tagging"><a href="#POS-tagging" class="headerlink" title="POS tagging"></a>POS tagging</h3><p>to examine whether the biLM captures basic syntax.</p>
+<p><img src="http://image.nysdy.com/20190513155771328944169.png" alt="20190513155771328944169.png"></p>
+<h2 id="Sample-efficiency"><a href="#Sample-efficiency" class="headerlink" title="Sample efficiency"></a>Sample efficiency</h2><p>Adding ELMo to a model increases the sample efficiency considerably, both in terms of number of parameter updates to reach state-of-the-art performance and the overall training set size.<img src="http://image.nysdy.com/20190513155771349825964.png" alt="20190513155771349825964.png"></p>
+<h2 id="Visualization-of-learned-weights"><a href="#Visualization-of-learned-weights" class="headerlink" title="Visualization of learned weights"></a>Visualization of learned weights</h2><p><img src="http://image.nysdy.com/20190513155771355211483.png" alt="20190513155771355211483.png"></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/63115885" target="_blank" rel="noopener">NAACL2018:高级词向量(ELMo)详解(超详细) 经典</a>，这篇文章中阐述了一些使用的细节，并用图来表示，更加清晰。</li>
+<li><a href="https://blog.csdn.net/triplemeng/article/details/82380202" target="_blank" rel="noopener">ELMo算法介绍</a>，这篇博客中自己对整个论文的概述和总结和好，需要学习。</li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/embedding/" rel="tag"><i class="fa fa-tag"></i> embedding</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/Efficient Estimation of Word Representations in Vector Space/" rel="next" title="《Efficient Estimation of Word Representations in Vector Space》阅读笔记">
+                <i class="fa fa-chevron-left"></i> 《Efficient Estimation of Word Representations in Vector Space》阅读笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/categories/论文阅读笔记/page/2/">2</a><a class="extend next" rel="next" href="/categories/论文阅读笔记/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -705,6 +704,10 @@ $(function() {
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -725,8 +728,17 @@ $(function() {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://i.loli.net/2018/09/24/5ba86696be366.jpg"
@@ -833,6 +845,22 @@ $(function() {
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ELMo-Embedddings-from-Language-Models"><span class="nav-number">1.1.</span> <span class="nav-text">ELMo(Embedddings from Language Models):</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#why-call-ELMo"><span class="nav-number">1.1.1.</span> <span class="nav-text">why call ELMo:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#characteristics"><span class="nav-number">1.1.2.</span> <span class="nav-text">characteristics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extensive-experiments"><span class="nav-number">1.1.3.</span> <span class="nav-text">Extensive experiments</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Related-work"><span class="nav-number">2.</span> <span class="nav-text">Related work</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ELMo-Embeddings-from-Language-Models"><span class="nav-number">3.</span> <span class="nav-text">ELMo: Embeddings from Language Models</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bidirectional-language-models"><span class="nav-number">3.1.</span> <span class="nav-text">Bidirectional language models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ELMo"><span class="nav-number">3.2.</span> <span class="nav-text">ELMo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-biLMs-for-supervised-NLP-tasks"><span class="nav-number">3.3.</span> <span class="nav-text">Using biLMs for supervised NLP tasks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pre-trained-bidirectional-language-model-architecture"><span class="nav-number">3.4.</span> <span class="nav-text">Pre-trained bidirectional language model architecture</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Evaluation"><span class="nav-number">4.</span> <span class="nav-text">Evaluation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Analysis"><span class="nav-number">5.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Alternate-layer-weighting-schemes"><span class="nav-number">5.1.</span> <span class="nav-text">Alternate layer weighting schemes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where-to-include-ELMo"><span class="nav-number">5.2.</span> <span class="nav-text">Where to include ELMo?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-information-is-captured-by-the-biLM’s-representations"><span class="nav-number">5.3.</span> <span class="nav-text">What information is captured by the biLM’s representations?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-sense-disambiguation"><span class="nav-number">5.3.1.</span> <span class="nav-text">Word sense disambiguation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POS-tagging"><span class="nav-number">5.3.2.</span> <span class="nav-text">POS tagging</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-efficiency"><span class="nav-number">5.4.</span> <span class="nav-text">Sample efficiency</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visualization-of-learned-weights"><span class="nav-number">5.5.</span> <span class="nav-text">Visualization of learned weights</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">6.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -973,10 +1001,10 @@ $(function() {
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
