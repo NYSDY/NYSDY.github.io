@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-21T03:12:03.262Z</updated>
+  <updated>2019-05-13T06:50:58.808Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>test</title>
-    <link href="http://yoursite.com/post/null/"/>
-    <id>http://yoursite.com/post/null/</id>
-    <published>2019-05-21T02:57:43.000Z</published>
-    <updated>2019-05-21T03:12:03.262Z</updated>
-    
-    <content type="html"><![CDATA[<p>$fdjaljf_fjlajfa$</p><script type="math/tex; mode=display">\left(J=\sum_{i, j=1}^{V} f\left(X_{i j}\right)\left(w_{i}^{T} \tilde{w}_{j}+b_{i}+\tilde{b}_{j}-\log X_{i j}\right)^{2}\right)</script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;$fdjaljf_fjlajfa$&lt;/p&gt;
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-\left(J=\sum_{i, j=1}^{V} f\left(X_{i j}\right)\left(w_{i}^{T} \tilde{w}_{j}
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Deep contextualized word representations 阅读笔记</title>
@@ -348,9 +325,9 @@
       <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
       <category term="NER" scheme="http://yoursite.com/tags/NER/"/>
+    
+      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
     
   </entry>
   
@@ -506,9 +483,9 @@
       <category term="pandas" scheme="http://yoursite.com/categories/pandas/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
@@ -539,6 +516,36 @@
       <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="scrapy" scheme="http://yoursite.com/tags/scrapy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python动态网页爬取之安装docker和splash</title>
+    <link href="http://yoursite.com/post/Python_dynamic_web_crawler_installed_docker_and_splash/"/>
+    <id>http://yoursite.com/post/Python_dynamic_web_crawler_installed_docker_and_splash/</id>
+    <published>2018-10-25T02:19:22.000Z</published>
+    <updated>2018-10-25T02:28:18.214Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>利用python进行动态网页爬取时，在安装docker和splash时踩过的坑，记录了一下自己的安装过程。用的系统是mac os。</p></blockquote><a id="more"></a><h3 id="安装scrapy-splash"><a href="#安装scrapy-splash" class="headerlink" title="安装scrapy-splash"></a>安装scrapy-splash</h3><ul><li>利用pip安装scrapy-splash库：<br><code>$ pip install scrapy-splash</code></li></ul><h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><p>==下面👇这样安不下去了==</p><ul><li><p>如果是Mac的话需要使用brew安装，如下：<code>brew install docker</code>  </p><p>报错：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Failure while executing; `git config --local --replace-all homebrew.private true` exited with 1.</span><br></pre></td></tr></table></figure><p>解决方法：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure><p>然后在执行：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install docker</span><br></pre></td></tr></table></figure><p>再继续：</p><p><code>service docker start</code></p><p>报错：</p><p><code>-bash: service: command not found</code>上网上查一堆乱七八糟的解决方式，该路径啥的，真的不想改路径，怕把其他的改崩了。最后放弃这种方式，如果有兴趣也可以尝试解决。</p></li></ul><p>==尝试如下安装DOCKER方法==</p><ol><li><p><a href="https://www.docker.com/get-started" target="_blank" rel="noopener">去官网下载</a><img src="https://i.loli.net/2018/10/23/5bcf2ef4c4994.jpg" alt="">这种方法下载docker客户端需要从服务器下载，自己电脑下载12k/s，简直慢死了。</p></li><li><p>拉取镜像(pull the image)：<code>docker pull scrapinghub/splash</code></p><p><img src="https://i.loli.net/2018/10/23/5bcf34a4265a2.jpg" alt=""></p></li><li><p>用docker运行scrapinghub/splash：</p><p><code>docker run -p 8050:8050 scrapinghub/splash</code></p><p><img src="https://i.loli.net/2018/10/23/5bcf3578aa04a.jpg" alt=""></p><p>在浏览器中输入<code>localhost:8050</code><img src="https://i.loli.net/2018/10/23/5bcf363bc08d8.jpg" alt=""></p><p>==安装成功==</p></li></ol><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul><li><a href="http://www.morecoder.com/article/1001249.html" target="_blank" rel="noopener">http://www.morecoder.com/article/1001249.html</a></li><li><a href="https://www.jianshu.com/p/e54a407c8a0a" target="_blank" rel="noopener">https://www.jianshu.com/p/e54a407c8a0a</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;利用python进行动态网页爬取时，在安装docker和splash时踩过的坑，记录了一下自己的安装过程。用的系统是mac os。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://yoursite.com/categories/%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="splash" scheme="http://yoursite.com/tags/splash/"/>
+    
+      <category term="docker" scheme="http://yoursite.com/tags/docker/"/>
     
   </entry>
   
