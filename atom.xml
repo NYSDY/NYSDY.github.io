@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-20T13:35:43.983Z</updated>
+  <updated>2019-05-13T06:50:58.808Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>GloVe: Global Vectors for Word Representation阅读笔记</title>
-    <link href="http://yoursite.com/post/null/"/>
-    <id>http://yoursite.com/post/null/</id>
-    <published>2019-05-20T13:35:25.000Z</published>
-    <updated>2019-05-20T13:35:43.983Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>evaluate the intrinsic quality</p><ul><li>Most word vector methods rely on the distance or angle between pairs of word vectors </li><li>Mikolov et al. (2013c) introduced word analogies that examines word vector’s various dimensions of difference.</li></ul><p>two main model families for learning vectors:</p><ul><li>global matrix factorization methods</li><li>local context window methods</li></ul><p>Authors propose a specific weighted least squares model that trains on globla word-word co-occurrence counts and thus makes efficient use of statistics.</p><h1 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h1><h2 id="Matix-Facroization-Methods"><a href="#Matix-Facroization-Methods" class="headerlink" title="Matix Facroization Methods"></a>Matix Facroization Methods</h2><p>These methods utilize low-rank approximations to decompose large matrices that capture statistical information about a corpus.</p><h3 id="shortcoming"><a href="#shortcoming" class="headerlink" title="shortcoming"></a>shortcoming</h3><p>the most frequent words contribute a dispropoertionate amount to the similarity measure.</p><h2 id="Shallow-Window-Based-Methods"><a href="#Shallow-Window-Based-Methods" class="headerlink" title="Shallow Window-Based Methods"></a>Shallow Window-Based Methods</h2><p>Another approach is to learn word representations that aid in making predictins within local context windows.</p><h3 id="shortcoming-1"><a href="#shortcoming-1" class="headerlink" title="shortcoming"></a>shortcoming</h3><p>do not operate directly on the co-occurrence statistics of the corpus and fails to take advantage of the vast amount of repetition in the data.</p><h1 id="The-GloVe-Model"><a href="#The-GloVe-Model" class="headerlink" title="The GloVe Model"></a>The GloVe Model</h1><h3 id="GloVe-Global-Vectors"><a href="#GloVe-Global-Vectors" class="headerlink" title="GloVe: Global Vectors"></a>GloVe: Global Vectors</h3><p>the global corpus statistics are captured directly by the model</p><h3 id="the-question-about-the-model-using-the-statistics-of-word-occurrences-in-a-corpus"><a href="#the-question-about-the-model-using-the-statistics-of-word-occurrences-in-a-corpus" class="headerlink" title="the question about the model using the statistics of word occurrences in a corpus"></a>the question about the model using the statistics of word occurrences in a corpus</h3><ul><li>how meaning is generated from these statistics</li><li>how the resulting word vectors might represent that meaning</li></ul><h2 id="some-notation"><a href="#some-notation" class="headerlink" title="some notation"></a>some notation</h2><p>$X_{ij}$ : the number of times word j occurs in the context of word i</p><p>$X_i = \sum_{k} X_{i k}$ : the number of times any word appears in the context of word i</p><p>$P_{i j}=P(j | i)=X_{i j} / X_{i}$: the probability that word j appear in the context of word i</p><p><img src="http://image.nysdy.com/20190515155788329289127.jpg" alt="20190515155788329289127.jpg"></p><p>above that, werd vector learning should be with ratios of co-occurrence probabilities:</p><p><img src="http://image.nysdy.com/20190515155788352871603.jpg" alt="20190515155788352871603.jpg"></p><p>$w \in \mathbb{R}^{d}$are word vectors and $\tilde{w} \in \mathbb{R}^{d}$are separate context word vectors</p><p>For F, we should select a unique choice by enforcing a few desiderata.</p><ul><li><p>encoding the information present the ratio $P_{i k} / P_{j k}$ in the word vector space. </p><p>Since vector spaces are inherently linear structures</p><p><img src="http://image.nysdy.com/20190515155788379647745.jpg" alt="20190515155788379647745.jpg"></p></li><li><p>put F to be a compicated function parameterized, and avoiding bofuscating the linear structure<img src="http://image.nysdy.com/20190515155788397136355.jpg" alt="20190515155788397136355.jpg"></p></li><li><p>the word-word co-occurrence matrices, we can exchange a word and a context word(because a word can also be a context word)</p><ol><li><p>F should be a homomorphism<img src="http://image.nysdy.com/2019051515578842869345.jpg" alt="2019051515578842869345.jpg"></p><p>by Eqn.(3)<img src="http://image.nysdy.com/20190515155788435674239.png" alt="20190515155788435674239.png"></p><p>F = exp or <img src="http://image.nysdy.com/20190515155788448759173.jpg" alt="20190515155788448759173.jpg"></p></li><li><p>the Eqn(6) would have the exchange symmetry if not $\log \left(X_{i}\right)$ and $\log \left(X_{i}\right)$ is independent of k, so it can be absorbed into a bias $b_i$<img src="http://image.nysdy.com/20190515155788566687599.jpg" alt="20190515155788566687599.jpg"></p></li><li><p>for avoiding diverge, $\log \left(X_{i k}\right) \rightarrow \log \left(1+X_{i k}\right)$</p></li><li><p>a new weighted least squares regression model to address the problem that LSA wirhts all co-occuttences equally.</p><p>cost function:<img src="http://image.nysdy.com/20190515155788560186237.jpg" alt="20190515155788560186237.jpg"></p></li><li><p><img src="http://image.nysdy.com/20190515155788571777804.jpg" alt="20190515155788571777804.jpg"></p></li></ol></li></ul><h2 id="Relationship-to-Other-Models"><a href="#Relationship-to-Other-Models" class="headerlink" title="Relationship to Other Models"></a>Relationship to Other Models</h2><p>In this subsection authors show how these models are related to their proposed model.</p><h4 id="the-defect-of-cross-entropy"><a href="#the-defect-of-cross-entropy" class="headerlink" title="the defect of cross entropy"></a>the defect of cross entropy</h4><ul><li>it has the unfortunate property that distributions with long tails are often modeled poorly with too much wieght given to the unlikely events.</li></ul><h2 id="Complexity-of-the-model"><a href="#Complexity-of-the-model" class="headerlink" title="Complexity of the model"></a>Complexity of the model</h2><p>the computational complexity of the model depends on the number of nonzero elects in the matrix $X$</p><h4 id="some-assumptions-about-the-distribution-of-word-co-occurrences"><a href="#some-assumptions-about-the-distribution-of-word-co-occurrences" class="headerlink" title="some assumptions about the distribution of word co-occurrences"></a>some assumptions about the distribution of word co-occurrences</h4><ul><li><p>the number of co-occurrences of word $i$ with word $j$, $X_{ij}$, can be modeled as a power-law function of the frequency rank of that word pair, $r_{ij}$:</p><p>$X_{i j}=\frac{k}{\left(r_{i j}\right)^{\alpha}}$</p></li></ul><h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h2 id="Evaluation-methods"><a href="#Evaluation-methods" class="headerlink" title="Evaluation methods"></a>Evaluation methods</h2><p>authors conduct experiments on the word analogy taks of Mikolov et al. (2013a)</p><h3 id="Word-analogies"><a href="#Word-analogies" class="headerlink" title="Word analogies"></a>Word analogies</h3><p>The word analogy task consists of questions like, “a is to b as c is to ?”</p><h3 id="Word-similarity"><a href="#Word-similarity" class="headerlink" title="Word similarity"></a>Word similarity</h3><p><img src="http://image.nysdy.com/20190520155833277478435.jpg" alt="20190520155833277478435.jpg"></p><h3 id="Named-entity-recognition"><a href="#Named-entity-recognition" class="headerlink" title="Named entity recognition"></a>Named entity recognition</h3><h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p>Table 2 shows the CloVe model performs significantly better than the other baslines, often with smaller vector sizes and smaller corpora.</p><p><img src="http://image.nysdy.com/20190520155833353468570.jpg" alt="20190520155833353468570.jpg"></p><p>Table 3 shows results on five different word similarity datasets.</p><p>Table 4 shows results on the NER task with the CRF-based model.</p><p><img src="http://image.nysdy.com/20190520155833377540169.jpg" alt="20190520155833377540169.jpg"></p><h2 id="Model-Analysis-Vector-Length-and-Context-Size"><a href="#Model-Analysis-Vector-Length-and-Context-Size" class="headerlink" title="Model Analysis: Vector Length and Context Size"></a>Model Analysis: Vector Length and Context Size</h2><p><img src="http://image.nysdy.com/2019052015583339399087.jpg" alt="2019052015583339399087.jpg"></p><h3 id="Model-Analysis-Corpus-Size"><a href="#Model-Analysis-Corpus-Size" class="headerlink" title="Model Analysis: Corpus Size"></a>Model Analysis: Corpus Size</h3><p><img src="http://image.nysdy.com/20190520155833403240640.jpg" alt="20190520155833403240640.jpg"></p><ul><li>On the syntactic subtask, larger corpora typically produce better statistics so that there is a monotonic increase in performance as the cor- pus size increases.</li><li>But the same trend is not true for the semantic subtask, which is probably because of analogy dataset</li></ul><h2 id="Model-Analysis-Run-time"><a href="#Model-Analysis-Run-time" class="headerlink" title="Model Analysis: Run-time"></a>Model Analysis: Run-time</h2><p><img src="http://image.nysdy.com/20190520155833432462881.jpg" alt="20190520155833432462881.jpg"></p><h2 id="Model-Analysis-Comparison-with-word2vec"><a href="#Model-Analysis-Comparison-with-word2vec" class="headerlink" title="Model Analysis: Comparison with word2vec"></a>Model Analysis: Comparison with word2vec</h2><p>For the same corpus, vocabulary, window size, and training time, GloVe consistently outperforms word2vec</p><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul><li><a href="https://blog.csdn.net/coderTC/article/details/73864097" target="_blank" rel="noopener">https://blog.csdn.net/coderTC/article/details/73864097</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;evaluate the intrinsic quality
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Deep contextualized word representations 阅读笔记</title>
@@ -215,9 +194,9 @@
     
       <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
     
-      <category term="知识图谱嵌入" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%B5%8C%E5%85%A5/"/>
-    
       <category term="知识图谱推理" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8E%A8%E7%90%86/"/>
+    
+      <category term="知识图谱嵌入" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%B5%8C%E5%85%A5/"/>
     
   </entry>
   
@@ -504,9 +483,9 @@
       <category term="pandas" scheme="http://yoursite.com/categories/pandas/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
@@ -537,6 +516,36 @@
       <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
     
       <category term="scrapy" scheme="http://yoursite.com/tags/scrapy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python动态网页爬取之安装docker和splash</title>
+    <link href="http://yoursite.com/post/Python_dynamic_web_crawler_installed_docker_and_splash/"/>
+    <id>http://yoursite.com/post/Python_dynamic_web_crawler_installed_docker_and_splash/</id>
+    <published>2018-10-25T02:19:22.000Z</published>
+    <updated>2018-10-25T02:28:18.214Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>利用python进行动态网页爬取时，在安装docker和splash时踩过的坑，记录了一下自己的安装过程。用的系统是mac os。</p></blockquote><a id="more"></a><h3 id="安装scrapy-splash"><a href="#安装scrapy-splash" class="headerlink" title="安装scrapy-splash"></a>安装scrapy-splash</h3><ul><li>利用pip安装scrapy-splash库：<br><code>$ pip install scrapy-splash</code></li></ul><h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><p>==下面👇这样安不下去了==</p><ul><li><p>如果是Mac的话需要使用brew安装，如下：<code>brew install docker</code>  </p><p>报错：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Failure while executing; `git config --local --replace-all homebrew.private true` exited with 1.</span><br></pre></td></tr></table></figure><p>解决方法：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure><p>然后在执行：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install docker</span><br></pre></td></tr></table></figure><p>再继续：</p><p><code>service docker start</code></p><p>报错：</p><p><code>-bash: service: command not found</code>上网上查一堆乱七八糟的解决方式，该路径啥的，真的不想改路径，怕把其他的改崩了。最后放弃这种方式，如果有兴趣也可以尝试解决。</p></li></ul><p>==尝试如下安装DOCKER方法==</p><ol><li><p><a href="https://www.docker.com/get-started" target="_blank" rel="noopener">去官网下载</a><img src="https://i.loli.net/2018/10/23/5bcf2ef4c4994.jpg" alt="">这种方法下载docker客户端需要从服务器下载，自己电脑下载12k/s，简直慢死了。</p></li><li><p>拉取镜像(pull the image)：<code>docker pull scrapinghub/splash</code></p><p><img src="https://i.loli.net/2018/10/23/5bcf34a4265a2.jpg" alt=""></p></li><li><p>用docker运行scrapinghub/splash：</p><p><code>docker run -p 8050:8050 scrapinghub/splash</code></p><p><img src="https://i.loli.net/2018/10/23/5bcf3578aa04a.jpg" alt=""></p><p>在浏览器中输入<code>localhost:8050</code><img src="https://i.loli.net/2018/10/23/5bcf363bc08d8.jpg" alt=""></p><p>==安装成功==</p></li></ol><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul><li><a href="http://www.morecoder.com/article/1001249.html" target="_blank" rel="noopener">http://www.morecoder.com/article/1001249.html</a></li><li><a href="https://www.jianshu.com/p/e54a407c8a0a" target="_blank" rel="noopener">https://www.jianshu.com/p/e54a407c8a0a</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;利用python进行动态网页爬取时，在安装docker和splash时踩过的坑，记录了一下自己的安装过程。用的系统是mac os。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://yoursite.com/categories/%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="splash" scheme="http://yoursite.com/tags/splash/"/>
+    
+      <category term="docker" scheme="http://yoursite.com/tags/docker/"/>
     
   </entry>
   
