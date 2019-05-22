@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-21T06:43:45.987Z</updated>
+  <updated>2019-05-22T13:33:20.088Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Triple Trustworthiness Measurement for Knowledge Graph阅读笔记</title>
+    <link href="http://yoursite.com/post/Triple%20Trustworthiness%20Measurement%20for%20Knowledge%20Graph/"/>
+    <id>http://yoursite.com/post/Triple Trustworthiness Measurement for Knowledge Graph/</id>
+    <published>2019-05-21T06:45:26.000Z</published>
+    <updated>2019-05-22T13:33:20.088Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文提出了一种通过计算triple trustworthiness来评估知识图谱的准确程度的方法。模型利用神经网络综合来自实体（借鉴Resource allocation）、关系（借鉴翻译模型的思想，如TransE）和KG全局（借鉴关系路径，RNN）三个层面的语义和全局信息，输出最后的 trustworthiness作为判断依据。</p><p><a href="http://delivery.acm.org/10.1145/3320000/3313586/p2865-jia.pdf?ip=59.64.129.22&amp;id=3313586&amp;acc=OPEN&amp;key=BF85BBA5741FDC6E%2E66A15327C2E204FC%2E4D4702B0C3E38B35%2E6D218144511F3437&amp;__acm__=1558515578_57e0bf75d529cf4656975ffe7da506b9" target="_blank" rel="noopener">下载地址</a></p></blockquote><a id="more"></a><h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p>This paper proposed a method for estimating the accuracy of a knowledge graph by computing triple trustworthiness. The model uses neural network to synthesize semantic and global information from three levels: entity(resource allocation), relationship(translation model ideas, such as TransE)m and KG global(relationship path, RNN) and outputting the final trustworthiness as the basis for judgment.</p><h1 id="Problem-statement"><a href="#Problem-statement" class="headerlink" title="Problem statement"></a>Problem statement</h1><p>possible noises and conflicts are inevitably intoduced in the process of constructing the KG</p><h1 id="research-objective"><a href="#research-objective" class="headerlink" title="research objective"></a>research objective</h1><p>quantify the KG’s semantic correctness and the true degree of the facts expressed</p><h1 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h1><ul><li>Knowledge graph triple trustworthiness measurement<ul><li>use the  triple semantic information and globally inferring information</li><li>three levels measurement and an intergration of confidence value</li></ul></li><li>experiment result verified the model valid on large-scale KG Freebase</li><li>the KGTtm could be utilized in knowledge graph construction or improvement</li></ul><h1 id="THE-TRIPLE-TRUSTWORTHINESS-MEASUREMENT-MODEL"><a href="#THE-TRIPLE-TRUSTWORTHINESS-MEASUREMENT-MODEL" class="headerlink" title="THE TRIPLE TRUSTWORTHINESS MEASUREMENT MODEL"></a>THE TRIPLE TRUSTWORTHINESS MEASUREMENT MODEL</h1><p><img src="http://image.nysdy.com/20190521155842605796518.jpg" alt="20190521155842605796518.jpg"></p><ul><li>Longitudinally, the model can be divided into two level.<ul><li>the upper is a pool of multiple trustworthiness estimate cells(estimator)</li><li>the output of these Estimator forms the input of lower-level fusion device(Fusioner)</li></ul></li><li>Viewed laterally, three progressive levels   are be considered, as following.</li></ul><h2 id="Is-there-a-possible-relationship-between-the-entity-pairs"><a href="#Is-there-a-possible-relationship-between-the-entity-pairs" class="headerlink" title="Is there a possible relationship between the entity pairs?"></a>Is there a possible relationship between the entity pairs?</h2><p><img src="http://image.nysdy.com/20190521155842810227816.jpg" alt="20190521155842810227816.jpg"></p><p>ResourceRank:</p><ul><li>The algorithm assumes that the association between entity paires $(h,t)$ will be stronger, and more resource is passed from the  head $h$ through all associated paths to the tail $t$ in a graph</li><li>The amount of resource aggregated into $t$ ingeniously indicateds the association strength from $h$ to $t$.</li></ul><p>As pair $(e_1,e_2)$, there only one directed edge from $e_1$ to $e_2$ in the graph, where the different bandwidth of the edge indicates the number of the multiple relations.</p><p>output:</p><script type="math/tex; mode=display">\left\{\begin{array}{c}{u=\alpha\left(W_{1} V+b_{1}\right)} \\ {R R(h, t)=W_{2} u+b_{2}}\end{array}\right.</script><p>Authors constructed a $V$ vector by combining six characteristics.</p><ol><li>R (t | h); </li><li>In-degree of head node ID(h); </li><li>Out-degree of head node OD(h); </li><li>In-degree of tail node ID(t);</li><li>Out-degree of tail node OD(t);</li><li>The depth from head node to tail node Dep</li></ol><p>As for 1. the formula:</p><script type="math/tex; mode=display">R(t | h)=(1-\theta) \sum_{e_{i} \in M_{t}} \frac{R\left(e_{i} | h\right) \cdot B W_{e_{i} t}}{O D\left(e_{i}\right)}+\frac{\theta}{N}</script><ul><li>$M_t$is the set of all nodes that have outgoing links to the node $t$, $OD (e_i)$ is the out-degree of the node eiand the $BW_{e_it}$ is the bandwidth from the $e_i$ to $t$.</li><li>In order to improve the model fault-tolerance, we assume that the resource fow from each node may directly jump to a random node with the same probability θ</li></ul><h2 id="Can-the-determined-relationship-r-occur-between-the-entity-pair-h-t"><a href="#Can-the-determined-relationship-r-occur-between-the-entity-pair-h-t" class="headerlink" title="Can the determined relationship $r$ occur between the entity pair $(h,t)$ ?"></a>Can the determined relationship $r$ occur between the entity pair $(h,t)$ ?</h2><p><img src="http://image.nysdy.com/20190522155850919251079.jpg" alt="20190522155850919251079.jpg"></p><p>Translation-based energy function (TEF)：depended on TransE</p><p>$E(h, r, t)=|\mathbf{h}+\mathbf{r}-\mathbf{t}|$</p><p>output:</p><script type="math/tex; mode=display">P(E(h, r, t))=\frac{1}{1+e^{-\lambda\left(\delta_{r}-E(h, r, t)\right)}}</script><h2 id="Can-the-relevant-triples-in-the-KG-infer-that-the-triple-is-trustworthy"><a href="#Can-the-relevant-triples-in-the-KG-infer-that-the-triple-is-trustworthy" class="headerlink" title="Can the relevant triples in the KG infer that the triple is trustworthy?"></a>Can the relevant triples in the KG infer that the triple is trustworthy?</h2><p><img src="http://image.nysdy.com/20190522155851013726520.jpg" alt="20190522155851013726520.jpg"></p><p>Reachable paths inference (RPI):</p><p>There two challenges to exploit the reachable paths for inferring triple trustworthiness:</p><h3 id="reachable-paths-selection"><a href="#reachable-paths-selection" class="headerlink" title="reachable paths selection"></a>reachable paths selection</h3><p>Semantic distance-based path selection<img src="http://image.nysdy.com/2019052215585105592950.jpg" alt="2019052215585105592950.jpg"></p><h3 id="Reachable-Paths-Representation"><a href="#Reachable-Paths-Representation" class="headerlink" title="Reachable Paths Representation"></a>Reachable Paths Representation</h3><p>using a RNN to deal with the embeddings of the three elements of each triple in the selected path</p><h2 id="Fusing-the-Estimators"><a href="#Fusing-the-Estimators" class="headerlink" title="Fusing the Estimators"></a>Fusing the Estimators</h2><p>a classifer based on a multi-layer perceptron </p><h1 id="EXPERIMENTS"><a href="#EXPERIMENTS" class="headerlink" title="EXPERIMENTS"></a>EXPERIMENTS</h1><h2 id="dataset"><a href="#dataset" class="headerlink" title="dataset"></a>dataset</h2><p>FB15K</p><h2 id="Interpreting-the-Validity-of-the-Trustworthiness"><a href="#Interpreting-the-Validity-of-the-Trustworthiness" class="headerlink" title="Interpreting the Validity of the Trustworthiness"></a>Interpreting the Validity of the Trustworthiness</h2><p><img src="http://image.nysdy.com/20190522155851139148623.jpg" alt="20190522155851139148623.jpg"></p><ul><li>The left picture shows that the positives examples are mainly concentrated in the upper region, vice versa.</li><li>As for the right picture<ul><li>only if the value of a triple is higher than the threshold can it be considered trustworthy</li><li>shows that the positive examples universally have higher confidence values</li></ul></li></ul><h2 id="Comparing-With-Other-Models-on-The-Knowledge-Graph-Error-Detection-Task"><a href="#Comparing-With-Other-Models-on-The-Knowledge-Graph-Error-Detection-Task" class="headerlink" title="Comparing With Other Models on The Knowledge Graph Error Detection Task"></a>Comparing With Other Models on The Knowledge Graph Error Detection Task</h2><p><img src="http://image.nysdy.com/20190522155851269267340.jpg" alt="20190522155851269267340.jpg"></p><p>Authors’ model has beter results in terms of accuracy and the F1-score than the other models.</p><h2 id="Analyzing-the-ability-of-models-to-tackle-the-three-type-noises"><a href="#Analyzing-the-ability-of-models-to-tackle-the-three-type-noises" class="headerlink" title="Analyzing the ability of models to tackle the three type noises."></a>Analyzing the ability of models to tackle the three type noises.</h2><p><img src="http://image.nysdy.com/20190522155851290149973.jpg" alt="20190522155851290149973.jpg"></p><ul><li>a higher recall shows that authors’ model can more accurately find the right from noisy triples</li><li>higher average trustworthiness values show that authors’ model can better identify the correct instances and with high confidence </li><li>the worst among the $(h, ?, t)$, because the various relations between a certain entity  increase the difficulty of model judgment.</li></ul><h2 id="Analyzing-the-Efects-of-Single-Estimators"><a href="#Analyzing-the-Efects-of-Single-Estimators" class="headerlink" title="Analyzing the Efects of Single Estimators"></a>Analyzing the Efects of Single Estimators</h2><p><img src="http://image.nysdy.com/20190522155851337652153.jpg" alt="20190522155851337652153.jpg"></p><p>It can be found that the accuracy obtained by each model is above 0.8, which proves the effectiveness of each Estimator</p><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>本文在方法上几乎没有什么创新，本质上就是一个老方法的多个组合。最大亮点就是作者能提出trustworthiness来把这个评价知识图谱准确度的问题进行了量化。这种能力比提出方法上的创新更加厉害，也是需要学习的地方。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文提出了一种通过计算triple trustworthiness来评估知识图谱的准确程度的方法。模型利用神经网络综合来自实体（借鉴Resource allocation）、关系（借鉴翻译模型的思想，如TransE）和KG全局（借鉴关系路径，RNN）三个层面的语义和全局信息，输出最后的 trustworthiness作为判断依据。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://delivery.acm.org/10.1145/3320000/3313586/p2865-jia.pdf?ip=59.64.129.22&amp;amp;id=3313586&amp;amp;acc=OPEN&amp;amp;key=BF85BBA5741FDC6E%2E66A15327C2E204FC%2E4D4702B0C3E38B35%2E6D218144511F3437&amp;amp;__acm__=1558515578_57e0bf75d529cf4656975ffe7da506b9&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Knowledge Graph" scheme="http://yoursite.com/tags/Knowledge-Graph/"/>
+    
+      <category term="KG" scheme="http://yoursite.com/tags/KG/"/>
+    
+      <category term="Triple" scheme="http://yoursite.com/tags/Triple/"/>
+    
+  </entry>
   
   <entry>
     <title>GloVe: Global Vectors for Word Representation阅读笔记</title>
@@ -514,34 +543,6 @@
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python爬取中文网页时中文字符变英文的解决方法</title>
-    <link href="http://yoursite.com/post/solution_of_python_for_Chinese_characters_to_become_English_when_crawling_Chinese_web_pages/"/>
-    <id>http://yoursite.com/post/solution_of_python_for_Chinese_characters_to_become_English_when_crawling_Chinese_web_pages/</id>
-    <published>2018-10-25T07:01:56.000Z</published>
-    <updated>2018-10-25T07:03:47.014Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>使用python的scrapy爬取网页时，源代码中的中文字符在爬取下来后变成了英文字符。</p></blockquote><a id="more"></a><h3 id="问题举例"><a href="#问题举例" class="headerlink" title="问题举例"></a>问题举例</h3><p>例如，原网页为：</p><p><img src="https://i.loli.net/2018/10/25/5bd16544a16a3.jpg" alt=""></p><p>爬取结果为：</p><p><img src="https://i.loli.net/2018/10/25/5bd165a84336a.jpg" alt=""></p><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p><strong>修改请求头</strong>：在<code>settings.py</code>文件中找到下属代码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Override the default request headers:</span></span><br><span class="line"><span class="comment">#DEFAULT_REQUEST_HEADERS = &#123;</span></span><br><span class="line"><span class="comment">#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',</span></span><br><span class="line"><span class="comment">#   'Accept-Language': 'en',</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br></pre></td></tr></table></figure><p>改为：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Override the default request headers:</span></span><br><span class="line">DEFAULT_REQUEST_HEADERS = &#123;</span><br><span class="line">   <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'</span>,</span><br><span class="line">   <span class="string">'Accept-Language'</span>: <span class="string">'zh-CN'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>修改结果展示：</p><p><img src="https://i.loli.net/2018/10/25/5bd168d7293ce.jpg" alt=""></p><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul><li><a href="https://blog.csdn.net/wuqili_1025/article/details/79690103" target="_blank" rel="noopener">https://blog.csdn.net/wuqili_1025/article/details/79690103</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;使用python的scrapy爬取网页时，源代码中的中文字符在爬取下来后变成了英文字符。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="爬虫" scheme="http://yoursite.com/categories/%E7%88%AC%E8%99%AB/"/>
-    
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="scrapy" scheme="http://yoursite.com/tags/scrapy/"/>
     
   </entry>
   

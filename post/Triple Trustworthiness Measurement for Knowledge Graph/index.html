@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Knowledge Graph,KG,Triple," />
 
 
 
@@ -103,13 +103,28 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="NYSDY">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta name="description" content="本文提出了一种通过计算triple trustworthiness来评估知识图谱的准确程度的方法。模型利用神经网络综合来自实体（借鉴Resource allocation）、关系（借鉴翻译模型的思想，如TransE）和KG全局（借鉴关系路径，RNN）三个层面的语义和全局信息，输出最后的 trustworthiness作为判断依据。 下载地址">
+<meta name="keywords" content="Knowledge Graph,KG,Triple">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Triple Trustworthiness Measurement for Knowledge Graph阅读笔记">
+<meta property="og:url" content="http://yoursite.com/post/Triple Trustworthiness Measurement for Knowledge Graph/index.html">
 <meta property="og:site_name" content="NYSDY">
+<meta property="og:description" content="本文提出了一种通过计算triple trustworthiness来评估知识图谱的准确程度的方法。模型利用神经网络综合来自实体（借鉴Resource allocation）、关系（借鉴翻译模型的思想，如TransE）和KG全局（借鉴关系路径，RNN）三个层面的语义和全局信息，输出最后的 trustworthiness作为判断依据。 下载地址">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://image.nysdy.com/20190521155842605796518.jpg">
+<meta property="og:image" content="http://image.nysdy.com/20190521155842810227816.jpg">
+<meta property="og:image" content="http://image.nysdy.com/20190522155850919251079.jpg">
+<meta property="og:image" content="http://image.nysdy.com/20190522155851013726520.jpg">
+<meta property="og:image" content="http://image.nysdy.com/2019052215585105592950.jpg">
+<meta property="og:image" content="http://image.nysdy.com/20190522155851139148623.jpg">
+<meta property="og:image" content="http://image.nysdy.com/20190522155851269267340.jpg">
+<meta property="og:image" content="http://image.nysdy.com/20190522155851290149973.jpg">
+<meta property="og:image" content="http://image.nysdy.com/20190522155851337652153.jpg">
+<meta property="og:updated_time" content="2019-05-22T13:33:20.088Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NYSDY">
+<meta name="twitter:title" content="Triple Trustworthiness Measurement for Knowledge Graph阅读笔记">
+<meta name="twitter:description" content="本文提出了一种通过计算triple trustworthiness来评估知识图谱的准确程度的方法。模型利用神经网络综合来自实体（借鉴Resource allocation）、关系（借鉴翻译模型的思想，如TransE）和KG全局（借鉴关系路径，RNN）三个层面的语义和全局信息，输出最后的 trustworthiness作为判断依据。 下载地址">
+<meta name="twitter:image" content="http://image.nysdy.com/20190521155842605796518.jpg">
 
 
 
@@ -138,13 +153,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/"/>
+  <link rel="canonical" href="http://yoursite.com/post/Triple Trustworthiness Measurement for Knowledge Graph/"/>
 
 
 
 
 
-  <title>归档 | NYSDY</title>
+  <title>Triple Trustworthiness Measurement for Knowledge Graph阅读笔记 | NYSDY</title>
   
 
 
@@ -255,7 +270,7 @@ $(function() {
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  page-archive  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
     <a href="https://github.com/NYSDY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -393,411 +408,276 @@ $(function() {
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/Triple Trustworthiness Measurement for Knowledge Graph/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NYSDY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i.loli.net/2018/09/24/5ba86696be366.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NYSDY">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Triple Trustworthiness Measurement for Knowledge Graph阅读笔记</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-21T14:45:26+08:00">
+                2019-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 28 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文阅读笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读笔记</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/post/Triple Trustworthiness Measurement for Knowledge Graph/" class="leancloud_visitors" data-flag-title="Triple Trustworthiness Measurement for Knowledge Graph阅读笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/read_Differentiating_Concepts_and_Instances_for_Knowledge_Graph_Embedding/" itemprop="url">
-              
-                <span itemprop="name">《Differentiating Concepts and Instances for Knowledge Graph Embedding》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-12-24T15:15:30+08:00"
-              content="2018-12-24" >
-          12-24
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/READ_A_Discourse-Level_Named_Entity_Recognition_and_Relation_Extraction_Dataset_for_Chinese_Literature_Text/" itemprop="url">
-              
-                <span itemprop="name">A Discourse-Level Named Entity Recognition and Relation Extraction Dataset for Chinese Literature Text 阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-12-10T11:07:23+08:00"
-              content="2018-12-10" >
-          12-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Pandas_data_type_manipulation/" itemprop="url">
-              
-                <span itemprop="name">pandas的数据类型操作</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-12-01T13:11:30+08:00"
-              content="2018-12-01" >
-          12-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/solution_of_python_for_Chinese_characters_to_become_English_when_crawling_Chinese_web_pages/" itemprop="url">
-              
-                <span itemprop="name">python爬取中文网页时中文字符变英文的解决方法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-25T15:01:56+08:00"
-              content="2018-10-25" >
-          10-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <blockquote>
+<p>本文提出了一种通过计算triple trustworthiness来评估知识图谱的准确程度的方法。模型利用神经网络综合来自实体（借鉴Resource allocation）、关系（借鉴翻译模型的思想，如TransE）和KG全局（借鉴关系路径，RNN）三个层面的语义和全局信息，输出最后的 trustworthiness作为判断依据。</p>
+<p><a href="http://delivery.acm.org/10.1145/3320000/3313586/p2865-jia.pdf?ip=59.64.129.22&amp;id=3313586&amp;acc=OPEN&amp;key=BF85BBA5741FDC6E%2E66A15327C2E204FC%2E4D4702B0C3E38B35%2E6D218144511F3437&amp;__acm__=1558515578_57e0bf75d529cf4656975ffe7da506b9" target="_blank" rel="noopener">下载地址</a></p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p>This paper proposed a method for estimating the accuracy of a knowledge graph by computing triple trustworthiness. The model uses neural network to synthesize semantic and global information from three levels: entity(resource allocation), relationship(translation model ideas, such as TransE)m and KG global(relationship path, RNN) and outputting the final trustworthiness as the basis for judgment.</p>
+<h1 id="Problem-statement"><a href="#Problem-statement" class="headerlink" title="Problem statement"></a>Problem statement</h1><p>possible noises and conflicts are inevitably intoduced in the process of constructing the KG</p>
+<h1 id="research-objective"><a href="#research-objective" class="headerlink" title="research objective"></a>research objective</h1><p>quantify the KG’s semantic correctness and the true degree of the facts expressed</p>
+<h1 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h1><ul>
+<li>Knowledge graph triple trustworthiness measurement<ul>
+<li>use the  triple semantic information and globally inferring information</li>
+<li>three levels measurement and an intergration of confidence value</li>
+</ul>
+</li>
+<li>experiment result verified the model valid on large-scale KG Freebase</li>
+<li>the KGTtm could be utilized in knowledge graph construction or improvement</li>
+</ul>
+<h1 id="THE-TRIPLE-TRUSTWORTHINESS-MEASUREMENT-MODEL"><a href="#THE-TRIPLE-TRUSTWORTHINESS-MEASUREMENT-MODEL" class="headerlink" title="THE TRIPLE TRUSTWORTHINESS MEASUREMENT MODEL"></a>THE TRIPLE TRUSTWORTHINESS MEASUREMENT MODEL</h1><p><img src="http://image.nysdy.com/20190521155842605796518.jpg" alt="20190521155842605796518.jpg"></p>
+<ul>
+<li>Longitudinally, the model can be divided into two level.<ul>
+<li>the upper is a pool of multiple trustworthiness estimate cells(estimator)</li>
+<li>the output of these Estimator forms the input of lower-level fusion device(Fusioner)</li>
+</ul>
+</li>
+<li>Viewed laterally, three progressive levels   are be considered, as following.</li>
+</ul>
+<h2 id="Is-there-a-possible-relationship-between-the-entity-pairs"><a href="#Is-there-a-possible-relationship-between-the-entity-pairs" class="headerlink" title="Is there a possible relationship between the entity pairs?"></a>Is there a possible relationship between the entity pairs?</h2><p><img src="http://image.nysdy.com/20190521155842810227816.jpg" alt="20190521155842810227816.jpg"></p>
+<p>ResourceRank:</p>
+<ul>
+<li>The algorithm assumes that the association between entity paires $(h,t)$ will be stronger, and more resource is passed from the  head $h$ through all associated paths to the tail $t$ in a graph</li>
+<li>The amount of resource aggregated into $t$ ingeniously indicateds the association strength from $h$ to $t$.</li>
+</ul>
+<p>As pair $(e_1,e_2)$, there only one directed edge from $e_1$ to $e_2$ in the graph, where the different bandwidth of the edge indicates the number of the multiple relations.</p>
+<p>output:</p>
+<script type="math/tex; mode=display">
+\left\{\begin{array}{c}{u=\alpha\left(W_{1} V+b_{1}\right)} \\ {R R(h, t)=W_{2} u+b_{2}}\end{array}\right.</script><p>Authors constructed a $V$ vector by combining six characteristics.</p>
+<ol>
+<li>R (t | h); </li>
+<li>In-degree of head node ID(h); </li>
+<li>Out-degree of head node OD(h); </li>
+<li>In-degree of tail node ID(t);</li>
+<li>Out-degree of tail node OD(t);</li>
+<li>The depth from head node to tail node Dep</li>
+</ol>
+<p>As for 1. the formula:</p>
+<script type="math/tex; mode=display">
+R(t | h)=(1-\theta) \sum_{e_{i} \in M_{t}} \frac{R\left(e_{i} | h\right) \cdot B W_{e_{i} t}}{O D\left(e_{i}\right)}+\frac{\theta}{N}</script><ul>
+<li>$M_t$is the set of all nodes that have outgoing links to the node $t$, $OD (e_i)$ is the out-degree of the node eiand the $BW_{e_it}$ is the bandwidth from the $e_i$ to $t$.</li>
+<li>In order to improve the model fault-tolerance, we assume that the resource fow from each node may directly jump to a random node with the same probability θ</li>
+</ul>
+<h2 id="Can-the-determined-relationship-r-occur-between-the-entity-pair-h-t"><a href="#Can-the-determined-relationship-r-occur-between-the-entity-pair-h-t" class="headerlink" title="Can the determined relationship $r$ occur between the entity pair $(h,t)$ ?"></a>Can the determined relationship $r$ occur between the entity pair $(h,t)$ ?</h2><p><img src="http://image.nysdy.com/20190522155850919251079.jpg" alt="20190522155850919251079.jpg"></p>
+<p>Translation-based energy function (TEF)：depended on TransE</p>
+<p>$E(h, r, t)=|\mathbf{h}+\mathbf{r}-\mathbf{t}|$</p>
+<p>output:</p>
+<script type="math/tex; mode=display">
+P(E(h, r, t))=\frac{1}{1+e^{-\lambda\left(\delta_{r}-E(h, r, t)\right)}}</script><h2 id="Can-the-relevant-triples-in-the-KG-infer-that-the-triple-is-trustworthy"><a href="#Can-the-relevant-triples-in-the-KG-infer-that-the-triple-is-trustworthy" class="headerlink" title="Can the relevant triples in the KG infer that the triple is trustworthy?"></a>Can the relevant triples in the KG infer that the triple is trustworthy?</h2><p><img src="http://image.nysdy.com/20190522155851013726520.jpg" alt="20190522155851013726520.jpg"></p>
+<p>Reachable paths inference (RPI):</p>
+<p>There two challenges to exploit the reachable paths for inferring triple trustworthiness:</p>
+<h3 id="reachable-paths-selection"><a href="#reachable-paths-selection" class="headerlink" title="reachable paths selection"></a>reachable paths selection</h3><p>Semantic distance-based path selection<img src="http://image.nysdy.com/2019052215585105592950.jpg" alt="2019052215585105592950.jpg"></p>
+<h3 id="Reachable-Paths-Representation"><a href="#Reachable-Paths-Representation" class="headerlink" title="Reachable Paths Representation"></a>Reachable Paths Representation</h3><p>using a RNN to deal with the embeddings of the three elements of each triple in the selected path</p>
+<h2 id="Fusing-the-Estimators"><a href="#Fusing-the-Estimators" class="headerlink" title="Fusing the Estimators"></a>Fusing the Estimators</h2><p>a classifer based on a multi-layer perceptron </p>
+<h1 id="EXPERIMENTS"><a href="#EXPERIMENTS" class="headerlink" title="EXPERIMENTS"></a>EXPERIMENTS</h1><h2 id="dataset"><a href="#dataset" class="headerlink" title="dataset"></a>dataset</h2><p>FB15K</p>
+<h2 id="Interpreting-the-Validity-of-the-Trustworthiness"><a href="#Interpreting-the-Validity-of-the-Trustworthiness" class="headerlink" title="Interpreting the Validity of the Trustworthiness"></a>Interpreting the Validity of the Trustworthiness</h2><p><img src="http://image.nysdy.com/20190522155851139148623.jpg" alt="20190522155851139148623.jpg"></p>
+<ul>
+<li>The left picture shows that the positives examples are mainly concentrated in the upper region, vice versa.</li>
+<li>As for the right picture<ul>
+<li>only if the value of a triple is higher than the threshold can it be considered trustworthy</li>
+<li>shows that the positive examples universally have higher confidence values</li>
+</ul>
+</li>
+</ul>
+<h2 id="Comparing-With-Other-Models-on-The-Knowledge-Graph-Error-Detection-Task"><a href="#Comparing-With-Other-Models-on-The-Knowledge-Graph-Error-Detection-Task" class="headerlink" title="Comparing With Other Models on The Knowledge Graph Error Detection Task"></a>Comparing With Other Models on The Knowledge Graph Error Detection Task</h2><p><img src="http://image.nysdy.com/20190522155851269267340.jpg" alt="20190522155851269267340.jpg"></p>
+<p>Authors’ model has beter results in terms of accuracy and the F1-score than the other models.</p>
+<h2 id="Analyzing-the-ability-of-models-to-tackle-the-three-type-noises"><a href="#Analyzing-the-ability-of-models-to-tackle-the-three-type-noises" class="headerlink" title="Analyzing the ability of models to tackle the three type noises."></a>Analyzing the ability of models to tackle the three type noises.</h2><p><img src="http://image.nysdy.com/20190522155851290149973.jpg" alt="20190522155851290149973.jpg"></p>
+<ul>
+<li>a higher recall shows that authors’ model can more accurately find the right from noisy triples</li>
+<li>higher average trustworthiness values show that authors’ model can better identify the correct instances and with high confidence </li>
+<li>the worst among the $(h, ?, t)$, because the various relations between a certain entity  increase the difficulty of model judgment.</li>
+</ul>
+<h2 id="Analyzing-the-Efects-of-Single-Estimators"><a href="#Analyzing-the-Efects-of-Single-Estimators" class="headerlink" title="Analyzing the Efects of Single Estimators"></a>Analyzing the Efects of Single Estimators</h2><p><img src="http://image.nysdy.com/20190522155851337652153.jpg" alt="20190522155851337652153.jpg"></p>
+<p>It can be found that the accuracy obtained by each model is above 0.8, which proves the effectiveness of each Estimator</p>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>本文在方法上几乎没有什么创新，本质上就是一个老方法的多个组合。最大亮点就是作者能提出trustworthiness来把这个评价知识图谱准确度的问题进行了量化。这种能力比提出方法上的创新更加厉害，也是需要学习的地方。</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Python_dynamic_web_crawler_installed_docker_and_splash/" itemprop="url">
-              
-                <span itemprop="name">python动态网页爬取之安装docker和splash</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-25T10:19:22+08:00"
-              content="2018-10-25" >
-          10-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/read the CSV document using python3/" itemprop="url">
-              
-                <span itemprop="name">用python3读写csv文档</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-16T21:36:26+08:00"
-              content="2018-10-16" >
-          10-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Neo4j_initializes_the_node_display_Settings/" itemprop="url">
-              
-                <span itemprop="name">Neo4j初始化节点显示设置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-10T16:13:05+08:00"
-              content="2018-10-10" >
-          10-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/read_Bidirectional_LSTM-CRF_Models_for_Sequence_Tagging/" itemprop="url">
-              
-                <span itemprop="name">《Bidirectional LSTM-CRF Models for Sequence Tagging》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-05T13:05:12+08:00"
-              content="2018-10-05" >
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/essay/" itemprop="url">
-              
-                <span itemprop="name">CN-DBpedia A Never-Ending Chinese Knowledge Extraction SystemCN-DBpedia System</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-01T22:27:25+08:00"
-              content="2018-10-01" >
-          10-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/essay/" itemprop="url">
-              
-                <span itemprop="name">Ontology reasoning with deep neural networks</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-29T16:29:49+08:00"
-              content="2018-09-29" >
-          09-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Knowledge-Graph/" rel="tag"><i class="fa fa-tag"></i> Knowledge Graph</a>
+          
+            <a href="/tags/KG/" rel="tag"><i class="fa fa-tag"></i> KG</a>
+          
+            <a href="/tags/Triple/" rel="tag"><i class="fa fa-tag"></i> Triple</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/GloVe:Global Vectors for Word Representation/" rel="next" title="GloVe: Global Vectors for Word Representation阅读笔记">
+                <i class="fa fa-chevron-left"></i> GloVe: Global Vectors for Word Representation阅读笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -805,6 +685,10 @@ $(function() {
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -825,8 +709,17 @@ $(function() {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://i.loli.net/2018/09/24/5ba86696be366.jpg"
@@ -933,6 +826,22 @@ $(function() {
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Summary"><span class="nav-number">1.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-statement"><span class="nav-number">2.</span> <span class="nav-text">Problem statement</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#research-objective"><span class="nav-number">3.</span> <span class="nav-text">research objective</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Contribution"><span class="nav-number">4.</span> <span class="nav-text">Contribution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#THE-TRIPLE-TRUSTWORTHINESS-MEASUREMENT-MODEL"><span class="nav-number">5.</span> <span class="nav-text">THE TRIPLE TRUSTWORTHINESS MEASUREMENT MODEL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Is-there-a-possible-relationship-between-the-entity-pairs"><span class="nav-number">5.1.</span> <span class="nav-text">Is there a possible relationship between the entity pairs?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Can-the-determined-relationship-r-occur-between-the-entity-pair-h-t"><span class="nav-number">5.2.</span> <span class="nav-text">Can the determined relationship $r$ occur between the entity pair $(h,t)$ ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Can-the-relevant-triples-in-the-KG-infer-that-the-triple-is-trustworthy"><span class="nav-number">5.3.</span> <span class="nav-text">Can the relevant triples in the KG infer that the triple is trustworthy?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reachable-paths-selection"><span class="nav-number">5.3.1.</span> <span class="nav-text">reachable paths selection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reachable-Paths-Representation"><span class="nav-number">5.3.2.</span> <span class="nav-text">Reachable Paths Representation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fusing-the-Estimators"><span class="nav-number">5.4.</span> <span class="nav-text">Fusing the Estimators</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EXPERIMENTS"><span class="nav-number">6.</span> <span class="nav-text">EXPERIMENTS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#dataset"><span class="nav-number">6.1.</span> <span class="nav-text">dataset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interpreting-the-Validity-of-the-Trustworthiness"><span class="nav-number">6.2.</span> <span class="nav-text">Interpreting the Validity of the Trustworthiness</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparing-With-Other-Models-on-The-Knowledge-Graph-Error-Detection-Task"><span class="nav-number">6.3.</span> <span class="nav-text">Comparing With Other Models on The Knowledge Graph Error Detection Task</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analyzing-the-ability-of-models-to-tackle-the-three-type-noises"><span class="nav-number">6.4.</span> <span class="nav-text">Analyzing the ability of models to tackle the three type noises.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analyzing-the-Efects-of-Single-Estimators"><span class="nav-number">6.5.</span> <span class="nav-text">Analyzing the Efects of Single Estimators</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思考"><span class="nav-number">7.</span> <span class="nav-text">思考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1073,11 +982,9 @@ $(function() {
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
