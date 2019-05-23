@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="GNNs,relation extraction,relation reasoning," />
 
 
 
@@ -103,13 +103,24 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="NYSDY">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta name="description" content="本文将GNNs应用到处理非结构化文本的（多跳）关系推理任务来进行关系抽取。采用从句子序列中获取的实体构建全链接图，应用编码（sequence model），传播（节点间信息）和分类（预测）三个模块来处理关系推理。本文提供了三个数据集。">
+<meta name="keywords" content="GNNs,relation extraction,relation reasoning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Graph Neural Networks with Generated Parameters for Relation Extraction阅读笔记">
+<meta property="og:url" content="http://yoursite.com/post/Graph_Neural_Networks_with_Generated_Parameters_for_Relation/index.html">
 <meta property="og:site_name" content="NYSDY">
+<meta property="og:description" content="本文将GNNs应用到处理非结构化文本的（多跳）关系推理任务来进行关系抽取。采用从句子序列中获取的实体构建全链接图，应用编码（sequence model），传播（节点间信息）和分类（预测）三个模块来处理关系推理。本文提供了三个数据集。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://image.nysdy.com/20190523155858968594021.jpg">
+<meta property="og:image" content="http://image.nysdy.com/20190523155859369893411.jpg">
+<meta property="og:image" content="http://image.nysdy.com/2019052315585938129506.jpg">
+<meta property="og:image" content="http://image.nysdy.com/20190523155859455443298.jpg">
+<meta property="og:image" content="http://image.nysdy.com/20190523155859457710223.jpg">
+<meta property="og:updated_time" content="2019-05-23T09:24:39.487Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NYSDY">
+<meta name="twitter:title" content="Graph Neural Networks with Generated Parameters for Relation Extraction阅读笔记">
+<meta name="twitter:description" content="本文将GNNs应用到处理非结构化文本的（多跳）关系推理任务来进行关系抽取。采用从句子序列中获取的实体构建全链接图，应用编码（sequence model），传播（节点间信息）和分类（预测）三个模块来处理关系推理。本文提供了三个数据集。">
+<meta name="twitter:image" content="http://image.nysdy.com/20190523155858968594021.jpg">
 
 
 
@@ -138,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/"/>
+  <link rel="canonical" href="http://yoursite.com/post/Graph_Neural_Networks_with_Generated_Parameters_for_Relation/"/>
 
 
 
 
 
-  <title>归档 | NYSDY</title>
+  <title>Graph Neural Networks with Generated Parameters for Relation Extraction阅读笔记 | NYSDY</title>
   
 
 
@@ -255,7 +266,7 @@ $(function() {
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  page-archive  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
     <a href="https://github.com/NYSDY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -393,411 +404,321 @@ $(function() {
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/Graph_Neural_Networks_with_Generated_Parameters_for_Relation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NYSDY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i.loli.net/2018/09/24/5ba86696be366.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NYSDY">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Graph Neural Networks with Generated Parameters for Relation Extraction阅读笔记</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-23T10:41:51+08:00">
+                2019-05-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 30 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文阅读笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读笔记</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2019">2019</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/post/Graph_Neural_Networks_with_Generated_Parameters_for_Relation/" class="leancloud_visitors" data-flag-title="Graph Neural Networks with Generated Parameters for Relation Extraction阅读笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Graph_Neural_Networks_with_Generated_Parameters_for_Relation/" itemprop="url">
-              
-                <span itemprop="name">Graph Neural Networks with Generated Parameters for Relation Extraction阅读笔记</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-05-23T10:41:51+08:00"
-              content="2019-05-23" >
-          05-23
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/allennlp_install/" itemprop="url">
-              
-                <span itemprop="name">allennlp安装踩坑</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-05-22T22:09:27+08:00"
-              content="2019-05-22" >
-          05-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Triple Trustworthiness Measurement for Knowledge Graph/" itemprop="url">
-              
-                <span itemprop="name">Triple Trustworthiness Measurement for Knowledge Graph阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-05-21T14:45:26+08:00"
-              content="2019-05-21" >
-          05-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/GloVe:Global Vectors for Word Representation/" itemprop="url">
-              
-                <span itemprop="name">GloVe: Global Vectors for Word Representation阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-05-20T21:35:25+08:00"
-              content="2019-05-20" >
-          05-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <blockquote>
+<p>本文将GNNs应用到处理非结构化文本的（多跳）关系推理任务来进行关系抽取。采用从句子序列中获取的实体构建全链接图，应用编码（sequence model），传播（节点间信息）和分类（预测）三个模块来处理关系推理。本文提供了三个数据集。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="problem-statement"><a href="#problem-statement" class="headerlink" title="problem statement"></a>problem statement</h1><ul>
+<li>existing relation extraction models fail to infer the relationship without multi-hop relational reasoning.</li>
+<li>existing GNNs can’t process multi-hop relational reasoning in natural language relational reasoning </li>
+</ul>
+<h1 id="research-objective"><a href="#research-objective" class="headerlink" title="research objective"></a>research objective</h1><p>enable GNNs to porcess relational reasoning on unstructed text inputs</p>
+<h1 id="contribution"><a href="#contribution" class="headerlink" title="contribution"></a>contribution</h1><ul>
+<li>extend a GNN with generated parameters, which could be applied to process relational reasoning on unstructured inputs</li>
+<li>verify GP-GNNs in the taks of relation extraction from text; present three datasets</li>
+</ul>
+<h1 id="GP-GNNs"><a href="#GP-GNNs" class="headerlink" title="GP-GNNs"></a>GP-GNNs</h1><ul>
+<li>construct a fully-connected graph with the entities in the sequence of text</li>
+<li>employs three models to process relational reasoning<ul>
+<li>an encoding modul: enable edges to encode rich information from natural languages </li>
+<li>a propagation modul: propagates realtional information among various nodes </li>
+<li>a classification modul: make prediction with node representations </li>
+</ul>
+</li>
+</ul>
+<p>As compared to tradtional GNNs, GP-GNNs could learn edges’ parameters from natural lanuages</p>
+<h1 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h1><h2 id="Graph-Neural-Networks-GNNs"><a href="#Graph-Neural-Networks-GNNs" class="headerlink" title="Graph Neural Networks(GNNs)"></a>Graph Neural Networks(GNNs)</h2><ul>
+<li>existing models still perfom message-passing on predefined graphs</li>
+<li><em>Learning Graphical State Transitions</em> is most related<ul>
+<li>introduecs a nove lnerual architecture to generate a graph based on the textal input</li>
+<li>dynamically update the relationship during the learning process</li>
+</ul>
+</li>
+</ul>
+<h2 id="relational-reasoning"><a href="#relational-reasoning" class="headerlink" title="relational reasoning"></a>relational reasoning</h2><ul>
+<li>existing models could not make full use of the multi-hop inference patterns among multiple entity pair and their relaitons within the sentence </li>
+<li><em>LEARNING GRAPHICAL STATE TRANSITIONS</em> is the most related work<ul>
+<li>the proposed model incorporates contextual relations with attention mechanism when predicting the relation of a target entity pair</li>
+</ul>
+</li>
+</ul>
+<h1 id="Graph-Neural-Network-with-Grenerated-Parameters-GP-GNNs"><a href="#Graph-Neural-Network-with-Grenerated-Parameters-GP-GNNs" class="headerlink" title="Graph Neural Network with Grenerated Parameters(GP-GNNs)"></a>Graph Neural Network with Grenerated Parameters(GP-GNNs)</h1><p>The picture is overall architecture: encoding module, propagation module and classification module</p>
+<p><img src="http://image.nysdy.com/20190523155858968594021.jpg" alt="20190523155858968594021.jpg"></p>
+<h2 id="Encoding-Module"><a href="#Encoding-Module" class="headerlink" title="Encoding Module"></a>Encoding Module</h2><p>formula:</p>
+<script type="math/tex; mode=display">
+\mathcal{A}_{i, j}^{(n)}=f\left(E\left(x_{0}^{i, j}\right), E\left(x_{1}^{i, j}\right), \cdots, E\left(x_{l-1}^{i, j}\right) ; \theta_{e}^{n}\right)</script><p>where $f(\cdot)$ could be any model that could sequential(such as LSTMs); $E(\cdot)$ indicates an embedding function. $x^{i, j}$ is the word in sentence labeled( $i,j$)</p>
+<h2 id="Porpagation-Module"><a href="#Porpagation-Module" class="headerlink" title="Porpagation Module"></a>Porpagation Module</h2><p>the representations of layer n + 1 are calculated by:</p>
+<script type="math/tex; mode=display">
+\mathbf{h}_{i}^{(n+1)}=\sum_{v_{j} \in \mathcal{N}\left(v_{i}\right)} \sigma\left(\mathcal{A}_{i, j}^{(n)} \mathbf{h}_{j}^{(n)}\right)</script><p>where $\mathcal{N}\left(v_{i}\right)$ denotes the neighbors of node $v_i$</p>
+<h2 id="Classification-Module"><a href="#Classification-Module" class="headerlink" title="Classification Module"></a>Classification Module</h2><p>the loss of GP-GNNs:</p>
+<script type="math/tex; mode=display">
+\mathcal{L}=g\left(\mathbf{h}_{0 :|\mathcal{V}|-1}^{0}, \mathbf{h}_{0 :|\mathcal{V}|-1}^{1}, \ldots, \mathbf{h}_{0 :|\mathcal{V}|-1}^{K}, Y ; \theta_{c}\right)</script><h1 id="Relation-Extraction-with-GP-GNNs"><a href="#Relation-Extraction-with-GP-GNNs" class="headerlink" title="Relation Extraction with GP-GNNs"></a>Relation Extraction with GP-GNNs</h1><p>Authors introduce how to apply GP-GNNs to relation extraction</p>
+<h2 id="Encoding-Module-1"><a href="#Encoding-Module-1" class="headerlink" title="Encoding Module"></a>Encoding Module</h2><p>encoding then context of entity pairs (or edges in the graph)</p>
+<script type="math/tex; mode=display">
+E\left(x_{t}^{i, j}\right)=\left[\boldsymbol{x}_{t} ; \boldsymbol{p}_{t}^{i, j}\right]</script><p>where $x_t$ denotes the word embedding; $\boldsymbol{p}_{t}^{i, j}$denotes the position embedding of word posistion t relative to the entity pair’s position $i, j$.</p>
+<h3 id="position-embedding"><a href="#position-embedding" class="headerlink" title="position embedding"></a>position embedding</h3><p>we mark each token in the sentence as either belonging to the first entity $v_i$, the second entity $v_j$ or to neither of those</p>
+<h2 id="Propagation-Module"><a href="#Propagation-Module" class="headerlink" title="Propagation Module"></a>Propagation Module</h2><p> the formula is the same as the front</p>
+<h3 id="The-Initial-Embeddings-of-Nodes"><a href="#The-Initial-Embeddings-of-Nodes" class="headerlink" title="The Initial Embeddings of Nodes"></a>The Initial Embeddings of Nodes</h3><ul>
+<li>when extracting the relationship between entity $v_i$ and entity $v_j$, the initial embeddings of them are annotated as $\mathbf{h}_{v_{i}}^{(0)}=a_{\text { subject }}$, and $h_{v_{j}}^{(0)}=a_{\text { object }}$, while the intial embeddings of other entities are set to all zeros.</li>
+<li>In our experiments, we generalize the idea of Gated Graph Neural Networks (Li et al., 2016) by setting $a_{\text { subject }}=[1 ; 0]^{\top}$and $a_{\text { object }}=[0 ; 1]^{\top}$.</li>
+</ul>
+<h2 id="classification-Module"><a href="#classification-Module" class="headerlink" title="classification Module"></a>classification Module</h2><p><strong>As the  target entity pair $(v_i, v_j)$:</strong></p>
+<script type="math/tex; mode=display">
+\boldsymbol{r}_{v_{i}, v_{j}}=\left[\left[\boldsymbol{h}_{v_{i}}^{(1)} \odot \boldsymbol{h}_{v_{j}}^{(1)}\right]^{\top} ;\left[\boldsymbol{h}_{v_{i}}^{(2)} \odot \boldsymbol{h}_{v_{j}}^{(2)}\right]^{\top} ; \ldots ;\left[\boldsymbol{h}_{v_{i}}^{(K)} \odot \boldsymbol{h}_{v_{j}}^{(K)}\right]^{\top}\right]</script><p>where $\odot$ represents element-wise multiplication</p>
+<p><strong>classification:</strong></p>
+<script type="math/tex; mode=display">
+\mathbb{P}\left(r_{v_{i}, v_{j}} | h, t, s\right)=\operatorname{softmax}\left(M L P\left(\boldsymbol{r}_{v_{i}, v_{j}}\right)\right)</script><p><strong>loss:</strong></p>
+<script type="math/tex; mode=display">
+\mathcal{L}=\sum_{s \in S} \sum_{i \neq j} \log \mathbb{P}\left(r_{v_{i}, v_{j}} | i, j, s\right)</script><h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h2 id="aim"><a href="#aim" class="headerlink" title="aim"></a>aim</h2><ul>
+<li>showing their best models could improve the performance of relation extraction under a variety of settings</li>
+<li>illlustrating that how the number of layers affect the performance of their model</li>
+<li>performing a qualitiative investigation to highlight the diference between their models and baseline models</li>
+</ul>
+<h2 id="design"><a href="#design" class="headerlink" title="design"></a>design</h2><p>as the first and second aim</p>
+<ul>
+<li>show that our models could improve instance-level relation extraction on a human annotated test set</li>
+<li>we will show that our models could also help enhance the performance of bag-level relation extraction on a distantly labeled test set</li>
+<li>split a subset of distantly labeled test set, where the number of entities and edges is large</li>
+</ul>
+<h2 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h2><h3 id="distantly-label-set"><a href="#distantly-label-set" class="headerlink" title="distantly label set"></a>distantly label set</h3><ul>
+<li>Sorokin and Gurevych (2017) proposed </li>
+<li>modify their dataset<ul>
+<li>added reversed edges</li>
+<li>for all of the entity pairs with no relations, added “NA” labels to them</li>
+</ul>
+</li>
+</ul>
+<h3 id="Human-annotated-test-set"><a href="#Human-annotated-test-set" class="headerlink" title="Human annotated test set"></a>Human annotated test set</h3><ul>
+<li>Sorokin and Gurevych (2017)</li>
+<li>select the distantly lablel pairs which all 5 annotaters are accepted.</li>
+<li>There are 350 sentences and 1,230 triples in this test set </li>
+</ul>
+<h3 id="Dense-distantly-labeled-test-set"><a href="#Dense-distantly-labeled-test-set" class="headerlink" title="Dense distantly labeled test set"></a>Dense distantly labeled test set</h3><ul>
+<li>criteria<ul>
+<li>the number of entities should be strictly larger than 2</li>
+<li>there must be at least one circle (with at least three entities) in the ground-truth label of the sentence</li>
+</ul>
+</li>
+<li>There are 1,350 sentences and more than 17,915 triples and 7,906 relational facts in this test set.</li>
+</ul>
+<h2 id="Models-for-comparison"><a href="#Models-for-comparison" class="headerlink" title="Models for comparison"></a>Models for comparison</h2><ul>
+<li>Context-aware RE</li>
+<li>Multi-Window CNN</li>
+<li>PCNN</li>
+<li>LSTM or GP-GNN with K = 1 layer</li>
+<li>GP-GNN with K = 2 or K = 3 layerss</li>
+</ul>
+<h2 id="Evaluation-Details"><a href="#Evaluation-Details" class="headerlink" title="Evaluation Details"></a>Evaluation Details</h2><p><strong>To evaluation models in bag-level:</strong></p>
+<script type="math/tex; mode=display">
+E\left(r | v_{i}, v_{j}, S\right)=\max _{s \in S} \mathbb{P}\left(r_{v_{i}, v_{j}} | i, j, s\right)</script><p><strong>result</strong>:</p>
+<p><img src="http://image.nysdy.com/20190523155859369893411.jpg" alt="20190523155859369893411.jpg"></p>
+<h2 id="Effectiveness-of-Reasoning-Mechanism"><a href="#Effectiveness-of-Reasoning-Mechanism" class="headerlink" title="Effectiveness of Reasoning Mechanism"></a>Effectiveness of Reasoning Mechanism</h2><p><img src="http://image.nysdy.com/2019052315585938129506.jpg" alt="2019052315585938129506.jpg"></p>
+<ul>
+<li>Context-Aware RE may <strong>introduce more noise,</strong> for it may mistakenly increase the probability of a relation with the similar topic with the context relations</li>
+<li>sentences from Wikipedia corpus are always complex, which may be hard to model for CNN and PCNN</li>
+</ul>
+<h2 id="The-Effectiveness-of-the-Number-of-Layers"><a href="#The-Effectiveness-of-the-Number-of-Layers" class="headerlink" title="The Effectiveness of the Number of Layers"></a>The Effectiveness of the Number of Layers</h2><p><img src="http://image.nysdy.com/20190523155859455443298.jpg" alt="20190523155859455443298.jpg"></p>
+<ul>
+<li>the improvement of the third layer is much smaller on the overall distantly supervised test set than the one on the dense subset<ul>
+<li>This observation reveals that the reasoning mechanism could help us identify relations especially on sentences where there are more entities</li>
+</ul>
+</li>
+<li>as the number of layers grows, the curves get higher and higher precision, <ul>
+<li>indicating considering more hops in reasoning leads to better performance</li>
+</ul>
+</li>
+</ul>
+<h2 id="Qualitative-Results-Case-Study"><a href="#Qualitative-Results-Case-Study" class="headerlink" title="Qualitative Results: Case Study"></a>Qualitative Results: Case Study</h2><p><img src="http://image.nysdy.com/20190523155859457710223.jpg" alt="20190523155859457710223.jpg"></p>
+<p>Context-Aware RE makes a mistake by predicting (Kentucky, share boarder with, Ohio). As we have discussed before, this is due to its mechanism to model co-occurrence of multiple relations</p>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>文章是刘知远组的论文，针对的方向是关系抽取，在其中结合了关系推理，最近许多任务都在结合推理的思想。文章整体的结构，逻辑十分清晰，论述的也比较详细，属于标准论文。感觉文章中GP-GNNs结构图还可以画的更好一点，展现一下encoding module的层，可以更好理解。文章的精髓应该是这个propagation module的部分，还需要消化一下，不过这部分可能是有先前的知识支撑的。</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Deep contextualized word representations/" itemprop="url">
-              
-                <span itemprop="name">Deep contextualized word representations 阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-05-10T15:28:06+08:00"
-              content="2019-05-10" >
-          05-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Efficient Estimation of Word Representations in Vector Space/" itemprop="url">
-              
-                <span itemprop="name">《Efficient Estimation of Word Representations in Vector Space》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-30T10:37:23+08:00"
-              content="2019-04-30" >
-          04-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Shared Embedding Based Neural Networks for Knowledge Graph Completion/" itemprop="url">
-              
-                <span itemprop="name">Shared Embedding Based Neural Networks for Knowledge Graph Completion阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-19T14:52:38+08:00"
-              content="2019-04-19" >
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Bootstrapping Entity Alignment with Knowledge Graph Embedding/" itemprop="url">
-              
-                <span itemprop="name">《Bootstrapping Entity Alignment with Knowledge Graph Embedding》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-09T09:01:13+08:00"
-              content="2019-04-09" >
-          04-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/Entity Alignment between Knowledge Graphs Using Attribute Embeddings/" itemprop="url">
-              
-                <span itemprop="name">《Entity Alignment between Knowledge Graphs Using Attribute Embeddings》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-28T08:57:15+08:00"
-              content="2019-03-28" >
-          03-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/RelNN A Deep Neural Model for Relational Learning/" itemprop="url">
-              
-                <span itemprop="name">《RelNN A Deep Neural Model for Relational Learning》阅读笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-25T09:34:57+08:00"
-              content="2019-03-25" >
-          03-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GNNs/" rel="tag"><i class="fa fa-tag"></i> GNNs</a>
+          
+            <a href="/tags/relation-extraction/" rel="tag"><i class="fa fa-tag"></i> relation extraction</a>
+          
+            <a href="/tags/relation-reasoning/" rel="tag"><i class="fa fa-tag"></i> relation reasoning</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/allennlp_install/" rel="next" title="allennlp安装踩坑">
+                <i class="fa fa-chevron-left"></i> allennlp安装踩坑
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -805,6 +726,10 @@ $(function() {
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -825,8 +750,17 @@ $(function() {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://i.loli.net/2018/09/24/5ba86696be366.jpg"
@@ -933,6 +867,22 @@ $(function() {
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#problem-statement"><span class="nav-number">1.</span> <span class="nav-text">problem statement</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#research-objective"><span class="nav-number">2.</span> <span class="nav-text">research objective</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#contribution"><span class="nav-number">3.</span> <span class="nav-text">contribution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GP-GNNs"><span class="nav-number">4.</span> <span class="nav-text">GP-GNNs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Related-work"><span class="nav-number">5.</span> <span class="nav-text">Related work</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph-Neural-Networks-GNNs"><span class="nav-number">5.1.</span> <span class="nav-text">Graph Neural Networks(GNNs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#relational-reasoning"><span class="nav-number">5.2.</span> <span class="nav-text">relational reasoning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Graph-Neural-Network-with-Grenerated-Parameters-GP-GNNs"><span class="nav-number">6.</span> <span class="nav-text">Graph Neural Network with Grenerated Parameters(GP-GNNs)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encoding-Module"><span class="nav-number">6.1.</span> <span class="nav-text">Encoding Module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Porpagation-Module"><span class="nav-number">6.2.</span> <span class="nav-text">Porpagation Module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Classification-Module"><span class="nav-number">6.3.</span> <span class="nav-text">Classification Module</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Relation-Extraction-with-GP-GNNs"><span class="nav-number">7.</span> <span class="nav-text">Relation Extraction with GP-GNNs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encoding-Module-1"><span class="nav-number">7.1.</span> <span class="nav-text">Encoding Module</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#position-embedding"><span class="nav-number">7.1.1.</span> <span class="nav-text">position embedding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Propagation-Module"><span class="nav-number">7.2.</span> <span class="nav-text">Propagation Module</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Initial-Embeddings-of-Nodes"><span class="nav-number">7.2.1.</span> <span class="nav-text">The Initial Embeddings of Nodes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#classification-Module"><span class="nav-number">7.3.</span> <span class="nav-text">classification Module</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Experiments"><span class="nav-number">8.</span> <span class="nav-text">Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#aim"><span class="nav-number">8.1.</span> <span class="nav-text">aim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#design"><span class="nav-number">8.2.</span> <span class="nav-text">design</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dataset"><span class="nav-number">8.3.</span> <span class="nav-text">Dataset</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#distantly-label-set"><span class="nav-number">8.3.1.</span> <span class="nav-text">distantly label set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Human-annotated-test-set"><span class="nav-number">8.3.2.</span> <span class="nav-text">Human annotated test set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dense-distantly-labeled-test-set"><span class="nav-number">8.3.3.</span> <span class="nav-text">Dense distantly labeled test set</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Models-for-comparison"><span class="nav-number">8.4.</span> <span class="nav-text">Models for comparison</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluation-Details"><span class="nav-number">8.5.</span> <span class="nav-text">Evaluation Details</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Effectiveness-of-Reasoning-Mechanism"><span class="nav-number">8.6.</span> <span class="nav-text">Effectiveness of Reasoning Mechanism</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Effectiveness-of-the-Number-of-Layers"><span class="nav-number">8.7.</span> <span class="nav-text">The Effectiveness of the Number of Layers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Qualitative-Results-Case-Study"><span class="nav-number">8.8.</span> <span class="nav-text">Qualitative Results: Case Study</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思考"><span class="nav-number">9.</span> <span class="nav-text">思考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1073,11 +1023,9 @@ $(function() {
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
