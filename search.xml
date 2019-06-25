@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ERNIE Enhanced Language Representation with Informative Entities阅读笔记]]></title>
+    <url>%2Fpost%2FERNIE_Enhanced_Language_Representation_with_Informative_Entities%2F</url>
+    <content type="text"><![CDATA[该篇论文借鉴BERT，试图将实体信息（TransE）融入token(singal word)中，通过类似实体对齐的方法将实体与token对齐（并采取mask方式进行预训练），通过infromation fusion 将token与实体融合映射入相关联的两个向量空间。 论文下载地址 Problem Statementthe existing pre-trained language models rarely consider incorporating knowledge graphs (KGs), which can provide rich structured knowledge facts for better language understanding. ChallengeFor incorporating external knowledge into language representation models Structured Knowledge Encoding regarding to the given text, how to effectively extract and encode its related informative facts in KGs for language representation models Heterogeneous Information Fusion how to design a special pre-training objective to fuse the lexical, syntactic, and knowledge information is another challenge. Methodology Model ArchitectureERNIE the underlying textual encoder (T-Encoder)负责从文本中捕获基本的词法和语法信息 \left\{\boldsymbol{w}_{1}, \ldots, \boldsymbol{w}_{n}\right\}=\mathrm{T}-\operatorname{Encoder}\left(\left\{w_{1}, \ldots, w_{n}\right\}\right)T-Encoder(·) is a multi-layer bidirectional Transformer encoder the upper knowledgeable encoder (K-Encoder) entity embeddings are pre-trained by TransE负责将知识图谱集成到底层的文本信息中 Knowledgeable Encoder the knowledgeable encoder K-Encoder consists of stacked aggregators designed for encoding both tokens and entities as well as fusing their heterogeneous features. In the i-th aggregator the input: token embeddings: $\left\{\boldsymbol{w}_{1}^{(i-1)}, \ldots, \boldsymbol{w}_{n}^{(i-1)}\right\}$ entity embeddings :$\left\{\boldsymbol{e}_{1}^{(i-1)}, \ldots, \boldsymbol{e}_{m}^{(i-1)}\right\}$ fed into two multi-head self-attentions(MH-ATTs) $\left\{\tilde{\boldsymbol{w}}_{1}^{(i)}, \ldots, \tilde{\boldsymbol{w}}_{n}^{(i)}\right\}=\mathrm{MH}-\operatorname{ATT}\left(\left\{\boldsymbol{w}_{1}^{(i-1)}, \ldots, \boldsymbol{w}_{n}^{(i-1)}\right\}\right)$ $\left\{\tilde{\boldsymbol{e}}_{1}^{(i)}, \ldots, \tilde{\boldsymbol{e}}_{m}^{(i)}\right\}=\mathrm{MH}-\operatorname{ATT}\left(\left\{\boldsymbol{e}_{1}^{(i-1)}, \ldots, \boldsymbol{e}_{m}^{(i-1)}\right\}\right)$ an information fusion layer \begin{aligned} \boldsymbol{h}_{j} &=\sigma\left(\tilde{\boldsymbol{W}}_{t}^{(i)} \tilde{\boldsymbol{w}}_{j}^{(i)}+\tilde{\boldsymbol{W}}_{e}^{(i)} \tilde{\boldsymbol{e}}_{k}^{(i)}+\tilde{\boldsymbol{b}}^{(i)}\right) \\ \boldsymbol{w}_{j}^{(i)} &=\sigma\left(\boldsymbol{W}_{t}^{(i)} \boldsymbol{h}_{j}+\boldsymbol{b}_{t}^{(i)}\right) \\ \boldsymbol{e}_{k}^{(i)} &=\sigma\left(\boldsymbol{W}_{e}^{(i)} \boldsymbol{h}_{j}+\boldsymbol{b}_{e}^{(i)}\right) \end{aligned} $h_j$ is the inner hidden state For the tokens without corresponding entities \begin{aligned} \boldsymbol{h}_{j} &=\sigma\left(\tilde{\boldsymbol{W}}_{t}^{(i)} \tilde{\boldsymbol{w}}_{j}^{(i)}+\tilde{\boldsymbol{b}}^{(i)}\right) \\ \boldsymbol{w}_{j}^{(i)} &=\sigma\left(\boldsymbol{W}_{t}^{(i)} \boldsymbol{h}_{j}+\boldsymbol{b}_{t}^{(i)}\right) \end{aligned}Pre-training for Injecting KnowledgeIn order to inject knowledge into language rep- resentation by informative entities. Randomly masks some token-entity alignments and then requires the system to predict all corresponding entities based on aligned tokens. denoising entity auto-encoder (dEA) define the aligned entity distribution for the token $w_i$ as follows: p\left(e_{j} | w_{i}\right)=\frac{\exp \left(\text { linear }\left(\boldsymbol{w}_{i}^{o}\right) \cdot \boldsymbol{e}_{j}\right)}{\sum_{k=1}^{m} \exp \left(\text { linear }\left(\boldsymbol{w}_{i}^{o}\right) \cdot \boldsymbol{e}_{k}\right)} linear(·) is a linear layer For dEA, perform the following operations: in 5% of the time, replace the entity with another random aims to train model to correct the errors that the token is aligned with a wrong entity; In 15% of the time, mask token-entity alignments aims to train model to correct the errors that entity alignment system doesn’t extract all existing alignments; in the rest of the time, keep token-entity alignments unchanged aims to encourage our model to integrate the entity information into token representations for better language understanding. Fine-tuning for Specific Tasks We can take the final output embedding for the first token, which corresponds to the special [CLS] token, as the representation of the input sequence for specific tasks. For some knowledge-driven tasks, we design special fine-tuning procedure: relation classification design different tokens [HD] and [TL] for head entities and tail entities respectively a similar role like position embeddings in the conventional relation classification models (Zeng et al., 2015) entity typing the mention mark token [ENT] 这里的CLS不知道有什么作用，所有的任务都有，是不同的任务重CLS的embedding有所不同吗？个人目前觉得是这样的。 作者这里采用的mark token的方法代替position embedding，不知道两个对比那种效果会更好一些。直观觉得都是标记位置信息。 ExperimentsPre-training Dataset we use English Wikipedia as our pre-training corpus and align text to Wiki-data 4, 500M subwords and 140M entities, and discards the sentences having less than 3 entities before pre-training ERINE, entity embeddings by TransE sample part of Wikidata which contains 5, 040, 986 entities and 24, 267, 796 fact triples Training Details We also fine-tune ERNIE on the distant supervised dataset, i.e., FIGER (Ling et al., 2015) we use TAGME (Ferragina and Scaiella, 2010) to extract the entity mentions in the sentences and link them to their corresponding entities in KGs Entity Typingdatasettwo well-established datasets FIGER (Ling et al., 2015) and Open Entity (Choi et al., 2018). The training set of FIGER is labeled with distant supervision, and its test set is annotated by human. Open Entity is a completely manually-annotated dataset. Comparble model NFGEC NFGEC is a hybrid model proposed by Shimaoka et al. (2016) UFET (Choi et al., 2018) The results on FIGER:However, BERT has lower accuracy than the best NFGEC model. As strict accuracy is the ratio of instances whose predictions are identical to human annotations, it illustrates some wrong labels from distant supervision are learned by BERT due to its powerful fitting ability. Relation Classificationdatasettwo well-established datasets FewRel (Han et al., 2018b) and TACRED (Zhang et al., 2017). FewRel As FewRel does not have any null instance where there isn’t any relation between entities, we adopt macro averaged metrics to present the model performances. Since FewRel is built by checking whether the sentences contain facts in Wiki-data, we drop the related facts in KGs before pretraining for fair comparison TACRED In TACRED, there are nearly 80% null instances so that we follow the previous work (Zhang et al., 2017) to adopt micro averaged metrics to represent the model performances instead of the macro Comparble model CNN:(Zeng et al., 2015). PA-LSTM C-GCN :Zhang et al. (2018) adopt the graph convolution operations to model dependency trees for relation classification. GLUEThe General Language Understanding Evaluation (GLUE) benchmark (Wang et al., 2018) is a collection of diverse natural language understanding tasks Ablation Studyexplore the effects of the informative entities and the knowledgeable pretraining task (dEA) for ERNIE using FewRel dataset 实验部分做的很丰富，既有两个任务的对比实验，也有对自身模块的对比实验，并且还对比了bert来检测自己模型是否对GLUE任务效果有降低。 future research1) inject knowledge into feature-based pre-training models such as ELMo (Peters et al., 2018); (2) introduce diverse structured knowledge into language representation models such as ConceptNet (Speer and Havasi, 2012) which is different from world knowledge database Wikidata; (3) annotate more real-world corpora heuristically for larger pre-training data 参考链接 https://blog.csdn.net/summerhmh/article/details/91042273]]></content>
+      <categories>
+        <category>论文阅读笔记</category>
+        <category>KG</category>
+      </categories>
+      <tags>
+        <tag>KG</tag>
+        <tag>KGR</tag>
+        <tag>BERT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Incorporating Literals into Knowledge Graph Embeddings阅读笔记]]></title>
+    <url>%2Fpost%2FIncorporating_Literals_into_Knowledge_Graph_Embeddings%2F</url>
+    <content type="text"><![CDATA[读完了前两章，简单的看了一下作者提出的模型，感觉并没有太大价值，就是给实体输入多加入了一个literal的信息（加入方法可以采用线性、非线性或者神经网络）。 读论文前需要先熟悉DistMult、ComlLEx和ConvE模型，此论文方法是添加在这些方法上的。]]></content>
+      <categories>
+        <category>论文阅读笔记</category>
+        <category>KG</category>
+      </categories>
+      <tags>
+        <tag>KGE</tag>
+        <tag>link prediction</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Learning Knowledge Embeddings by Combining Limit-based Scoring Loss阅读笔记]]></title>
     <url>%2Fpost%2FLearning_Knowledge_Embeddings_by_Combining_Limit-based_Scoring_Loss%2F</url>
     <content type="text"><![CDATA[此篇文章最为重要的就是作者设计的 margin-based ranking loss 的改进，对两个超参数$\lambda$和$\gamma$的实验，对于实验结果有很多值得分析与思考的地方。 论文下载地址 Problem StatementThe margin-based ranking loss function cannot ensure the fact that the scoring of correct triplets must be low enough to fulfill the translation. research objectivereduce the scoring of correct triplets to fulfill the translation by mending the margin-based ranking loss function Contributions proposing a limit-based ranking loss item combined with margin-based ranking loss extending TransE and TransH to TransE-RS and TransH-RS ModelMargin-based Tanking Lossformula: L_{R}=\sum_{(h, r, t) \in \Delta} \sum_{\left(h^{\prime}, r, t^{\prime}\right) \in \Delta^{\prime}}\left[\gamma_{1}+f_{r}(h, t)-f_{r}\left(h^{\prime}, t^{\prime}\right)\right) ]_{+} The margin-based ranking loss function aims to make the score $f_{r}\left(h^{\prime}, t^{\prime}\right)$ of corrupted triplet higher by at least $\gamma_{1}$ than of positive triplet. cannot be proved $f_{r}(h, t)&lt;\varepsilon$ Limit-based Scoring Lossformula: L_{S}=\sum_{(h, r, t) \in \Delta}\left[f_{r}(h, t)-\gamma_{2}\right]_{+}Finally lossformula: L_{R S}=L_{R}+\lambda L_{S}, \quad(\lambda>0)detail is : \begin{array}{c}{L_{R S}=\sum_{(h, r, t) \in \Delta} \sum_{\left(h^{\prime}, r, t^{\prime}\right) \in \Delta^{\prime}}\left\{\left[\gamma_{1}+f_{r}(h, t)-f_{r}\left(h^{\prime}, t^{\prime}\right)\right]_{+}\right.} \\ {+\lambda\left[f_{r}(h, t)-\gamma_{2}\right]_{+} \}}\end{array}Experimentsdataset Link prediction 思考 作者只是对表格的数据进行了陈述，有一些问题并没有进行分析解释 并没有分析比如说为什么改进loss后的transE为什么会比TransH（R、D）效果要好？ 为什么在n-to-1中的表现效果没有达到最好（其他的都达到了最好）？ 通过这种改进可以发现，transH相比于TransE并没有显著提升，原因是什么？ Triple Classification TransE-RS and TransH-RS have same parameter and operation complexities as TransE and TransH, which is lower than TransR and TransD. Our models randomly initial the entities, not use the learned embeddings by TransE as TransR and TransD. It means that our models have much better ability to overcome the problem of overfitting Distributions of Triplets’ Scoresaimanalyze the difference between $L_R$ Loss and our $L_RS$ Loss Parameters 思考： 对于我自己正在做的实验：是不是我自己用的间隔太小了 result 思考 这部分的实验值得借鉴，它可以相对于直观的可以展示出为什么效果会好。 比如对于上述为什么改进后的transE的效果会更好 看到最后的分数分布transE-RS的分布效果和Trans-H的十分接近， 而transE的模型较为简单，可能最终loss最小化会使得模型充分表达，而其他模型引入了更多的假设可能会带来更多的噪声 也可能当loss很小时，其他的假设条件发挥作用的很小（至少从实验结果来看是的，但是还有待于进一步设计实验验证） Discussion of ParametersDiscussion on γ1 and γ2. We find that γ2 = 3γ1 or γ2 = 4γ1 is better for link prediction, but for triplet classification there are not obvious characteristics on γ1 and γ2. a lower γ2 is expected to ensure the golden condition $\mathbf{h}+\mathbf{r} \approx \mathbf{t}$ for positive triplets, but an entity needs to satisfy many golden coditions at the same time. 思考 既然如作者说，那么理论上transH的效果应该很好才对，但是结果并不是这样的，这又产生矛盾。 Discussion on λ 思考 看到λ并没有对模型影响并没很大 λ在1左右是效果会比较好 λ和margin会不会产生关联？]]></content>
@@ -9,9 +36,9 @@
         <category>KG</category>
       </categories>
       <tags>
+        <tag>transH</tag>
         <tag>margin loss</tag>
         <tag>transE</tag>
-        <tag>transH</tag>
         <tag>KG</tag>
       </tags>
   </entry>
@@ -24,8 +51,8 @@
         <category>KG</category>
       </categories>
       <tags>
-        <tag>transH</tag>
         <tag>KGE</tag>
+        <tag>transH</tag>
       </tags>
   </entry>
   <entry>
@@ -174,8 +201,8 @@
       </categories>
       <tags>
         <tag>知识图谱</tag>
-        <tag>知识图谱推理</tag>
         <tag>知识图谱嵌入</tag>
+        <tag>知识图谱推理</tag>
       </tags>
   </entry>
   <entry>

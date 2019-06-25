@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-03T03:06:20.944Z</updated>
+  <updated>2019-06-25T06:32:57.460Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ERNIE Enhanced Language Representation with Informative Entities阅读笔记</title>
+    <link href="http://yoursite.com/post/ERNIE_Enhanced_Language_Representation_with_Informative_Entities/"/>
+    <id>http://yoursite.com/post/ERNIE_Enhanced_Language_Representation_with_Informative_Entities/</id>
+    <published>2019-06-24T03:10:26.000Z</published>
+    <updated>2019-06-25T06:32:57.460Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>该篇论文借鉴BERT，试图将实体信息（TransE）融入token(singal word)中，通过类似实体对齐的方法将实体与token对齐（并采取mask方式进行预训练），通过infromation fusion 将token与实体融合映射入相关联的两个向量空间。</p><p><a href="https://arxiv.org/pdf/1905.07129" target="_blank" rel="noopener">论文下载地址</a></p></blockquote><a id="more"></a><h1 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h1><p>the existing pre-trained language models rarely consider incorporating knowledge graphs (KGs), which can provide rich structured knowledge facts for better language understanding.</p><h1 id="Challenge"><a href="#Challenge" class="headerlink" title="Challenge"></a>Challenge</h1><p>For incorporating external knowledge into language representation models</p><ul><li>Structured Knowledge Encoding<ul><li>regarding to the given text, how to effectively extract and encode its related informative facts in KGs for language representation models</li></ul></li><li>Heterogeneous Information Fusion<ul><li>how to design a special pre-training objective to fuse the lexical, syntactic, and knowledge information is another challenge.</li></ul></li></ul><h1 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h1><p><img src="http://image.nysdy.com/20190625156142554544546.jpg" alt="20190625156142554544546.jpg"></p><h2 id="Model-Architecture"><a href="#Model-Architecture" class="headerlink" title="Model Architecture"></a>Model Architecture</h2><p>ERNIE</p><ul><li><p>the underlying textual encoder (T-Encoder)负责从文本中捕获基本的词法和语法信息</p><ul><li><script type="math/tex; mode=display">\left\{\boldsymbol{w}_{1}, \ldots, \boldsymbol{w}_{n}\right\}=\mathrm{T}-\operatorname{Encoder}\left(\left\{w_{1}, \ldots, w_{n}\right\}\right)</script><p>T-Encoder(·) is a multi-layer bidirectional Transformer encoder</p></li></ul></li><li><p>the upper knowledgeable encoder (K-Encoder)</p><ul><li>entity embeddings are pre-trained by TransE负责将知识图谱集成到底层的文本信息中</li></ul></li></ul><h2 id="Knowledgeable-Encoder"><a href="#Knowledgeable-Encoder" class="headerlink" title="Knowledgeable Encoder"></a>Knowledgeable Encoder</h2><ul><li>the knowledgeable encoder K-Encoder consists of stacked aggregators</li><li>designed for encoding both tokens and entities as well as fusing their heterogeneous features.</li></ul><p>In the i-th aggregator</p><ul><li><p>the input:</p><ul><li>token embeddings: $\left\{\boldsymbol{w}_{1}^{(i-1)}, \ldots, \boldsymbol{w}_{n}^{(i-1)}\right\}$</li><li>entity embeddings :$\left\{\boldsymbol{e}_{1}^{(i-1)}, \ldots, \boldsymbol{e}_{m}^{(i-1)}\right\}$</li></ul></li><li><p>fed into two multi-head self-attentions(MH-ATTs)</p><ul><li>$\left\{\tilde{\boldsymbol{w}}_{1}^{(i)}, \ldots, \tilde{\boldsymbol{w}}_{n}^{(i)}\right\}=\mathrm{MH}-\operatorname{ATT}\left(\left\{\boldsymbol{w}_{1}^{(i-1)}, \ldots, \boldsymbol{w}_{n}^{(i-1)}\right\}\right)$</li><li>$\left\{\tilde{\boldsymbol{e}}_{1}^{(i)}, \ldots, \tilde{\boldsymbol{e}}_{m}^{(i)}\right\}=\mathrm{MH}-\operatorname{ATT}\left(\left\{\boldsymbol{e}_{1}^{(i-1)}, \ldots, \boldsymbol{e}_{m}^{(i-1)}\right\}\right)$</li></ul></li><li><p>an information fusion layer</p><ul><li><script type="math/tex; mode=display">\begin{aligned} \boldsymbol{h}_{j} &=\sigma\left(\tilde{\boldsymbol{W}}_{t}^{(i)} \tilde{\boldsymbol{w}}_{j}^{(i)}+\tilde{\boldsymbol{W}}_{e}^{(i)} \tilde{\boldsymbol{e}}_{k}^{(i)}+\tilde{\boldsymbol{b}}^{(i)}\right) \\ \boldsymbol{w}_{j}^{(i)} &=\sigma\left(\boldsymbol{W}_{t}^{(i)} \boldsymbol{h}_{j}+\boldsymbol{b}_{t}^{(i)}\right) \\ \boldsymbol{e}_{k}^{(i)} &=\sigma\left(\boldsymbol{W}_{e}^{(i)} \boldsymbol{h}_{j}+\boldsymbol{b}_{e}^{(i)}\right) \end{aligned}</script></li></ul><p>$h_j$ is the inner hidden state</p></li></ul><p>For the tokens without corresponding entities</p><script type="math/tex; mode=display">\begin{aligned} \boldsymbol{h}_{j} &=\sigma\left(\tilde{\boldsymbol{W}}_{t}^{(i)} \tilde{\boldsymbol{w}}_{j}^{(i)}+\tilde{\boldsymbol{b}}^{(i)}\right) \\ \boldsymbol{w}_{j}^{(i)} &=\sigma\left(\boldsymbol{W}_{t}^{(i)} \boldsymbol{h}_{j}+\boldsymbol{b}_{t}^{(i)}\right) \end{aligned}</script><h2 id="Pre-training-for-Injecting-Knowledge"><a href="#Pre-training-for-Injecting-Knowledge" class="headerlink" title="Pre-training for Injecting Knowledge"></a>Pre-training for Injecting Knowledge</h2><p>In order to inject knowledge into language rep- resentation by informative entities.</p><p>Randomly masks some token-entity alignments and then requires the system to predict all corresponding entities based on aligned tokens.</p><ul><li><p>denoising entity auto-encoder (dEA)</p></li><li><p>define the aligned entity distribution for the token $w_i$ as follows:</p><script type="math/tex; mode=display">p\left(e_{j} | w_{i}\right)=\frac{\exp \left(\text { linear }\left(\boldsymbol{w}_{i}^{o}\right) \cdot \boldsymbol{e}_{j}\right)}{\sum_{k=1}^{m} \exp \left(\text { linear }\left(\boldsymbol{w}_{i}^{o}\right) \cdot \boldsymbol{e}_{k}\right)}</script></li></ul><p>  linear(·) is a linear layer</p><p>For dEA, perform the following operations:</p><ul><li>in 5% of the time, replace the entity with another random<ul><li>aims to train model to correct the errors that the token is aligned with a wrong entity;</li></ul></li><li>In 15% of the time, mask token-entity alignments<ul><li>aims to train model to correct the errors that entity alignment system doesn’t extract all existing alignments;</li></ul></li><li>in the rest of the time, keep token-entity alignments unchanged <ul><li>aims to encourage our model to integrate the entity information into token representations for better language understanding.</li></ul></li></ul><h2 id="Fine-tuning-for-Specific-Tasks"><a href="#Fine-tuning-for-Specific-Tasks" class="headerlink" title="Fine-tuning for Specific Tasks"></a>Fine-tuning for Specific Tasks</h2><p><img src="http://image.nysdy.com/20190625156143137852366.jpg" alt="20190625156143137852366.jpg"></p><p>We can take the final output embedding for the first token, which corresponds to the special [CLS] token, as the representation of the input sequence for specific tasks.</p><p>For some knowledge-driven tasks, we design special fine-tuning procedure:</p><ul><li>relation classification<ul><li>design different tokens [HD] and [TL] for head entities and tail entities respectively</li><li>a similar role like position embeddings in the conventional relation classification models (Zeng et al., 2015)</li></ul></li><li>entity typing<ul><li>the mention mark token [ENT]</li></ul></li></ul><blockquote><ul><li>这里的CLS不知道有什么作用，所有的任务都有，是不同的任务重CLS的embedding有所不同吗？个人目前觉得是这样的。</li><li>作者这里采用的mark token的方法代替position embedding，不知道两个对比那种效果会更好一些。直观觉得都是标记位置信息。</li></ul></blockquote><h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><h3 id="Pre-training-Dataset"><a href="#Pre-training-Dataset" class="headerlink" title="Pre-training Dataset"></a>Pre-training Dataset</h3><ul><li>we use English Wikipedia as our pre-training corpus and align text to Wiki-data<ul><li>4, 500M subwords and 140M entities, and discards the sentences having less than 3 entities</li></ul></li><li>before pre-training ERINE, entity embeddings by TransE<ul><li>sample part of Wikidata which contains 5, 040, 986 entities and 24, 267, 796 fact triples</li></ul></li></ul><h3 id="Training-Details"><a href="#Training-Details" class="headerlink" title="Training Details"></a>Training Details</h3><ul><li>We also fine-tune ERNIE on the distant supervised dataset, i.e., FIGER (Ling et al., 2015)</li><li>we use TAGME (Ferragina and Scaiella, 2010) to extract the entity mentions in the sentences and link them to their corresponding entities in KGs</li></ul><h2 id="Entity-Typing"><a href="#Entity-Typing" class="headerlink" title="Entity Typing"></a>Entity Typing</h2><h3 id="dataset"><a href="#dataset" class="headerlink" title="dataset"></a>dataset</h3><p>two well-established datasets FIGER (Ling et al., 2015) and Open Entity (Choi et al., 2018).</p><ul><li>The training set of FIGER is labeled with distant supervision, and its test set is annotated by human.</li><li>Open Entity is a completely manually-annotated dataset.</li></ul><p><img src="http://image.nysdy.com/20190625156143360958681.jpg" alt="20190625156143360958681.jpg"></p><h3 id="Comparble-model"><a href="#Comparble-model" class="headerlink" title="Comparble model"></a>Comparble model</h3><ul><li>NFGEC<ul><li>NFGEC is a hybrid model proposed by Shimaoka et al. (2016)</li></ul></li><li>UFET<ul><li>(Choi et al., 2018)</li></ul></li></ul><h4 id="The-results-on-FIGER"><a href="#The-results-on-FIGER" class="headerlink" title="The results on FIGER:"></a>The results on FIGER:</h4><p>However, BERT has lower accuracy than the best NFGEC model. As strict accuracy is the ratio of instances whose predictions are identical to human annotations, it illustrates <strong>some wrong labels from distant supervision are learned by BERT</strong> due to its powerful fitting ability.</p><h2 id="Relation-Classification"><a href="#Relation-Classification" class="headerlink" title="Relation Classification"></a>Relation Classification</h2><h3 id="dataset-1"><a href="#dataset-1" class="headerlink" title="dataset"></a>dataset</h3><p>two well-established datasets FewRel (Han et al., 2018b) and TACRED (Zhang et al., 2017).</p><ul><li>FewRel<ul><li>As FewRel does not have any null instance where there isn’t any relation between entities, we adopt macro averaged metrics to present the model performances. Since FewRel is built by checking whether the sentences contain facts in Wiki-data, we drop the related facts in KGs before pretraining for fair comparison</li></ul></li><li>TACRED<ul><li>In TACRED, there are nearly 80% null instances so that we follow the previous work (Zhang et al., 2017) to adopt micro averaged metrics to represent the model performances instead of the macro</li></ul></li></ul><p><img src="http://image.nysdy.com/20190625156143680247028.jpg" alt="20190625156143680247028.jpg"></p><h3 id="Comparble-model-1"><a href="#Comparble-model-1" class="headerlink" title="Comparble model"></a>Comparble model</h3><ul><li>CNN:(Zeng et al., 2015).</li><li>PA-LSTM</li><li>C-GCN :Zhang et al. (2018) adopt the graph convolution operations to model dependency trees for relation classification.<graph convolution="" over="" pruned="" dependency="" trees="" improves="" relation="" extraction.=""></graph></li></ul><h2 id="GLUE"><a href="#GLUE" class="headerlink" title="GLUE"></a>GLUE</h2><p>The General Language Understanding Evaluation (GLUE) benchmark (Wang et al., 2018) is a collection of diverse natural language understanding tasks</p><h2 id="Ablation-Study"><a href="#Ablation-Study" class="headerlink" title="Ablation Study"></a>Ablation Study</h2><p>explore the effects of the informative entities and the knowledgeable pretraining task (dEA) for ERNIE using FewRel dataset</p><blockquote><p>实验部分做的很丰富，既有两个任务的对比实验，也有对自身模块的对比实验，并且还对比了bert来检测自己模型是否对GLUE任务效果有降低。</p></blockquote><h1 id="future-research"><a href="#future-research" class="headerlink" title="future research"></a>future research</h1><p>1) inject knowledge into feature-based pre-training models such as ELMo (Peters et al., 2018); </p><p>(2) introduce diverse structured knowledge into language representation models such as ConceptNet (Speer and Havasi, 2012) which is different from world knowledge database Wikidata; </p><p>(3) annotate more real-world corpora heuristically for larger pre-training data</p><blockquote></blockquote><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul><li><a href="https://blog.csdn.net/summerhmh/article/details/91042273" target="_blank" rel="noopener">https://blog.csdn.net/summerhmh/article/details/91042273</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;该篇论文借鉴BERT，试图将实体信息（TransE）融入token(singal word)中，通过类似实体对齐的方法将实体与token对齐（并采取mask方式进行预训练），通过infromation fusion 将token与实体融合映射入相关联的两个向量空间。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://arxiv.org/pdf/1905.07129&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="KG" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
+    
+    
+      <category term="KG" scheme="http://yoursite.com/tags/KG/"/>
+    
+      <category term="KGR" scheme="http://yoursite.com/tags/KGR/"/>
+    
+      <category term="BERT" scheme="http://yoursite.com/tags/BERT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Incorporating Literals into Knowledge Graph Embeddings阅读笔记</title>
+    <link href="http://yoursite.com/post/Incorporating_Literals_into_Knowledge_Graph_Embeddings/"/>
+    <id>http://yoursite.com/post/Incorporating_Literals_into_Knowledge_Graph_Embeddings/</id>
+    <published>2019-06-03T06:57:50.000Z</published>
+    <updated>2019-06-03T07:33:16.832Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>读完了前两章，简单的看了一下作者提出的模型，感觉并没有太大价值，就是给实体输入多加入了一个literal的信息（加入方法可以采用线性、非线性或者神经网络）。</p><p>读论文前需要先熟悉DistMult、ComlLEx和ConvE模型，此论文方法是添加在这些方法上的。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;读完了前两章，简单的看了一下作者提出的模型，感觉并没有太大价值，就是给实体输入多加入了一个literal的信息（加入方法可以采用线性、非线性或者神经网络）。&lt;/p&gt;
+&lt;p&gt;读论文前需要先熟悉DistMult、ComlLEx和ConvE模型，此论文方
+      
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="KG" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
+    
+    
+      <category term="KGE" scheme="http://yoursite.com/tags/KGE/"/>
+    
+      <category term="link prediction" scheme="http://yoursite.com/tags/link-prediction/"/>
+    
+  </entry>
   
   <entry>
     <title>Learning Knowledge Embeddings by Combining Limit-based Scoring Loss阅读笔记</title>
@@ -39,11 +101,11 @@
       <category term="KG" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
+      <category term="transH" scheme="http://yoursite.com/tags/transH/"/>
+    
       <category term="margin loss" scheme="http://yoursite.com/tags/margin-loss/"/>
     
       <category term="transE" scheme="http://yoursite.com/tags/transE/"/>
-    
-      <category term="transH" scheme="http://yoursite.com/tags/transH/"/>
     
       <category term="KG" scheme="http://yoursite.com/tags/KG/"/>
     
@@ -72,9 +134,9 @@
       <category term="KG" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="transH" scheme="http://yoursite.com/tags/transH/"/>
-    
       <category term="KGE" scheme="http://yoursite.com/tags/KGE/"/>
+    
+      <category term="transH" scheme="http://yoursite.com/tags/transH/"/>
     
   </entry>
   
@@ -398,9 +460,9 @@
     
       <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
     
-      <category term="知识图谱推理" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8E%A8%E7%90%86/"/>
-    
       <category term="知识图谱嵌入" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%B5%8C%E5%85%A5/"/>
+    
+      <category term="知识图谱推理" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8E%A8%E7%90%86/"/>
     
   </entry>
   
@@ -506,60 +568,6 @@
     
     
       <category term="plan" scheme="http://yoursite.com/tags/plan/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《An Automatic Knowledge Graph Construction System for K-12 Education》阅读笔记</title>
-    <link href="http://yoursite.com/post/An%20Automatic%20Knowledge%20Graph%20Construction%20System%20for%20K-12%20Education/"/>
-    <id>http://yoursite.com/post/An Automatic Knowledge Graph Construction System for K-12 Education/</id>
-    <published>2019-01-19T02:32:57.000Z</published>
-    <updated>2019-01-19T02:34:06.787Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p><a href="http://delivery.acm.org/10.1145/3240000/3231698/a40-chen.pdf?ip=59.64.129.211&amp;id=3231698&amp;acc=NO%20RULES&amp;key=BF85BBA5741FDC6E%2E66A15327C2E204FC%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;__acm__=1547779677_7b4dce90b008fa6300a47916eeb139d9" target="_blank" rel="noopener">论文原址</a>。本篇文章主要提出了一个自动化构建数学领域知识图谱的系统，主要应用的事NER和数据挖掘技术，其中NER主要是抽取数学概念，概念间的关系是作者自己构建的（例如先修关系）。对于数据集，作者主要从the Chinese curriculum standards of mathematics上提取的概念实体，从自己的SLP平台上，通过对学生表现来提取关系（把这部分作为数据挖掘）。<strong>本篇文章实际上可以作为构建特定领域的知识图谱的一个参考。</strong></p></blockquote><a id="more"></a><h3 id="challenges"><a href="#challenges" class="headerlink" title="challenges"></a>challenges</h3><ul><li>the desired educational concept entities are more abstract than real world entities like PERSON, ORGANIZATION, LOCATION</li><li>the desired relations are more cognitive and implicit, so cannot be derived from the literal meanings of text like generic knowledge graphs</li></ul><h3 id="contributions"><a href="#contributions" class="headerlink" title="contributions"></a>contributions</h3><ul><li>a novel but practical system</li><li>entity recognition (NER) &amp; association rule mining algorithms</li><li>demonstrate an exemplary case with constructing a knowledge graph for the subject of mathematics</li></ul><h2 id="SYSTEM-OVERVIEW"><a href="#SYSTEM-OVERVIEW" class="headerlink" title="SYSTEM OVERVIEW"></a>SYSTEM OVERVIEW</h2><p><img src="https://i.loli.net/2019/01/19/5c428c37364b4.jpg" alt=""></p><ul><li>Educational Concept Extraction Module:</li><li>Implicit Relation Identification Module</li></ul><h2 id="CONCEPT-EXTRACTION"><a href="#CONCEPT-EXTRACTION" class="headerlink" title="CONCEPT EXTRACTION"></a>CONCEPT EXTRACTION</h2><ul><li><p>线性链式CRF模型</p><p><img src="https://i.loli.net/2019/01/18/5c4141ca00be1.jpg" alt=""></p></li><li><p>标签预测</p><p><img src="https://i.loli.net/2019/01/18/5c4141ed6ac27.jpg" alt=""></p></li></ul><h2 id="RELATION-IDENTIFICATION"><a href="#RELATION-IDENTIFICATION" class="headerlink" title="RELATION IDENTIFICATION"></a>RELATION IDENTIFICATION</h2><h3 id="两种方法"><a href="#两种方法" class="headerlink" title="两种方法"></a>两种方法</h3><ul><li>support</li><li>confidence</li></ul><blockquote><p>From the perspective of prerequisite relation, if concept si is a prerequisite of concept sj, learners who do not master sivery likely do not master sj, and learners who master sjmost likely master si. </p><p><img src="https://i.loli.net/2019/01/18/5c41425aafc99.jpg" alt=""></p></blockquote><h2 id="EXEMPLARY-CASE-AND-SYSTEM-EVALUATION"><a href="#EXEMPLARY-CASE-AND-SYSTEM-EVALUATION" class="headerlink" title="EXEMPLARY CASE AND SYSTEM EVALUATION"></a>EXEMPLARY CASE AND SYSTEM EVALUATION</h2><h3 id="Concept-Extraction"><a href="#Concept-Extraction" class="headerlink" title="Concept Extraction"></a>Concept Extraction</h3><h4 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h4><p>the Chinese curriculum standards of mathematics published by the ministry of education as the main data source</p><h4 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h4><ul><li>adopt precision, recall and F1- score </li><li>The ground truth is manually labeled by two domain experts.</li></ul><h3 id="Relation-Identification"><a href="#Relation-Identification" class="headerlink" title="Relation Identification"></a>Relation Identification</h3><h4 id="Dataset-1"><a href="#Dataset-1" class="headerlink" title="Dataset"></a>Dataset</h4><p> students’ performance data collected by our SLP platform.</p><h4 id="Evaluation-1"><a href="#Evaluation-1" class="headerlink" title="Evaluation"></a>Evaluation</h4><p>The ground truth of the prerequisite relations between selected 9 concepts are annotated manually by two domain experts.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;http://delivery.acm.org/10.1145/3240000/3231698/a40-chen.pdf?ip=59.64.129.211&amp;amp;id=3231698&amp;amp;acc=NO%20RULES&amp;amp;key=BF85BBA5741FDC6E%2E66A15327C2E204FC%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;amp;__acm__=1547779677_7b4dce90b008fa6300a47916eeb139d9&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文原址&lt;/a&gt;。本篇文章主要提出了一个自动化构建数学领域知识图谱的系统，主要应用的事NER和数据挖掘技术，其中NER主要是抽取数学概念，概念间的关系是作者自己构建的（例如先修关系）。对于数据集，作者主要从the Chinese curriculum standards of mathematics上提取的概念实体，从自己的SLP平台上，通过对学生表现来提取关系（把这部分作为数据挖掘）。&lt;strong&gt;本篇文章实际上可以作为构建特定领域的知识图谱的一个参考。&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="NER" scheme="http://yoursite.com/tags/NER/"/>
-    
-      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《RECURRENT NEURAL NETWORK REGULARIZATION》阅读笔记</title>
-    <link href="http://yoursite.com/post/RECURRENT%20NEURAL%20NETWORK%20REGULARIZATION/"/>
-    <id>http://yoursite.com/post/RECURRENT NEURAL NETWORK REGULARIZATION/</id>
-    <published>2019-01-07T00:56:13.000Z</published>
-    <updated>2019-01-07T01:37:11.397Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p><a href="http://arxiv.org/abs/1409.2329" target="_blank" rel="noopener">论文链接</a>。这篇论文提出了LSTM的dropout策略来防止过拟合，即只在非循环链接处采取dropout。在BasicLSTMCell的接口就是依据这篇论文实现的。</p></blockquote><h2 id="文章整体架构和重点"><a href="#文章整体架构和重点" class="headerlink" title="文章整体架构和重点"></a>文章整体架构和重点</h2><p><img src="https://i.loli.net/2019/01/07/5c32ad34c99e0.jpg" alt=""></p><h2 id="contribution"><a href="#contribution" class="headerlink" title="contribution"></a>contribution</h2><ul><li>present a simple regularization technique</li></ul><h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><ul><li><p>dropout Srivastava(2013)，对于前向反馈网络最有力的正则化方法并不能很好的应用在RNNs上。这导致RNNs规模都很小，因为太大会过拟合。</p></li><li><p>Bayer et al. (2013)指出了卷积dropout不能在RNNs上很好工作的原因是循环会放大噪音。</p></li></ul><h2 id="model"><a href="#model" class="headerlink" title="model"></a>model</h2><h3 id="仿射变换（affine-transform）"><a href="#仿射变换（affine-transform）" class="headerlink" title="仿射变换（affine transform）"></a>仿射变换（affine transform）</h3><p>关于仿射变换：线性变换加上平移，盗个知乎上的图（<a href="https://www.zhihu.com/question/20666664" target="_blank" rel="noopener">原文链接</a>）</p><p><img src="https://i.loli.net/2019/01/07/5c32a7c05c698.jpg" alt=""></p><h3 id="模型主体"><a href="#模型主体" class="headerlink" title="模型主体"></a>模型主体</h3><p>采用的是Graves et al. (2013)<img src="https://i.loli.net/2019/01/07/5c32aaae11c93.jpg" alt=""></p><h3 id="dropout策略"><a href="#dropout策略" class="headerlink" title="dropout策略"></a>dropout策略</h3><blockquote><p>The main contribution of this paper is a recipe for applying dropout to LSTMs in a way that success- fully reduces overfitting. The main idea is to apply the dropout operator only to the non-recurrent connections.</p></blockquote><p><img src="https://i.loli.net/2019/01/07/5c32aaf4084fc.jpg" alt=""></p><p>观察公式，实际上就是通过在层间传递中应用dropout。如下图中虚线所示。</p><p><img src="https://i.loli.net/2019/01/07/5c32a99676abf.jpg" alt=""></p><p>从上图中也可以看到，该dropout的次数只和网络深度有关（数值为网络深度+1）。</p><h3 id="experiments"><a href="#experiments" class="headerlink" title="experiments"></a>experiments</h3><p>实验部分作者做了4部分实验来证明自己采用的方法有效，分别为language modeling, speech recognition, machine translation, image caption generation。这部分没什么需要解释了，感兴趣可以自己看一下实验。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;http://arxiv.org/abs/1409.2329&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文链接&lt;/a&gt;。这篇论文提出了LSTM的dropout策略来防止过拟合，即只在非循环链接处采取drop
-      
-    
-    </summary>
-    
-      <category term="神经网络" scheme="http://yoursite.com/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="RNN" scheme="http://yoursite.com/tags/RNN/"/>
-    
-      <category term="LSTM" scheme="http://yoursite.com/tags/LSTM/"/>
     
   </entry>
   
