@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Learning Entity and Relation Embeddings for Knowledge Graph Completion阅读笔记]]></title>
+    <url>%2Fpost%2FLearning_Entity_and_Relation_Embeddings_for_Knowledge_Graph_Completion%2F</url>
+    <content type="text"><![CDATA[TransR embeds entities and relations in distinct entity space and relation space, and learns embeddings via translation between projected entities.CTransR models internal complicated correlations within each relation type. 论文下载地址 Problem StatementIn fact, an entity may have multiple aspects and various relaitons may focus on different aspects of entities, which makes a common space insurficient for modeling. Contribution propose a TransR model which models entities and relations in distinct spaces CTransR models internal complicated correlations within each relation type. experiment on benchmark datasets of WordNet and Freebase and gain consistent improvements compared to state-of-the-art models Future work Existing models including TransR consider each relational fact separately. relation transitive explore a unified embedding model of both text side and knowledge graph modeling internal correlations within each relation type TransR for each triple$(h, r, t)$, entities embeddings are set as $\mathbf{h}, \mathbf{t} \in \mathbb{R}^{k}$ and relation embedding is set as $\mathbf{r} \in \mathbb{R}^{d}$, $k \neq d$ for each relation $r$, set a projection matrix $\mathbf{M}_{r} \in\mathbb{R}^{k \times d}$ projects entities from entity space to relation space projected vectors of entities as \mathbf{h}_{r}=\mathbf{h} \mathbf{M}_{r}, \quad \mathbf{t}_{r}=\mathbf{t} \mathbf{M}_{r} score function: f_{r}(h, t)=\left\|\mathbf{h}_{r}+\mathbf{r}-\mathbf{t}_{r}\right\|_{2}^{2} Cluster-based TransR (CTransR)why propose CTransRTransE, TransH and TransR, learn a unique vector for each relation, which may be under-representative to fit all entity pairs under this relation, because these relations are usually rather diverse. basic idea incorporate the idea of piecewise linear regression Ritzema and others 1994 segment input instances into several groups process for a specific relation r, all entity pairs (h, t) in the training data are clustered into multiple groups, and entity pairs in each group are expected to exhibit similar r relation. All entity pairs (h, t) are represented with their vector offsets (h − t) for clustering, where h and t are obtained with TransE. learn a separate relation vector $r_c$for each cluster and matrix $M_r$ for each relation, respectively projected vectors of entities as $\mathbf{h}_{r, c}=\mathbf{h} \mathbf{M}_{r} \text { and } \mathbf{t}_{r, c}=\mathbf{t} \mathbf{M}_{r}$ sorce fuction f_{r}(h, t)=\left\|\mathbf{h}_{r, c}+\mathbf{r}_{c}-\mathbf{t}_{r, c}\right\|_{2}^{2}+\alpha\left\|\mathbf{r}_{c}-\mathbf{r}\right\|_{2}^{2}the later item aims to ensure cluster-specific relation vector rcnot too far away from the original relation vector r dataset采用和前人所用一样的数据集 Dataset #Rel #Ent #Train #Valid # Test WN18 18 40,943 141,442 5,000 5,000 FB15K 1,345 14,951 483,142 50,000 59,071 WN11 11 38,696 112,581 2,609 10,544 FB13 13 75,043 316,232 5,908 23,733 FB40K 1,336 39528 370,648 67,946 96,678 Experiment作者采取常规实验 Link Prediction这里作者对关系中聚类进行了展示： 我觉得这种方式是值得尝试的。 Triple classificationMoreover, the “bern” sampling technique improves the performance of TransE, TransH and TransR on all three data sets. bern采样方法需要掌握。 Relation Extraction from Text]]></content>
+      <categories>
+        <category>论文阅读笔记</category>
+      </categories>
+      <tags>
+        <tag>KGE</tag>
+        <tag>KGR</tag>
+        <tag>TransR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Neural Relation Extraction with Selective Attention over Instances阅读笔记]]></title>
+    <url>%2Fpost%2FNeural_Relation_Extraction_with_Selective_Attention_over_Instances%2F</url>
+    <content type="text"><![CDATA[这篇文章之前看过😂。 论下载地址 Problem Statement​ Distant supervision inevitably accompanies with the wrong labelling problem, and thse noisy data will substantially hurt the performance of relation extraction. Contribution As compared to existing neural relation extraction model, our model can make full use of all informative sentences of each entity pair. To address the wrong labelling problem in distant supervision, we propose selective attention to de-emphasize those noisy instances. In the experiments, we show that selective attention is beneficial to two kinds of CNN models in the task of relation extraction. Methodology模型整体架构如下所示：]]></content>
+      <categories>
+        <category>论文阅读笔记</category>
+      </categories>
+      <tags>
+        <tag>RE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Learning as the Unsupervised Alignment of Conceptual Systems阅读笔记]]></title>
+    <url>%2Fpost%2FLearning_as_the_Unsupervised_Alignment_of_Conceptual_Systems%2F</url>
+    <content type="text"><![CDATA[这篇文章没怎么看懂，主要思想应该是代表同时概念的不同形式（文本，图像，语音等）应该具有相似的分布，以此来进行无监督的概念对齐。这种思路挺不错的，不过还没有深入的想法，算是拓展视野吧！ KEYThe key insight is that each concept has a unique signature within one conceptual system (e.g., images) that is recapitulated in other systems (e.g., text or audio) Problem Statement For supervised approaches, as the number of concepts grows, so does the number of required training examples V. W. Quine argued, even supervised instruction contains a substantial amount of ambiguity (Quine, 1960).Quine suggested that meaning may derive from something’s place within a conceptual system. ModelIn order to solve Quinne’s problem, we align a system of word labels and a system of visual semantics that both refer to the same underlying reality and therefore have related structure that can be discovered by unsupervised means (Figure 1）]]></content>
+      <categories>
+        <category>论文阅读笔记</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[ERNIE Enhanced Language Representation with Informative Entities阅读笔记]]></title>
     <url>%2Fpost%2FERNIE_Enhanced_Language_Representation_with_Informative_Entities%2F</url>
     <content type="text"><![CDATA[该篇论文借鉴BERT，试图将实体信息（TransE）融入token(singal word)中，通过类似实体对齐的方法将实体与token对齐（并采取mask方式进行预训练），通过infromation fusion 将token与实体融合映射入相关联的两个向量空间。 论文下载地址 Problem Statementthe existing pre-trained language models rarely consider incorporating knowledge graphs (KGs), which can provide rich structured knowledge facts for better language understanding. ChallengeFor incorporating external knowledge into language representation models Structured Knowledge Encoding regarding to the given text, how to effectively extract and encode its related informative facts in KGs for language representation models Heterogeneous Information Fusion how to design a special pre-training objective to fuse the lexical, syntactic, and knowledge information is another challenge. Methodology Model ArchitectureERNIE the underlying textual encoder (T-Encoder)负责从文本中捕获基本的词法和语法信息 \left\{\boldsymbol{w}_{1}, \ldots, \boldsymbol{w}_{n}\right\}=\mathrm{T}-\operatorname{Encoder}\left(\left\{w_{1}, \ldots, w_{n}\right\}\right)T-Encoder(·) is a multi-layer bidirectional Transformer encoder the upper knowledgeable encoder (K-Encoder) entity embeddings are pre-trained by TransE负责将知识图谱集成到底层的文本信息中 Knowledgeable Encoder the knowledgeable encoder K-Encoder consists of stacked aggregators designed for encoding both tokens and entities as well as fusing their heterogeneous features. In the i-th aggregator the input: token embeddings: $\left\{\boldsymbol{w}_{1}^{(i-1)}, \ldots, \boldsymbol{w}_{n}^{(i-1)}\right\}$ entity embeddings :$\left\{\boldsymbol{e}_{1}^{(i-1)}, \ldots, \boldsymbol{e}_{m}^{(i-1)}\right\}$ fed into two multi-head self-attentions(MH-ATTs) $\left\{\tilde{\boldsymbol{w}}_{1}^{(i)}, \ldots, \tilde{\boldsymbol{w}}_{n}^{(i)}\right\}=\mathrm{MH}-\operatorname{ATT}\left(\left\{\boldsymbol{w}_{1}^{(i-1)}, \ldots, \boldsymbol{w}_{n}^{(i-1)}\right\}\right)$ $\left\{\tilde{\boldsymbol{e}}_{1}^{(i)}, \ldots, \tilde{\boldsymbol{e}}_{m}^{(i)}\right\}=\mathrm{MH}-\operatorname{ATT}\left(\left\{\boldsymbol{e}_{1}^{(i-1)}, \ldots, \boldsymbol{e}_{m}^{(i-1)}\right\}\right)$ an information fusion layer \begin{aligned} \boldsymbol{h}_{j} &=\sigma\left(\tilde{\boldsymbol{W}}_{t}^{(i)} \tilde{\boldsymbol{w}}_{j}^{(i)}+\tilde{\boldsymbol{W}}_{e}^{(i)} \tilde{\boldsymbol{e}}_{k}^{(i)}+\tilde{\boldsymbol{b}}^{(i)}\right) \\ \boldsymbol{w}_{j}^{(i)} &=\sigma\left(\boldsymbol{W}_{t}^{(i)} \boldsymbol{h}_{j}+\boldsymbol{b}_{t}^{(i)}\right) \\ \boldsymbol{e}_{k}^{(i)} &=\sigma\left(\boldsymbol{W}_{e}^{(i)} \boldsymbol{h}_{j}+\boldsymbol{b}_{e}^{(i)}\right) \end{aligned} $h_j$ is the inner hidden state For the tokens without corresponding entities \begin{aligned} \boldsymbol{h}_{j} &=\sigma\left(\tilde{\boldsymbol{W}}_{t}^{(i)} \tilde{\boldsymbol{w}}_{j}^{(i)}+\tilde{\boldsymbol{b}}^{(i)}\right) \\ \boldsymbol{w}_{j}^{(i)} &=\sigma\left(\boldsymbol{W}_{t}^{(i)} \boldsymbol{h}_{j}+\boldsymbol{b}_{t}^{(i)}\right) \end{aligned}Pre-training for Injecting KnowledgeIn order to inject knowledge into language rep- resentation by informative entities. Randomly masks some token-entity alignments and then requires the system to predict all corresponding entities based on aligned tokens. denoising entity auto-encoder (dEA) define the aligned entity distribution for the token $w_i$ as follows: p\left(e_{j} | w_{i}\right)=\frac{\exp \left(\text { linear }\left(\boldsymbol{w}_{i}^{o}\right) \cdot \boldsymbol{e}_{j}\right)}{\sum_{k=1}^{m} \exp \left(\text { linear }\left(\boldsymbol{w}_{i}^{o}\right) \cdot \boldsymbol{e}_{k}\right)} linear(·) is a linear layer For dEA, perform the following operations: in 5% of the time, replace the entity with another random aims to train model to correct the errors that the token is aligned with a wrong entity; In 15% of the time, mask token-entity alignments aims to train model to correct the errors that entity alignment system doesn’t extract all existing alignments; in the rest of the time, keep token-entity alignments unchanged aims to encourage our model to integrate the entity information into token representations for better language understanding. Fine-tuning for Specific Tasks We can take the final output embedding for the first token, which corresponds to the special [CLS] token, as the representation of the input sequence for specific tasks. For some knowledge-driven tasks, we design special fine-tuning procedure: relation classification design different tokens [HD] and [TL] for head entities and tail entities respectively a similar role like position embeddings in the conventional relation classification models (Zeng et al., 2015) entity typing the mention mark token [ENT] 这里的CLS不知道有什么作用，所有的任务都有，是不同的任务重CLS的embedding有所不同吗？个人目前觉得是这样的。 作者这里采用的mark token的方法代替position embedding，不知道两个对比那种效果会更好一些。直观觉得都是标记位置信息。 ExperimentsPre-training Dataset we use English Wikipedia as our pre-training corpus and align text to Wiki-data 4, 500M subwords and 140M entities, and discards the sentences having less than 3 entities before pre-training ERINE, entity embeddings by TransE sample part of Wikidata which contains 5, 040, 986 entities and 24, 267, 796 fact triples Training Details We also fine-tune ERNIE on the distant supervised dataset, i.e., FIGER (Ling et al., 2015) we use TAGME (Ferragina and Scaiella, 2010) to extract the entity mentions in the sentences and link them to their corresponding entities in KGs Entity Typingdatasettwo well-established datasets FIGER (Ling et al., 2015) and Open Entity (Choi et al., 2018). The training set of FIGER is labeled with distant supervision, and its test set is annotated by human. Open Entity is a completely manually-annotated dataset. Comparble model NFGEC NFGEC is a hybrid model proposed by Shimaoka et al. (2016) UFET (Choi et al., 2018) The results on FIGER:However, BERT has lower accuracy than the best NFGEC model. As strict accuracy is the ratio of instances whose predictions are identical to human annotations, it illustrates some wrong labels from distant supervision are learned by BERT due to its powerful fitting ability. Relation Classificationdatasettwo well-established datasets FewRel (Han et al., 2018b) and TACRED (Zhang et al., 2017). FewRel As FewRel does not have any null instance where there isn’t any relation between entities, we adopt macro averaged metrics to present the model performances. Since FewRel is built by checking whether the sentences contain facts in Wiki-data, we drop the related facts in KGs before pretraining for fair comparison TACRED In TACRED, there are nearly 80% null instances so that we follow the previous work (Zhang et al., 2017) to adopt micro averaged metrics to represent the model performances instead of the macro Comparble model CNN:(Zeng et al., 2015). PA-LSTM C-GCN :Zhang et al. (2018) adopt the graph convolution operations to model dependency trees for relation classification. GLUEThe General Language Understanding Evaluation (GLUE) benchmark (Wang et al., 2018) is a collection of diverse natural language understanding tasks Ablation Studyexplore the effects of the informative entities and the knowledgeable pretraining task (dEA) for ERNIE using FewRel dataset 实验部分做的很丰富，既有两个任务的对比实验，也有对自身模块的对比实验，并且还对比了bert来检测自己模型是否对GLUE任务效果有降低。 future research1) inject knowledge into feature-based pre-training models such as ELMo (Peters et al., 2018); (2) introduce diverse structured knowledge into language representation models such as ConceptNet (Speer and Havasi, 2012) which is different from world knowledge database Wikidata; (3) annotate more real-world corpora heuristically for larger pre-training data 参考链接 https://blog.csdn.net/summerhmh/article/details/91042273]]></content>
@@ -36,9 +68,9 @@
         <category>KG</category>
       </categories>
       <tags>
-        <tag>transH</tag>
         <tag>margin loss</tag>
         <tag>transE</tag>
+        <tag>transH</tag>
         <tag>KG</tag>
       </tags>
   </entry>
@@ -332,8 +364,8 @@
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>python</tag>
+        <tag>pandas</tag>
         <tag>数据分析</tag>
       </tags>
   </entry>
@@ -345,8 +377,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>爬虫</tag>
+        <tag>python</tag>
         <tag>scrapy</tag>
       </tags>
   </entry>
@@ -358,8 +390,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>爬虫</tag>
+        <tag>python</tag>
         <tag>splash</tag>
         <tag>docker</tag>
       </tags>
