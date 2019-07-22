@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-01T01:49:37.278Z</updated>
+  <updated>2019-07-22T13:20:32.965Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Universal Representation Learning of Knowledge Bases by Jointly Embedding Instances and Ontological Concepts阅读笔记</title>
+    <link href="http://yoursite.com/post/Universal_Representation_Learning_of_Knowledge_Bases_by_Jointly_Embedding_Instances_and_Ontological_Concepts/"/>
+    <id>http://yoursite.com/post/Universal_Representation_Learning_of_Knowledge_Bases_by_Jointly_Embedding_Instances_and_Ontological_Concepts/</id>
+    <published>2019-07-17T08:45:52.000Z</published>
+    <updated>2019-07-22T13:20:32.965Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p></p><p><a href="http://web.cs.ucla.edu/~yzsun/papers/2019_KDD_JOIE.pdf" target="_blank" rel="noopener">论文下载地址</a></p></blockquote><a id="more"></a><h1 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h1><p>Existing KG embedding models merely focus on representing of an ontology view for abstract and commonsense concepts or an instance view for special entities that are instantiated from ontological concepts. </p><h1 id="Challenge"><a href="#Challenge" class="headerlink" title="Challenge"></a>Challenge</h1><ul><li><strong>mappings difficult</strong> :the semantic mappings from entities to concepts and from relations to meta-relations are complicated and difficult to be precisely captured by any current embedding models</li><li><strong>inadequate cross-view links:</strong> the known cross-view links inadequately cover a vast number of entities, which leads to insufficient information to align both views of the KB, and curtails discovering new cross-view links</li><li>the scales and topological structures are different in ontological views and instance views</li></ul><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><img src="http://image.nysdy.com/20190722156378173495213.jpg" alt="20190722156378173495213.jpg"></p><p>从两种视图来学习表示有以下两点好处：</p><ul><li>instance embeddings provide detailed and rich information for their corresponding ontological concepts.</li><li>a concept embedding provides a high-level summary of its instances, which is extremely helpful when an instance is rarely observed.</li></ul><h1 id="contribution"><a href="#contribution" class="headerlink" title="contribution"></a>contribution</h1><ul><li>a novel KG embedding model named JOIE, which jointly encodes both the ontology and instance views of a KB<ul><li>cross-view association model : a novel KG embedding model named JOIE, which jointly encodes both the ontology and instance views of a KB<ul><li>cross-view grouping technique : assumes that the two views can be forced into the same embedding space</li><li>cross-view transformation technique : enables non-linear transformations from the instance embedding space to the ontology embedding space</li></ul></li><li>intra-view embedding model : characterizes the relational facts of ontology and instance views in two separate embedding spaces<ul><li>three state-of-the-art translational or similarity-based relational embedding techniques</li><li>hierarchy-aware embedding: based on intra-view non- linear transformations to preserve ontologies hierarchical substructures.</li></ul></li></ul></li><li>implement two experiments:<ul><li>the triple completion task : confirm the effectiveness of JOIE for populating knowledge in both ontology and instance-view KGs, which has significantly outperformed various baseline models.</li><li>the entity typing task :  show that JOIE is competent in discovering cross-view links to align the ontology-view and the instance-view KGs.</li></ul></li></ul><h2 id="Modeling"><a href="#Modeling" class="headerlink" title="Modeling"></a>Modeling</h2><p><img src="http://image.nysdy.com/2019072215637837731893.jpg" alt="2019072215637837731893.jpg"></p><h2 id="Cross-view-Association-Model"><a href="#Cross-view-Association-Model" class="headerlink" title="Cross-view Association Model"></a>Cross-view Association Model</h2><p><img src="http://image.nysdy.com/20190722156378594486796.png" alt="20190722156378594486796.png"></p><h3 id="Cross-view-Grouping-CG"><a href="#Cross-view-Grouping-CG" class="headerlink" title="Cross-view Grouping (CG)"></a>Cross-view Grouping (CG)</h3><p>该模型可以视为grouping-based regularization， 假设本体视图KG和实例视图KG可以被嵌入到同一空间中，并强制使实例向量靠近与它相关联的概念向量，如图3(a)所示</p><p>定义损失函数如下：</p><script type="math/tex; mode=display">J_{\text { Cross }}^{\mathrm{CG}}=\frac{1}{|\mathcal{S}|} \sum_{(e, c) \in \mathcal{S}}\left[\|\mathbf{c}-\mathbf{e}\|_{2}-\gamma^{\mathrm{CG}}\right]_{+}</script><h3 id="Cross-view-Transformation-CT"><a href="#Cross-view-Transformation-CT" class="headerlink" title="Cross-view Transformation (CT)"></a>Cross-view Transformation (CT)</h3><p>试图在实体嵌入空间和概念空间之间转换信息，如图3(b)所示</p><p>定义映射函数，将实例映射到本体视图空间，该映射后向量应该靠近它的相关联概念：</p><script type="math/tex; mode=display">\mathbf{c} \leftarrow f_{\mathrm{CT}}(\mathbf{e}), \forall(e, c) \in \mathcal{S}</script><p>其中，</p><script type="math/tex; mode=display">f_{\mathrm{CT}}(\mathbf{e})=\sigma\left(\mathbf{W}_{\mathrm{ct}} \cdot \mathbf{e}+\mathbf{b}_{\mathrm{ct}}\right)</script><p>整个CT的损失函数为：</p><script type="math/tex; mode=display">J_{\text { Cross }}^{\mathrm{CT}}=\frac{1}{|\mathcal{S}|} \sum_{(e, c) \in \mathcal{S} \atop \wedge\left(e, c^{\prime}\right) \in \mathcal{S}}\left[\gamma^{\mathrm{CT}}+\left\|\mathbf{c}-f_{\mathrm{CT}}(\mathbf{e})\right\|_{2}-\left\|\mathbf{c}^{\prime}-f_{\mathrm{CT}}(\mathbf{e})\right\|_{2}\right]_{+}</script><h2 id="Intra-view-Model"><a href="#Intra-view-Model" class="headerlink" title="Intra-view Model"></a>Intra-view Model</h2><p>该模型的目的：在两个嵌入空间中分别保留KB的每个视图中的原始结构信息。</p><h3 id="Default-Intra-view-Model"><a href="#Default-Intra-view-Model" class="headerlink" title="Default Intra-view Model"></a>Default Intra-view Model</h3><p>作者采用三种方式：</p><script type="math/tex; mode=display">\begin{aligned} f_{\text { TransE }}(\mathbf{h}, \mathbf{r}, \mathbf{t}) &=-\|\mathbf{h}+\mathbf{r}-\mathbf{t}\|_{2} \\ f_{\text { Mult }}(\mathbf{h}, \mathbf{r}, \mathbf{t}) &=(\mathbf{h} \circ \mathbf{t}) \cdot \mathbf{r} \\ f_{\text { HolE }}(\mathbf{h}, \mathbf{r}, \mathbf{t}) &=(\mathbf{h} \star \mathbf{t}) \cdot \mathbf{r} \end{aligned}</script><p>损失函数：</p><script type="math/tex; mode=display">J_{\text { Intra }}^{G}=\frac{1}{|\mathcal{G}|} \sum_{(h, r, t) \in \mathcal{G}}\left[\gamma^{\mathcal{G}}+f\left(\mathbf{h}^{\prime}, \mathbf{r}, \mathbf{t}^{\prime}\right)-f(\mathbf{h}, \mathbf{r}, \mathbf{t})\right]_{+}</script><p>intra损失函数：</p><script type="math/tex; mode=display">J_{\text { Intra }}=J_{\text { Intra }}^{\mathcal{G}_{I}}+\alpha_{1} \cdot J_{\text { Intra }}^{\mathcal{G}_{O}}</script><h3 id="Hierarchy-Aware-Intra-view-Model-for-the-Ontology"><a href="#Hierarchy-Aware-Intra-view-Model-for-the-Ontology" class="headerlink" title="Hierarchy-Aware Intra-view Model for the Ontology"></a>Hierarchy-Aware Intra-view Model for the Ontology</h3><p>进一步区分了构成本体层次结构的元关系和视图内模型中的规则语义关系(如“related_to”)。</p><p>给定概念对（cl，ch），我们将这种层次结构建模为粗略概念和相关更精细概念之间的非线性变换:</p><script type="math/tex; mode=display">g_{\mathrm{HA}}\left(\mathbf{c}_{h}\right)=\sigma\left(\mathbf{W}_{\mathrm{HA}} \cdot \mathbf{c}_{l}+\mathbf{b}_{\mathrm{HA}}\right)</script><p>损失函数为：</p><script type="math/tex; mode=display">J_{\text { Intra }}^{\mathrm{HA}}=\frac{1}{|\mathcal{T}|} \sum_{\left(c_{l}, c_{h}\right) \in \mathcal{T}}\left[\gamma^{\mathrm{HA}}+\left\|\mathbf{c}_{h}-g\left(\mathbf{c}_{l}\right)\right\|_{2}-\left\|\mathbf{c}_{\mathrm{h}}^{\prime}-g\left(\mathbf{c}_{1}\right)\right\|_{2}\right]_{+}</script><p>故，该部分损失函数为：</p><script type="math/tex; mode=display">J_{\text { Intra }}=J_{\text { Intra }}^{G_{I}}+\alpha_{1} \cdot J_{\text { Intra }}^{\mathcal{G} o \backslash \mathcal{T}}+\alpha_{2} \cdot J_{\text { Intra }}^{\mathrm{HA}}</script><ul><li>$J_{\text { Intra }}^{\mathcal{G} o} \backslash \mathcal{T}$: 默认的视图内模型的丢失，该模型仅在具有规则语义关系的三元组上训练</li><li>$J_{\text { Intra }}^{\mathrm{HA}}$明确训练三元组与形成本体层次结构的元关系</li></ul><blockquote><p>感觉这部分就是传递关系，类似推理性质的。</p><p>没明白两种ontology关系的区分点</p></blockquote><h2 id="Joint-Training-on-Two-View-KBs"><a href="#Joint-Training-on-Two-View-KBs" class="headerlink" title="Joint Training on Two-View KBs"></a>Joint Training on Two-View KBs</h2><p>联合损失函数：</p><script type="math/tex; mode=display">J=J_{\text { Intra }}+\omega \cdot J_{\text { Cross }}</script><p>作者并不直接更新$J$，而是交替更新$J_{\text { Intra }}^{\mathcal{G}_{I}}, J_{\text { Intra }}^{\mathcal{G} O} \text { and } J_{\text { Cross }}$.</p><h1 id="EXPERIMENTS"><a href="#EXPERIMENTS" class="headerlink" title="EXPERIMENTS"></a>EXPERIMENTS</h1><p>具体细节直接见论文</p><h2 id="dataset"><a href="#dataset" class="headerlink" title="dataset"></a>dataset</h2><p><img src="http://image.nysdy.com/20190722156379991044398.png" alt="20190722156379991044398.png">数据集是作者自己构建的，信息如上图所示。</p><h2 id="Case-Study"><a href="#Case-Study" class="headerlink" title="Case Study"></a>Case Study</h2><h3 id="Ontology-Population"><a href="#Ontology-Population" class="headerlink" title="Ontology Population"></a>Ontology Population</h3><p>作者想预测在元关系词表中并不存在的元关系，例如：预测(“Office Holder”, ?r, “Country”)</p><p>这里，作者采取的方式是将概念通过之前提到的实体空间到概念空间的映射来进行反映射。然后按照$f_{\mathrm{CT}}^{\mathrm{inv}}\left(\mathbf{c}_{\text { country }}\right)-f_{\mathrm{CT}}^{\mathrm{inv}}\left(\mathbf{c}_{\text { office }}\right)$来在实体嵌入空间进行搜索与之相近的实体间关系。</p><p><img src="http://image.nysdy.com/20190722156380029962081.png" alt="20190722156380029962081.png"></p><h3 id="Long-tail-entity-typing"><a href="#Long-tail-entity-typing" class="headerlink" title="Long-tail entity typing"></a>Long-tail entity typing</h3><p><img src="http://image.nysdy.com/2019072215638007155223.png" alt="2019072215638007155223.png"></p><p>In KGs, the frequency of entities and relations often follow a long-tail distribution (Zipf’s law)</p><p>作者抽取了低频次实体进行了训练，发现JOIE模型的效果虽然有下降，但尚在可以接受的程度内。</p><h1 id="FUTURE-WORK"><a href="#FUTURE-WORK" class="headerlink" title="FUTURE WORK"></a>FUTURE WORK</h1><ul><li>Particularly, instead of optimizing structure loss with triples (first-order neighborhood) locally, we plan to adopt more complex embedding models which leverage information from higher order neighborhood, logic paths or even global knowledge graph structures. </li><li>We also plan to explore the alignment on relations and meta-relations like entity-concept.</li><li>exploring different triple encoding techniques</li><li>Note that we are also aware of the fact that there are more comprehensive properties of relations and meta-relations in the two views such as logical rules of relations and entity types. Incorporating such properties into the learning process is left as future work.</li></ul><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>这篇论文和之前跟张老师定的我的论文的思路基本一致，额，有点感觉有点受打击。这篇文章也是该作者博士毕业论文中的一部分，所以应该是这个作者早就有这个思路了，所以也没什么好纠结的。这篇文章也是走的trans的路线，和刘的论文又不一样的思路，但是都是概念本体这类的。其中有一点不一样，就是is_a关系可能两篇论文用的不一样。这篇论文中提到了数据集开源，可是github的链接中并没有数据集。虽然轮文中说他结合了概念和实例的视图，但是其实像刘的论文就已经提出结合了概念和实例的角度了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://web.cs.ucla.edu/~yzsun/papers/2019_KDD_JOIE.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="KG" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
+    
+    
+      <category term="KGE" scheme="http://yoursite.com/tags/KGE/"/>
+    
+      <category term="ontology" scheme="http://yoursite.com/tags/ontology/"/>
+    
+  </entry>
   
   <entry>
     <title>DocRED A Large-Scale Document-Level Relation Extraction Dataset阅读笔记</title>
@@ -39,9 +68,9 @@
       <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="dataset" scheme="http://yoursite.com/tags/dataset/"/>
-    
       <category term="RE" scheme="http://yoursite.com/tags/RE/"/>
+    
+      <category term="dataset" scheme="http://yoursite.com/tags/dataset/"/>
     
   </entry>
   
@@ -540,34 +569,6 @@
       <category term="关系抽取" scheme="http://yoursite.com/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/"/>
     
       <category term="统计学习" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《Interaction Embeddings for Prediction and Explanation》阅读笔记</title>
-    <link href="http://yoursite.com/post/Interaction%20Embeddings%20for%20Prediction%20and%20Explanation/"/>
-    <id>http://yoursite.com/post/Interaction Embeddings for Prediction and Explanation/</id>
-    <published>2019-03-21T06:07:37.000Z</published>
-    <updated>2019-03-25T01:59:25.370Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p><a href="https://www.zora.uzh.ch/id/eprint/162876/1/interaction-embeddings-prediction_merlin_version.pdf" target="_blank" rel="noopener">论文下载地址</a>，此论文主要提出了实体和关系的交互作用对于知识图谱嵌入的影响，和提出了新的嵌入评估方案 - 搜索预测解释。</p></blockquote><a id="more"></a><h2 id="论文贡献"><a href="#论文贡献" class="headerlink" title="论文贡献"></a>论文贡献</h2><ul><li>提出了CrossE，一种通过学习一个交互矩阵来给实体和关系的交互建模的新型知识图谱嵌入。</li><li>我们使用三个基准数据集评估CrossE与链接预测任务上的各种其他KGE的比较，并显示CrossE在具有适度参数大小的复杂且更具挑战性的数据集上实现最先进的结果。</li><li>我们提出了一种新的嵌入评估方案 - 搜索预测解释，并表明CrossE能够生成比其他方法更可靠的解释。 这表明交互嵌入更能在不同的三元组环境中捕捉实体和关系之间的相似性。</li></ul><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>给定知识图谱和一个要预测的三元组的头实体和关系，在预测尾实体的过程中，头实体和关系之间是有交叉交互的crossover interaction, 即关系决定了在预测的过程中哪些头实体的信息是有用的，而对预测有用的头实体的信息又决定了采用什么逻辑去推理出尾实体，文中通过一个模拟的知识图谱进行了说明如下图所示：</p><p><img src="http://image.nysdy.com/20190321155314902217434.png" alt="20190321155314902217434.png"></p><h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p>论文中在这部分对KGE（Knowledge graph embedding）进行了分类总结：</p><ul><li>KGEs with general embeddings</li><li>KGEs with multiple embeddings.</li><li>KGEs that utilize extra information.</li></ul><p>这部分总结中对大量的方法进行描述，可以作为背景知识进行阅读。</p><h2 id="CrossE模型"><a href="#CrossE模型" class="headerlink" title="CrossE模型"></a>CrossE模型</h2><p>基于对头实体和关系之间交叉交互的观察，本文提出了一个新的知识图谱表示学习模型CrossE. CrossE除了学习实体和关系的向量表示，同时还学习了一个交互矩阵C，C与关系相关，并且用于生成实体和关系经过交互之后的向量表示，所以在CrossE中实体和关系不仅仅有通用向量表示，同时还有很多交互向量表示。CrossE核心想法如下图：<img src="http://image.nysdy.com/20190321155314970714298.png" alt="20190321155314970714298.png"></p><p>目标函数粉四步生成：</p><ol><li>Interaction Embedding for Entities：根据头实体向量和交互矩阵（以关系确定的）来确定头实体的交互表示。</li><li>Interaction Embedding for Relations：根据头实体的交互表示和关系作用生成关系的交互表示</li><li>Combination Operator：将头实体的交互表示和关系的交互表示相结合，并进行非线性处理（tanh）</li><li>Similarity Operator：计算结合后表示和尾实体表示之间的相似度。</li></ol><p>最后分数函数：</p><p><img src="http://image.nysdy.com/20190321155315073712112.png" alt="20190321155315073712112.png"></p><p>损失函数：（这里就是一个交叉熵函数，但是写的有问题f(x)项应该在括号外）<img src="http://image.nysdy.com/20190321155315081421205.png" alt="20190321155315081421205.png"></p><h2 id="对于预测的解释"><a href="#对于预测的解释" class="headerlink" title="对于预测的解释"></a>对于预测的解释</h2><p>这部分作者描述了如何生成预测三元组的解释，并介绍了基于嵌入的路径搜索算法，主要步骤如下：</p><ol><li>Search for similar relations：修剪掉不合理路径</li><li>Search for paths between h and t：作者定义了6种路径（班汉一个或两个关系）</li><li>Search similar entities：捕获实体之间的相似性方面越有能力，就越有可能存在（hs，r，ts）</li><li>: Search for similar structures as supports：我们只将知识图中至少有一个支持的路径视为解释。</li></ol><h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><p><img src="http://image.nysdy.com/20190321155315142112584.png" alt="20190321155315142112584.png"></p><h3 id="链接预测"><a href="#链接预测" class="headerlink" title="链接预测"></a>链接预测</h3><p><img src="/Users/dy/Library/Application Support/typora-user-images/image-20190321145750608.png" alt="image-20190321145750608"></p><p><img src="http://image.nysdy.com/20190321155315147862891.png" alt="20190321155315147862891.png"></p><p>从实验结果中我们可以看出，CrossE实现了较好的链接预测结果。我们去除CrossE中的头实体和关系的交叉交互，构造了模型 CrossES，CrossE 和 CrossES 的比较说明了交叉交互的有效性。</p><h3 id="生成解释"><a href="#生成解释" class="headerlink" title="生成解释"></a>生成解释</h3><p>我们提出了一种基于相似结构通过知识图谱的表示学习结果生成预测结果解释的方法，并提出了两种衡量解释结果的指标，AvgSupport和Recall。Recall是指模型能给出解释的预测结果的占比，其介于0和1之间且值越大越好；AvgSupport是模型能给出解释的预测结果的平均support个数，AvgSupport是一个大于0的数且越大越好。可解释的评估结果如下：</p><p><img src="http://image.nysdy.com/2019032115531515625385.png" alt="2019032115531515625385.png"></p><p>链接预测和可解释的实验从两个不同的方面评估了知识图谱表示学习的效果，同时也说明了链接预测的准确性和可解释性没有必然联系，链接预测效果好的模型并不一定能够更好地提供解释，反之亦然。</p><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul><li><a href="http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-interaction-embeddings-for-prediction-and-explanation/" target="_blank" rel="noopener">http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-interaction-embeddings-for-prediction-and-explanation/</a></li></ul><h2 id=""><a href="#" class="headerlink" title=" "></a> </h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.zora.uzh.ch/id/eprint/162876/1/interaction-embeddings-prediction_merlin_version.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;，此论文主要提出了实体和关系的交互作用对于知识图谱嵌入的影响，和提出了新的嵌入评估方案 - 搜索预测解释。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
-      <category term="知识图谱嵌入" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%B5%8C%E5%85%A5/"/>
-    
-      <category term="知识图谱推理" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8E%A8%E7%90%86/"/>
     
   </entry>
   
