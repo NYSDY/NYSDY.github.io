@@ -6,12 +6,25 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
-
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://nysdy.com"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
 
 
   
@@ -27,10 +40,20 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "2b19bf64"
+    });
+  daovoice('update');
+  </script>
 
 
 
@@ -46,7 +69,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -80,23 +103,23 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="知识图谱,知识图谱推理,规则学习," />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="NYSDY" type="application/atom+xml" />
+  <meta name="keywords" content="知识图谱,知识图谱推理,规则学习,">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+  <link rel="alternate" href="/atom.xml" title="NYSDY" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
 
 
 
@@ -107,7 +130,7 @@
 <meta name="keywords" content="知识图谱,知识图谱推理,规则学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Differentiable Learning of Logical Rules for Knowledge Base Reasoning》阅读笔记">
-<meta property="og:url" content="http://yoursite.com/post/Differentiable Learning of Logical Rules for Knowledge Base Reasoning/index.html">
+<meta property="og:url" content="http://nysdy.com/post/Differentiable Learning of Logical Rules for Knowledge Base Reasoning/index.html">
 <meta property="og:site_name" content="NYSDY">
 <meta property="og:description" content="论文下载地址，本文研究用于于知识图谱推理的学习概率一阶逻辑规则的问题，提出了Neural Logic Programming（Neural-LP）框架，它结合了端到端可微分模型中一阶逻辑规则的参数和结构学习。为了在可微分的框架中同时学习参数和结构，作者设计了一个具有注意机制和记忆的神经控制器系统，以学习顺序组成TensorLog使用的原始可微操作。作者采用的注意机制是作为逻辑规则的置信度并且有寓">
 <meta property="og:locale" content="zh-Hans">
@@ -160,7 +183,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/post/Differentiable Learning of Logical Rules for Knowledge Base Reasoning/"/>
+  <link rel="canonical" href="http://nysdy.com/post/Differentiable Learning of Logical Rules for Knowledge Base Reasoning/">
 
 
 
@@ -279,14 +302,14 @@ $(function() {
 
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
-    <a href="https://github.com/NYSDY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a href="https://github.com/NYSDY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">NYSDY</span>
         <span class="logo-line-after"><i></i></span>
@@ -316,7 +339,7 @@ $(function() {
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -326,7 +349,7 @@ $(function() {
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -336,7 +359,7 @@ $(function() {
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -346,7 +369,7 @@ $(function() {
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -356,7 +379,7 @@ $(function() {
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -369,7 +392,7 @@ $(function() {
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -390,9 +413,7 @@ $(function() {
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -429,11 +450,11 @@ $(function() {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/Differentiable Learning of Logical Rules for Knowledge Base Reasoning/">
+    <link itemprop="mainEntityOfPage" href="http://nysdy.com/post/Differentiable Learning of Logical Rules for Knowledge Base Reasoning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="NYSDY">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://i.loli.net/2018/09/24/5ba86696be366.jpg">
     </span>
 
@@ -469,7 +490,7 @@ $(function() {
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -535,42 +556,42 @@ $(function() {
 </blockquote>
 <a id="more"></a>
 <p>下图展示了一个使用逻辑规则进行知识图谱推理的例子</p>
-<p><img src="https://i.loli.net/2019/03/05/5c7dc90edacd1.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/03/05/5c7dc90edacd1.jpg" alt></p>
 <p>使用概率逻辑的优点是通过为逻辑规则配备概率，可以更好地模拟统计复杂和噪声数据。</p>
 <p>statistical relational learning（统计关系学习）：学习关系规则的集合</p>
 <p>==inductive logic programming（归纳逻辑规划）：==当学习涉及提出新的逻辑规则时。（这应该和我正在做的方向是相关的，都是带有归纳性质的，有新的东西产生）。</p>
 <h1 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h1><h2 id="Knowledge-base-reasoning"><a href="#Knowledge-base-reasoning" class="headerlink" title="Knowledge base reasoning"></a>Knowledge base reasoning</h2><p>为了推理知识库，对于每个查询我们都有兴趣学习以下形式的加权链式逻辑规则，类似于<strong>==随机逻辑程序==</strong>：</p>
-<p><img src="https://i.loli.net/2019/03/05/5c7dcd6e1a5ac.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/03/05/5c7dcd6e1a5ac.jpg" alt></p>
 <p>其中$\alpha$是和规则有关的置信度，R是知识库中的关系，query(Y,X) 表示一个三元组，query 表示一个关系。</p>
 <h2 id="TensorLog-for-KB-reasoning"><a href="#TensorLog-for-KB-reasoning" class="headerlink" title="TensorLog for KB reasoning"></a>TensorLog for KB reasoning</h2><p>将实体转换成one-hot变量；并用一个矩阵$M_R$表示关系，该矩阵只在（i，j）处为1，i、j为第i、j个实体。</p>
 <p>结合两个操作，逻辑规则推理$R(Y,X) \gets P(Y,X) \bigwedge Q(Z,X)$可以被表示为：$M_P \cdot M_P \cdot v_x \doteq s$，向量s中为1的位置就是Y的答案。</p>
 <p>对于一条查询，所有的逻辑规则的右边部分被表示为以下形式：</p>
-<p><img src="https://i.loli.net/2019/03/05/5c7dda071bcef.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/03/05/5c7dda071bcef.jpg" alt></p>
 <p>其中，l表示所有的可能规则的个数，$\alpha_l$是规则l的置信度，$\beta_l$是某特定关系里的有序关系列表，所以在inference时，给定实体$v_x​$，实体y的score等于向量s中的对应y的位置的值。对于推理，给定实体x，实体y的score等于向量s中的对应y的位置的值。</p>
-<p><img src="https://i.loli.net/2019/03/10/5c85104e2a53b.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/03/10/5c85104e2a53b.jpg" alt></p>
 <p>所以总结本文关心的优化问题如下：</p>
-<p><img src="https://i.loli.net/2019/03/05/5c7e1568d9ec7.jpg" alt=""></p>
-<h2 id="Learning-the-logical-rules"><a href="#Learning-the-logical-rules" class="headerlink" title="Learning the logical rules"></a>Learning the logical rules</h2><p>在上式的优化问题中，算法需要学习的部分分为两个：一个是规则的结构，即一个规则是由哪些条件组合而成的；另一个是规则的置信度。由于每一条规则的置信度都是依赖于具体的规则形式，而规则结构的组成也是一个离散化的过程，因此上式整体是不可微的。因此作者对前面的式子做了以下更改：<img src="https://i.loli.net/2019/03/05/5c7e160404436.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/03/05/5c7e1568d9ec7.jpg" alt></p>
+<h2 id="Learning-the-logical-rules"><a href="#Learning-the-logical-rules" class="headerlink" title="Learning the logical rules"></a>Learning the logical rules</h2><p>在上式的优化问题中，算法需要学习的部分分为两个：一个是规则的结构，即一个规则是由哪些条件组合而成的；另一个是规则的置信度。由于每一条规则的置信度都是依赖于具体的规则形式，而规则结构的组成也是一个离散化的过程，因此上式整体是不可微的。因此作者对前面的式子做了以下更改：<img src="https://i.loli.net/2019/03/05/5c7e160404436.jpg" alt></p>
 <p>对比与式（2）：主要交换了连乘和累加的计算顺序，对预一个关系的相关的规则，为每个关系在每个步骤都学习了一个权重，即上式的 $a_t^k$。</p>
-<p>由于上式固定了每个规则的长度都为 T，这显然是不合适的。为了能够学习到变长的规则，Neural LP中设计了记忆向量 $u_t$,表示每个步骤输出的答案—每个实体作为答案的概率分布，还设计了两个注意力向量：一个为记忆注意力向量 $b_t$ ——表示在步骤 t 时对于之前每个步骤的注意力；一个为算子注意力向量 $a_t$ ——表示在步骤 t 时对于每个关系算子的注意力。每个步骤的输出由下面三个式子生成：<img src="https://i.loli.net/2019/03/05/5c7e18ac09662.jpg" alt=""></p>
+<p>由于上式固定了每个规则的长度都为 T，这显然是不合适的。为了能够学习到变长的规则，Neural LP中设计了记忆向量 $u_t$,表示每个步骤输出的答案—每个实体作为答案的概率分布，还设计了两个注意力向量：一个为记忆注意力向量 $b_t$ ——表示在步骤 t 时对于之前每个步骤的注意力；一个为算子注意力向量 $a_t$ ——表示在步骤 t 时对于每个关系算子的注意力。每个步骤的输出由下面三个式子生成：<img src="https://i.loli.net/2019/03/05/5c7e18ac09662.jpg" alt></p>
 <p>其中$b_t$和$a_t$由以下公式通过RNN获得：</p>
-<p><img src="https://i.loli.net/2019/03/05/5c7e1a015f0ac.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/03/05/5c7e1a015f0ac.jpg" alt></p>
 <p>推理机的整体框架是：</p>
-<p><img src="https://i.loli.net/2019/03/05/5c7e1aec1aea9.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/03/05/5c7e1aec1aea9.jpg" alt></p>
 <p>其中memory存的就是每步的推理结果（实体），最后的输出（例如$u_{T+1}$，目标就是最大化 $logv_y^Tu$，加log是因为非线性能让效果变好。</p>
-<p>整个算法如下：<img src="https://i.loli.net/2019/03/05/5c7e1c0d5cf32.jpg" alt=""></p>
+<p>整个算法如下：<img src="https://i.loli.net/2019/03/05/5c7e1c0d5cf32.jpg" alt></p>
 <h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="（1）-两个标准数据集上的统计关系学习相关的实验"><a href="#（1）-两个标准数据集上的统计关系学习相关的实验" class="headerlink" title="（1） 两个标准数据集上的统计关系学习相关的实验"></a>（1） 两个标准数据集上的统计关系学习相关的实验</h2><ul>
 <li>Unified Medical Language System (UMLS)：The entities are biomedical concepts (e.g. disease, antibiotic) and relations are like treats and diagnoses.</li>
 <li>Kinship：contains kinship relationships among members of the Alyawarra tribe from Central Australia [</li>
 </ul>
-<p><img src="https://i.loli.net/2019/03/05/5c7e2270289d0.jpg" alt=""></p>
-<h2 id="（2）-在-16-16-的网格上的路径寻找的实验"><a href="#（2）-在-16-16-的网格上的路径寻找的实验" class="headerlink" title="（2） 在$16*16$的网格上的路径寻找的实验"></a>（2） 在$16*16$的网格上的路径寻找的实验</h2><p><img src="https://i.loli.net/2019/03/05/5c7e235b430cb.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/03/05/5c7e2270289d0.jpg" alt></p>
+<h2 id="（2）-在-16-16-的网格上的路径寻找的实验"><a href="#（2）-在-16-16-的网格上的路径寻找的实验" class="headerlink" title="（2） 在$16*16$的网格上的路径寻找的实验"></a>（2） 在$16*16$的网格上的路径寻找的实验</h2><p><img src="https://i.loli.net/2019/03/05/5c7e235b430cb.jpg" alt></p>
 <h2 id="（3）-知识库补全实验"><a href="#（3）-知识库补全实验" class="headerlink" title="（3） 知识库补全实验"></a>（3） 知识库补全实验</h2><p>实验所用数据集信息：</p>
 <p>FB15KSelected：这是通过从FB15K中去除近似重复和反向关系而构造的</p>
-<p><img src="https://i.loli.net/2019/03/05/5c7e2378e1c64.jpg" alt=""></p>
-<p>实验结果：<img src="https://i.loli.net/2019/03/05/5c7e23c43db48.jpg" alt=""></p>
-<p>为了证明Neural LP的归纳推理的能力，本文还特别设计了一个实验，在训练数据集中去掉所有涉及测试集中包含的实体的三元组，然后训练并预测，得到结果如下：<img src="https://i.loli.net/2019/03/05/5c7e23ebbca69.jpg" alt=""></p>
-<h2 id="（4）-知识库问答的实验"><a href="#（4）-知识库问答的实验" class="headerlink" title="（4） 知识库问答的实验"></a>（4） 知识库问答的实验</h2><p><img src="https://i.loli.net/2019/03/05/5c7e24aa6a427.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/03/05/5c7e2378e1c64.jpg" alt></p>
+<p>实验结果：<img src="https://i.loli.net/2019/03/05/5c7e23c43db48.jpg" alt></p>
+<p>为了证明Neural LP的归纳推理的能力，本文还特别设计了一个实验，在训练数据集中去掉所有涉及测试集中包含的实体的三元组，然后训练并预测，得到结果如下：<img src="https://i.loli.net/2019/03/05/5c7e23ebbca69.jpg" alt></p>
+<h2 id="（4）-知识库问答的实验"><a href="#（4）-知识库问答的实验" class="headerlink" title="（4） 知识库问答的实验"></a>（4） 知识库问答的实验</h2><p><img src="https://i.loli.net/2019/03/05/5c7e24aa6a427.jpg" alt></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h1><p>本文提出了一个可微的规则学习模型，并强调了知识库中的规则应该是实体无关的，对于我目前在做的方向，本体论也是与实体无关的，这种规则学习有一定的借鉴性，但是好像所区别。这个规则推理也可以看成某些关系之间的包含关系3.1中举的HasOfficeInCity(New York,Uber) and CityInCountry(USA,New York)的例子，可以看作是2对于1有包含关系。并且可以看到本篇论文中，作者设计了丰富的实验。</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
 <li><a href="https://toutiao.io/posts/wrxf4z/preview" target="_blank" rel="noopener">https://toutiao.io/posts/wrxf4z/preview</a></li>
@@ -583,6 +604,12 @@ $(function() {
     
     
 
+    <div>
+      
+        
+      
+    </div>
+    
     <div>
       
         <div>
@@ -603,11 +630,11 @@ $(function() {
       
         <div class="post-tags">
           
-            <a href="/tags/知识图谱/" rel="tag"><i class="fa fa-tag"></i> 知识图谱</a>
+            <a href="/tags/知识图谱/" rel="tag"><i class="fa fa-envira"></i> 知识图谱</a>
           
-            <a href="/tags/知识图谱推理/" rel="tag"><i class="fa fa-tag"></i> 知识图谱推理</a>
+            <a href="/tags/知识图谱推理/" rel="tag"><i class="fa fa-envira"></i> 知识图谱推理</a>
           
-            <a href="/tags/规则学习/" rel="tag"><i class="fa fa-tag"></i> 规则学习</a>
+            <a href="/tags/规则学习/" rel="tag"><i class="fa fa-envira"></i> 规则学习</a>
           
         </div>
       
@@ -662,8 +689,10 @@ $(function() {
           
   <div class="comments" id="comments">
     
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NjM1MC8yMjg2MQ=="></div>
+    
   </div>
-
+  
 
         </div>
         
@@ -685,7 +714,7 @@ $(function() {
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -696,9 +725,7 @@ $(function() {
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://i.loli.net/2018/09/24/5ba86696be366.jpg"
-               alt="NYSDY" />
+          <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/09/24/5ba86696be366.jpg" alt="NYSDY">
           <p class="site-author-name" itemprop="name">NYSDY</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
@@ -763,7 +790,7 @@ $(function() {
               </span>
             
               <span class="links-of-author-item">
-                <a href="nysdy@outlook.com" target="_blank" title="E-mail">
+                <a href="mailto:nysdy@outlook.com" target="_blank" title="E-mail">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
@@ -834,7 +861,7 @@ $(function() {
         <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
-<div class="copyright" >
+<div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2019</span>
@@ -989,6 +1016,17 @@ $(function() {
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

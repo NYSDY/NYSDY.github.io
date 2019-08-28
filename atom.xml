@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2019-08-26T07:50:41.328Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://nysdy.com/"/>
+  <updated>2019-08-28T04:58:45.444Z</updated>
+  <id>http://nysdy.com/</id>
   
   <author>
     <name>NYSDY</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Knowledge Graph Embedding via Dynamic Mapping Matrix阅读笔记</title>
-    <link href="http://yoursite.com/post/Knowledge_Graph_Embedding_via_Dynamic_Mapping_Matrix/"/>
-    <id>http://yoursite.com/post/Knowledge_Graph_Embedding_via_Dynamic_Mapping_Matrix/</id>
+    <link href="http://nysdy.com/post/Knowledge_Graph_Embedding_via_Dynamic_Mapping_Matrix/"/>
+    <id>http://nysdy.com/post/Knowledge_Graph_Embedding_via_Dynamic_Mapping_Matrix/</id>
     <published>2019-08-24T11:58:52.000Z</published>
-    <updated>2019-08-26T07:50:41.328Z</updated>
+    <updated>2019-08-28T04:58:45.444Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>论文下载地址</p></blockquote><a id="more"></a><h1 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h1><ol><li>对于特定的关系$r$，所有的实体都共享相同的映射矩阵$M_r$。然而，由关系链接的实体总是包含各种类型和属性。</li><li>投影是实体和关系之间的交互过程，映射矩阵只能由关系决定是不合理的。</li><li>矩阵向量乘法使其具有大量计算，并且当关系数大时，它还具有比TransE和TransH更多的参数。 由于复杂性，TransR / CTransR难以应用于大规模知识图</li></ol><h1 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h1><ol><li>作者构建了一个新颖的模型TransD，通过同时考虑实体和关系的多样性，为每一个实体-关系构建动态映射矩阵。它为实体表示映射到关系向量空间提供灵活的样式。</li><li>与TransR / CTransR相比，TransD具有更少的参数并且没有矩阵向量乘法</li><li>在实验中，作者的方法优于之前的模型。</li></ol><h1 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h1><p>模型在TransD中，每个命名的符号对象（实体和关系）由两个向量表示。 第一个捕获实体（关系）的含义，另一个用于构造映射矩阵。</p><p><img src="http://image.nysdy.com/20190826156680488849411.png" alt="20190826156680488849411.png"></p><p>对于一个三元组$(h,r,t)$,向量一共有$h, h_p, r, r_p, t, t_p$,其中带$p$的为映射向量，则有</p><script type="math/tex; mode=display">\begin{aligned} \mathbf{M}_{r h} &=\mathbf{r}_{p} \mathbf{h}_{p}^{\top}+\mathbf{I}^{m \times n} \\ \mathbf{M}_{r t} &=\mathbf{r}_{p} \mathbf{t}_{p}^{\top}+\mathbf{I}^{m \times n} \end{aligned}</script><p>故</p><script type="math/tex; mode=display">\mathbf{h}_{\perp}=\mathbf{M}_{r h} \mathbf{h}, \quad \mathbf{t}_{\perp}=\mathbf{M}_{r t} \mathbf{t}</script><p>可以综合为：</p><script type="math/tex; mode=display">\begin{aligned} \mathbf{h}_{\perp} &=\mathbf{M}_{r h} \mathbf{h}=\mathbf{h}+\mathbf{h}_{p}^{\top} \mathbf{h} \mathbf{r}_{p} \\ \mathbf{t}_{\perp} &=\mathbf{M}_{r t} \mathbf{t}=\mathbf{t}+\mathbf{t}_{p}^{\top} \mathbf{t} \mathbf{r}_{p} \end{aligned}</script><p>这样就没有矩阵和向量间的乘法运算，变成向量间运算，提升计算速度。</p><h1 id="Experiments-and-Results-Analysis"><a href="#Experiments-and-Results-Analysis" class="headerlink" title="Experiments and Results Analysis"></a>Experiments and Results Analysis</h1><p>常规实验：triplets classification and link prediction不再赘述。</p><p>作者在实验过程中关注了一些具有更低accuracy的关系。</p><p><img src="http://image.nysdy.com/20190826156680558013943.png" alt="20190826156680558013943.png"></p><p>分析：</p><pre><code>1. 对于$similar_to$关系主要因为训练数据不充足，只占了1.5%。 2. 对于最右侧的图说明了bern方法的效果要好于unif</code></pre><h3 id="Properties-of-Projection-Vectors"><a href="#Properties-of-Projection-Vectors" class="headerlink" title="Properties of Projection Vectors"></a>Properties of Projection Vectors</h3><p>作者还做了case study，通过不同类型实体和关系的投影向量的相似性表明了作者方法的合理性</p>]]></content>
     
@@ -33,19 +33,19 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KGE" scheme="http://yoursite.com/tags/KGE/"/>
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
-      <category term="TransD" scheme="http://yoursite.com/tags/TransD/"/>
+      <category term="TransD" scheme="http://nysdy.com/tags/TransD/"/>
     
   </entry>
   
   <entry>
     <title>From Knowledge Graph Embedding to Ontology Embedding  An Analysis of the Compatibility between Vector Space Representations and Rules阅读笔记</title>
-    <link href="http://yoursite.com/post/From_Knowledge_Graph_Embedding_to_Ontology_Embedding_An_Analysis_of_the_Compatibility_between_Vector_Space_Representations_and_Rules/"/>
-    <id>http://yoursite.com/post/From_Knowledge_Graph_Embedding_to_Ontology_Embedding_An_Analysis_of_the_Compatibility_between_Vector_Space_Representations_and_Rules/</id>
+    <link href="http://nysdy.com/post/From_Knowledge_Graph_Embedding_to_Ontology_Embedding_An_Analysis_of_the_Compatibility_between_Vector_Space_Representations_and_Rules/"/>
+    <id>http://nysdy.com/post/From_Knowledge_Graph_Embedding_to_Ontology_Embedding_An_Analysis_of_the_Compatibility_between_Vector_Space_Representations_and_Rules/</id>
     <published>2019-07-25T08:57:55.000Z</published>
     <updated>2019-07-25T09:04:31.963Z</updated>
     
@@ -59,15 +59,15 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
   
   <entry>
     <title>Knowledge graph embedding with concepts阅读笔记</title>
-    <link href="http://yoursite.com/post/Knowledge_graph_embedding_with_concepts/"/>
-    <id>http://yoursite.com/post/Knowledge_graph_embedding_with_concepts/</id>
+    <link href="http://nysdy.com/post/Knowledge_graph_embedding_with_concepts/"/>
+    <id>http://nysdy.com/post/Knowledge_graph_embedding_with_concepts/</id>
     <published>2019-07-25T05:19:44.000Z</published>
     <updated>2019-07-25T08:38:02.760Z</updated>
     
@@ -82,23 +82,23 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="KG" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
+      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="KGE" scheme="http://yoursite.com/tags/KGE/"/>
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
-      <category term="ontology" scheme="http://yoursite.com/tags/ontology/"/>
+      <category term="ontology" scheme="http://nysdy.com/tags/ontology/"/>
     
-      <category term="concept" scheme="http://yoursite.com/tags/concept/"/>
+      <category term="concept" scheme="http://nysdy.com/tags/concept/"/>
     
   </entry>
   
   <entry>
     <title>Universal Representation Learning of Knowledge Bases by Jointly Embedding Instances and Ontological Concepts阅读笔记</title>
-    <link href="http://yoursite.com/post/Universal_Representation_Learning_of_Knowledge_Bases_by_Jointly_Embedding_Instances_and_Ontological_Concepts/"/>
-    <id>http://yoursite.com/post/Universal_Representation_Learning_of_Knowledge_Bases_by_Jointly_Embedding_Instances_and_Ontological_Concepts/</id>
+    <link href="http://nysdy.com/post/Universal_Representation_Learning_of_Knowledge_Bases_by_Jointly_Embedding_Instances_and_Ontological_Concepts/"/>
+    <id>http://nysdy.com/post/Universal_Representation_Learning_of_Knowledge_Bases_by_Jointly_Embedding_Instances_and_Ontological_Concepts/</id>
     <published>2019-07-17T08:45:52.000Z</published>
     <updated>2019-07-25T08:41:32.245Z</updated>
     
@@ -113,21 +113,21 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="KG" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
+      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="KGE" scheme="http://yoursite.com/tags/KGE/"/>
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
-      <category term="ontology" scheme="http://yoursite.com/tags/ontology/"/>
+      <category term="ontology" scheme="http://nysdy.com/tags/ontology/"/>
     
   </entry>
   
   <entry>
     <title>DocRED A Large-Scale Document-Level Relation Extraction Dataset阅读笔记</title>
-    <link href="http://yoursite.com/post/DocRED_A_Large-Scale_Document-Level_Relation_Extraction_Dataset/"/>
-    <id>http://yoursite.com/post/DocRED_A_Large-Scale_Document-Level_Relation_Extraction_Dataset/</id>
+    <link href="http://nysdy.com/post/DocRED_A_Large-Scale_Document-Level_Relation_Extraction_Dataset/"/>
+    <id>http://nysdy.com/post/DocRED_A_Large-Scale_Document-Level_Relation_Extraction_Dataset/</id>
     <published>2019-07-01T01:11:49.000Z</published>
     <updated>2019-07-01T01:49:37.278Z</updated>
     
@@ -144,19 +144,19 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="RE" scheme="http://yoursite.com/tags/RE/"/>
+      <category term="RE" scheme="http://nysdy.com/tags/RE/"/>
     
-      <category term="dataset" scheme="http://yoursite.com/tags/dataset/"/>
+      <category term="dataset" scheme="http://nysdy.com/tags/dataset/"/>
     
   </entry>
   
   <entry>
     <title>Learning Entity and Relation Embeddings for Knowledge Graph Completion阅读笔记</title>
-    <link href="http://yoursite.com/post/Learning_Entity_and_Relation_Embeddings_for_Knowledge_Graph_Completion/"/>
-    <id>http://yoursite.com/post/Learning_Entity_and_Relation_Embeddings_for_Knowledge_Graph_Completion/</id>
+    <link href="http://nysdy.com/post/Learning_Entity_and_Relation_Embeddings_for_Knowledge_Graph_Completion/"/>
+    <id>http://nysdy.com/post/Learning_Entity_and_Relation_Embeddings_for_Knowledge_Graph_Completion/</id>
     <published>2019-06-26T08:18:15.000Z</published>
     <updated>2019-06-27T07:51:44.136Z</updated>
     
@@ -171,21 +171,21 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KGE" scheme="http://yoursite.com/tags/KGE/"/>
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
-      <category term="KGR" scheme="http://yoursite.com/tags/KGR/"/>
+      <category term="KGR" scheme="http://nysdy.com/tags/KGR/"/>
     
-      <category term="TransR" scheme="http://yoursite.com/tags/TransR/"/>
+      <category term="TransR" scheme="http://nysdy.com/tags/TransR/"/>
     
   </entry>
   
   <entry>
     <title>Neural Relation Extraction with Selective Attention over Instances阅读笔记</title>
-    <link href="http://yoursite.com/post/Neural_Relation_Extraction_with_Selective_Attention_over_Instances/"/>
-    <id>http://yoursite.com/post/Neural_Relation_Extraction_with_Selective_Attention_over_Instances/</id>
+    <link href="http://nysdy.com/post/Neural_Relation_Extraction_with_Selective_Attention_over_Instances/"/>
+    <id>http://nysdy.com/post/Neural_Relation_Extraction_with_Selective_Attention_over_Instances/</id>
     <published>2019-06-26T05:49:57.000Z</published>
     <updated>2019-06-26T08:12:44.937Z</updated>
     
@@ -200,17 +200,17 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="RE" scheme="http://yoursite.com/tags/RE/"/>
+      <category term="RE" scheme="http://nysdy.com/tags/RE/"/>
     
   </entry>
   
   <entry>
     <title>Learning as the Unsupervised Alignment of Conceptual Systems阅读笔记</title>
-    <link href="http://yoursite.com/post/Learning_as_the_Unsupervised_Alignment_of_Conceptual_Systems/"/>
-    <id>http://yoursite.com/post/Learning_as_the_Unsupervised_Alignment_of_Conceptual_Systems/</id>
+    <link href="http://nysdy.com/post/Learning_as_the_Unsupervised_Alignment_of_Conceptual_Systems/"/>
+    <id>http://nysdy.com/post/Learning_as_the_Unsupervised_Alignment_of_Conceptual_Systems/</id>
     <published>2019-06-25T06:42:57.000Z</published>
     <updated>2019-06-26T04:02:25.369Z</updated>
     
@@ -224,15 +224,15 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
   
   <entry>
     <title>ERNIE Enhanced Language Representation with Informative Entities阅读笔记</title>
-    <link href="http://yoursite.com/post/ERNIE_Enhanced_Language_Representation_with_Informative_Entities/"/>
-    <id>http://yoursite.com/post/ERNIE_Enhanced_Language_Representation_with_Informative_Entities/</id>
+    <link href="http://nysdy.com/post/ERNIE_Enhanced_Language_Representation_with_Informative_Entities/"/>
+    <id>http://nysdy.com/post/ERNIE_Enhanced_Language_Representation_with_Informative_Entities/</id>
     <published>2019-06-24T03:10:26.000Z</published>
     <updated>2019-06-25T06:32:57.460Z</updated>
     
@@ -247,23 +247,23 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="KG" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
+      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="KGR" scheme="http://yoursite.com/tags/KGR/"/>
+      <category term="KGR" scheme="http://nysdy.com/tags/KGR/"/>
     
-      <category term="KG" scheme="http://yoursite.com/tags/KG/"/>
+      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
     
-      <category term="BERT" scheme="http://yoursite.com/tags/BERT/"/>
+      <category term="BERT" scheme="http://nysdy.com/tags/BERT/"/>
     
   </entry>
   
   <entry>
     <title>Incorporating Literals into Knowledge Graph Embeddings阅读笔记</title>
-    <link href="http://yoursite.com/post/Incorporating_Literals_into_Knowledge_Graph_Embeddings/"/>
-    <id>http://yoursite.com/post/Incorporating_Literals_into_Knowledge_Graph_Embeddings/</id>
+    <link href="http://nysdy.com/post/Incorporating_Literals_into_Knowledge_Graph_Embeddings/"/>
+    <id>http://nysdy.com/post/Incorporating_Literals_into_Knowledge_Graph_Embeddings/</id>
     <published>2019-06-03T06:57:50.000Z</published>
     <updated>2019-06-03T07:33:16.832Z</updated>
     
@@ -280,21 +280,21 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="KG" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
+      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="KGE" scheme="http://yoursite.com/tags/KGE/"/>
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
-      <category term="link prediction" scheme="http://yoursite.com/tags/link-prediction/"/>
+      <category term="link prediction" scheme="http://nysdy.com/tags/link-prediction/"/>
     
   </entry>
   
   <entry>
     <title>Learning Knowledge Embeddings by Combining Limit-based Scoring Loss阅读笔记</title>
-    <link href="http://yoursite.com/post/Learning_Knowledge_Embeddings_by_Combining_Limit-based_Scoring_Loss/"/>
-    <id>http://yoursite.com/post/Learning_Knowledge_Embeddings_by_Combining_Limit-based_Scoring_Loss/</id>
+    <link href="http://nysdy.com/post/Learning_Knowledge_Embeddings_by_Combining_Limit-based_Scoring_Loss/"/>
+    <id>http://nysdy.com/post/Learning_Knowledge_Embeddings_by_Combining_Limit-based_Scoring_Loss/</id>
     <published>2019-06-03T02:57:20.000Z</published>
     <updated>2019-06-03T03:06:20.944Z</updated>
     
@@ -309,25 +309,25 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="KG" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
+      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="transH" scheme="http://yoursite.com/tags/transH/"/>
+      <category term="transH" scheme="http://nysdy.com/tags/transH/"/>
     
-      <category term="margin loss" scheme="http://yoursite.com/tags/margin-loss/"/>
+      <category term="margin loss" scheme="http://nysdy.com/tags/margin-loss/"/>
     
-      <category term="transE" scheme="http://yoursite.com/tags/transE/"/>
+      <category term="transE" scheme="http://nysdy.com/tags/transE/"/>
     
-      <category term="KG" scheme="http://yoursite.com/tags/KG/"/>
+      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
     
   </entry>
   
   <entry>
     <title>Knowledge Graph Embedding by Translating on Hyperplanes阅读笔记</title>
-    <link href="http://yoursite.com/post/Knowledge%20Graph%20Embedding%20by%20Translating%20on%20Hyperplanes/"/>
-    <id>http://yoursite.com/post/Knowledge Graph Embedding by Translating on Hyperplanes/</id>
+    <link href="http://nysdy.com/post/Knowledge%20Graph%20Embedding%20by%20Translating%20on%20Hyperplanes/"/>
+    <id>http://nysdy.com/post/Knowledge Graph Embedding by Translating on Hyperplanes/</id>
     <published>2019-05-28T08:17:44.000Z</published>
     <updated>2019-06-01T05:38:20.042Z</updated>
     
@@ -342,21 +342,21 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="KG" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
+      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="KGE" scheme="http://yoursite.com/tags/KGE/"/>
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
-      <category term="transH" scheme="http://yoursite.com/tags/transH/"/>
+      <category term="transH" scheme="http://nysdy.com/tags/transH/"/>
     
   </entry>
   
   <entry>
     <title>Attention Is All You Need阅读笔记</title>
-    <link href="http://yoursite.com/post/Attention%20Is%20All%20You%20Need/"/>
-    <id>http://yoursite.com/post/Attention Is All You Need/</id>
+    <link href="http://nysdy.com/post/Attention%20Is%20All%20You%20Need/"/>
+    <id>http://nysdy.com/post/Attention Is All You Need/</id>
     <published>2019-05-25T05:57:35.000Z</published>
     <updated>2019-05-28T07:58:49.154Z</updated>
     
@@ -371,25 +371,25 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="classical" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/classical/"/>
+      <category term="classical" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/classical/"/>
     
     
-      <category term="attention" scheme="http://yoursite.com/tags/attention/"/>
+      <category term="attention" scheme="http://nysdy.com/tags/attention/"/>
     
-      <category term="transformer" scheme="http://yoursite.com/tags/transformer/"/>
+      <category term="transformer" scheme="http://nysdy.com/tags/transformer/"/>
     
-      <category term="translation" scheme="http://yoursite.com/tags/translation/"/>
+      <category term="translation" scheme="http://nysdy.com/tags/translation/"/>
     
-      <category term="classical" scheme="http://yoursite.com/tags/classical/"/>
+      <category term="classical" scheme="http://nysdy.com/tags/classical/"/>
     
   </entry>
   
   <entry>
     <title>Graph Neural Networks with Generated Parameters for Relation Extraction阅读笔记</title>
-    <link href="http://yoursite.com/post/Graph_Neural_Networks_with_Generated_Parameters_for_Relation/"/>
-    <id>http://yoursite.com/post/Graph_Neural_Networks_with_Generated_Parameters_for_Relation/</id>
+    <link href="http://nysdy.com/post/Graph_Neural_Networks_with_Generated_Parameters_for_Relation/"/>
+    <id>http://nysdy.com/post/Graph_Neural_Networks_with_Generated_Parameters_for_Relation/</id>
     <published>2019-05-23T02:41:51.000Z</published>
     <updated>2019-05-23T09:24:39.487Z</updated>
     
@@ -403,25 +403,25 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="GNNs" scheme="http://yoursite.com/tags/GNNs/"/>
+      <category term="GNNs" scheme="http://nysdy.com/tags/GNNs/"/>
     
-      <category term="relation extraction" scheme="http://yoursite.com/tags/relation-extraction/"/>
+      <category term="relation extraction" scheme="http://nysdy.com/tags/relation-extraction/"/>
     
-      <category term="relation reasoning" scheme="http://yoursite.com/tags/relation-reasoning/"/>
+      <category term="relation reasoning" scheme="http://nysdy.com/tags/relation-reasoning/"/>
     
   </entry>
   
   <entry>
     <title>allennlp安装踩坑</title>
-    <link href="http://yoursite.com/post/allennlp_install/"/>
-    <id>http://yoursite.com/post/allennlp_install/</id>
+    <link href="http://nysdy.com/post/allennlp_install/"/>
+    <id>http://nysdy.com/post/allennlp_install/</id>
     <published>2019-05-22T14:09:27.000Z</published>
     <updated>2019-05-22T14:11:19.740Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>安装allennlp的踩坑之路，踩了不少坑最后选择’Installing from source’的安装方法，排坑后下面方法亲测可用</p></blockquote><a id="more"></a><h2 id="Installing-from-source"><a href="#Installing-from-source" class="headerlink" title="Installing from source"></a>Installing from source</h2><p>安装步骤：</p><h3 id="1-下载GitHub文件"><a href="#1-下载GitHub文件" class="headerlink" title="1.下载GitHub文件"></a>1.下载GitHub文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/allenai/allennlp.git</span><br></pre></td></tr></table></figure><h3 id="2-创建conda环境"><a href="#2-创建conda环境" class="headerlink" title="2.创建conda环境"></a>2.创建conda环境</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n allennlp python=3.6</span><br></pre></td></tr></table></figure><h3 id="3-激活环境下载依赖文件"><a href="#3-激活环境下载依赖文件" class="headerlink" title="3.激活环境下载依赖文件"></a>3.激活环境下载依赖文件</h3><ul><li><p>激活环境</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source activate allennlp</span><br></pre></td></tr></table></figure></li><li><p>进入github上下载的文件夹</p></li><li><p>下载依赖文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure><p>遇到报错问题，参考下一小节，所欲问题解决。</p></li></ul><h3 id="4-安装allennlp"><a href="#4-安装allennlp" class="headerlink" title="4.安装allennlp"></a>4.安装allennlp</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --editable .</span><br></pre></td></tr></table></figure><h3 id="5-测试"><a href="#5-测试" class="headerlink" title="5.测试"></a>5.测试</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allennlp</span><br></pre></td></tr></table></figure><p>成功后效果如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> allennlp</span></span><br><span class="line">2019-05-22 21:58:42,297 - INFO - pytorch_pretrained_bert.modeling - Better speed can be achieved with apex installed from https://www.github.com/nvidia/apex .</span><br><span class="line">usage: allennlp</span><br><span class="line"></span><br><span class="line">Run AllenNLP</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help     show this help message and exit</span><br><span class="line">  --version      show program's version number and exit</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line"></span><br><span class="line">    configure    Run the configuration wizard.</span><br><span class="line">    train        Train a model.</span><br><span class="line">    evaluate     Evaluate the specified model + dataset.</span><br><span class="line">    predict      Use a trained model to make predictions.</span><br><span class="line">    make-vocab   Create a vocabulary.</span><br><span class="line">    elmo         Create word vectors using a pretrained ELMo model.</span><br><span class="line">    fine-tune    Continue training a model on a new dataset.</span><br><span class="line">    dry-run      Create a vocabulary, compute dataset statistics and other</span><br><span class="line">                 training utilities.</span><br><span class="line">    test-install</span><br><span class="line">                 Run the unit tests.</span><br><span class="line">    find-lr      Find a learning rate range.</span><br><span class="line">    print-results</span><br><span class="line">                 Print results from allennlp serialization directories to the</span><br><span class="line">                 console.</span><br></pre></td></tr></table></figure><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><h4 id="报错信息："><a href="#报错信息：" class="headerlink" title="报错信息："></a>报错信息：</h4><p>ERROR: Failed building wheel for jsonnet</p><p><img src="http://image.nysdy.com/20190522155853293350470.jpg" alt="20190522155853293350470.jpg"></p><h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge jsonnet</span><br></pre></td></tr></table></figure><h3 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h3><h4 id="报错信息：-1"><a href="#报错信息：-1" class="headerlink" title="报错信息："></a>报错信息：</h4><p>报的都是某些包的版本问题</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ERROR: botocore 1.12.152 has requirement urllib3&lt;1.25,&gt;=1.20; python_version &gt;= "3.4", but you'll have urllib3 1.25.2 which is incompatible.</span><br><span class="line">ERROR: aws-sam-translator 1.11.0 has requirement jsonschema~=2.6, but you'll have jsonschema 3.0.1 which is incompatible.</span><br><span class="line">ERROR: cfn-lint 0.20.3 has requirement jsonschema~=2.6, but you'll have jsonschema 3.0.1 which is incompatible.</span><br><span class="line">ERROR: cfn-lint 0.20.3 has requirement requests&lt;=2.21.0,&gt;=2.15.0, but you'll have requests 2.22.0 which is incompatible</span><br></pre></td></tr></table></figure><h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>根据报错信息下载相应安装包即可</p><h2 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h2><h4 id="报错信息：-2"><a href="#报错信息：-2" class="headerlink" title="报错信息："></a>报错信息：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ImportError: dlopen: cannot load any more object with static TLS</span><br><span class="line">___________________________________________________________________________</span><br><span class="line">Contents of /home/minelab/anaconda3/envs/allennlp/lib/python3.6/site-packages/sklearn/__check_build:</span><br><span class="line">__init__.py               setup.py                  _check_build.cpython-36m-x86_64-linux-gnu.so</span><br><span class="line">__pycache__</span><br><span class="line">___________________________________________________________________________</span><br><span class="line">It seems that scikit-learn has not been built correctly.</span><br><span class="line"></span><br><span class="line">If you have installed scikit-learn from source, please do not forget</span><br><span class="line">to build the package before using it: run `python setup.py install` or</span><br><span class="line">`make` in the source directory.</span><br><span class="line"></span><br><span class="line">If you have used an installer, please check that it is suited for your</span><br><span class="line">Python version, your operating system and your platform.</span><br></pre></td></tr></table></figure><h4 id="解决方法：-1"><a href="#解决方法：-1" class="headerlink" title="解决方法："></a>解决方法：</h4><p>下载更低版本的scikit-learn,例如</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install scikit-learn=0.20.3</span><br></pre></td></tr></table></figure><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul><li><a href="https://github.com/pytorch/pytorch/issues/10443" target="_blank" rel="noopener">https://github.com/pytorch/pytorch/issues/10443</a></li><li><a href="https://github.com/pypa/pip/issues/4330" target="_blank" rel="noopener">https://github.com/pypa/pip/issues/4330</a></li></ul><h1 id="安装的启示"><a href="#安装的启示" class="headerlink" title="安装的启示"></a>安装的启示</h1><h3 id="环境问题"><a href="#环境问题" class="headerlink" title="环境问题"></a>环境问题</h3><ul><li>最基本的就是先去网上查这个错误的解决方法</li><li>网上的解决不了的，先猜猜大概率是哪方面的问题。<ul><li>比如大概率是各种版本互相之间不适配的问题，那就调试版本，一般都会告诉你哪个有问题，比如上面的scikit-learn问题。</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>安装allennlp的踩坑之路，踩了不少坑最后选择’Installing from source’的安装方法，排坑后下面方法亲测可用</p></blockquote><a id="more"></a><h2 id="Installing-from-source"><a href="#Installing-from-source" class="headerlink" title="Installing from source"></a>Installing from source</h2><p>安装步骤：</p><h3 id="1-下载GitHub文件"><a href="#1-下载GitHub文件" class="headerlink" title="1.下载GitHub文件"></a>1.下载GitHub文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/allenai/allennlp.git</span><br></pre></td></tr></table></figure><h3 id="2-创建conda环境"><a href="#2-创建conda环境" class="headerlink" title="2.创建conda环境"></a>2.创建conda环境</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n allennlp python=3.6</span><br></pre></td></tr></table></figure><h3 id="3-激活环境下载依赖文件"><a href="#3-激活环境下载依赖文件" class="headerlink" title="3.激活环境下载依赖文件"></a>3.激活环境下载依赖文件</h3><ul><li><p>激活环境</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source activate allennlp</span><br></pre></td></tr></table></figure></li><li><p>进入github上下载的文件夹</p></li><li><p>下载依赖文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure><p>遇到报错问题，参考下一小节，所欲问题解决。</p></li></ul><h3 id="4-安装allennlp"><a href="#4-安装allennlp" class="headerlink" title="4.安装allennlp"></a>4.安装allennlp</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --editable .</span><br></pre></td></tr></table></figure><h3 id="5-测试"><a href="#5-测试" class="headerlink" title="5.测试"></a>5.测试</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allennlp</span><br></pre></td></tr></table></figure><p>成功后效果如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> allennlp</span><br><span class="line">2019-05-22 21:58:42,297 - INFO - pytorch_pretrained_bert.modeling - Better speed can be achieved with apex installed from https://www.github.com/nvidia/apex .</span><br><span class="line">usage: allennlp</span><br><span class="line"></span><br><span class="line">Run AllenNLP</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help     show this help message and exit</span><br><span class="line">  --version      show program's version number and exit</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line"></span><br><span class="line">    configure    Run the configuration wizard.</span><br><span class="line">    train        Train a model.</span><br><span class="line">    evaluate     Evaluate the specified model + dataset.</span><br><span class="line">    predict      Use a trained model to make predictions.</span><br><span class="line">    make-vocab   Create a vocabulary.</span><br><span class="line">    elmo         Create word vectors using a pretrained ELMo model.</span><br><span class="line">    fine-tune    Continue training a model on a new dataset.</span><br><span class="line">    dry-run      Create a vocabulary, compute dataset statistics and other</span><br><span class="line">                 training utilities.</span><br><span class="line">    test-install</span><br><span class="line">                 Run the unit tests.</span><br><span class="line">    find-lr      Find a learning rate range.</span><br><span class="line">    print-results</span><br><span class="line">                 Print results from allennlp serialization directories to the</span><br><span class="line">                 console.</span><br></pre></td></tr></table></figure><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><h4 id="报错信息："><a href="#报错信息：" class="headerlink" title="报错信息："></a>报错信息：</h4><p>ERROR: Failed building wheel for jsonnet</p><p><img src="http://image.nysdy.com/20190522155853293350470.jpg" alt="20190522155853293350470.jpg"></p><h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge jsonnet</span><br></pre></td></tr></table></figure><h3 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h3><h4 id="报错信息：-1"><a href="#报错信息：-1" class="headerlink" title="报错信息："></a>报错信息：</h4><p>报的都是某些包的版本问题</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ERROR: botocore 1.12.152 has requirement urllib3&lt;1.25,&gt;=1.20; python_version &gt;= "3.4", but you'll have urllib3 1.25.2 which is incompatible.</span><br><span class="line">ERROR: aws-sam-translator 1.11.0 has requirement jsonschema~=2.6, but you'll have jsonschema 3.0.1 which is incompatible.</span><br><span class="line">ERROR: cfn-lint 0.20.3 has requirement jsonschema~=2.6, but you'll have jsonschema 3.0.1 which is incompatible.</span><br><span class="line">ERROR: cfn-lint 0.20.3 has requirement requests&lt;=2.21.0,&gt;=2.15.0, but you'll have requests 2.22.0 which is incompatible</span><br></pre></td></tr></table></figure><h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>根据报错信息下载相应安装包即可</p><h2 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h2><h4 id="报错信息：-2"><a href="#报错信息：-2" class="headerlink" title="报错信息："></a>报错信息：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ImportError: dlopen: cannot load any more object with static TLS</span><br><span class="line">___________________________________________________________________________</span><br><span class="line">Contents of /home/minelab/anaconda3/envs/allennlp/lib/python3.6/site-packages/sklearn/__check_build:</span><br><span class="line">__init__.py               setup.py                  _check_build.cpython-36m-x86_64-linux-gnu.so</span><br><span class="line">__pycache__</span><br><span class="line">___________________________________________________________________________</span><br><span class="line">It seems that scikit-learn has not been built correctly.</span><br><span class="line"></span><br><span class="line">If you have installed scikit-learn from source, please do not forget</span><br><span class="line">to build the package before using it: run `python setup.py install` or</span><br><span class="line">`make` in the source directory.</span><br><span class="line"></span><br><span class="line">If you have used an installer, please check that it is suited for your</span><br><span class="line">Python version, your operating system and your platform.</span><br></pre></td></tr></table></figure><h4 id="解决方法：-1"><a href="#解决方法：-1" class="headerlink" title="解决方法："></a>解决方法：</h4><p>下载更低版本的scikit-learn,例如</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install scikit-learn=0.20.3</span><br></pre></td></tr></table></figure><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul><li><a href="https://github.com/pytorch/pytorch/issues/10443" target="_blank" rel="noopener">https://github.com/pytorch/pytorch/issues/10443</a></li><li><a href="https://github.com/pypa/pip/issues/4330" target="_blank" rel="noopener">https://github.com/pypa/pip/issues/4330</a></li></ul><h1 id="安装的启示"><a href="#安装的启示" class="headerlink" title="安装的启示"></a>安装的启示</h1><h3 id="环境问题"><a href="#环境问题" class="headerlink" title="环境问题"></a>环境问题</h3><ul><li>最基本的就是先去网上查这个错误的解决方法</li><li>网上的解决不了的，先猜猜大概率是哪方面的问题。<ul><li>比如大概率是各种版本互相之间不适配的问题，那就调试版本，一般都会告诉你哪个有问题，比如上面的scikit-learn问题。</li></ul></li></ul>]]></content>
     
     <summary type="html">
     
@@ -431,19 +431,19 @@
     
     </summary>
     
-      <category term="install" scheme="http://yoursite.com/categories/install/"/>
+      <category term="install" scheme="http://nysdy.com/categories/install/"/>
     
     
-      <category term="allennlp" scheme="http://yoursite.com/tags/allennlp/"/>
+      <category term="allennlp" scheme="http://nysdy.com/tags/allennlp/"/>
     
-      <category term="包安装" scheme="http://yoursite.com/tags/%E5%8C%85%E5%AE%89%E8%A3%85/"/>
+      <category term="包安装" scheme="http://nysdy.com/tags/%E5%8C%85%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
   <entry>
     <title>Triple Trustworthiness Measurement for Knowledge Graph阅读笔记</title>
-    <link href="http://yoursite.com/post/Triple%20Trustworthiness%20Measurement%20for%20Knowledge%20Graph/"/>
-    <id>http://yoursite.com/post/Triple Trustworthiness Measurement for Knowledge Graph/</id>
+    <link href="http://nysdy.com/post/Triple%20Trustworthiness%20Measurement%20for%20Knowledge%20Graph/"/>
+    <id>http://nysdy.com/post/Triple Trustworthiness Measurement for Knowledge Graph/</id>
     <published>2019-05-21T06:45:26.000Z</published>
     <updated>2019-05-22T13:33:20.088Z</updated>
     
@@ -458,21 +458,21 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KG" scheme="http://yoursite.com/tags/KG/"/>
+      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
     
-      <category term="Knowledge Graph" scheme="http://yoursite.com/tags/Knowledge-Graph/"/>
+      <category term="Knowledge Graph" scheme="http://nysdy.com/tags/Knowledge-Graph/"/>
     
-      <category term="Triple" scheme="http://yoursite.com/tags/Triple/"/>
+      <category term="Triple" scheme="http://nysdy.com/tags/Triple/"/>
     
   </entry>
   
   <entry>
     <title>GloVe: Global Vectors for Word Representation阅读笔记</title>
-    <link href="http://yoursite.com/post/GloVe:Global%20Vectors%20for%20Word%20Representation/"/>
-    <id>http://yoursite.com/post/GloVe:Global Vectors for Word Representation/</id>
+    <link href="http://nysdy.com/post/GloVe:Global%20Vectors%20for%20Word%20Representation/"/>
+    <id>http://nysdy.com/post/GloVe:Global Vectors for Word Representation/</id>
     <published>2019-05-20T13:35:25.000Z</published>
     <updated>2019-05-21T06:43:45.987Z</updated>
     
@@ -486,19 +486,19 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="word vector" scheme="http://yoursite.com/tags/word-vector/"/>
+      <category term="word vector" scheme="http://nysdy.com/tags/word-vector/"/>
     
-      <category term="GloVe" scheme="http://yoursite.com/tags/GloVe/"/>
+      <category term="GloVe" scheme="http://nysdy.com/tags/GloVe/"/>
     
   </entry>
   
   <entry>
     <title>Deep contextualized word representations 阅读笔记</title>
-    <link href="http://yoursite.com/post/Deep%20contextualized%20word%20representations/"/>
-    <id>http://yoursite.com/post/Deep contextualized word representations/</id>
+    <link href="http://nysdy.com/post/Deep%20contextualized%20word%20representations/"/>
+    <id>http://nysdy.com/post/Deep contextualized word representations/</id>
     <published>2019-05-10T07:28:06.000Z</published>
     <updated>2019-05-13T06:50:58.808Z</updated>
     
@@ -512,17 +512,17 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="embedding" scheme="http://yoursite.com/tags/embedding/"/>
+      <category term="embedding" scheme="http://nysdy.com/tags/embedding/"/>
     
   </entry>
   
   <entry>
     <title>《Efficient Estimation of Word Representations in Vector Space》阅读笔记</title>
-    <link href="http://yoursite.com/post/Efficient%20Estimation%20of%20Word%20Representations%20in%20Vector%20Space/"/>
-    <id>http://yoursite.com/post/Efficient Estimation of Word Representations in Vector Space/</id>
+    <link href="http://nysdy.com/post/Efficient%20Estimation%20of%20Word%20Representations%20in%20Vector%20Space/"/>
+    <id>http://nysdy.com/post/Efficient Estimation of Word Representations in Vector Space/</id>
     <published>2019-04-30T02:37:23.000Z</published>
     <updated>2019-05-06T09:00:22.589Z</updated>
     
@@ -536,17 +536,17 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="word2vec" scheme="http://yoursite.com/tags/word2vec/"/>
+      <category term="word2vec" scheme="http://nysdy.com/tags/word2vec/"/>
     
   </entry>
   
   <entry>
     <title>Shared Embedding Based Neural Networks for Knowledge Graph Completion阅读笔记</title>
-    <link href="http://yoursite.com/post/Shared%20Embedding%20Based%20Neural%20Networks%20for%20Knowledge%20Graph%20Completion/"/>
-    <id>http://yoursite.com/post/Shared Embedding Based Neural Networks for Knowledge Graph Completion/</id>
+    <link href="http://nysdy.com/post/Shared%20Embedding%20Based%20Neural%20Networks%20for%20Knowledge%20Graph%20Completion/"/>
+    <id>http://nysdy.com/post/Shared Embedding Based Neural Networks for Knowledge Graph Completion/</id>
     <published>2019-04-19T06:52:38.000Z</published>
     <updated>2019-04-19T08:09:35.184Z</updated>
     
@@ -560,14 +560,14 @@
     
     </summary>
     
-      <category term="论文阅读笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="知识图谱" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+      <category term="知识图谱" scheme="http://nysdy.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
     
-      <category term="神经网络" scheme="http://yoursite.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+      <category term="神经网络" scheme="http://nysdy.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
-      <category term="知识图谱补全" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E8%A1%A5%E5%85%A8/"/>
+      <category term="知识图谱补全" scheme="http://nysdy.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E8%A1%A5%E5%85%A8/"/>
     
   </entry>
   

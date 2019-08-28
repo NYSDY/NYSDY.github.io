@@ -6,12 +6,25 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
-
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://nysdy.com"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
 
 
   
@@ -27,10 +40,20 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "2b19bf64"
+    });
+  daovoice('update');
+  </script>
 
 
 
@@ -46,7 +69,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -80,23 +103,23 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="RNN,LSTM," />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="NYSDY" type="application/atom+xml" />
+  <meta name="keywords" content="RNN,LSTM,">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+  <link rel="alternate" href="/atom.xml" title="NYSDY" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
 
 
 
@@ -107,7 +130,7 @@
 <meta name="keywords" content="RNN,LSTM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Understanding LSTM Networks">
-<meta property="og:url" content="http://yoursite.com/post/Understanding LSTM Networks/index.html">
+<meta property="og:url" content="http://nysdy.com/post/Understanding LSTM Networks/index.html">
 <meta property="og:site_name" content="NYSDY">
 <meta property="og:description" content="原文链接。这篇文章很好很细的一步一步的分解讲解了LSTM，之前看过一篇翻译的博客，现在自己翻译一遍，感觉对LSTM的认识加深了许多，虽然还是对LSTM中存有一些问题，比如为什么用tanh，sigmoid，为什不采用其他的？，但是看过之后至少对LSTM没有那么畏惧，不觉得过于复杂了。">
 <meta property="og:locale" content="zh-Hans">
@@ -158,7 +181,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/post/Understanding LSTM Networks/"/>
+  <link rel="canonical" href="http://nysdy.com/post/Understanding LSTM Networks/">
 
 
 
@@ -277,14 +300,14 @@ $(function() {
 
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
-    <a href="https://github.com/NYSDY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a href="https://github.com/NYSDY" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">NYSDY</span>
         <span class="logo-line-after"><i></i></span>
@@ -314,7 +337,7 @@ $(function() {
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -324,7 +347,7 @@ $(function() {
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -334,7 +357,7 @@ $(function() {
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -344,7 +367,7 @@ $(function() {
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -354,7 +377,7 @@ $(function() {
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -367,7 +390,7 @@ $(function() {
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -388,9 +411,7 @@ $(function() {
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -427,11 +448,11 @@ $(function() {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/Understanding LSTM Networks/">
+    <link itemprop="mainEntityOfPage" href="http://nysdy.com/post/Understanding LSTM Networks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="NYSDY">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://i.loli.net/2018/09/24/5ba86696be366.jpg">
     </span>
 
@@ -467,7 +488,7 @@ $(function() {
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -532,9 +553,9 @@ $(function() {
 <p><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">原文链接</a>。这篇文章很好很细的一步一步的分解讲解了LSTM，之前看过一篇翻译的博客，现在自己翻译一遍，感觉对LSTM的认识加深了许多，虽然还是对LSTM中存有一些问题，比如为什么用tanh，sigmoid，为什不采用其他的？，但是看过之后至少对LSTM没有那么畏惧，不觉得过于复杂了。</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h1><h2 id="Recurrent-Neural-Networks"><a href="#Recurrent-Neural-Networks" class="headerlink" title="Recurrent Neural Networks"></a>Recurrent Neural Networks</h2><p><img src="https://i.loli.net/2019/01/06/5c31826c20c5f.jpg" alt=""></p>
+<h1 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h1><h2 id="Recurrent-Neural-Networks"><a href="#Recurrent-Neural-Networks" class="headerlink" title="Recurrent Neural Networks"></a>Recurrent Neural Networks</h2><p><img src="https://i.loli.net/2019/01/06/5c31826c20c5f.jpg" alt></p>
 <p>循环允许信息从一个网络传入下一个。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c3189b3b43e8.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/06/5c3189b3b43e8.jpg" alt></p>
 <p>一个循环网络可以被认为是相同网络的多个复制，每一个网络都将信息传递给后继者。这种类似链的性质表明，递归神经网络与序列和列表密切相关。</p>
 <h2 id="The-Problem-of-Long-Term-Dependencies"><a href="#The-Problem-of-Long-Term-Dependencies" class="headerlink" title="The Problem of Long-Term Dependencies"></a>The Problem of Long-Term Dependencies</h2><p>RNN的一个吸引力是他们可能能够将先前信息连接到当前任务。</p>
 <ul>
@@ -558,43 +579,43 @@ $(function() {
 <p>LSTMs are explicitly designed to avoid the long-term dependency problem. Remembering information for long periods of time is practically their default behavior, not something they struggle to learn!</p>
 </blockquote>
 <p>标准RNNs的重复模块只有一个简单的结构，比如tanh层。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c31942fa0852.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/06/5c31942fa0852.jpg" alt></p>
 <p>LSTMs也有像这种链式结构，但是它的重复模块具有不同的结构。 有四个，而不是一个神经网络层，以一种非常特殊的方式进行交互。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c3195013e06a.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/06/5c3195013e06a.jpg" alt></p>
 <p>基本符号如下：</p>
-<p><img src="https://i.loli.net/2019/01/06/5c319541ec43b.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/06/5c319541ec43b.jpg" alt></p>
 <p>在上图中，每一行都携带一个完整的向量，从一个节点的输出到其他节点的输入。 粉色圆圈表示逐点运算，如矢量加法，而黄色框表示神经网络层。 行合并表示连接，而行分叉表示其内容被复制，副本将转移到不同的位置。</p>
 <h2 id="The-Core-Idea-Behind-LSTMs"><a href="#The-Core-Idea-Behind-LSTMs" class="headerlink" title="The Core Idea Behind LSTMs"></a>The Core Idea Behind LSTMs</h2><p><strong>LSTM的关键是单元状态</strong>，水平线贯穿图的顶部。</p>
 <p>单元状态有点像传送带。 它直接沿着整个链运行，只有一些微小的线性相互作用。 信息很容易沿着它不变地流动。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c31965a2ea97.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/06/5c31965a2ea97.jpg" alt></p>
 <p>LSTM确实能够移除或添加信息到细胞状态，由称为门的结构精心调节。</p>
 <p>门是一种可选择通过信息的方式。 它们由Sigmoid神经网络层和逐点乘法运算组成。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c3196e0eb9e6.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/06/5c3196e0eb9e6.jpg" alt></p>
 <p>sigmoid层输出0到1之间的数字，描述每个组件应该通过多少。 值为零意味着“不让任何东西通过”，而值为1则意味着“让一切都通过！”</p>
 <p>LSTM具有三个这样的门，用于保护和控制单元状态。</p>
 <h2 id="Step-by-Step-LSTM-Walk-Through"><a href="#Step-by-Step-LSTM-Walk-Through" class="headerlink" title="Step-by-Step LSTM Walk Through"></a>Step-by-Step LSTM Walk Through</h2><p>我们的第一步就是确定我们将从单元状态中丢弃的信息。这个决定是由一个称为“遗忘门层”的sigmoid层决定的。它查看$h_{t-1}$和$x_t$，并为单元状态$C_{t-1}$中的每一个数字输出一个介于0和1之间的数字。1代表“完全保留这个”，而0代表“完全舍弃这个”。</p>
 <p>让我们回到我们的语言模型示例，试图根据以前的所有单词预测下一个单词。 在这样的问题中，单元状态可能包括当前受试者的性别，因此可以使用正确的代词。 当我们看到一个新主题时，我们想要忘记旧主题的性别。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c31997a2ecec.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/06/5c31997a2ecec.jpg" alt></p>
 <p>下一步是确定我们将在单元状态中存储哪些新信息。 这有两个部分。 首先，称为“输入门层”的sigmoid层决定我们将更新哪些值。 接下来，tanh层创建可以添加到状态的新候选值$\tilde{C}_t$的向量。 在下一步中，我们将结合这两个来创建状态更新。</p>
 <p>在我们的语言模型的例子中，我们想要将新主题的性别添加到单元格状态，以替换我们忘记的旧主题。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c319afb31868.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/06/5c319afb31868.jpg" alt></p>
 <p>现在是时候将旧的单元状态$C_{T-1}$更新为新的单元状态$C_t$。 前面的步骤已经决定要做什么，我们只需要实际做到这一点。</p>
 <p>我们将旧状态乘以$f_t$，忘记我们之前决定忘记的事情。 然后我们添加$i_t * \tilde{C}_t$。 这是新的候选值，根据我们决定更新每个状态的值来缩放。</p>
 <p>在语言模型的情况下，我们实际上放弃了关于旧主题的性别的信息并添加新信息，正如我们在前面的步骤中所做的那样。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c319c9f37f63.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/06/5c319c9f37f63.jpg" alt></p>
 <p>最后，我们需要决定我们要输出的内容。 此输出将基于我们的单元状态，但将是过滤版本。 首先，我们运行一个sigmoid层，它决定我们要输出的单元状态的哪些部分。 然后，我们将单元格状态设置为tanh（将值推到介于-1和1之间）并将其乘以sigmoid门的输出，以便我们只输出我们决定的部分。</p>
 <p>对于语言模型示例，由于它只是看到一个主题，它可能想要输出与动词相关的信息，以防接下来会发生什么。 例如，它可能输出主语是单数还是复数，以便我们知道动词应该与什么形式共轭，如果接下来的话。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c319da831938.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/06/5c319da831938.jpg" alt></p>
 <h2 id="Variants-on-Long-Short-Term-Memory"><a href="#Variants-on-Long-Short-Term-Memory" class="headerlink" title="Variants on Long Short Term Memory"></a>Variants on Long Short Term Memory</h2><p>到目前为止我所描述的是一个非常正常的LSTM。 但并非所有LSTM都与上述相同。 事实上，似乎几乎所有涉及LSTM的论文都使用略有不同的版本。 差异很小，但值得一提的是其中一些。</p>
 <blockquote>
 <p>One popular LSTM variant, introduced by <a href="ftp://ftp.idsia.ch/pub/juergen/TimeCount-IJCNN2000.pdf" target="_blank" rel="noopener">Gers &amp; Schmidhuber (2000)</a>, is adding “peephole connections.” This means that we let the gate layers look at the cell state.</p>
 </blockquote>
-<p><img src="https://i.loli.net/2019/01/06/5c319ec053e96.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/06/5c319ec053e96.jpg" alt></p>
 <p>上面的图表为所有门增加了窥视孔（peephole），但是许多论文会给一些窥视孔而不是其他的。</p>
 <p>另一种变化是使用耦合的遗忘和输入门。 我们不是单独决定忘记什么以及应该添加新信息，而是一起做出这些决定。<strong>我们仅仅会当我们在当前位置将要输入时忘记。我们仅仅输入新的值到那些我们已经忘记旧的信息的那些状态</strong> 。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c31a06e327f5.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/06/5c31a06e327f5.jpg" alt></p>
 <p>另一个改动较大的变体是 Gated Recurrent Unit (GRU)，这是由 <a href="http://arxiv.org/pdf/1406.1078v3.pdf" target="_blank" rel="noopener">Cho, et al. (2014)</a> 提出。它将遗忘和输入门组合成一个“更新门”。它还合并了单元状态和隐藏状态，并进行了一些其他更改。 由此产生的模型比标准LSTM模型简单，并且越来越受欢迎。</p>
-<p><img src="https://i.loli.net/2019/01/06/5c31a1285f207.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/06/5c31a1285f207.jpg" alt></p>
 <p>这些只是最着名的LSTM变种中的一小部分。 还有很多其他的东西，如 <a href="http://arxiv.org/pdf/1508.03790v2.pdf" target="_blank" rel="noopener">Yao, et al. (2015)</a> 提出的 Depth Gated RNN。 还有一些完全不同的解决长期依赖关系的方法，如 <a href="http://arxiv.org/pdf/1402.3511v1.pdf" target="_blank" rel="noopener">Koutnik, et al. (2014)</a> 提出的 Clockwork RNN。</p>
 <p>哪种变体最好？ 差异是否重要？  <a href="http://arxiv.org/pdf/1503.04069.pdf" target="_blank" rel="noopener">Greff, et al. (2015)</a> 对流行变体进行了很好的比较，发现它们几乎完全相同。<a href="http://jmlr.org/proceedings/papers/v37/jozefowicz15.pdf" target="_blank" rel="noopener">Jozefowicz, et al. (2015)</a> 测试了超过一万个RNN架构，找到了一些在某些任务上比LSTM更好的架构。</p>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>早些时候，我提到了人们用RNN取得的显着成果。基本上所有这些都是使用LSTM实现的。对于大多数任务来说，它们确实工作得更好！</p>
@@ -609,6 +630,12 @@ $(function() {
     
     
 
+    <div>
+      
+        
+      
+    </div>
+    
     <div>
       
         <div>
@@ -629,9 +656,9 @@ $(function() {
       
         <div class="post-tags">
           
-            <a href="/tags/RNN/" rel="tag"><i class="fa fa-tag"></i> RNN</a>
+            <a href="/tags/RNN/" rel="tag"><i class="fa fa-envira"></i> RNN</a>
           
-            <a href="/tags/LSTM/" rel="tag"><i class="fa fa-tag"></i> LSTM</a>
+            <a href="/tags/LSTM/" rel="tag"><i class="fa fa-envira"></i> LSTM</a>
           
         </div>
       
@@ -686,8 +713,10 @@ $(function() {
           
   <div class="comments" id="comments">
     
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NjM1MC8yMjg2MQ=="></div>
+    
   </div>
-
+  
 
         </div>
         
@@ -709,7 +738,7 @@ $(function() {
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -720,9 +749,7 @@ $(function() {
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://i.loli.net/2018/09/24/5ba86696be366.jpg"
-               alt="NYSDY" />
+          <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/09/24/5ba86696be366.jpg" alt="NYSDY">
           <p class="site-author-name" itemprop="name">NYSDY</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
@@ -787,7 +814,7 @@ $(function() {
               </span>
             
               <span class="links-of-author-item">
-                <a href="nysdy@outlook.com" target="_blank" title="E-mail">
+                <a href="mailto:nysdy@outlook.com" target="_blank" title="E-mail">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
@@ -858,7 +885,7 @@ $(function() {
         <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
-<div class="copyright" >
+<div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2019</span>
@@ -1013,6 +1040,17 @@ $(function() {
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
