@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2019-08-28T04:58:45.444Z</updated>
+  <updated>2019-09-02T06:19:04.421Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Transition-based Knowledge Graph Embedding with Relational Mapping Properties阅读笔记</title>
+    <link href="http://nysdy.com/post/Transition-based_Knowledge_Graph_Embedding_with_Relational_Mapping_Properties/"/>
+    <id>http://nysdy.com/post/Transition-based_Knowledge_Graph_Embedding_with_Relational_Mapping_Properties/</id>
+    <published>2019-08-31T13:36:06.000Z</published>
+    <updated>2019-09-02T06:19:04.421Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://link.zhihu.com/?target=https%3A//pdfs.semanticscholar.org/0ddd/f37145689e5f2899f8081d9971882e6ff1e9.pdf" target="_blank" rel="noopener">论文下载地址</a></p></blockquote><a id="more"></a><h1 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h1><h3 id="把知识图谱映射到低维向量的原因："><a href="#把知识图谱映射到低维向量的原因：" class="headerlink" title="把知识图谱映射到低维向量的原因："></a>把知识图谱映射到低维向量的原因：</h3><p>符号和离散的存储结构使我们很难利用这些知识来增强其他智能获取的应用程序（例如问答系统），因为许多与AI相关的算法更倾向于进行关于连续数据计算。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">文中用ONE-TO-ONE (husband-to-wife), MANY-TO-ONE (children-to-father), ONE-TO- MANY (mother-to-children), MANY-TO-MANY (parents-to-children)</span><br><span class="line">来进行非单一关系的例子觉得很好。</span><br></pre></td></tr></table></figure><h3 id="以前算法的目标函数和参数复杂度："><a href="#以前算法的目标函数和参数复杂度：" class="headerlink" title="以前算法的目标函数和参数复杂度："></a>以前算法的目标函数和参数复杂度：</h3><p><img src="http://image.nysdy.com/20190901156734544015276.png" alt="20190901156734544015276.png"></p><h1 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">理解不了是如何区分1对多关系的？？？？</span><br></pre></td></tr></table></figure><p>作者将最优函数将通过对应于该关系的预先计算的权重给出每个训练三元组的不同方面。</p><p><img src="http://image.nysdy.com/20190902156739285578897.png" alt="20190902156739285578897.png"></p><p>实际上，大约只有26.2％的ONE-TO-ONE三元组适合由TransE建模。 另一方面，其余三元组（73.8％）受到影响，如图1左侧所示。</p><h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p>根据作者的观察，三元组的映射属性在很大程度上取决于它的关系。</p><h3 id="目标函数"><a href="#目标函数" class="headerlink" title="目标函数"></a>目标函数</h3><p>权重是关系特定的，作者为三元组（h，r，t）提出的新评分函数是：</p><script type="math/tex; mode=display">f_{r}(h, t)=w_{\mathbf{r}}\|\mathbf{h}+\mathbf{r}-\mathbf{t}\|_{L_{1} / L_{2}}</script><script type="math/tex; mode=display">w_{r}=\frac{1}{\log \left(h_{r} p t_{r}+t_{r} p h_{r}\right)}</script><p><img src="http://image.nysdy.com/20190902156739214061518.png" alt="20190902156739214061518.png"></p><p>测量关系的映射属性程度的一种简单方法是计算每个不同头部实体的尾部实体的平均数量，反之亦然。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这里还是不理解这个权重的意义在哪里？🧐</span><br></pre></td></tr></table></figure><h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><script type="math/tex; mode=display">\begin{array}{l}{\mathcal{L}=\min \sum_{(h, r, t) \in \Delta\left(h^{\prime}, r, t^{\prime}\right) \in \Delta_{(h, r, t)}^{\prime}}\left[\gamma+f_{r}(h, t)-f_{r}\left(h^{\prime}, t^{\prime}\right)\right]_{+}} \\ {\text {s.t. } \quad \forall e \in E,\|e\|_{2}=1}\end{array}</script><h4 id="对于-e-2-1-的解释："><a href="#对于-e-2-1-的解释：" class="headerlink" title="对于$|e|_{2}=1$的解释："></a>对于$|e|_{2}=1$的解释：</h4><p>约束位于单位球上的每个实体的原因是为了保证它们可以以<strong>相同的比例更新</strong>，而不是太大或太小而不能满足最佳目标。</p><h1 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><p>见论文，没什么好阐述的。</p><p>All the codes for the related models can be downloaded from <a href="https://github.com/glorotxa/SME" target="_blank" rel="noopener">https://github.com/glorotxa/SME</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://link.zhihu.com/?target=https%3A//pdfs.semanticscholar.org/0ddd/f37145689e5f2899f8081d9971882e6ff1e9.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
+    
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="TransM" scheme="http://nysdy.com/tags/TransM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Embedding Edge-attributed Relational Hierarchies阅读笔记</title>
+    <link href="http://nysdy.com/post/Embedding_Edge-attributed_Relational_Hierarchies/"/>
+    <id>http://nysdy.com/post/Embedding_Edge-attributed_Relational_Hierarchies/</id>
+    <published>2019-08-28T08:12:30.000Z</published>
+    <updated>2019-08-28T08:15:05.849Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="http://yellowstone.cs.ucla.edu/~muhao/articles/_SIGIR__hre.pdf" target="_blank" rel="noopener">论文下载地址</a></p></blockquote><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://yellowstone.cs.ucla.edu/~muhao/articles/_SIGIR__hre.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Knowledge Graph Embedding via Dynamic Mapping Matrix阅读笔记</title>
@@ -252,9 +302,9 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="KGR" scheme="http://nysdy.com/tags/KGR/"/>
-    
       <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
+    
+      <category term="KGR" scheme="http://nysdy.com/tags/KGR/"/>
     
       <category term="BERT" scheme="http://nysdy.com/tags/BERT/"/>
     
@@ -516,58 +566,6 @@
     
     
       <category term="embedding" scheme="http://nysdy.com/tags/embedding/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《Efficient Estimation of Word Representations in Vector Space》阅读笔记</title>
-    <link href="http://nysdy.com/post/Efficient%20Estimation%20of%20Word%20Representations%20in%20Vector%20Space/"/>
-    <id>http://nysdy.com/post/Efficient Estimation of Word Representations in Vector Space/</id>
-    <published>2019-04-30T02:37:23.000Z</published>
-    <updated>2019-05-06T09:00:22.589Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p><a href="https://arxiv.org/pdf/1301.3781.pdf" target="_blank" rel="noopener">论文下载地址</a>，该篇论文的大篇幅都在讨论实验结果的分析，模型的部分比较简单，没有详细分析，本来是想读一下CBOW和skip-gram的原始论文，发现并没有想象中的那么大的用处。</p></blockquote><a id="more"></a><h2 id="Goals-of-paper"><a href="#Goals-of-paper" class="headerlink" title="Goals of paper"></a>Goals of paper</h2><ul><li>开发了两种新模型，并保留了单词之间的线性规律</li><li>设计了一个新的综合测试集，用于测量句法和语义规律</li><li>讨论了训练时间和准确性如何取决于单词向量的维度和训练数据的数量</li></ul><h2 id="Model-Architectures"><a href="#Model-Architectures" class="headerlink" title="Model Architectures"></a>Model Architectures</h2><p>训练复杂度：</p><p><img src="http://image.nysdy.com/20190506155712909488421.png" alt="20190506155712909488421.png"></p><p>其中，E是训练次数，T是训练集单词数量，Q是模型结构。</p><h3 id="Feedforward-Neural-Net-Language-Model-NNLM"><a href="#Feedforward-Neural-Net-Language-Model-NNLM" class="headerlink" title="Feedforward Neural Net Language Model (NNLM)"></a>Feedforward Neural Net Language Model (NNLM)</h3><p>它由输入，映射，隐藏和输出层组成。通过简化方法，Q= N x D x H</p><h3 id="Recurrent-Neural-Net-Language-Model-RNNLM"><a href="#Recurrent-Neural-Net-Language-Model-RNNLM" class="headerlink" title="Recurrent Neural Net Language Model (RNNLM)"></a>Recurrent Neural Net Language Model (RNNLM)</h3><p>克服了模型需要固定的上下文长度的问题，并且只有输入，隐藏和输出层。</p><p>Q= H x H + H x V，其中H = D（单词表示），H x V 可以通过分级softmax被简化为H x log_2(V)。所以主要的复杂度来自于H x H。</p><h3 id="Parallel-Training-of-Neural-Networks"><a href="#Parallel-Training-of-Neural-Networks" class="headerlink" title="Parallel Training of Neural Networks"></a>Parallel Training of Neural Networks</h3><p>模型使用的DistBelief框架允许我们并行运行同一模型的多个副本，每个副本通过集中的服务器同步其梯度更新，该服务器保留所有参数</p><h2 id="New-Log-linear-Models"><a href="#New-Log-linear-Models" class="headerlink" title="New Log-linear Models"></a>New Log-linear Models</h2><p>大多数复杂性是由于模型中的非线性隐藏层引起的。模型结构如下：<img src="http://image.nysdy.com/20190506155713050638684.png" alt="20190506155713050638684.png"></p><h3 id="Continuous-Bag-of-Words-Model-CBOW"><a href="#Continuous-Bag-of-Words-Model-CBOW" class="headerlink" title="Continuous Bag-of-Words Model(CBOW)"></a>Continuous Bag-of-Words Model(CBOW)</h3><p>第一个提出的体系结构类似于前馈NNLM，其中去除了非线性隐藏层，并且所有单词（不仅仅是投影矩阵）共享投影层。 因此，所有单词都被投射到相同的位置（它们的向量被平均）。 将这个架构称为词袋模型，因为历史中的单词顺序不会影响投影。</p><p>模型的复杂度：Q = N × D + D × log_2(V )</p><h3 id="Continuous-Skip-gram-Model"><a href="#Continuous-Skip-gram-Model" class="headerlink" title="Continuous Skip-gram Model"></a>Continuous Skip-gram Model</h3><p>基于同一句子中的另一个单词最大化单词的分类。 更准确地说，使用每个当前单词作为具有连续投影层的对数线性分类器的输入，并预测当前单词之前和之后的特定范围内的单词。</p><p>模型的复杂度：Q = C × (D + D × log2(V ))，其中C是单词的最大距离。</p><h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="任务描述"><a href="#任务描述" class="headerlink" title="任务描述"></a>任务描述</h3><p>为了度量词向量的质量，我们定义了一个复杂的测试集，它包括了五种类型的语义问题。九个类型的句法问题。包括每个类别的两个样本集在上表展示；总之，共拥有8869个语义问题和10675个句法问题</p><p>作者通过：最大化精确度 ，模型体系结构的比较，模型的大规模并行训练来证明提出模型的运速度和精确的优势。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://arxiv.org/pdf/1301.3781.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;，该篇论文的大篇幅都在讨论实验结果的分析，模型的部分比较简单，没有详细分析，本来是想读一下CBOW和skip-gram的原始论文，发现并没有想象中的那么大的用处。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="word2vec" scheme="http://nysdy.com/tags/word2vec/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shared Embedding Based Neural Networks for Knowledge Graph Completion阅读笔记</title>
-    <link href="http://nysdy.com/post/Shared%20Embedding%20Based%20Neural%20Networks%20for%20Knowledge%20Graph%20Completion/"/>
-    <id>http://nysdy.com/post/Shared Embedding Based Neural Networks for Knowledge Graph Completion/</id>
-    <published>2019-04-19T06:52:38.000Z</published>
-    <updated>2019-04-19T08:09:35.184Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p><a href="http://delivery.acm.org/10.1145/3280000/3271704/p247-guan.pdf?ip=59.64.129.243&amp;id=3271704&amp;acc=ACTIVE%20SERVICE&amp;key=BF85BBA5741FDC6E%2E66A15327C2E204FC%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;__acm__=1555657159_db1582f1a6ea923a16011064e5cc7955" target="_blank" rel="noopener">原文下载链接</a>，知识图谱补全（KGC，Knowledge Graph Completion)是一种自动建立图谱内部知识关联的工作。目标是补全知识图谱中三元组的缺失部分。主要方法为基于张量（或者矩阵）和基于翻译两类。在本文中，作者提出了一种基于共享嵌入的神经网络的模型（SENN）来处理KGC。</p></blockquote><a id="more"></a><h2 id="Contribulation"><a href="#Contribulation" class="headerlink" title="Contribulation"></a>Contribulation</h2><ul><li>提出了SENN模型，该模型明确区分头实体、关系和为实体预测任务，并把它们整合到一个基于全连接神经网络框架中，该框架共享的实体和关系嵌入。</li><li>SENN提出了一个自适应全中损失机制，该方法可以很好的处理具有不同映射属性的三元组，并处理不同的预测任务。</li><li>由于关系预测通常比头尾实体预测具有更好的性能，我们把SENN应用到头尾实体预测，从而将SENN扩展到SENN+。</li></ul><h2 id="Related-works"><a href="#Related-works" class="headerlink" title="Related works"></a>Related works</h2><h3 id="Tensor-Matrix-Based-Methods"><a href="#Tensor-Matrix-Based-Methods" class="headerlink" title="Tensor/Matrix Based Methods"></a>Tensor/Matrix Based Methods</h3><p>RESCAL是一个典型的方法，该方法基于三向张量因子分解的方法。</p><p>目标函数为：<img src="http://image.nysdy.com/20190419155565817094503.png" alt="20190419155565817094503.png"></p><p>$M_r$是r的关系矩阵，大小为k x k。</p><p>ComlEx是最近提出的方法，该方法基于矩阵分解，并且它使用复数值来定义实体和关系的嵌入。</p><p>目标函数为：<img src="http://image.nysdy.com/20190419155565837140789.png" alt="20190419155565837140789.png"></p><p>Re(x)返回x的实部。</p><h3 id="Translation-Based-Methods"><a href="#Translation-Based-Methods" class="headerlink" title="Translation Based Methods"></a>Translation Based Methods</h3><p>代表模型为经典的TransE模型（这里不再赘述）</p><h3 id="Translation-Based-Methods-1"><a href="#Translation-Based-Methods-1" class="headerlink" title="Translation Based Methods"></a>Translation Based Methods</h3><p>ER-MLP使用多层感知器来捕获头实体，关系和尾实体之间的隐式交互。</p><p>目标函数为：<img src="http://image.nysdy.com/2019041915556586361053.png" alt="2019041915556586361053.png"></p><p>ProjE使用具有组合层和投影层的神经网络来对头尾实体预测建模。</p><h2 id="THE-SENN-METHOD"><a href="#THE-SENN-METHOD" class="headerlink" title="THE SENN METHOD"></a>THE SENN METHOD</h2><p>模型结构如图所示：<img src="http://image.nysdy.com/20190419155565880062506.png" alt="20190419155565880062506.png"></p><p>作者将框架划分为以下四个部分：</p><ol><li>三元组的批量预处理</li><li>知识图谱的Shared embeddings表示学习</li><li>独立的头尾实体及关系预测子模型训练与融合</li><li>联合损失函数构成</li></ol><p>整个KGC的流程可以描述如下：</p><ol><li>将训练数据中的完整三元组（知识图谱）划分批量后作为模型的输入</li><li>对于输入的三元组，分别训练得到实体（包括头尾实体）嵌入矩阵与关系嵌入矩阵（embeddings）</li><li>将头尾实体及关系embeddings分别输入到三个预测模型中（头实体预测（?, r, t），关系预测(h, ?, t)，尾实体预测(h, r, ?)）</li></ol><h3 id="The-Three-Substructures"><a href="#The-Three-Substructures" class="headerlink" title="The Three Substructures"></a>The Three Substructures</h3><p>预测子模型具有相似的结构如下图，模型输入关系向量与实体向量后，进入n层全连接层，得到预测向量，再经过一个sigmoid（或者softmax）层，输出预测标签向量。<img src="http://image.nysdy.com/20190419155565925349707.png" alt="20190419155565925349707.png"></p><p>头实体预测目标函数：<img src="http://image.nysdy.com/20190419155565929066802.png" alt="20190419155565929066802.png"></p><p>f(x)= max(0,x).</p><p>预测标签：<img src="http://image.nysdy.com/20190419155565936981620.png" alt="20190419155565936981620.png"></p><p>其它两种与此头实体类似。</p><h3 id="Model-Training"><a href="#Model-Training" class="headerlink" title="Model Training"></a>Model Training</h3><h4 id="The-General-Loss-Function"><a href="#The-General-Loss-Function" class="headerlink" title="The General Loss Function"></a>The General Loss Function</h4><p>模型目标标签向量表示为：<img src="http://image.nysdy.com/20190419155565949172586.png" alt="20190419155565949172586.png"></p><p>$I_h$是在训练集中给定r和t的所有有效头实体集。</p><p>三者的平滑向量表示为：<img src="http://image.nysdy.com/20190419155565967448577.png" alt="20190419155565967448577.png"></p><p>三个预测任务的损失函数为：<img src="http://image.nysdy.com/20190419155565972110097.png" alt="20190419155565972110097.png"></p><p>总损失函数为：<img src="http://image.nysdy.com/20190419155565974814392.png" alt="20190419155565974814392.png"></p><h4 id="The-Adaptively-Weighted-Loss-Mechanism"><a href="#The-Adaptively-Weighted-Loss-Mechanism" class="headerlink" title="The Adaptively Weighted Loss Mechanism."></a>The Adaptively Weighted Loss Mechanism.</h4><p>该方法的动机：</p><ul><li>在知识图谱中的三元组有4种类型：1-TO-1, 1-TO-M, M-TO-1 and M-TO-M。所以预测在训练集中具有的有效实体/关系越多，它就越不确定。所以作者将对应于头部实体预测，关系预测和尾部实体预测的损失的权重与有效实体的数量相关联。</li><li>因为关系预测比实体预测更加容易。所以作者加大对头尾实体的错误预测的惩罚。</li></ul><p>所以作者得到新的损失函数：<img src="http://image.nysdy.com/20190419155566013038361.png" alt="20190419155566013038361.png"></p><p>总损失函数变为：<img src="http://image.nysdy.com/20190419155566016395908.png" alt="20190419155566016395908.png"></p><h2 id="THE-SENN-METHOD-1"><a href="#THE-SENN-METHOD-1" class="headerlink" title="THE SENN+METHOD"></a>THE SENN+METHOD</h2><p>作者相信可以进一步利用关系预测的相当好的性能来辅助测试过程中的头部和尾部实体预测。</p><p>给定头部预测任务（？，r，t）并假设h是有效的头部实体。 如果我们采用SENN方法来预测h和t之间的关系，即执行关系预测任务（h，？，t），则关系r最有可能具有 预测标签高于其他关系，因此应排名高于其他关系。</p><p><img src="http://image.nysdy.com/20190419155566073220975.png" alt="20190419155566073220975.png"></p><p>其中Value（x，r）返回对应于关系r的向量x的条目; Rank（x，r）以降序返回对应于关系r的向量x的条目的等级。</p><p>最后SENN+种预测标签为：<img src="http://image.nysdy.com/20190419155566089424123.png" alt="20190419155566089424123.png"></p><p>其中<img src="http://image.nysdy.com/20190419155566090898589.png" alt="20190419155566090898589.png"></p><h2 id="EXPERIMENTS"><a href="#EXPERIMENTS" class="headerlink" title="EXPERIMENTS"></a>EXPERIMENTS</h2><h3 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h3><p><img src="http://image.nysdy.com/20190419155566095994824.png" alt="20190419155566095994824.png"></p><h3 id="Entity-Prediction"><a href="#Entity-Prediction" class="headerlink" title="Entity Prediction"></a>Entity Prediction</h3><p><img src="http://image.nysdy.com/20190419155566101939979.png" alt="20190419155566101939979.png"></p><p><img src="http://image.nysdy.com/20190419155566104394441.png" alt="20190419155566104394441.png"></p><h3 id="Relation-Prediction"><a href="#Relation-Prediction" class="headerlink" title="Relation Prediction"></a>Relation Prediction</h3><p><img src="http://image.nysdy.com/20190419155566106385514.png" alt="20190419155566106385514.png"></p><p>论文还进行了共享嵌入和自适应权重损失机制有效性的验证。</p><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul><li><a href="http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-%E9%9D%A2%E5%90%91%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E8%A1%A5%E5%85%A8%E7%9A%84%E5%85%B1%E4%BA%AB%E5%B5%8C%E5%85%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_blank" rel="noopener">http://blog.openkg.cn/%E8%AE%BA%E6%96%87%E6%B5%85%E5%B0%9D-%E9%9D%A2%E5%90%91%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E8%A1%A5%E5%85%A8%E7%9A%84%E5%85%B1%E4%BA%AB%E5%B5%8C%E5%85%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;http://delivery.acm.org/10.1145/3280000/3271704/p247-guan.pdf?ip=59.64.129.243&amp;amp;id=3271704&amp;amp;acc=ACTIVE%20SERVICE&amp;amp;key=BF85BBA5741FDC6E%2E66A15327C2E204FC%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;amp;__acm__=1555657159_db1582f1a6ea923a16011064e5cc7955&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原文下载链接&lt;/a&gt;，知识图谱补全（KGC，Knowledge Graph Completion)是一种自动建立图谱内部知识关联的工作。目标是补全知识图谱中三元组的缺失部分。主要方法为基于张量（或者矩阵）和基于翻译两类。在本文中，作者提出了一种基于共享嵌入的神经网络的模型（SENN）来处理KGC。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="知识图谱" scheme="http://nysdy.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
-      <category term="神经网络" scheme="http://nysdy.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="知识图谱补全" scheme="http://nysdy.com/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E8%A1%A5%E5%85%A8/"/>
     
   </entry>
   
