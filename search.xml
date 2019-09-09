@@ -92,8 +92,8 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>dataset</tag>
         <tag>RE</tag>
+        <tag>dataset</tag>
       </tags>
   </entry>
   <entry>
@@ -137,8 +137,8 @@
         <category>KG</category>
       </categories>
       <tags>
-        <tag>KGR</tag>
         <tag>KG</tag>
+        <tag>KGR</tag>
         <tag>BERT</tag>
       </tags>
   </entry>
@@ -389,8 +389,8 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>知识图谱</tag>
         <tag>NER</tag>
+        <tag>知识图谱</tag>
       </tags>
   </entry>
   <entry>
@@ -448,8 +448,8 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>RE</tag>
         <tag>NER</tag>
+        <tag>RE</tag>
       </tags>
   </entry>
   <entry>
