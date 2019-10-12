@@ -108,7 +108,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="2016,AAAI,KGE,">
+  <meta name="keywords" content="KGE,2016,AAAI,">
 
 
 
@@ -126,21 +126,20 @@
 
 
 
-<meta name="description" content="论文下载地址 Problem Statement之前的方法忽略了两点:  heterogeneity（异质性）：一些关系链接了很多实体对，另一些没有 imbalance（不平衡）： 在一种关系中，头实体和尾实体的数量不同(img)   Contribution 作者提出了一种新颖的方法，该方法考虑了先前模型中未使用的异质性和不平衡性，以嵌入知识图来完成它们；  作者的方法高效且参数较少，因此很容">
-<meta name="keywords" content="2016,AAAI,KGE">
+<meta name="description" content="为解决heterogeneity和imbalance问题，作者针对同一关系链接实体对的数量和同一关系不同头尾实体数量，分别设计了不同稀疏程度的转移矩阵。存在缺点：并没有同时解决这两个问题。 论文下载地址">
+<meta name="keywords" content="KGE,2016,AAAI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2016 Knowledge Graph Completion with Adaptive Sparse Transfer Matrix阅读笔记">
 <meta property="og:url" content="http://nysdy.com/post/2016_Knowledge_Graph_Completion_with_Adaptive_Sparse_Transfer_Matrix/index.html">
 <meta property="og:site_name" content="NYSDY">
-<meta property="og:description" content="论文下载地址 Problem Statement之前的方法忽略了两点:  heterogeneity（异质性）：一些关系链接了很多实体对，另一些没有 imbalance（不平衡）： 在一种关系中，头实体和尾实体的数量不同(img)   Contribution 作者提出了一种新颖的方法，该方法考虑了先前模型中未使用的异质性和不平衡性，以嵌入知识图来完成它们；  作者的方法高效且参数较少，因此很容">
+<meta property="og:description" content="为解决heterogeneity和imbalance问题，作者针对同一关系链接实体对的数量和同一关系不同头尾实体数量，分别设计了不同稀疏程度的转移矩阵。存在缺点：并没有同时解决这两个问题。 论文下载地址">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://image.nysdy.com/20191011157077419915060.png">
-<meta property="og:image" content="http://image.nysdy.com/20191011157077593566013.jpg">
 <meta property="og:image" content="http://image.nysdy.com/20191011157077982280661.png">
-<meta property="og:updated_time" content="2019-10-11T07:44:26.433Z">
+<meta property="og:updated_time" content="2019-10-12T05:30:51.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2016 Knowledge Graph Completion with Adaptive Sparse Transfer Matrix阅读笔记">
-<meta name="twitter:description" content="论文下载地址 Problem Statement之前的方法忽略了两点:  heterogeneity（异质性）：一些关系链接了很多实体对，另一些没有 imbalance（不平衡）： 在一种关系中，头实体和尾实体的数量不同(img)   Contribution 作者提出了一种新颖的方法，该方法考虑了先前模型中未使用的异质性和不平衡性，以嵌入知识图来完成它们；  作者的方法高效且参数较少，因此很容">
+<meta name="twitter:description" content="为解决heterogeneity和imbalance问题，作者针对同一关系链接实体对的数量和同一关系不同头尾实体数量，分别设计了不同稀疏程度的转移矩阵。存在缺点：并没有同时解决这两个问题。 论文下载地址">
 <meta name="twitter:image" content="http://image.nysdy.com/20191011157077419915060.png">
 
 
@@ -482,8 +481,8 @@ $(function() {
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-11T15:44:26+08:00">
-                2019-10-11
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-12T13:30:51+08:00">
+                2019-10-12
               </time>
             
           </span>
@@ -544,7 +543,7 @@ $(function() {
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  784
+                  1.3k
                 </span>
               
 
@@ -560,7 +559,7 @@ $(function() {
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -582,13 +581,14 @@ $(function() {
 
       
         <blockquote>
-<p>论文下载地址</p>
-<h1 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h1><p>之前的方法忽略了两点:</p>
-<ul>
-<li>heterogeneity（异质性）：一些关系链接了很多实体对，另一些没有</li>
-<li>imbalance（不平衡）： 在一种关系中，头实体和尾实体的数量不同<br>(img)</li>
-</ul>
+<p>为解决heterogeneity和imbalance问题，作者针对同一关系链接实体对的数量和同一关系不同头尾实体数量，分别设计了不同稀疏程度的转移矩阵。存在缺点：并没有同时解决这两个问题。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//www.aaai.org/ocs/index.php/AAAI/AAAI16/paper/download/11982/11693" target="_blank" rel="noopener">论文下载地址</a></p>
 </blockquote>
+<a id="more"></a>
+<h1 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h1><ul>
+<li>heterogeneity（异质性）：一些关系链接了很多实体对，另一些没有</li>
+<li>imbalance（不平衡）： 在一种关系中，头实体和尾实体的数量不同</li>
+</ul>
 <h1 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h1><ol>
 <li>作者提出了一种新颖的方法，该方法考虑了先前模型中未使用的异质性和不平衡性，以嵌入知识图来完成它们； </li>
 <li>作者的方法高效且参数较少，因此很容易扩展到大规模知识图；</li>
@@ -605,26 +605,31 @@ $(function() {
 <li>结构化模式有利于矩阵向量乘积运算。</li>
 <li>非结构化往往可以带来更好的实验结果：由于更加灵活地远范围线性组合。</li>
 </ul>
-<h1 id="Sparse-Matrix-vs-Low-Rank-Matrix"><a href="#Sparse-Matrix-vs-Low-Rank-Matrix" class="headerlink" title="Sparse Matrix vs Low-Rank Matrix"></a>Sparse Matrix vs Low-Rank Matrix</h1><ul>
-<li>稀疏矩阵比低秩矩阵更灵活，可以有更大的自由度</li>
-<li>稀疏矩阵比低秩矩阵更有效率：只有非零条目参与计算</li>
+<h1 id="Sparse-Matrix-vs-Low-Rank-Matrix"><a href="#Sparse-Matrix-vs-Low-Rank-Matrix" class="headerlink" title="Sparse Matrix vs Low-Rank Matrix"></a>Sparse Matrix vs Low-Rank Matrix</h1><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>low-rank矩阵强制一些变量要满足特定的约束，因此，矩阵<strong>M</strong>无法自由地进行赋值。</li>
+<li>sparse矩阵是作者令其中的部分元素值为0，并且在训练过程中不改变它的值，其他的非零值进行训练。</li>
+</ul>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
+<li>稀疏矩阵比低秩矩阵更灵活，可以有更大的自由度：使用低秩矩阵，那么矩阵的自由度会受到严格的秩限制。然而，sparse matrix的稀疏性只是控制矩阵元素中零元素的个数。</li>
+<li>稀疏矩阵比低秩矩阵更有效率：只有非零条目参与计算，极大地减少了计算量</li>
 </ul>
 <h1 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h1><h2 id="TranSpare-share"><a href="#TranSpare-share" class="headerlink" title="TranSpare(share)"></a>TranSpare(share)</h2><ul>
 <li>解决heterogeneity问题</li>
 </ul>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ul>
 <li>转移矩阵的稀疏度由关系链接的实体对的数量确定</li>
 <li>并且关系的两侧共享相同的转移矩阵</li>
 <li>对于复杂关系的转移矩阵更加稀疏</li>
 </ul>
-<h3 id="转移矩阵的稀疏程度"><a href="#转移矩阵的稀疏程度" class="headerlink" title="转移矩阵的稀疏程度"></a>转移矩阵的稀疏程度</h3><p><img src="http://image.nysdy.com/20191011157077593566013.jpg" alt="20191011157077593566013.jpg"></p>
-<p>其中，$N_r$代表链接关系$r$的实体对的数量，$r^<em>$代表链接最多实体对的关系，$\theta_{\min }\left(0 \leq \theta_{\min } \leq 1\right)$是一个超参数，代表矩阵$M_{r^{</em>}}$的最小系数程度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不知道为什么复杂转移矩阵会更加稀疏？</span><br></pre></td></tr></table></figure>
+<h3 id="转移矩阵的稀疏程度"><a href="#转移矩阵的稀疏程度" class="headerlink" title="转移矩阵的稀疏程度"></a>转移矩阵的稀疏程度</h3><script type="math/tex; mode=display">
+\theta_{r}=1-\left(1-\theta_{\min }\right) N_{r} / N_{r^{*}}</script><p>其中，$N_r$代表链接关系$r$的实体对的数量，$r^<em>$代表链接最多实体对的关系，$\theta_{\min }\left(0 \leq \theta_{\min } \leq 1\right)$是一个超参数，代表矩阵$M_{r^{</em>}}$的最小系数程度。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不理解这里为什么把稀疏程度定义成这么麻烦，为什不直接定义成$\theta_&#123;\min&#125; N_&#123;r&#125; / N_&#123;r^&#123;*&#125;&#125;$</span><br></pre></td></tr></table></figure>
 <h3 id="映射向量"><a href="#映射向量" class="headerlink" title="映射向量"></a>映射向量</h3><script type="math/tex; mode=display">
 \mathbf{h}_{p}=\mathbf{M}_{r}\left(\theta_{r}\right) \mathbf{h}, \quad \mathbf{t}_{p}=\mathbf{M}_{r}\left(\theta_{r}\right) \mathbf{t}</script><h2 id="TranSpare-separate"><a href="#TranSpare-separate" class="headerlink" title="TranSpare(separate)"></a>TranSpare(separate)</h2><ul>
 <li>解决imbalance问题</li>
 </ul>
-<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ul>
+<h3 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h3><ul>
 <li>每个关系具有两个单独的稀疏传递矩阵，一个用于头实体，另一个用于尾实体</li>
 <li>稀疏度取决于通过关系链接的头（尾）实体的数量</li>
 </ul>
@@ -635,7 +640,14 @@ $(function() {
 <script type="math/tex; mode=display">
 f_{r}(\mathbf{h}, \mathbf{t})=\left\|\mathbf{h}_{p}+\mathbf{r}-\mathbf{t}_{p}\right\|_{\ell_{1 / 2}}^{2}</script><h2 id="总loss"><a href="#总loss" class="headerlink" title="总loss"></a>总loss</h2><p>采用margin-based ranking loss</p>
 <script type="math/tex; mode=display">
-$L=\sum_{(h, r, t) \in \Delta\left(h^{\prime}, r, t\right) \in \Delta^{\prime}}\left[\gamma+f_{r}(\mathbf{h}, \mathbf{t})-f_{r}\left(\mathbf{h}^{\prime}, \mathbf{t}^{\prime}\right)\right]_{+}$</script><h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>与常规不同的就是加了一个实验<img src="http://image.nysdy.com/20191011157077982280661.png" alt="20191011157077982280661.png"></p>
+$L=\sum_{(h, r, t) \in \Delta\left(h^{\prime}, r, t\right) \in \Delta^{\prime}}\left[\gamma+f_{r}(\mathbf{h}, \mathbf{t})-f_{r}\left(\mathbf{h}^{\prime}, \mathbf{t}^{\prime}\right)\right]_{+}$</script><h2 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h2><p>为了加速训练时收敛以及防止过拟合，作者使用TransE算法的结果进行初始化实体和关系的embedding向量，对于转化矩阵，作者使用单位矩阵进行初始化。但是这不是非必须的</p>
+<p>对于转化矩阵(假设为单位矩阵)，非零向量的个数$n z=\lfloor\theta \times n \times n\rfloor$，由于作者使用单位向量初始化，所以除了对角线上的非零元素之外，其他非零元素的个数为$n z^{\prime}=n z-n$，如果$n z \leq n$，那么作者设置$n z^{\prime}=0$。</p>
+<ul>
+<li>在构建结构化的转化矩阵$\mathbf{M}(\theta)$的时候，作者要让$n z^{\prime}$非零元素对称分布在对角线的两边，如果$n z^{\prime}$不能满足要求，那么作者选择另外一个整数。</li>
+<li>在构建非结构化的转化矩阵$\mathbf{M}(\theta)$的时候，作者只随机散布$\mathbf{M}(\theta)$中的$n z^{\prime}$非零元素（但不在对角线上）。</li>
+</ul>
+<p>在训练前，作者首先设置超参数$\theta_{\min }$，然后计算每个转化矩阵的稀疏程度，然后，作者使用结构化或非结构化模式构建稀疏转化矩阵。</p>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>与常规不同的就是加了一个实验<img src="http://image.nysdy.com/20191011157077982280661.png" alt="20191011157077982280661.png"></p>
 
       
     </div>
@@ -655,7 +667,7 @@ $L=\sum_{(h, r, t) \in \Delta\left(h^{\prime}, r, t\right) \in \Delta^{\prime}}\
   <p><span>本文标题:</span><a href="/post/2016_Knowledge_Graph_Completion_with_Adaptive_Sparse_Transfer_Matrix/">2016 Knowledge Graph Completion with Adaptive Sparse Transfer Matrix阅读笔记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 NYSDY 的个人博客">NYSDY</a></p>
   <p><span>发布时间:</span>2019年09月10日 - 09:16</p>
-  <p><span>最后更新:</span>2019年10月11日 - 15:44</p>
+  <p><span>最后更新:</span>2019年10月12日 - 13:30</p>
   <p><span>原始链接:</span><a href="/post/2016_Knowledge_Graph_Completion_with_Adaptive_Sparse_Transfer_Matrix/" title="2016 Knowledge Graph Completion with Adaptive Sparse Transfer Matrix阅读笔记">http://nysdy.com/post/2016_Knowledge_Graph_Completion_with_Adaptive_Sparse_Transfer_Matrix/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://nysdy.com/post/2016_Knowledge_Graph_Completion_with_Adaptive_Sparse_Transfer_Matrix/" aria-label="复制成功！"></i></span>
   </p>
@@ -698,11 +710,11 @@ $L=\sum_{(h, r, t) \in \Delta\left(h^{\prime}, r, t\right) \in \Delta^{\prime}}\
       
         <div class="post-tags">
           
+            <a href="/tags/KGE/" rel="tag"><i class="fa fa-envira"></i> KGE</a>
+          
             <a href="/tags/2016/" rel="tag"><i class="fa fa-envira"></i> 2016</a>
           
             <a href="/tags/AAAI/" rel="tag"><i class="fa fa-envira"></i> AAAI</a>
-          
-            <a href="/tags/KGE/" rel="tag"><i class="fa fa-envira"></i> KGE</a>
           
         </div>
       
@@ -724,6 +736,10 @@ $L=\sum_{(h, r, t) \in \Delta\left(h^{\prime}, r, t\right) \in \Delta^{\prime}}\
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/TransG_:_A_Generative_Model_for_Knowledge_Graph_Embedding/" rel="prev" title="2016 TransG : A Generative Model for Knowledge Graph Embedding阅读笔记">
+                2016 TransG : A Generative Model for Knowledge Graph Embedding阅读笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -800,7 +816,7 @@ $L=\sum_{(h, r, t) \in \Delta\left(h^{\prime}, r, t\right) \in \Delta^{\prime}}\
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -822,7 +838,7 @@ $L=\sum_{(h, r, t) \in \Delta\left(h^{\prime}, r, t\right) \in \Delta^{\prime}}\
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-count">67</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -902,7 +918,7 @@ $L=\sum_{(h, r, t) \in \Delta\left(h^{\prime}, r, t\right) \in \Delta^{\prime}}\
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Statement"><span class="nav-number">1.</span> <span class="nav-text">Problem Statement</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Contribution"><span class="nav-number">2.</span> <span class="nav-text">Contribution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sparse-Matrix"><span class="nav-number">3.</span> <span class="nav-text">Sparse Matrix</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">3.0.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类别"><span class="nav-number">3.0.2.</span> <span class="nav-text">类别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两者重要区别"><span class="nav-number">3.0.3.</span> <span class="nav-text">两者重要区别</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Sparse-Matrix-vs-Low-Rank-Matrix"><span class="nav-number">4.</span> <span class="nav-text">Sparse Matrix vs Low-Rank Matrix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model"><span class="nav-number">5.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TranSpare-share"><span class="nav-number">5.1.</span> <span class="nav-text">TranSpare(share)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">5.1.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转移矩阵的稀疏程度"><span class="nav-number">5.1.2.</span> <span class="nav-text">转移矩阵的稀疏程度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#映射向量"><span class="nav-number">5.1.3.</span> <span class="nav-text">映射向量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TranSpare-separate"><span class="nav-number">5.2.</span> <span class="nav-text">TranSpare(separate)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点-1"><span class="nav-number">5.2.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转移矩阵的稀疏程度-1"><span class="nav-number">5.2.2.</span> <span class="nav-text">转移矩阵的稀疏程度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#映射向量-1"><span class="nav-number">5.2.3.</span> <span class="nav-text">映射向量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分数函数"><span class="nav-number">5.3.</span> <span class="nav-text">分数函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总loss"><span class="nav-number">5.4.</span> <span class="nav-text">总loss</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实验"><span class="nav-number">6.</span> <span class="nav-text">实验</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Statement"><span class="nav-number">1.</span> <span class="nav-text">Problem Statement</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Contribution"><span class="nav-number">2.</span> <span class="nav-text">Contribution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sparse-Matrix"><span class="nav-number">3.</span> <span class="nav-text">Sparse Matrix</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">3.0.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类别"><span class="nav-number">3.0.2.</span> <span class="nav-text">类别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两者重要区别"><span class="nav-number">3.0.3.</span> <span class="nav-text">两者重要区别</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Sparse-Matrix-vs-Low-Rank-Matrix"><span class="nav-number">4.</span> <span class="nav-text">Sparse Matrix vs Low-Rank Matrix</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">4.0.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对比"><span class="nav-number">4.0.2.</span> <span class="nav-text">对比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model"><span class="nav-number">5.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TranSpare-share"><span class="nav-number">5.1.</span> <span class="nav-text">TranSpare(share)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点-1"><span class="nav-number">5.1.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转移矩阵的稀疏程度"><span class="nav-number">5.1.2.</span> <span class="nav-text">转移矩阵的稀疏程度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#映射向量"><span class="nav-number">5.1.3.</span> <span class="nav-text">映射向量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TranSpare-separate"><span class="nav-number">5.2.</span> <span class="nav-text">TranSpare(separate)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点-2"><span class="nav-number">5.2.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转移矩阵的稀疏程度-1"><span class="nav-number">5.2.2.</span> <span class="nav-text">转移矩阵的稀疏程度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#映射向量-1"><span class="nav-number">5.2.3.</span> <span class="nav-text">映射向量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分数函数"><span class="nav-number">5.3.</span> <span class="nav-text">分数函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总loss"><span class="nav-number">5.4.</span> <span class="nav-text">总loss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练过程"><span class="nav-number">5.5.</span> <span class="nav-text">训练过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实验"><span class="nav-number">6.</span> <span class="nav-text">实验</span></a></li></div>
             
 
           </div>
@@ -963,7 +979,7 @@ $L=\sum_{(h, r, t) \in \Delta\left(h^{\prime}, r, t\right) \in \Delta^{\prime}}\
 <div class="theme-info">
   <div class="powered-by">
   <i class="fas fa-pencil-alt"></i>
-  <span class="post-count">博客全站共41.3k字</span>
+  <span class="post-count">博客全站共41.9k字</span>
   </div>
 </div>
 
