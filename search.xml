@@ -8,9 +8,9 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
+        <tag>KGE</tag>
         <tag>2016</tag>
         <tag>ACL</tag>
-        <tag>KGE</tag>
       </tags>
   </entry>
   <entry>
@@ -21,8 +21,8 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>2016</tag>
         <tag>KGE</tag>
+        <tag>2016</tag>
         <tag>AAAI</tag>
       </tags>
   </entry>
@@ -35,8 +35,8 @@
         <category>KG</category>
       </categories>
       <tags>
-        <tag>KGE</tag>
         <tag>TransA</tag>
+        <tag>KGE</tag>
         <tag>2015</tag>
         <tag>arxiv</tag>
       </tags>
@@ -354,8 +354,8 @@
       </categories>
       <tags>
         <tag>知识图谱</tag>
-        <tag>知识图谱推理</tag>
         <tag>知识图谱嵌入</tag>
+        <tag>知识图谱推理</tag>
       </tags>
   </entry>
   <entry>
