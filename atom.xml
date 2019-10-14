@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2019-10-12T05:28:15.554Z</updated>
+  <updated>2019-10-14T07:36:19.912Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://nysdy.com/post/TransG_:_A_Generative_Model_for_Knowledge_Graph_Embedding/"/>
     <id>http://nysdy.com/post/TransG_:_A_Generative_Model_for_Knowledge_Graph_Embedding/</id>
     <published>2019-10-12T02:03:44.000Z</published>
-    <updated>2019-10-12T05:28:15.554Z</updated>
+    <updated>2019-10-14T07:36:19.912Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p><a href="https://www.aclweb.org/anthology/P16-1219.pdf" target="_blank" rel="noopener">论文下载地址</a></p></blockquote><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<blockquote><p><a href="https://www.aclweb.org/anthology/P16-1219.pdf" target="_blank" rel="noopener">论文下载地址</a></p></blockquote><a id="more"></a><h1 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h1><p>multiple relation semantics（多重关系语义）：一个关系可能具有与对应的三元组关联的实体对揭示的多种含义</p>]]></content>
     
     <summary type="html">
     
