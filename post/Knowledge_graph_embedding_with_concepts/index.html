@@ -452,6 +452,12 @@
 <p><a href="https://www.sciencedirect.com/science/article/pii/S0950705118304945/pdfft?md5=b9bad12f2bc771990ad0feaefa7402d4&amp;pid=1-s2.0-S0950705118304945-main.pdf" target="_blank" rel="noopener">论文下载地址</a></p>
 </blockquote>
 <a id="more"></a>
+<pre class=" language-lang-python"><code class="language-lang-python">import csv
+with open('stocks.csv') as f:
+    f_csv = csv.DictReader(f)
+    for row in f_csv:
+        # process row
+</code></pre>
 <h1 id="problem-statement"><a href="#problem-statement" class="headerlink" title="problem statement"></a>problem statement</h1><ul>
 <li>已经存在的KGE模型主要集中于实体-关系-实体三元组或者文本语料交互。<ul>
 <li>三元组是缺少信息的，并且域内文本不总是可以获得的——导致嵌入结果偏离实际</li>
@@ -892,6 +898,13 @@ Problem StatementExisting KG embedding models merely focus on representing of an
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
