@@ -34,11 +34,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="ACL" scheme="http://nysdy.com/tags/ACL/"/>
-    
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
   </entry>
   
@@ -61,9 +61,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
-    
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
     
@@ -90,9 +90,9 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="2015" scheme="http://nysdy.com/tags/2015/"/>
     
@@ -195,7 +195,7 @@
     <link href="http://nysdy.com/post/Knowledge_graph_embedding_with_concepts/"/>
     <id>http://nysdy.com/post/Knowledge_graph_embedding_with_concepts/</id>
     <published>2019-07-25T05:19:44.000Z</published>
-    <updated>2020-03-25T12:37:15.776Z</updated>
+    <updated>2020-03-25T14:12:06.667Z</updated>
     
     <summary type="html">
     
@@ -270,9 +270,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="RE" scheme="http://nysdy.com/tags/RE/"/>
-    
       <category term="dataset" scheme="http://nysdy.com/tags/dataset/"/>
+    
+      <category term="RE" scheme="http://nysdy.com/tags/RE/"/>
     
   </entry>
   
