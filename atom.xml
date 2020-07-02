@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2019-10-25T07:43:08.240Z</updated>
+  <updated>2020-07-02T11:21:43.714Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Diachronic Embedding for Temporal Knowledge Graph Completion</title>
+    <link href="http://nysdy.com/post/null/"/>
+    <id>http://nysdy.com/post/null/</id>
+    <published>2020-07-02T11:09:49.000Z</published>
+    <updated>2020-07-02T11:21:43.714Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://arxiv.org/pdf/1907.03143.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
+    
+      <category term="temporal KG" scheme="http://nysdy.com/tags/temporal-KG/"/>
+    
+      <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>更新博客主题</title>
+    <link href="http://nysdy.com/post/Update-blog-theme/"/>
+    <id>http://nysdy.com/post/Update-blog-theme/</id>
+    <published>2020-03-26T06:54:40.000Z</published>
+    <updated>2020-03-26T06:58:11.398Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;正好赶上最近有空，修改升级一下自己的博客，之前用的是&lt;code&gt;next&lt;/code&gt;主题，偶然间发现了&lt;code&gt;matery&lt;/code&gt;主题，感觉更加漂亮一些，就决定更换一下，顺便记录自己的一些更换操作。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="博客" scheme="http://nysdy.com/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="hexo" scheme="http://nysdy.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>2016 TransG : A Generative Model for Knowledge Graph Embedding阅读笔记</title>
@@ -367,11 +415,11 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
+      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
+    
       <category term="KGR" scheme="http://nysdy.com/tags/KGR/"/>
     
       <category term="BERT" scheme="http://nysdy.com/tags/BERT/"/>
-    
-      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
     
   </entry>
   
@@ -493,56 +541,6 @@
       <category term="translation" scheme="http://nysdy.com/tags/translation/"/>
     
       <category term="classical" scheme="http://nysdy.com/tags/classical/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Graph Neural Networks with Generated Parameters for Relation Extraction阅读笔记</title>
-    <link href="http://nysdy.com/post/Graph_Neural_Networks_with_Generated_Parameters_for_Relation/"/>
-    <id>http://nysdy.com/post/Graph_Neural_Networks_with_Generated_Parameters_for_Relation/</id>
-    <published>2019-05-23T02:41:51.000Z</published>
-    <updated>2019-05-23T09:24:39.487Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文将GNNs应用到处理非结构化文本的（多跳）关系推理任务来进行关系抽取。采用从句子序列中获取的实体构建全链接图，应用编码（sequence model），传播（节点间信息）和分类（预测）三个模块来处理关系推理。本文提供了三个数据集。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="GNNs" scheme="http://nysdy.com/tags/GNNs/"/>
-    
-      <category term="relation extraction" scheme="http://nysdy.com/tags/relation-extraction/"/>
-    
-      <category term="relation reasoning" scheme="http://nysdy.com/tags/relation-reasoning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>allennlp安装踩坑</title>
-    <link href="http://nysdy.com/post/allennlp_install/"/>
-    <id>http://nysdy.com/post/allennlp_install/</id>
-    <published>2019-05-22T14:09:27.000Z</published>
-    <updated>2019-05-22T14:11:19.740Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;安装allennlp的踩坑之路，踩了不少坑最后选择’Installing from source’的安装方法，排坑后下面方法亲测可用&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="install" scheme="http://nysdy.com/categories/install/"/>
-    
-    
-      <category term="allennlp" scheme="http://nysdy.com/tags/allennlp/"/>
-    
-      <category term="包安装" scheme="http://nysdy.com/tags/%E5%8C%85%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
