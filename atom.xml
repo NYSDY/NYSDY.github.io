@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-07-02T11:21:43.714Z</updated>
+  <updated>2020-08-21T08:01:47.190Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ubantu系统安装pytorch GPU版本</title>
+    <link href="http://nysdy.com/post/null/"/>
+    <id>http://nysdy.com/post/null/</id>
+    <published>2020-08-21T07:50:16.000Z</published>
+    <updated>2020-08-21T08:01:47.190Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0-准备工作&quot;&gt;&lt;a href=&quot;#0-准备工作&quot; class=&quot;headerlink&quot; title=&quot;0 准备工作&quot;&gt;&lt;/a&gt;&lt;strong&gt;0
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Diachronic Embedding for Temporal Knowledge Graph Completion</title>
@@ -34,11 +56,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
     
       <category term="temporal KG" scheme="http://nysdy.com/tags/temporal-KG/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
     
@@ -138,9 +160,9 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
-    
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
     
       <category term="2015" scheme="http://nysdy.com/tags/2015/"/>
     
@@ -478,11 +500,11 @@
     
       <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
     
-      <category term="transH" scheme="http://nysdy.com/tags/transH/"/>
-    
       <category term="margin loss" scheme="http://nysdy.com/tags/margin-loss/"/>
     
       <category term="transE" scheme="http://nysdy.com/tags/transE/"/>
+    
+      <category term="transH" scheme="http://nysdy.com/tags/transH/"/>
     
   </entry>
   
@@ -510,37 +532,6 @@
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="transH" scheme="http://nysdy.com/tags/transH/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Attention Is All You Need阅读笔记</title>
-    <link href="http://nysdy.com/post/Attention%20Is%20All%20You%20Need/"/>
-    <id>http://nysdy.com/post/Attention Is All You Need/</id>
-    <published>2019-05-25T05:57:35.000Z</published>
-    <updated>2019-05-28T07:58:49.154Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;transformer 是一个完全由注意力机制组成的搭建的模型，模型复杂度低，并可以进行并行计算，使得计算速度快。在翻译模型上取得了较好的效果。本篇论文属于经典必读论文，阅读笔记中对一些不清楚的地方进行了汉语解释，读完论文后阅读参考链接以加深理解。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://arxiv.org/pdf/1706.03762&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="classical" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/classical/"/>
-    
-    
-      <category term="attention" scheme="http://nysdy.com/tags/attention/"/>
-    
-      <category term="transformer" scheme="http://nysdy.com/tags/transformer/"/>
-    
-      <category term="translation" scheme="http://nysdy.com/tags/translation/"/>
-    
-      <category term="classical" scheme="http://nysdy.com/tags/classical/"/>
     
   </entry>
   
