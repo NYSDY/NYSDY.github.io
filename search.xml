@@ -20,9 +20,9 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
+        <tag>KGE</tag>
         <tag>KG</tag>
         <tag>temporal KG</tag>
-        <tag>KGE</tag>
         <tag>2019</tag>
       </tags>
   </entry>
@@ -45,8 +45,8 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>KGE</tag>
         <tag>2016</tag>
+        <tag>KGE</tag>
         <tag>ACL</tag>
       </tags>
   </entry>
@@ -58,9 +58,9 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>KGE</tag>
         <tag>2016</tag>
         <tag>AAAI</tag>
+        <tag>KGE</tag>
       </tags>
   </entry>
   <entry>
@@ -199,9 +199,9 @@
         <category>KG</category>
       </categories>
       <tags>
-        <tag>KG</tag>
         <tag>KGR</tag>
         <tag>BERT</tag>
+        <tag>KG</tag>
       </tags>
   </entry>
   <entry>
@@ -227,9 +227,9 @@
       </categories>
       <tags>
         <tag>KG</tag>
+        <tag>transH</tag>
         <tag>margin loss</tag>
         <tag>transE</tag>
-        <tag>transH</tag>
       </tags>
   </entry>
   <entry>
@@ -451,8 +451,8 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>知识图谱</tag>
         <tag>NER</tag>
+        <tag>知识图谱</tag>
       </tags>
   </entry>
   <entry>
@@ -522,8 +522,8 @@
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>python</tag>
+        <tag>pandas</tag>
         <tag>数据分析</tag>
       </tags>
   </entry>
@@ -535,8 +535,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>爬虫</tag>
+        <tag>python</tag>
         <tag>scrapy</tag>
       </tags>
   </entry>
@@ -548,8 +548,8 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>爬虫</tag>
+        <tag>python</tag>
         <tag>splash</tag>
         <tag>docker</tag>
       </tags>
