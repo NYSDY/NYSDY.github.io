@@ -448,29 +448,29 @@ Installing from source安装步骤：
 </blockquote>
 <a id="more"></a>
 <h2 id="Installing-from-source"><a href="#Installing-from-source" class="headerlink" title="Installing from source"></a>Installing from source</h2><p>安装步骤：</p>
-<h3 id="1-下载GitHub文件"><a href="#1-下载GitHub文件" class="headerlink" title="1.下载GitHub文件"></a>1.下载GitHub文件</h3><pre class=" language-lang-shell"><code class="language-lang-shell">git clone https://github.com/allenai/allennlp.git
+<h3 id="1-下载GitHub文件"><a href="#1-下载GitHub文件" class="headerlink" title="1.下载GitHub文件"></a>1.下载GitHub文件</h3><pre class=" language-shell"><code class="language-shell">git clone https://github.com/allenai/allennlp.git
 </code></pre>
-<h3 id="2-创建conda环境"><a href="#2-创建conda环境" class="headerlink" title="2.创建conda环境"></a>2.创建conda环境</h3><pre class=" language-lang-shell"><code class="language-lang-shell">conda create -n allennlp python=3.6
+<h3 id="2-创建conda环境"><a href="#2-创建conda环境" class="headerlink" title="2.创建conda环境"></a>2.创建conda环境</h3><pre class=" language-shell"><code class="language-shell">conda create -n allennlp python=3.6
 </code></pre>
 <h3 id="3-激活环境下载依赖文件"><a href="#3-激活环境下载依赖文件" class="headerlink" title="3.激活环境下载依赖文件"></a>3.激活环境下载依赖文件</h3><ul>
 <li><p>激活环境</p>
-<pre class=" language-lang-shell"><code class="language-lang-shell">source activate allennlp
+<pre class=" language-shell"><code class="language-shell">source activate allennlp
 </code></pre>
 </li>
 <li><p>进入github上下载的文件夹</p>
 </li>
 <li><p>下载依赖文件</p>
-<pre class=" language-lang-shell"><code class="language-lang-shell">pip install -r requirements.txt
+<pre class=" language-shell"><code class="language-shell">pip install -r requirements.txt
 </code></pre>
 <p>遇到报错问题，参考下一小节，所欲问题解决。</p>
 </li>
 </ul>
-<h3 id="4-安装allennlp"><a href="#4-安装allennlp" class="headerlink" title="4.安装allennlp"></a>4.安装allennlp</h3><pre class=" language-lang-shell"><code class="language-lang-shell">pip install --editable .
+<h3 id="4-安装allennlp"><a href="#4-安装allennlp" class="headerlink" title="4.安装allennlp"></a>4.安装allennlp</h3><pre class=" language-shell"><code class="language-shell">pip install --editable .
 </code></pre>
-<h3 id="5-测试"><a href="#5-测试" class="headerlink" title="5.测试"></a>5.测试</h3><pre class=" language-lang-shell"><code class="language-lang-shell">allennlp
+<h3 id="5-测试"><a href="#5-测试" class="headerlink" title="5.测试"></a>5.测试</h3><pre class=" language-shell"><code class="language-shell">allennlp
 </code></pre>
 <p>成功后效果如下：</p>
-<pre class=" language-lang-shell"><code class="language-lang-shell">$ allennlp
+<pre class=" language-shell"><code class="language-shell">$ allennlp
 2019-05-22 21:58:42,297 - INFO - pytorch_pretrained_bert.modeling - Better speed can be achieved with apex installed from https://www.github.com/nvidia/apex .
 usage: allennlp
 
@@ -500,16 +500,16 @@ Commands:
 </code></pre>
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><h4 id="报错信息："><a href="#报错信息：" class="headerlink" title="报错信息："></a>报错信息：</h4><p>ERROR: Failed building wheel for jsonnet</p>
 <p><img src="http://image.nysdy.com/20190522155853293350470.jpg" alt="20190522155853293350470.jpg"></p>
-<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><pre class=" language-lang-shell"><code class="language-lang-shell">conda install -c conda-forge jsonnet
+<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><pre class=" language-shell"><code class="language-shell">conda install -c conda-forge jsonnet
 </code></pre>
 <h3 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h3><h4 id="报错信息：-1"><a href="#报错信息：-1" class="headerlink" title="报错信息："></a>报错信息：</h4><p>报的都是某些包的版本问题</p>
-<pre class=" language-lang-shell"><code class="language-lang-shell">ERROR: botocore 1.12.152 has requirement urllib3<1.25,>=1.20; python_version >= "3.4", but you'll have urllib3 1.25.2 which is incompatible.
+<pre class=" language-shell"><code class="language-shell">ERROR: botocore 1.12.152 has requirement urllib3<1.25,>=1.20; python_version >= "3.4", but you'll have urllib3 1.25.2 which is incompatible.
 ERROR: aws-sam-translator 1.11.0 has requirement jsonschema~=2.6, but you'll have jsonschema 3.0.1 which is incompatible.
 ERROR: cfn-lint 0.20.3 has requirement jsonschema~=2.6, but you'll have jsonschema 3.0.1 which is incompatible.
 ERROR: cfn-lint 0.20.3 has requirement requests<=2.21.0,>=2.15.0, but you'll have requests 2.22.0 which is incompatible
 </code></pre>
 <h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>根据报错信息下载相应安装包即可</p>
-<h2 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h2><h4 id="报错信息：-2"><a href="#报错信息：-2" class="headerlink" title="报错信息："></a>报错信息：</h4><pre class=" language-lang-shell"><code class="language-lang-shell">ImportError: dlopen: cannot load any more object with static TLS
+<h2 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h2><h4 id="报错信息：-2"><a href="#报错信息：-2" class="headerlink" title="报错信息："></a>报错信息：</h4><pre class=" language-shell"><code class="language-shell">ImportError: dlopen: cannot load any more object with static TLS
 ___________________________________________________________________________
 Contents of /home/minelab/anaconda3/envs/allennlp/lib/python3.6/site-packages/sklearn/__check_build:
 __init__.py               setup.py                  _check_build.cpython-36m-x86_64-linux-gnu.so
@@ -525,7 +525,7 @@ If you have used an installer, please check that it is suited for your
 Python version, your operating system and your platform.
 </code></pre>
 <h4 id="解决方法：-1"><a href="#解决方法：-1" class="headerlink" title="解决方法："></a>解决方法：</h4><p>下载更低版本的scikit-learn,例如</p>
-<pre class=" language-lang-shell"><code class="language-lang-shell">pip install scikit-learn=0.20.3
+<pre class=" language-shell"><code class="language-shell">pip install scikit-learn=0.20.3
 </code></pre>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://github.com/pytorch/pytorch/issues/10443" target="_blank" rel="noopener">https://github.com/pytorch/pytorch/issues/10443</a></li>
@@ -926,13 +926,11 @@ Python version, your operating system and your platform.
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+        <span id="sitetime"></span>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">46.9k</span>
+                <span class="white-color">47.5k</span>
             
 
             
@@ -976,7 +974,41 @@ Python version, your operating system and your platform.
 </footer>
 
 <div class="progress-bar"></div>
-
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2017, 09, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
 
 <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">

@@ -6,8 +6,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="ubantu系统安装pytorch GPU版本, NYSDY">
     <meta name="description" content="0 准备工作用conda安装Pytorch过程中会连接失败，这是因为Anaconda.org的服务器在国外，需要切换到国内镜像源：
-conda config --add channels  
-conda config --add chann">
+conda config --add channels &amp;lt;https://mirrors.tuna.t">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -417,7 +416,7 @@ conda config --add chann">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        743
+                        797
                     </div>
                     
 
@@ -441,16 +440,16 @@ conda config --add chann">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="0-准备工作"><a href="#0-准备工作" class="headerlink" title="0 准备工作"></a><strong>0 准备工作</strong></h1><p>用conda安装Pytorch过程中会连接失败，这是因为Anaconda.org的服务器在国外，需要切换到国内镜像源：</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">conda config --add channels <https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/> 
-conda config --add channels <https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/> 
-conda config --add channels <https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/>
+<pre class=" language-bash"><code class="language-bash">conda config --add channels <span class="token operator">&lt;</span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/<span class="token operator">></span> 
+conda config --add channels <span class="token operator">&lt;</span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/<span class="token operator">></span> 
+conda config --add channels <span class="token operator">&lt;</span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/<span class="token operator">></span>
 </code></pre>
 <p>设置搜索时显示通道地址</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">conda config --set show_channel_urls yes
+<pre class=" language-bash"><code class="language-bash">conda config --set show_channel_urls <span class="token function">yes</span>
 </code></pre>
 <p>创建虚拟环境并激活之，在该环境下安装下面的包：</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">conda create -n pytorch_gpu python=3.6
-source activate pytorch_gpu
+<pre class=" language-bash"><code class="language-bash">conda create -n pytorch_gpu python<span class="token operator">=</span>3.6
+<span class="token function">source</span> activate pytorch_gpu
 </code></pre>
 <h1 id="1-安装显卡驱动"><a href="#1-安装显卡驱动" class="headerlink" title="1 安装显卡驱动"></a>1 安装显卡驱动</h1><h3 id="1-1-查看显卡硬件型号"><a href="#1-1-查看显卡硬件型号" class="headerlink" title="1.1. 查看显卡硬件型号"></a><strong>1.1. 查看显卡硬件型号</strong></h3><p>在终端输入：<code>ubuntu-drivers devices</code>，可以看到如下界面：</p>
 <p><img src="http://image.nysdy.com/20191205157552667542415.png" alt="20191205157552667542415.png"></p>
@@ -466,34 +465,34 @@ source activate pytorch_gpu
 <h1 id="2-安装CUDA"><a href="#2-安装CUDA" class="headerlink" title="2 安装CUDA"></a>2 安装CUDA</h1><h2 id="0-CUDA对应的NVIDIA驱动版本对照表"><a href="#0-CUDA对应的NVIDIA驱动版本对照表" class="headerlink" title="0 CUDA对应的NVIDIA驱动版本对照表"></a>0 CUDA对应的NVIDIA驱动版本对照表</h2><p>一般而言，不同版本的CUDA要求不同的NVIDIA驱动版本,同时显卡驱动版本要不低于CUDA的安装版本，具体的对照关系如下：<a href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html" target="_blank" rel="noopener">官网地址</a></p>
 <p><img src="http://image.nysdy.com/20200821155720.png" alt></p>
 <h2 id="1-安装CUDA"><a href="#1-安装CUDA" class="headerlink" title="1 安装CUDA"></a><strong>1 安装CUDA</strong></h2><p>按照上述对应表，找到要按照的CUDA版本，比如按照上图来说应该安装9.2版本</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">conda install cudatoolkit=9.2 -n pytorch_gpu -c <https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/linux-64/>
+<pre class=" language-bash"><code class="language-bash">conda <span class="token function">install</span> cudatoolkit<span class="token operator">=</span>9.2 -n pytorch_gpu -c <span class="token operator">&lt;</span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/linux-64/<span class="token operator">></span>
 </code></pre>
 <h2 id="2-安装cuDNN"><a href="#2-安装cuDNN" class="headerlink" title="2 安装cuDNN"></a><strong>2 安装cuDNN</strong></h2><p>所安装的cuDNN版本注意和CUDA对应，可以在<a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener">CUDA官网</a>找到版本对应关系：</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">conda install cudnn=7.6.5 -n pytorch_gpu -c <https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64/>
+<pre class=" language-bash"><code class="language-bash">conda <span class="token function">install</span> cudnn<span class="token operator">=</span>7.6.5 -n pytorch_gpu -c <span class="token operator">&lt;</span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64/<span class="token operator">></span>
 </code></pre>
 <h2 id="3-找到对应pytorch版本"><a href="#3-找到对应pytorch版本" class="headerlink" title="3 找到对应pytorch版本"></a>3 <strong>找到对应pytorch版本</strong></h2><p>先到官网找到在你的操作系统、包、CUDA版本、语言版本下对应的安装脚本，<a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener">官网地址</a>，直接根据你的实际情况选择Pytorch安装包版本，然后复制页面自动生成的脚本进行安装。</p>
 <p><img src="http://image.nysdy.com/20200821164952.png" alt></p>
 <p>运行：</p>
-<pre class=" language-lang-shell"><code class="language-lang-shell">conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
+<pre class=" language-shell"><code class="language-shell">conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
 </code></pre>
-<h2 id="3-测试"><a href="#3-测试" class="headerlink" title="# 3 测试"></a># <strong>3 测试</strong></h2><pre class=" language-lang-python"><code class="language-lang-python">import torch
-flag = torch.cuda.is_available()
-print(flag)
+<h2 id="3-测试"><a href="#3-测试" class="headerlink" title="# 3 测试"></a># <strong>3 测试</strong></h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> torch
+flag <span class="token operator">=</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span>
 
-ngpu= 1
-# Decide which device we want to run on
-device = torch.device("cuda:0" if (torch.cuda.is_available() and ngpu > 0) else "cpu")
-print(device)
-print(torch.cuda.get_device_name(0))
-print(torch.rand(3,3).cuda())
+ngpu<span class="token operator">=</span> <span class="token number">1</span>
+<span class="token comment" spellcheck="true"># Decide which device we want to run on</span>
+device <span class="token operator">=</span> torch<span class="token punctuation">.</span>device<span class="token punctuation">(</span><span class="token string">"cuda:0"</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">and</span> ngpu <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token string">"cpu"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>device<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>get_device_name<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>torch<span class="token punctuation">.</span>rand<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span>cuda<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p>结果：</p>
-<pre class=" language-lang-python"><code class="language-lang-python">True
-cuda:0
-GeForce GTX 1080
-tensor([[0.9530, 0.4746, 0.9819],
-        [0.7192, 0.9427, 0.6768],
-        [0.8594, 0.9490, 0.6551]], device='cuda:0')
+<pre class=" language-python"><code class="language-python"><span class="token boolean">True</span>
+cuda<span class="token punctuation">:</span><span class="token number">0</span>
+GeForce GTX <span class="token number">1080</span>
+tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0.9530</span><span class="token punctuation">,</span> <span class="token number">0.4746</span><span class="token punctuation">,</span> <span class="token number">0.9819</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">[</span><span class="token number">0.7192</span><span class="token punctuation">,</span> <span class="token number">0.9427</span><span class="token punctuation">,</span> <span class="token number">0.6768</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">[</span><span class="token number">0.8594</span><span class="token punctuation">,</span> <span class="token number">0.9490</span><span class="token punctuation">,</span> <span class="token number">0.6551</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> device<span class="token operator">=</span><span class="token string">'cuda:0'</span><span class="token punctuation">)</span>
 </code></pre>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
 <li><a href="https://blog.csdn.net/baidu_26646129/article/details/88380598" target="_blank" rel="noopener">Anaconda环境安装GPU版本Pytorchanaconda pytorch gpu</a></li>
@@ -699,8 +698,7 @@ tensor([[0.9530, 0.4746, 0.9819],
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">0 准备工作用conda安装Pytorch过程中会连接失败，这是因为Anaconda.org的服务器在国外，需要切换到国内镜像源：
-conda config --add channels  
-conda config --add chann</div>
+conda config --add channels &lt;https://mirrors.tuna.t</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-21
@@ -900,13 +898,11 @@ what problem it solves?提出了一个Diachroni</div>
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+        <span id="sitetime"></span>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">46.9k</span>
+                <span class="white-color">47.5k</span>
             
 
             
@@ -950,7 +946,41 @@ what problem it solves?提出了一个Diachroni</div>
 </footer>
 
 <div class="progress-bar"></div>
-
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2017, 09, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
 
 <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
