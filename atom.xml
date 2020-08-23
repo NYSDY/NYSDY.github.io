@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-08-21T08:50:07.444Z</updated>
+  <updated>2020-08-23T07:58:44.247Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Modeling Relational Data with Graph Convolutional Networks 阅读笔记</title>
+    <link href="http://nysdy.com/post/Modeling%20Relational%20Data%20with%20Graph%20Convolutional%20Networks%20%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    <id>http://nysdy.com/post/Modeling Relational Data with Graph Convolutional Networks 阅读笔记/</id>
+    <published>2020-08-22T13:53:24.000Z</published>
+    <updated>2020-08-23T07:58:44.247Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-总览&quot;&gt;&lt;a href=&quot;#1-总览&quot; class=&quot;headerlink&quot; title=&quot;1. 总览&quot;&gt;&lt;/a&gt;1. 总览&lt;/h1&gt;&lt;h2 id=&quot;要解决什么问题？（what？）&quot;&gt;&lt;a href=&quot;#要解决什么问题？（what？）&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="ESWC" scheme="http://nysdy.com/tags/ESWC/"/>
+    
+      <category term="2018" scheme="http://nysdy.com/tags/2018/"/>
+    
+      <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
+    
+      <category term="Link Prediction" scheme="http://nysdy.com/tags/Link-Prediction/"/>
+    
+      <category term="Entity Classification" scheme="http://nysdy.com/tags/Entity-Classification/"/>
+    
+  </entry>
   
   <entry>
     <title>ubantu系统安装pytorch GPU版本</title>
@@ -131,11 +165,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="ACL" scheme="http://nysdy.com/tags/ACL/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
   </entry>
   
@@ -158,9 +192,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
     
@@ -187,9 +221,9 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
-    
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
     
       <category term="2015" scheme="http://nysdy.com/tags/2015/"/>
     
@@ -464,11 +498,11 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
-    
       <category term="KGR" scheme="http://nysdy.com/tags/KGR/"/>
     
       <category term="BERT" scheme="http://nysdy.com/tags/BERT/"/>
+    
+      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
     
   </entry>
   
@@ -525,40 +559,13 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
-    
       <category term="transH" scheme="http://nysdy.com/tags/transH/"/>
+    
+      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
     
       <category term="margin loss" scheme="http://nysdy.com/tags/margin-loss/"/>
     
       <category term="transE" scheme="http://nysdy.com/tags/transE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Knowledge Graph Embedding by Translating on Hyperplanes阅读笔记</title>
-    <link href="http://nysdy.com/post/Knowledge%20Graph%20Embedding%20by%20Translating%20on%20Hyperplanes/"/>
-    <id>http://nysdy.com/post/Knowledge Graph Embedding by Translating on Hyperplanes/</id>
-    <published>2019-05-28T08:17:44.000Z</published>
-    <updated>2019-06-01T05:38:20.042Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;作为trans系列经典文献，必读。文章主要精华在于这种超平面想法的由来解决了同一实体的多关系问题。&lt;/p&gt;
-&lt;p&gt;Authors proposed TransH which models a relation as a hyperplane together with a translation operation on it. It solves the problem of multi-relation and makes a good trade-off between model capacity and efficiency.&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
-    
-    
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
-      <category term="transH" scheme="http://nysdy.com/tags/transH/"/>
     
   </entry>
   

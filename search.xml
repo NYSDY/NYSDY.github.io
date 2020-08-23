@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Modeling Relational Data with Graph Convolutional Networks 阅读笔记]]></title>
+    <url>%2Fpost%2FModeling%20Relational%20Data%20with%20Graph%20Convolutional%20Networks%20%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[1. 总览要解决什么问题？（what？）链接预测和实体分类 为什么要解决这个问题？（why？）因为虽然知识图谱用途很多，而现有的知识图谱都存在不完整的问题。 用什么方法解决？（how？） 用图卷积网络和因式分解相结合来解决链接预测问题； 用图卷积网络单独解决实体分类问题。 文章有什么创新？ 首次把GCN引入关系数据建模； 提出了一种参数共享和增强稀疏限制的方法——权重矩阵的基本分解和块分解 用GCN与因式分解组成auto-encoder的方法，可以提高因式分解模型在链接预测上的效果。 效果如何？在FB15k-237上高出baseline 29.8% 还存在什么问题？2 模型R-GCN 2.1 Relational graph convolutional networks作者基于消息传递框架： h_{i}^{(l+1)}=\sigma\left(\sum_{m \in \mathcal{M}_{i}} g_{m}\left(h_{i}^{(l)}, h_{j}^{(l)}\right)\right) 其中$h_{i}^{(l)} \in \mathbb{R}^{d^{(l)}}$是节点$v_i$在第$l$层神经网络的隐藏状态；$d^{(l)}$是当前层表示的维度；$g_m$是传入消息的累积形式。 设计了一个在关系多图中的传播策略： h_{i}^{(l+1)}=\sigma\left(\sum_{r \in \mathcal{R}} \sum_{j \in \mathcal{N}_{i}^{r}} \frac{1}{c_{i, r}} W_{r}^{(l)} h_{j}^{(l)}+W_{0}^{(l)} h_{i}^{(l)}\right) 其中$\mathcal{N}_{i}^{r}$代表在关系$r \in \mathcal{R}$下节点$i$的邻居索引集合。其中$c_{i, r}$是一个特定于问题的归一化常数，可以预先学习或选择$c_{i, r}=\left|\mathcal{N}_{i}^{r}\right|$。$W_{0}^{(l)} h_{i}^{(l)}$是作者添加的对于每个节点的一个特定关系的自连接。 此处采取简单的线性消息转换，其实可以选择更灵活的函数，如多层神经网络(以牺牲计算效率为代价)。 2.2 Regularization | 正则化核心问题：在处理多元关系数据时，图中参数数量和关系数量快速增长可能会导致对稀有关系的过拟合和模型规模过大。 为了解决这个问题作者提出了两种调整R-GCN层的权重的方式： basis-decomposition: W_{r}^{(l)}=\sum_{b=1}^{B} a_{r b}^{(l)} V_{b}^{(l)} 其中$V_{b}^{(l)} \in \mathbb{R}^{d^{(l+1)} \times d^{(l)}}$是一个作为基础变换的线性组合，$a_{r b}^{(l)}$是一个只依赖于$r$的系数。 基函数分解可以看作是不同关系类型之间有效权重共享的一种形式 block-diagonal-decomposition: W_{r}^{(l)}=\bigoplus_{b=1}^{B} Q_{b r}^{(l)} 其中$Q_{b, r}^{(l)} \in \mathbb{R}^{\frac{d(l+1)}{B} \times \frac{d^{(l)}}{B}}$,$W_{r}^{(l)}$是对角块矩阵：$\operatorname{diag}\left(Q_{1 r}^{(l)}, \ldots, Q_{B r}^{(l)}\right)$。 而块分解可以看做是每种关系类型对权重矩阵的系数约束。 块分解结构编码一种直觉，即可以将潜在特征分组为变量集，这些变量集在组内比组间更加紧密地联系。 同时，作者期望基本参数化可以减轻稀疏关系的过度拟合，因为稀疏关系和更频繁关系之间共享参数更新。 对所有的R-GCN模型都采取以下形式： 按照作者提出的传播模型进行堆叠$L$层 如果不存在其他特征，则可以将第一层的输入选择为图中每个节点的唯一one-hot向量； 对于块表示，作者将one-hot向量通过一个单一的线性转换为一个dense表示； 作者只考虑用一个featureless的方法，不同于GCN模型。 3 实体分类 作者通过堆叠R-GCN的传播函数，最后一层通过softmax函数输入，在所有节点上采用交叉熵损失（忽略无标签节点）： \mathcal{L}=-\sum_{i \in \mathcal{Y}} \sum_{k=1}^{K} t_{i k} \ln h_{i k}^{(L)} 其中 $\mathcal{Y}$代表有标签的节点索引集，$h_{i k}^{(L)}$代表第$i$个标记节点的网络输出的第$k$个条目，$t_{ik}$表示真实标签。 4 链接预测 作者引入一个auto-encoder模型： encoder：将每个实体$v_{i} \in \mathcal{V}$ 映射到一个是指向量 $\vec{e}_{i} \in \mathbb{R}^{d}$ ； decoder：根据顶点表示重建图的边：通过一个scorce函数 $s: \mathbb{R}^{d} \times \mathcal{R} \times \mathbb{R}^{d} \rightarrow \mathbb{R}$ 来将三元组(subject, relation, object)映射为一个实数分数。 在本文中，作者采用的是DistMult函数作为解码器，每一个关系$r$被映射为一个对角矩阵 $R_{r} \in \mathbb{R}^{d \times d}$，一个三元组(s,r,o)的分数为： f(s, r, o)=e_{s}^{T} R_{r} e_{o}最后作者得出自己的损失函数： \mathcal{L}=-\frac{1}{(1+w)|\hat{\mathcal{E}}|} \sum_{(s, r, o, y) \in \mathcal{T}} y \log l(f(s, r, o))+(1-y) \log (1-l(f(s, r, o))) 其中 $\mathcal{T}$ 是真实三元组和破坏得到的负样例三元组的总样本。 5 实验 5.1 实体分类实验 数据集：AIFB、MUTAG、BGS、AM baseline：Feat、WL、RDF2Vec 评价准则：准确率 结果： 5.2 链接预测 关系抽取实验： 数据集：WordNet(WN18)，Freebase(FB15K) baseline：LinkFeat,DistMult,CP,TransE,HolE,ComplEx 评价准则：MRR(mean reciprocal rank)（Raw，Filtered），Hits @（1，3，10） 实验结果： 其中 $f(s, r, t)_{\mathrm{R}-\mathrm{GCN+}} = \alpha f(s, r, t)_{\mathrm{R}-\mathrm{GCN}}+(1-\alpha) f(s, r, t)_{\text {DistMult }}$,R-GCN 和 DistMult都是各自训练好的。 参考链接 https://blog.csdn.net/yyl424525/article/details/102764903 https://blog.csdn.net/weixin_35505731/article/details/104581783 论文下载地址：Modeling Relational Data with Graph Convolutional Networks]]></content>
+      <categories>
+        <category>论文阅读笔记</category>
+      </categories>
+      <tags>
+        <tag>ESWC</tag>
+        <tag>2018</tag>
+        <tag>GCN</tag>
+        <tag>Link Prediction</tag>
+        <tag>Entity Classification</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ubantu系统安装pytorch GPU版本]]></title>
     <url>%2Fpost%2Fubantu%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85pytorch-GPU%E7%89%88%E6%9C%AC%2F</url>
     <content type="text"><![CDATA[0 准备工作用conda安装Pytorch过程中会连接失败，这是因为Anaconda.org的服务器在国外，需要切换到国内镜像源： conda config --add channels &lt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/> conda config --add channels &lt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/> conda config --add channels &lt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/> 设置搜索时显示通道地址 conda config --set show_channel_urls yes 创建虚拟环境并激活之，在该环境下安装下面的包： conda create -n pytorch_gpu python=3.6 source activate pytorch_gpu 1 安装显卡驱动1.1. 查看显卡硬件型号在终端输入：ubuntu-drivers devices，可以看到如下界面： 从上图可以看出，我的显卡是：[GeForce GTX 1080 Ti]，所以推荐安装的版本号是nvidia-driver-435 - distro non-free recommended。 1.2. 开始安装 如果同意安装推荐版本，那我们只需要终端输入：sudo ubuntu-drivers autoinstall 就可以自动安装了。 当然我们也可以使用 apt 命令安装自己想要安装的版本，比如我想安装 340 这个版本号的版本，终端输入：sudo apt install nvidia-340 就自动安装了。 安装过程中按照提示操作，除非你知道每个提示的真实含义，否则所有的提示都选择默认就可以了，安装完成后重启系统，NVIDIA 显卡就可以正常工作了。安装完成后你可以参照 https://linuxconfig.org/benchmark-your-graphics-card-on-linux 上的介绍测试你的显卡。 最后reboot重启就可以了 1.3. 查看NVIDIA驱动版本输入nvidia-smi：显示如下： 2 安装CUDA0 CUDA对应的NVIDIA驱动版本对照表一般而言，不同版本的CUDA要求不同的NVIDIA驱动版本,同时显卡驱动版本要不低于CUDA的安装版本，具体的对照关系如下：官网地址 1 安装CUDA按照上述对应表，找到要按照的CUDA版本，比如按照上图来说应该安装9.2版本 conda install cudatoolkit=9.2 -n pytorch_gpu -c &lt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/linux-64/> 2 安装cuDNN所安装的cuDNN版本注意和CUDA对应，可以在CUDA官网找到版本对应关系： conda install cudnn=7.6.5 -n pytorch_gpu -c &lt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64/> 3 找到对应pytorch版本先到官网找到在你的操作系统、包、CUDA版本、语言版本下对应的安装脚本，官网地址，直接根据你的实际情况选择Pytorch安装包版本，然后复制页面自动生成的脚本进行安装。 运行： conda install pytorch torchvision cudatoolkit=9.2 -c pytorch # 3 测试import torch flag = torch.cuda.is_available() print(flag) ngpu= 1 # Decide which device we want to run on device = torch.device("cuda:0" if (torch.cuda.is_available() and ngpu > 0) else "cpu") print(device) print(torch.cuda.get_device_name(0)) print(torch.rand(3,3).cuda()) 结果： True cuda:0 GeForce GTX 1080 tensor([[0.9530, 0.4746, 0.9819], [0.7192, 0.9427, 0.6768], [0.8594, 0.9490, 0.6551]], device='cuda:0') 参考链接 Anaconda环境安装GPU版本Pytorchanaconda pytorch gpu CUDA对应的NVIDIA驱动版本对照表_zhw864680355的博客-CSDN博客_cuda对应的驱动版本 pytorch：测试GPU是否可用_明月几时有，把酒问青天-CSDN博客_torch gpu]]></content>
@@ -45,9 +60,9 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>KGE</tag>
         <tag>2016</tag>
         <tag>ACL</tag>
+        <tag>KGE</tag>
       </tags>
   </entry>
   <entry>
@@ -58,8 +73,8 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>KGE</tag>
         <tag>2016</tag>
+        <tag>KGE</tag>
         <tag>AAAI</tag>
       </tags>
   </entry>
@@ -72,8 +87,8 @@
         <category>KG</category>
       </categories>
       <tags>
-        <tag>TransA</tag>
         <tag>KGE</tag>
+        <tag>TransA</tag>
         <tag>2015</tag>
         <tag>arxiv</tag>
       </tags>
@@ -199,9 +214,9 @@
         <category>KG</category>
       </categories>
       <tags>
-        <tag>KG</tag>
         <tag>KGR</tag>
         <tag>BERT</tag>
+        <tag>KG</tag>
       </tags>
   </entry>
   <entry>
@@ -226,8 +241,8 @@
         <category>KG</category>
       </categories>
       <tags>
-        <tag>KG</tag>
         <tag>transH</tag>
+        <tag>KG</tag>
         <tag>margin loss</tag>
         <tag>transE</tag>
       </tags>
@@ -451,8 +466,8 @@
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>NER</tag>
         <tag>知识图谱</tag>
+        <tag>NER</tag>
       </tags>
   </entry>
   <entry>
