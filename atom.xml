@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-08-23T08:08:34.891Z</updated>
+  <updated>2020-08-23T08:12:24.780Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://nysdy.com/post/Modeling%20Relational%20Data%20with%20Graph%20Convolutional%20Networks/"/>
     <id>http://nysdy.com/post/Modeling Relational Data with Graph Convolutional Networks/</id>
     <published>2020-08-22T13:53:24.000Z</published>
-    <updated>2020-08-23T08:08:34.891Z</updated>
+    <updated>2020-08-23T08:12:24.780Z</updated>
     
     <summary type="html">
     
@@ -83,7 +83,7 @@
     <link href="http://nysdy.com/post/Diachronic%20Embedding%20for%20Temporal%20Knowledge%20Graph%20Completion/"/>
     <id>http://nysdy.com/post/Diachronic Embedding for Temporal Knowledge Graph Completion/</id>
     <published>2020-07-02T11:09:49.000Z</published>
-    <updated>2020-08-22T03:24:54.508Z</updated>
+    <updated>2020-08-23T08:15:06.625Z</updated>
     
     <summary type="html">
     
@@ -118,7 +118,7 @@
     <link href="http://nysdy.com/post/Update-blog-theme/"/>
     <id>http://nysdy.com/post/Update-blog-theme/</id>
     <published>2020-03-26T06:54:40.000Z</published>
-    <updated>2020-08-22T03:20:50.855Z</updated>
+    <updated>2020-08-23T08:30:52.810Z</updated>
     
     <summary type="html">
     
@@ -145,7 +145,7 @@
     <link href="http://nysdy.com/post/TransG_:_A_Generative_Model_for_Knowledge_Graph_Embedding/"/>
     <id>http://nysdy.com/post/TransG_:_A_Generative_Model_for_Knowledge_Graph_Embedding/</id>
     <published>2019-10-12T02:03:44.000Z</published>
-    <updated>2020-08-22T03:23:13.599Z</updated>
+    <updated>2020-08-23T08:14:55.019Z</updated>
     
     <summary type="html">
     
@@ -167,9 +167,9 @@
     
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
-      <category term="ACL" scheme="http://nysdy.com/tags/ACL/"/>
-    
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="ACL" scheme="http://nysdy.com/tags/ACL/"/>
     
   </entry>
   
@@ -178,7 +178,7 @@
     <link href="http://nysdy.com/post/2016_Knowledge_Graph_Completion_with_Adaptive_Sparse_Transfer_Matrix/"/>
     <id>http://nysdy.com/post/2016_Knowledge_Graph_Completion_with_Adaptive_Sparse_Transfer_Matrix/</id>
     <published>2019-09-10T01:16:53.000Z</published>
-    <updated>2019-10-12T05:30:51.532Z</updated>
+    <updated>2020-08-23T08:15:21.032Z</updated>
     
     <summary type="html">
     
@@ -194,9 +194,9 @@
     
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
   </entry>
   
@@ -205,7 +205,7 @@
     <link href="http://nysdy.com/post/2015_TransA_An_Adaptive_Approach_for_Knowledge_Graph_Embeddin/"/>
     <id>http://nysdy.com/post/2015_TransA_An_Adaptive_Approach_for_Knowledge_Graph_Embeddin/</id>
     <published>2019-09-02T06:32:48.000Z</published>
-    <updated>2020-08-21T08:39:38.311Z</updated>
+    <updated>2020-08-23T08:14:35.435Z</updated>
     
     <summary type="html">
     
@@ -236,7 +236,7 @@
     <link href="http://nysdy.com/post/Transition-based_Knowledge_Graph_Embedding_with_Relational_Mapping_Properties/"/>
     <id>http://nysdy.com/post/Transition-based_Knowledge_Graph_Embedding_with_Relational_Mapping_Properties/</id>
     <published>2019-08-31T13:36:06.000Z</published>
-    <updated>2019-09-15T13:59:40.912Z</updated>
+    <updated>2020-08-23T08:17:08.961Z</updated>
     
     <summary type="html">
     
@@ -262,7 +262,7 @@
     <link href="http://nysdy.com/post/Embedding_Edge-attributed_Relational_Hierarchies/"/>
     <id>http://nysdy.com/post/Embedding_Edge-attributed_Relational_Hierarchies/</id>
     <published>2019-08-28T08:12:30.000Z</published>
-    <updated>2019-08-28T08:15:05.849Z</updated>
+    <updated>2020-08-23T08:17:19.587Z</updated>
     
     <summary type="html">
     
@@ -326,7 +326,7 @@
     <link href="http://nysdy.com/post/Knowledge_graph_embedding_with_concepts/"/>
     <id>http://nysdy.com/post/Knowledge_graph_embedding_with_concepts/</id>
     <published>2019-07-25T05:19:44.000Z</published>
-    <updated>2020-03-25T14:12:06.667Z</updated>
+    <updated>2020-08-23T08:18:37.110Z</updated>
     
     <summary type="html">
     
@@ -498,11 +498,11 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
+      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
+    
       <category term="KGR" scheme="http://nysdy.com/tags/KGR/"/>
     
       <category term="BERT" scheme="http://nysdy.com/tags/BERT/"/>
-    
-      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
     
   </entry>
   
@@ -559,9 +559,9 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="transH" scheme="http://nysdy.com/tags/transH/"/>
-    
       <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
+    
+      <category term="transH" scheme="http://nysdy.com/tags/transH/"/>
     
       <category term="margin loss" scheme="http://nysdy.com/tags/margin-loss/"/>
     
