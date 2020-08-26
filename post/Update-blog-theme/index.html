@@ -415,7 +415,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        4.4k
+                        4.6k
                     </div>
                     
 
@@ -906,10 +906,30 @@ cover:
   duration: 120 # 切换延迟时间. Switching delay time.
   intervalTime: 5000 # 自动切换下一张的间隔时间. Automatically switch the interval of the next one.
 </code></pre>
+<h3 id="使用-LocalSearch-搜索功能"><a href="#使用-LocalSearch-搜索功能" class="headerlink" title="使用 LocalSearch 搜索功能"></a>使用 LocalSearch 搜索功能</h3><h4 id="安装相关插件"><a href="#安装相关插件" class="headerlink" title="安装相关插件"></a>安装相关插件</h4><p>安装搜索插件： <code>hexo-generator-searchdb</code></p>
+<p>在博客根目录下执行以下命令：</p>
+<pre><code>$ npm install hexo-generator-searchdb --save
+</code></pre><h4 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h4><p>安装完成，编辑博客配置文件：<code>_config.yml</code></p>
+<pre><code>search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+</code></pre><h4 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h4><p>主题自带搜索设置，编辑主题配置文件：<code>_config.yml</code></p>
+<p>找到文件中 Local search 的相关配置，设为 <code>true</code></p>
+<pre><code># Local search
+local_search:
+  enable: true
+</code></pre><p>hexo 重新部署</p>
+<h1 id="待解决"><a href="#待解决" class="headerlink" title="待解决"></a>待解决</h1><ul>
+<li>公安备案——进行中</li>
+<li>代码块形式</li>
+</ul>
 <h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><ul>
 <li><a href="https://blinkfox.github.io/" target="_blank" rel="noopener">闪烁之狐</a> <a href="https://blinkfox.github.io/2018/09/28/qian-duan/hexo-bo-ke-zhu-ti-zhi-hexo-theme-matery-de-jie-shao/" target="_blank" rel="noopener">Hexo博客主题之hexo-theme-matery的介绍</a></li>
 <li><a href="https://godweiyang.com/2018/04/13/hexo-blog/#toc-heading-19" target="_blank" rel="noopener">韦阳的博客</a></li>
 <li><a href="https://shengbinyu.top/mathjaxprism.html" target="_blank" rel="noopener">https://shengbinyu.top/mathjaxprism.html</a></li>
+<li><a href="https://yashuning.github.io/2018/06/29/hexo-Next-主题添加搜索功能/" target="_blank" rel="noopener">https://yashuning.github.io/2018/06/29/hexo-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/</a></li>
 </ul>
 
             </div>
@@ -1198,12 +1218,12 @@ what problem it solves?提出了一个Diachronic</div>
                         <span class="chip bg-color">2016</span>
                     </a>
                     
-                    <a href="/tags/KGE/" target="_blank">
-                        <span class="chip bg-color">KGE</span>
-                    </a>
-                    
                     <a href="/tags/ACL/" target="_blank">
                         <span class="chip bg-color">ACL</span>
+                    </a>
+                    
+                    <a href="/tags/KGE/" target="_blank">
+                        <span class="chip bg-color">KGE</span>
                     </a>
                     
                 </div>
@@ -1319,7 +1339,7 @@ what problem it solves?提出了一个Diachronic</div>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">48.9k</span>
+                <span class="white-color">49.1k</span>
             
 
             
