@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-08-23T08:12:24.780Z</updated>
+  <updated>2020-08-26T13:29:00.140Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion--阅读笔记</title>
+    <link href="http://nysdy.com/post/End-to-End%20Structure-Aware%20Convolutional%20Networks%20for%20Knowledge%20Base%20Completion%20reading%20note/"/>
+    <id>http://nysdy.com/post/End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion reading note/</id>
+    <published>2020-08-25T07:41:18.000Z</published>
+    <updated>2020-08-26T13:29:00.140Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0-总览&quot;&gt;&lt;a href=&quot;#0-总览&quot; class=&quot;headerlink&quot; title=&quot;0. 总览&quot;&gt;&lt;/a&gt;0. 总览&lt;/h1&gt;&lt;h2 id=&quot;0-1-要解决什么问题？（what？）&quot;&gt;&lt;a href=&quot;#0-1-要解决什么问题？（what？）&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
+    
+      <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
+    
+      <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
+    
+      <category term="KGC" scheme="http://nysdy.com/tags/KGC/"/>
+    
+  </entry>
   
   <entry>
     <title>Modeling Relational Data with Graph Convolutional Networks 阅读笔记</title>
@@ -535,37 +567,6 @@
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="link prediction" scheme="http://nysdy.com/tags/link-prediction/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Learning Knowledge Embeddings by Combining Limit-based Scoring Loss阅读笔记</title>
-    <link href="http://nysdy.com/post/Learning_Knowledge_Embeddings_by_Combining_Limit-based_Scoring_Loss/"/>
-    <id>http://nysdy.com/post/Learning_Knowledge_Embeddings_by_Combining_Limit-based_Scoring_Loss/</id>
-    <published>2019-06-03T02:57:20.000Z</published>
-    <updated>2019-06-03T03:06:20.944Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;此篇文章最为重要的就是作者设计的 margin-based ranking loss 的改进，对两个超参数$\lambda$和$\gamma$的实验，对于实验结果有很多值得分析与思考的地方。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://dl.acm.org/ft_gateway.cfm?id=3132939&amp;amp;ftid=1920664&amp;amp;dwn=1&amp;amp;CFID=135630312&amp;amp;CFTOKEN=71536805165d7c9d-10D2074A-AD9B-A596-5CA31DB63C36A322&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
-    
-    
-      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
-    
-      <category term="transH" scheme="http://nysdy.com/tags/transH/"/>
-    
-      <category term="margin loss" scheme="http://nysdy.com/tags/margin-loss/"/>
-    
-      <category term="transE" scheme="http://nysdy.com/tags/transE/"/>
     
   </entry>
   

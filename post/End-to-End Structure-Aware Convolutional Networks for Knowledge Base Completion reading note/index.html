@@ -4,8 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="初次见面，你好NYSDY！, NYSDY">
-    <meta name="description" content="初次见面，你好NYSDY！ | NYSDY">
+    <meta name="keywords" content="End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion--阅读笔记, NYSDY">
+    <meta name="description" content="0. 总览0.1 要解决什么问题？（what？）知识图谱补全中：
+
+以前的方法只建模关系三元组，忽略了大量图节点相关属性；
+以前的方法并没有增强在嵌入空间中大规模连接结构，完全忽略了图结构。
+
+0.2 用什么方法解决？（how？）用GCN和">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>初次见面，你好NYSDY！ | NYSDY</title>
+    <title>End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion--阅读笔记 | NYSDY</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -282,13 +287,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        初次见面，你好NYSDY！
+                        End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion--阅读笔记
                     </div>
                 </div>
             </div>
@@ -378,12 +383,37 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/2019/" target="_blank">
+                                <span class="chip bg-color">2019</span>
+                            </a>
+                        
+                            <a href="/tags/AAAI/" target="_blank">
+                                <span class="chip bg-color">AAAI</span>
+                            </a>
+                        
+                            <a href="/tags/GCN/" target="_blank">
+                                <span class="chip bg-color">GCN</span>
+                            </a>
+                        
+                            <a href="/tags/KGC/" target="_blank">
+                                <span class="chip bg-color">KGC</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
+                                论文阅读笔记
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -391,21 +421,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-09-21
+                    2020-08-25
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        0
+                        1.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        5 分
                     </div>
                     
                 
@@ -421,7 +451,75 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="0-总览"><a href="#0-总览" class="headerlink" title="0. 总览"></a>0. 总览</h1><h2 id="0-1-要解决什么问题？（what？）"><a href="#0-1-要解决什么问题？（what？）" class="headerlink" title="0.1 要解决什么问题？（what？）"></a>0.1 要解决什么问题？（what？）</h2><p>知识图谱补全中：</p>
+<ol>
+<li>以前的方法只建模关系三元组，忽略了大量图节点相关属性；</li>
+<li>以前的方法并没有增强在嵌入空间中大规模连接结构，完全忽略了图结构。</li>
+</ol>
+<h2 id="0-2-用什么方法解决？（how？）"><a href="#0-2-用什么方法解决？（how？）" class="headerlink" title="0.2 用什么方法解决？（how？）"></a>0.2 用什么方法解决？（how？）</h2><p>用GCN和ConvErt相结合的方法组成一个端到端的学习方法。</p>
+<ol>
+<li>encoder部分利用一个带权重的GCN的方法（利用图的结构并保留节点的属性）。</li>
+<li>decoder部分利用Conv-TransE，利用啊convE的方法，但是去掉了实体和关系的矩阵重组部分。（为了保留TransE的 <code>h+r=t</code> 的特性）。</li>
+</ol>
+<h2 id="0-3文章有什么创新？"><a href="#0-3文章有什么创新？" class="headerlink" title="0.3文章有什么创新？"></a>0.3文章有什么创新？</h2><p>见上述方法</p>
+<h2 id="0-4-效果如何？"><a href="#0-4-效果如何？" class="headerlink" title="0.4 效果如何？"></a>0.4 效果如何？</h2><p>FB15k-237 and WN18RR数据机上，较ConvE提升了10%。</p>
+<h2 id="0-5-还存在什么问题？"><a href="#0-5-还存在什么问题？" class="headerlink" title="0.5 还存在什么问题？"></a>0.5 还存在什么问题？</h2><h1 id="1-背景知识"><a href="#1-背景知识" class="headerlink" title="1 背景知识"></a>1 背景知识</h1><h1 id="2-模型"><a href="#2-模型" class="headerlink" title="2 模型"></a>2 模型</h1><p>end-to-end SACN<img src="http://image.nysdy.com/20200825165457.png" alt></p>
+<h2 id="2-1-权重图卷积层（WGCN）"><a href="#2-1-权重图卷积层（WGCN）" class="headerlink" title="2.1 权重图卷积层（WGCN）"></a>2.1 权重图卷积层（WGCN）</h2><p>节点$v_i$的第$l$层输出为：</p>
+<script type="math/tex; mode=display">
+h_{i}^{l+1}=\sigma\left(\sum_{j \in \mathbf{N}_{i}} \alpha_{t}^{l} g\left(h_{i}^{l}, h_{j}^{l}\right)\right)</script><ul>
+<li>其中$h_{j}^{l} \in \mathbb{R}^{F^{l}}$是节点$v_j$的输入，$v_j$是节点$v_i$的邻居节点（一共$N_i$个）。$\alpha_{t}^{l} $是第$l$层，第$t$种边（关系）类型的权重参数。</li>
+</ul>
+<p>$g$函数是整合邻居信息函数，在这里坐着采用以下函数：</p>
+<script type="math/tex; mode=display">
+g\left(h_{i}^{l}, h_{j}^{l}\right)=h_{j}^{l} W^{l}</script><ul>
+<li>其中$W^{l} \in \mathbb{R}^{F^{l} \times F^{l+1}}$</li>
+</ul>
+<p>作者再加入$v_i$的自连接，则节点$v_i$的传播过程可以被定义为：</p>
+<script type="math/tex; mode=display">
+h_{i}^{l+1}=\sigma\left(\sum_{j \in \mathbf{N}_{i}} \alpha_{t}^{l} h_{j}^{l} W^{l}+h_{i}^{l} W^{l}\right)</script><ul>
+<li>节点$h_i^{l+1}$是节点第$l$层输出的节点特征矩阵$H^{l+1} \in \mathbb{R}^{N \times F^{l+1}}$的第$l+1$行，代表$v_i$节点在第$l+1$层的特征。</li>
+</ul>
+<p><img src="http://image.nysdy.com/20200825171648.png" alt></p>
+<p>以上的为不同类型的边加权重的过程可以看做一个矩阵乘法：通过一个邻接矩阵同时为所有节点计算embeddings，见上图：</p>
+<p>邻接矩阵可以被写作：</p>
+<script type="math/tex; mode=display">
+A^{l}=\sum_{t=1}^{T}\left(\alpha_{t}^{l} A_{t}\right)+I</script><ul>
+<li>其中$I$是一个单位矩阵。$A^t$是一个二进制矩阵，当$v_i$和$v_j$节点间有边连接则其中第$ij$项值为1，否则为0。</li>
+</ul>
+<p>故，由此可以等到每一层线性变换的所有一节邻居：</p>
+<script type="math/tex; mode=display">
+H^{l+1}=\sigma\left(A^{l} H^{l} W^{l}\right)</script><h2 id="2-2-属性节点"><a href="#2-2-属性节点" class="headerlink" title="2.2 属性节点"></a>2.2 属性节点</h2><p>在知识图谱中，属性节点的形式为(entity, relation, attribute)，例如：(s = Tom, r = people.person.gender, a = male)。但是如果用向量表达节点属性会出现两个问题：</p>
+<ol>
+<li>由于每个节点的属性数量少，会产生属性向量稀疏的问题；</li>
+<li>属性向量的0值会产生歧义：该节点没有该属性或者该属性缺失值。</li>
+</ol>
+<p>本文还使用了节点的属性作为图的节点，如属性（Tom，gender，male）。这样做的目的是将属性也作为节点，起到“桥”的作用，相同属性的节点可以共享信息。还有作者为了减少过多的属性节点，对节点进行了合并， 将gender也作为了图中的节点，而不是建立male和female两个属性，理由是gender已经能够确定实体的person，而不必过多区分性别。（即作者把属性三元组变为了两元组（实体，属性名）</p>
+<h2 id="2-3-Conv-TransE"><a href="#2-3-Conv-TransE" class="headerlink" title="2.3 Conv-TransE"></a>2.3 Conv-TransE</h2><p>作者仅将节点向量$e_s$和关系向量$e_r$进行堆叠，然后进行卷积操作：</p>
+<script type="math/tex; mode=display">
+\begin{aligned} m_{c}\left(e_{s}, e_{r}, n\right)=& \sum_{\tau=0}^{K-1} \omega_{c}(\tau, 0) \hat{e}_{s}(n+\tau) +\omega_{c}(\tau, 1) \hat{e}_{r}(n+\tau) \end{aligned}</script><ul>
+<li>其中$K$是卷积核的宽度，$n$索引输出向量中的条目,$\omega_{c}$是卷积核参数。</li>
+</ul>
+<p>分数函数被定义为：</p>
+<script type="math/tex; mode=display">
+\psi\left(e_{s}, e_{o}\right)=f\left(\operatorname{vec}\left(\mathbf{M}\left(e_{s}, e_{r}\right)\right) W\right) e_{o}</script><ul>
+<li>$W \in \mathbb{R}^{C F^{L} \times F^{L}}$是一个线性变换，$\operatorname{vec}(\mathbf{M}) \in \mathbb{R}^{C F^{L}}$reshape成一个向量.</li>
+</ul>
+<p>然后应用了一个逻辑sigmod函数：</p>
+<script type="math/tex; mode=display">
+p\left(e_{s}, e_{r}, e_{o}\right)=\sigma\left(\psi\left(e_{s}, e_{o}\right)\right)</script><h1 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h1><p><img src="http://image.nysdy.com/20200826205435.png" alt></p>
+<blockquote>
+<p>数据集：FB15k-237, WN18RR and FB15k-237-Attr</p>
+<p>baseline:DistMult，ComplEx，R-GCN，ConvE</p>
+<p>评价准则：MRR(mean reciprocal rank)（Raw，Filtered），Hits @（1，3，10）</p>
+</blockquote>
+<h2 id="3-1-链接预测实验结果："><a href="#3-1-链接预测实验结果：" class="headerlink" title="3.1 链接预测实验结果："></a>3.1 链接预测实验结果：<img src="http://image.nysdy.com/20200826205515.png" alt></h2><h2 id="3-2-卷积核大小分析"><a href="#3-2-卷积核大小分析" class="headerlink" title="3.2 卷积核大小分析"></a>3.2 卷积核大小分析</h2><p><img src="http://image.nysdy.com/20200826210216.png" alt></p>
+<p>内核“ 2×1”表示在实体向量的一个属性和关系向量的对应属性之间转换的知识或信息。 如果将内核大小增加到“ 2×k”，其中k = {3，5}，则会在实体向量的s属性组合和关系向量的k属性组合之间转换信息。</p>
+<h2 id="3-3-节点度分析"><a href="#3-3-节点度分析" class="headerlink" title="3.3 节点度分析"></a>3.3 节点度分析</h2><p><img src="http://image.nysdy.com/20200826210546.png" alt></p>
+<p>知识图中节点的度数是连接到该节点的边数。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a href="https://www.cnblogs.com/jws-2018/p/11519383.html" target="_blank" rel="noopener">https://www.cnblogs.com/jws-2018/p/11519383.html</a></li>
+</ul>
+
             </div>
             <hr/>
 
@@ -561,7 +659,7 @@
                     </span>
                     <a href="http://nysdy.com" class="b-link-green">NYSDY</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/post/essay/" class="b-link-green">初次见面，你好NYSDY！</a>
+                    <a href="/post/End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion reading note/" class="b-link-green">End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion--阅读笔记</a>
                 </p>
             </div>
         </div>
@@ -583,7 +681,7 @@
         repo: 'nysdy.github.io',
         owner: 'nysdy',
         admin: "nysdy",
-        id: '2018-09-21T10-35-47',
+        id: '2020-08-25T15-41-18',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -604,26 +702,93 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/post/essay/">
+                <a href="/post/End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion reading note/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Ontology reasoning with deep neural networks">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion--阅读笔记">
                         
-                        <span class="card-title">Ontology reasoning with deep neural networks</span>
+                        <span class="card-title">End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion--阅读笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Ontology reasoning with deep neural networks（基于深度神经网络的本体推理）前言
-本论文属于知识图谱的下游任务，也就是知识图谱的应用的一个例子。这篇论文的方法根据作者描述RRN是第一个基于深度学习的</div>
+                    <div class="summary">0. 总览0.1 要解决什么问题？（what？）知识图谱补全中：
+
+以前的方法只建模关系三元组，忽略了大量图节点相关属性；
+以前的方法并没有增强在嵌入空间中大规模连接结构，完全忽略了图结构。
+
+0.2 用什么方法解决？（how？）用GCN和</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-29
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
+                                    论文阅读笔记
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/2019/" target="_blank">
+                        <span class="chip bg-color">2019</span>
+                    </a>
+                    
+                    <a href="/tags/AAAI/" target="_blank">
+                        <span class="chip bg-color">AAAI</span>
+                    </a>
+                    
+                    <a href="/tags/GCN/" target="_blank">
+                        <span class="chip bg-color">GCN</span>
+                    </a>
+                    
+                    <a href="/tags/KGC/" target="_blank">
+                        <span class="chip bg-color">KGC</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/Modeling Relational Data with Graph Convolutional Networks/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Modeling Relational Data with Graph Convolutional Networks 阅读笔记">
+                        
+                        <span class="card-title">Modeling Relational Data with Graph Convolutional Networks 阅读笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">1. 总览要解决什么问题？（what？）链接预测和实体分类
+为什么要解决这个问题？（why？）因为虽然知识图谱用途很多，而现有的知识图谱都存在不完整的问题。
+用什么方法解决？（how？）
+用图卷积网络和因式分解相结合来解决链接预测问题；
+用</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -639,53 +804,27 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/知识图谱/" target="_blank">
-                        <span class="chip bg-color">知识图谱</span>
+                    <a href="/tags/ESWC/" target="_blank">
+                        <span class="chip bg-color">ESWC</span>
                     </a>
                     
-                    <a href="/tags/深度学习/" target="_blank">
-                        <span class="chip bg-color">深度学习</span>
+                    <a href="/tags/2018/" target="_blank">
+                        <span class="chip bg-color">2018</span>
                     </a>
                     
-                    <a href="/tags/Ontology/" target="_blank">
-                        <span class="chip bg-color">Ontology</span>
+                    <a href="/tags/GCN/" target="_blank">
+                        <span class="chip bg-color">GCN</span>
+                    </a>
+                    
+                    <a href="/tags/Link-Prediction/" target="_blank">
+                        <span class="chip bg-color">Link Prediction</span>
+                    </a>
+                    
+                    <a href="/tags/Entity-Classification/" target="_blank">
+                        <span class="chip bg-color">Entity Classification</span>
                     </a>
                     
                 </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/post/essay/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="初次见面，你好NYSDY！">
-                        
-                        <span class="card-title">初次见面，你好NYSDY！</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary"></div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-21
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            NYSDY
-                            
-                        </span>
-                    </div>
-                </div>
-
                 
             </div>
         </div>
@@ -783,6 +922,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
