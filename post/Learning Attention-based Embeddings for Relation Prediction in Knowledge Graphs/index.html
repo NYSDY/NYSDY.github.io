@@ -4,13 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="python动态网页爬取之安装docker和splash, NYSDY">
-    <meta name="description" content="
-利用python进行动态网页爬取时，在安装docker和splash时踩过的坑，记录了一下自己的安装过程。用的系统是mac os。
-
-
-安装scrapy-splash
-利用pip安装scrapy-splash库：$ pip install">
+    <meta name="keywords" content="Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs 阅读笔记, NYSDY">
+    <meta name="description" content="0. 总览0.1 要解决什么问题？（what？）基于CNN的嵌入模型独立的处理三元组，导致无法覆盖在三元组周围的本地邻居中固有隐含的复杂和隐藏信息。
+0.2 为什么要解决这个问题？（why？）0.3 用什么方法解决？（how？）0.4文章有">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>python动态网页爬取之安装docker和splash | NYSDY</title>
+    <title>Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs 阅读笔记 | NYSDY</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -287,13 +283,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        python动态网页爬取之安装docker和splash
+                        Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs 阅读笔记
                     </div>
                 </div>
             </div>
@@ -385,20 +381,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/爬虫/" target="_blank">
-                                <span class="chip bg-color">爬虫</span>
-                            </a>
-                        
-                            <a href="/tags/python/" target="_blank">
-                                <span class="chip bg-color">python</span>
-                            </a>
-                        
-                            <a href="/tags/splash/" target="_blank">
-                                <span class="chip bg-color">splash</span>
-                            </a>
-                        
-                            <a href="/tags/docker/" target="_blank">
-                                <span class="chip bg-color">docker</span>
+                            <a href="/tags/KG/" target="_blank">
+                                <span class="chip bg-color">KG</span>
                             </a>
                         
                     </div>
@@ -409,8 +393,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/爬虫/" class="post-category" target="_blank">
-                                爬虫
+                            <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
+                                论文阅读笔记
                             </a>
                         
                     </div>
@@ -421,14 +405,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-10-25
+                    2020-08-28
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        283
+                        121
                     </div>
                     
 
@@ -451,49 +435,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>利用python进行动态网页爬取时，在安装docker和splash时踩过的坑，记录了一下自己的安装过程。用的系统是mac os。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="安装scrapy-splash"><a href="#安装scrapy-splash" class="headerlink" title="安装scrapy-splash"></a>安装scrapy-splash</h3><ul>
-<li>利用pip安装scrapy-splash库：<br><code>$ pip install scrapy-splash</code></li>
-</ul>
-<h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><p>==下面👇这样安不下去了==</p>
-<ul>
-<li><p>如果是Mac的话需要使用brew安装，如下：<code>brew install docker</code>  </p>
-<p>报错：</p>
-<pre class=" language-shell"><code class="language-shell">Error: Failure while executing; `git config --local --replace-all homebrew.private true` exited with 1.
-</code></pre>
-<p>解决方法：</p>
-<pre class=" language-sh"><code class="language-sh">xcode-select --install
-</code></pre>
-<p>然后在执行：</p>
-<pre class=" language-shell"><code class="language-shell">brew install docker
-</code></pre>
-<p>再继续：</p>
-<p><code>service docker start</code></p>
-<p>报错：</p>
-<p><code>-bash: service: command not found</code>上网上查一堆乱七八糟的解决方式，该路径啥的，真的不想改路径，怕把其他的改崩了。最后放弃这种方式，如果有兴趣也可以尝试解决。</p>
-</li>
-</ul>
-<p>==尝试如下安装DOCKER方法==</p>
-<ol>
-<li><p><a href="https://www.docker.com/get-started" target="_blank" rel="noopener">去官网下载</a><img src="https://i.loli.net/2018/10/23/5bcf2ef4c4994.jpg" alt>这种方法下载docker客户端需要从服务器下载，自己电脑下载12k/s，简直慢死了。</p>
-</li>
-<li><p>拉取镜像(pull the image)：<code>docker pull scrapinghub/splash</code></p>
-<p><img src="https://i.loli.net/2018/10/23/5bcf34a4265a2.jpg" alt></p>
-</li>
-<li><p>用docker运行scrapinghub/splash：</p>
-<p><code>docker run -p 8050:8050 scrapinghub/splash</code></p>
-<p><img src="https://i.loli.net/2018/10/23/5bcf3578aa04a.jpg" alt></p>
-<p>在浏览器中输入<code>localhost:8050</code><img src="https://i.loli.net/2018/10/23/5bcf363bc08d8.jpg" alt></p>
-<p>==安装成功==</p>
-</li>
-</ol>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
-<li><a href="http://www.morecoder.com/article/1001249.html" target="_blank" rel="noopener">http://www.morecoder.com/article/1001249.html</a></li>
-<li><a href="https://www.jianshu.com/p/e54a407c8a0a" target="_blank" rel="noopener">https://www.jianshu.com/p/e54a407c8a0a</a></li>
-</ul>
+                <h1 id="0-总览"><a href="#0-总览" class="headerlink" title="0. 总览"></a>0. 总览</h1><h2 id="0-1-要解决什么问题？（what？）"><a href="#0-1-要解决什么问题？（what？）" class="headerlink" title="0.1 要解决什么问题？（what？）"></a>0.1 要解决什么问题？（what？）</h2><p>基于CNN的嵌入模型独立的处理三元组，导致无法覆盖在三元组周围的本地邻居中固有隐含的复杂和隐藏信息。</p>
+<h2 id="0-2-为什么要解决这个问题？（why？）"><a href="#0-2-为什么要解决这个问题？（why？）" class="headerlink" title="0.2 为什么要解决这个问题？（why？）"></a>0.2 为什么要解决这个问题？（why？）</h2><h2 id="0-3-用什么方法解决？（how？）"><a href="#0-3-用什么方法解决？（how？）" class="headerlink" title="0.3 用什么方法解决？（how？）"></a>0.3 用什么方法解决？（how？）</h2><h2 id="0-4文章有什么创新？"><a href="#0-4文章有什么创新？" class="headerlink" title="0.4文章有什么创新？"></a>0.4文章有什么创新？</h2><h2 id="0-5-效果如何？"><a href="#0-5-效果如何？" class="headerlink" title="0.5 效果如何？"></a>0.5 效果如何？</h2><h2 id="0-6-还存在什么问题？"><a href="#0-6-还存在什么问题？" class="headerlink" title="0.6 还存在什么问题？"></a>0.6 还存在什么问题？</h2><h1 id="1-背景知识"><a href="#1-背景知识" class="headerlink" title="1 背景知识"></a>1 背景知识</h1><h1 id="2-模型"><a href="#2-模型" class="headerlink" title="2 模型"></a>2 模型</h1><h1 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h1><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>- </p>
 
             </div>
             <hr/>
@@ -634,7 +577,7 @@
                     </span>
                     <a href="http://nysdy.com" class="b-link-green">NYSDY</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/post/Python_dynamic_web_crawler_installed_docker_and_splash/" class="b-link-green">python动态网页爬取之安装docker和splash</a>
+                    <a href="/post/Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs/" class="b-link-green">Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs 阅读笔记</a>
                 </p>
             </div>
         </div>
@@ -656,7 +599,7 @@
         repo: 'nysdy.github.io',
         owner: 'nysdy',
         admin: "nysdy",
-        id: '2018-10-25T10-19-22',
+        id: '2020-08-28T11-03-01',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -677,59 +620,45 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/post/solution_of_python_for_Chinese_characters_to_become_English_when_crawling_Chinese_web_pages/">
+                <a href="/post/Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="python爬取中文网页时中文字符变英文的解决方法">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs 阅读笔记">
                         
-                        <span class="card-title">python爬取中文网页时中文字符变英文的解决方法</span>
+                        <span class="card-title">Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs 阅读笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-使用python的scrapy爬取网页时，源代码中的中文字符在爬取下来后变成了英文字符。
-
-
-问题举例例如，原网页为：
-
-爬取结果为：
-
-解决方法修改请求头：在settings.py文件中找到下属代码：
-# Override the de</div>
+                    <div class="summary">0. 总览0.1 要解决什么问题？（what？）基于CNN的嵌入模型独立的处理三元组，导致无法覆盖在三元组周围的本地邻居中固有隐含的复杂和隐藏信息。
+0.2 为什么要解决这个问题？（why？）0.3 用什么方法解决？（how？）0.4文章有</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/爬虫/" class="post-category" target="_blank">
-                                    爬虫
+                            <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
+                                    论文阅读笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/爬虫/" target="_blank">
-                        <span class="chip bg-color">爬虫</span>
-                    </a>
-                    
-                    <a href="/tags/python/" target="_blank">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/scrapy/" target="_blank">
-                        <span class="chip bg-color">scrapy</span>
+                    <a href="/tags/KG/" target="_blank">
+                        <span class="chip bg-color">KG</span>
                     </a>
                     
                 </div>
@@ -743,33 +672,32 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/read the CSV document using python3/">
+                <a href="/post/End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion reading note/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="用python3读写csv文档">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion--阅读笔记">
                         
-                        <span class="card-title">用python3读写csv文档</span>
+                        <span class="card-title">End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion--阅读笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-对于大多数的CSV格式的数据读写问题，都可以使用 csv 库。
+                    <div class="summary">0. 总览0.1 要解决什么问题？（what？）知识图谱补全中：
 
+以前的方法只建模关系三元组，忽略了大量图节点相关属性；
+以前的方法并没有增强在嵌入空间中大规模连接结构，完全忽略了图结构。
 
- 例如：假设你在一个名叫stocks.csv文件中有一些股票市场数据，就像这样：
-Symbol,Price,Date,Time,Change,Volume
-"AA",39</div>
+0.2 用什么方法解决？（how？）用GCN和</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category" target="_blank">
-                                    python
+                            <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
+                                    论文阅读笔记
                                 </a>
                             
                             
@@ -779,16 +707,20 @@ Symbol,Price,Date,Time,Change,Volume
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/" target="_blank">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/2019/" target="_blank">
+                        <span class="chip bg-color">2019</span>
                     </a>
                     
-                    <a href="/tags/文件读取/" target="_blank">
-                        <span class="chip bg-color">文件读取</span>
+                    <a href="/tags/AAAI/" target="_blank">
+                        <span class="chip bg-color">AAAI</span>
                     </a>
                     
-                    <a href="/tags/csv/" target="_blank">
-                        <span class="chip bg-color">csv</span>
+                    <a href="/tags/GCN/" target="_blank">
+                        <span class="chip bg-color">GCN</span>
+                    </a>
+                    
+                    <a href="/tags/KGC/" target="_blank">
+                        <span class="chip bg-color">KGC</span>
                     </a>
                     
                 </div>
@@ -889,6 +821,13 @@ Symbol,Price,Date,Time,Change,Volume
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">

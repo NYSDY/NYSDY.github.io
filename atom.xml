@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>NYSDY</title>
   
-  <subtitle>NYSDY</subtitle>
+  <subtitle>NYSDY 个人文档那点事</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-08-26T13:29:00.140Z</updated>
+  <updated>2020-08-28T03:07:57.703Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs 阅读笔记</title>
+    <link href="http://nysdy.com/post/Learning%20Attention-based%20Embeddings%20for%20Relation%20Prediction%20in%20Knowledge%20Graphs/"/>
+    <id>http://nysdy.com/post/Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs/</id>
+    <published>2020-08-28T03:03:01.000Z</published>
+    <updated>2020-08-28T03:07:57.703Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0-总览&quot;&gt;&lt;a href=&quot;#0-总览&quot; class=&quot;headerlink&quot; title=&quot;0. 总览&quot;&gt;&lt;/a&gt;0. 总览&lt;/h1&gt;&lt;h2 id=&quot;0-1-要解决什么问题？（what？）&quot;&gt;&lt;a href=&quot;#0-1-要解决什么问题？（what？）&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
+    
+  </entry>
   
   <entry>
     <title>End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion--阅读笔记</title>
@@ -53,7 +79,7 @@
     <link href="http://nysdy.com/post/Modeling%20Relational%20Data%20with%20Graph%20Convolutional%20Networks/"/>
     <id>http://nysdy.com/post/Modeling Relational Data with Graph Convolutional Networks/</id>
     <published>2020-08-22T13:53:24.000Z</published>
-    <updated>2020-08-23T08:12:24.780Z</updated>
+    <updated>2020-08-27T06:48:18.806Z</updated>
     
     <summary type="html">
     
@@ -70,11 +96,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
+    
       <category term="ESWC" scheme="http://nysdy.com/tags/ESWC/"/>
     
       <category term="2018" scheme="http://nysdy.com/tags/2018/"/>
-    
-      <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
     
       <category term="Link Prediction" scheme="http://nysdy.com/tags/Link-Prediction/"/>
     
@@ -150,7 +176,7 @@
     <link href="http://nysdy.com/post/Update-blog-theme/"/>
     <id>http://nysdy.com/post/Update-blog-theme/</id>
     <published>2020-03-26T06:54:40.000Z</published>
-    <updated>2020-08-23T11:24:30.374Z</updated>
+    <updated>2020-08-26T13:48:01.770Z</updated>
     
     <summary type="html">
     
@@ -197,11 +223,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="ACL" scheme="http://nysdy.com/tags/ACL/"/>
-    
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
   </entry>
   
@@ -224,9 +250,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
-    
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
     
@@ -253,9 +279,9 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="2015" scheme="http://nysdy.com/tags/2015/"/>
     
@@ -535,38 +561,6 @@
       <category term="KGR" scheme="http://nysdy.com/tags/KGR/"/>
     
       <category term="BERT" scheme="http://nysdy.com/tags/BERT/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Incorporating Literals into Knowledge Graph Embeddings阅读笔记</title>
-    <link href="http://nysdy.com/post/Incorporating_Literals_into_Knowledge_Graph_Embeddings/"/>
-    <id>http://nysdy.com/post/Incorporating_Literals_into_Knowledge_Graph_Embeddings/</id>
-    <published>2019-06-03T06:57:50.000Z</published>
-    <updated>2019-06-03T07:33:16.832Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;读完了前两章，简单的看了一下作者提出的模型，感觉并没有太大价值，就是给实体输入多加入了一个literal的信息（加入方法可以采用线性、非线性或者神经网络）。&lt;/p&gt;
-&lt;p&gt;读论文前需要先熟悉DistMult、ComlLEx和ConvE模型，此论文方
-        
-      
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
-    
-    
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
-      <category term="link prediction" scheme="http://nysdy.com/tags/link-prediction/"/>
     
   </entry>
   
