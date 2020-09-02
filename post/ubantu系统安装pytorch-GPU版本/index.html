@@ -6,7 +6,7 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="ubantu系统安装pytorch GPU版本, NYSDY">
     <meta name="description" content="0 准备工作用conda安装Pytorch过程中会连接失败，这是因为Anaconda.org的服务器在国外，需要切换到国内镜像源：
-conda config --add channels &amp;lt;https://mirrors.tuna.t">
+conda config --add channels https://mirrors.tuna.tsing">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -416,14 +416,14 @@ conda config --add channels &amp;lt;https://mirrors.tuna.t">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        797
+                        917
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        4 分
                     </div>
                     
                 
@@ -440,9 +440,9 @@ conda config --add channels &amp;lt;https://mirrors.tuna.t">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="0-准备工作"><a href="#0-准备工作" class="headerlink" title="0 准备工作"></a><strong>0 准备工作</strong></h1><p>用conda安装Pytorch过程中会连接失败，这是因为Anaconda.org的服务器在国外，需要切换到国内镜像源：</p>
-<pre class=" language-bash"><code class="language-bash">conda config --add channels <span class="token operator">&lt;</span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/<span class="token operator">></span> 
-conda config --add channels <span class="token operator">&lt;</span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/<span class="token operator">></span> 
-conda config --add channels <span class="token operator">&lt;</span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/<span class="token operator">></span>
+<pre class=" language-bash"><code class="language-bash">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
 </code></pre>
 <p>设置搜索时显示通道地址</p>
 <pre class=" language-bash"><code class="language-bash">conda config --set show_channel_urls <span class="token function">yes</span>
@@ -451,7 +451,10 @@ conda config --add channels <span class="token operator">&lt;</span>https://mirr
 <pre class=" language-bash"><code class="language-bash">conda create -n pytorch_gpu python<span class="token operator">=</span>3.6
 <span class="token function">source</span> activate pytorch_gpu
 </code></pre>
-<h1 id="1-安装显卡驱动"><a href="#1-安装显卡驱动" class="headerlink" title="1 安装显卡驱动"></a>1 安装显卡驱动</h1><h3 id="1-1-查看显卡硬件型号"><a href="#1-1-查看显卡硬件型号" class="headerlink" title="1.1. 查看显卡硬件型号"></a><strong>1.1. 查看显卡硬件型号</strong></h3><p>在终端输入：<code>ubuntu-drivers devices</code>，可以看到如下界面：</p>
+<h1 id="1-安装显卡驱动"><a href="#1-安装显卡驱动" class="headerlink" title="1 安装显卡驱动"></a>1 安装显卡驱动</h1><blockquote>
+<p>先用nvidia-smi进行查询，如果可以查到显卡驱动就不需要安装了。</p>
+</blockquote>
+<h3 id="1-1-查看显卡硬件型号"><a href="#1-1-查看显卡硬件型号" class="headerlink" title="1.1. 查看显卡硬件型号"></a><strong>1.1. 查看显卡硬件型号</strong></h3><p>在终端输入：<code>ubuntu-drivers devices</code>，可以看到如下界面：</p>
 <p><img src="http://image.nysdy.com/20191205157552667542415.png" alt="20191205157552667542415.png"></p>
 <p>从上图可以看出，我的显卡是：<code>[GeForce GTX 1080 Ti]</code>，所以推荐安装的版本号是<code>nvidia-driver-435 - distro non-free recommended</code>。</p>
 <h3 id="1-2-开始安装"><a href="#1-2-开始安装" class="headerlink" title="1.2. 开始安装"></a><strong>1.2. 开始安装</strong></h3><ul>
@@ -465,15 +468,31 @@ conda config --add channels <span class="token operator">&lt;</span>https://mirr
 <h1 id="2-安装CUDA"><a href="#2-安装CUDA" class="headerlink" title="2 安装CUDA"></a>2 安装CUDA</h1><h2 id="0-CUDA对应的NVIDIA驱动版本对照表"><a href="#0-CUDA对应的NVIDIA驱动版本对照表" class="headerlink" title="0 CUDA对应的NVIDIA驱动版本对照表"></a>0 CUDA对应的NVIDIA驱动版本对照表</h2><p>一般而言，不同版本的CUDA要求不同的NVIDIA驱动版本,同时显卡驱动版本要不低于CUDA的安装版本，具体的对照关系如下：<a href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html" target="_blank" rel="noopener">官网地址</a></p>
 <p><img src="http://image.nysdy.com/20200821155720.png" alt></p>
 <h2 id="1-安装CUDA"><a href="#1-安装CUDA" class="headerlink" title="1 安装CUDA"></a><strong>1 安装CUDA</strong></h2><p>按照上述对应表，找到要按照的CUDA版本，比如按照上图来说应该安装9.2版本</p>
-<pre class=" language-bash"><code class="language-bash">conda <span class="token function">install</span> cudatoolkit<span class="token operator">=</span>9.2 -n pytorch_gpu -c <span class="token operator">&lt;</span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/linux-64/<span class="token operator">></span>
+<pre class=" language-bash"><code class="language-bash">conda <span class="token function">install</span> cudatoolkit<span class="token operator">=</span>9.2 -n pytorch_gpu -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/linux-64/
 </code></pre>
 <h2 id="2-安装cuDNN"><a href="#2-安装cuDNN" class="headerlink" title="2 安装cuDNN"></a><strong>2 安装cuDNN</strong></h2><p>所安装的cuDNN版本注意和CUDA对应，可以在<a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener">CUDA官网</a>找到版本对应关系：</p>
-<pre class=" language-bash"><code class="language-bash">conda <span class="token function">install</span> cudnn<span class="token operator">=</span>7.6.5 -n pytorch_gpu -c <span class="token operator">&lt;</span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64/<span class="token operator">></span>
+<pre class=" language-bash"><code class="language-bash">conda <span class="token function">install</span> cudnn<span class="token operator">=</span>7.6.5 -n pytorch_gpu -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64/
 </code></pre>
 <h2 id="3-找到对应pytorch版本"><a href="#3-找到对应pytorch版本" class="headerlink" title="3 找到对应pytorch版本"></a>3 <strong>找到对应pytorch版本</strong></h2><p>先到官网找到在你的操作系统、包、CUDA版本、语言版本下对应的安装脚本，<a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener">官网地址</a>，直接根据你的实际情况选择Pytorch安装包版本，然后复制页面自动生成的脚本进行安装。</p>
 <p><img src="http://image.nysdy.com/20200821164952.png" alt></p>
 <p>运行：</p>
 <pre class=" language-shell"><code class="language-shell">conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
+</code></pre>
+<p>如果显示如下错误:</p>
+<pre class=" language-shell"><code class="language-shell">CondaHTTPError: HTTP 000 CONNECTION FAILED for url <https://conda.anaconda.org/pytorch/linux-64/torchvision-0.7.0-py36_cu92.tar.bz2>
+Elapsed: -
+
+An HTTP error occurred when trying to retrieve this URL.
+HTTP errors are often intermittent, and a simple retry will get you on your way.
+
+CondaHTTPError: HTTP 000 CONNECTION FAILED for url <https://conda.anaconda.org/pytorch/linux-64/pytorch-1.6.0-py3.6_cuda9.2.148_cudnn7.6.3_0.tar.bz2>
+Elapsed: -
+
+An HTTP error occurred when trying to retrieve this URL.
+HTTP errors are often intermittent, and a simple retry will get you on your way.
+</code></pre>
+<p>可以换成下面的方式</p>
+<pre class=" language-shell"><code class="language-shell">conda install pytorch torchvision cudatoolkit=9.2 -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
 </code></pre>
 <h2 id="3-测试"><a href="#3-测试" class="headerlink" title="# 3 测试"></a># <strong>3 测试</strong></h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> torch
 flag <span class="token operator">=</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -785,16 +804,16 @@ what problem it solves?提出了一个Diachronic</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/KGE/" target="_blank">
-                        <span class="chip bg-color">KGE</span>
-                    </a>
-                    
                     <a href="/tags/KG/" target="_blank">
                         <span class="chip bg-color">KG</span>
                     </a>
                     
                     <a href="/tags/temporal-KG/" target="_blank">
                         <span class="chip bg-color">temporal KG</span>
+                    </a>
+                    
+                    <a href="/tags/KGE/" target="_blank">
+                        <span class="chip bg-color">KGE</span>
                     </a>
                     
                     <a href="/tags/2019/" target="_blank">
@@ -914,7 +933,7 @@ what problem it solves?提出了一个Diachronic</div>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">52.8k</span>
+                <span class="white-color">56.1k</span>
             
 
             

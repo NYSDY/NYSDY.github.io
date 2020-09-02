@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-08-29T13:55:04.909Z</updated>
+  <updated>2020-09-02T08:22:53.962Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Adaptive Graph Encoder for Attributed Graph Embedding 阅读笔记</title>
+    <link href="http://nysdy.com/post/Adaptive%20Graph%20Encoder%20for%20Attributed%20Graph%20Embedding/"/>
+    <id>http://nysdy.com/post/Adaptive Graph Encoder for Attributed Graph Embedding/</id>
+    <published>2020-08-31T12:02:39.000Z</published>
+    <updated>2020-09-02T08:22:53.962Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0-总览&quot;&gt;&lt;a href=&quot;#0-总览&quot; class=&quot;headerlink&quot; title=&quot;0. 总览&quot;&gt;&lt;/a&gt;0. 总览&lt;/h1&gt;&lt;h2 id=&quot;0-1-文章是关于什么的？（what？）&quot;&gt;&lt;a href=&quot;#0-1-文章是关于什么的？（what？）&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
+    
+      <category term="adaptive learning" scheme="http://nysdy.com/tags/adaptive-learning/"/>
+    
+      <category term="attributed graph embedding" scheme="http://nysdy.com/tags/attributed-graph-embedding/"/>
+    
+  </entry>
   
   <entry>
     <title>Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs 阅读笔记</title>
@@ -113,7 +143,7 @@
     <link href="http://nysdy.com/post/ubantu%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85pytorch-GPU%E7%89%88%E6%9C%AC/"/>
     <id>http://nysdy.com/post/ubantu系统安装pytorch-GPU版本/</id>
     <published>2020-08-21T07:50:16.000Z</published>
-    <updated>2020-08-21T08:50:07.444Z</updated>
+    <updated>2020-09-02T03:28:00.797Z</updated>
     
     <summary type="html">
     
@@ -161,11 +191,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
     
       <category term="temporal KG" scheme="http://nysdy.com/tags/temporal-KG/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
     
@@ -279,9 +309,9 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
-    
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
     
       <category term="2015" scheme="http://nysdy.com/tags/2015/"/>
     
@@ -532,35 +562,6 @@
     
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>ERNIE Enhanced Language Representation with Informative Entities阅读笔记</title>
-    <link href="http://nysdy.com/post/ERNIE_Enhanced_Language_Representation_with_Informative_Entities/"/>
-    <id>http://nysdy.com/post/ERNIE_Enhanced_Language_Representation_with_Informative_Entities/</id>
-    <published>2019-06-24T03:10:26.000Z</published>
-    <updated>2019-06-25T06:32:57.460Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;该篇论文借鉴BERT，试图将实体信息（TransE）融入token(singal word)中，通过类似实体对齐的方法将实体与token对齐（并采取mask方式进行预训练），通过infromation fusion 将token与实体融合映射入相关联的两个向量空间。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://arxiv.org/pdf/1905.07129&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
-    
-    
-      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
-    
-      <category term="KGR" scheme="http://nysdy.com/tags/KGR/"/>
-    
-      <category term="BERT" scheme="http://nysdy.com/tags/BERT/"/>
     
   </entry>
   
