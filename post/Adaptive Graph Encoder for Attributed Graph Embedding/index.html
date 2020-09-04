@@ -520,7 +520,7 @@ R(\mathbf{L}, \mathbf{x})=\frac{\mathbf{x}^{\top} \mathbf{L} \mathbf{x}}{\mathbf
 \mathbf{H}=\mathbf{I}-k \tilde{\mathbf{L}}_{s y m}</script><ul>
 <li>注意到，这里如果取$k=1$，则滤波器变成GCN滤波器。</li>
 </ul>
-<p>为了选择最佳$𝑘$，应该仔细地发现特征值$\tilde{\Lambda}$的分布（从$\tilde{\mathbf{L}}_{s y m}=\tilde{\mathbf{U}} \tilde{\Lambda} \tilde{\mathbf{U}}^{-1}$的分解获得）。</p>
+<p>为了选择最佳$k$，应该仔细地发现特征值$\tilde{\Lambda}$的分布（从$\tilde{\mathbf{L}}_{s y m}=\tilde{\mathbf{U}} \tilde{\Lambda} \tilde{\mathbf{U}}^{-1}$的分解获得）。</p>
 <p>$\tilde{x}$的平滑为：</p>
 <script type="math/tex; mode=display">
 R(\mathrm{L}, \tilde{\mathrm{x}})=\frac{\tilde{\mathbf{x}}^{\top} \mathrm{L} \tilde{\mathbf{x}}}{\tilde{\mathbf{x}}^{\top} \tilde{\mathbf{x}}}=\frac{\sum_{i=1}^{n} p_{i}^{2} \lambda_{i}}{\sum_{i=1}^{n} p_{i}^{2}}</script><ul>
@@ -611,7 +611,7 @@ l_{i j}=\left\{\begin{array}{ll}1 & r_{i j} \leq r_{p o s} \\ 0 & r_{i j}>r_{n e
 <p><img src="http://image.nysdy.com/20200902104911.png" alt></p>
 <h3 id="3-4-6-可视化"><a href="#3-4-6-可视化" class="headerlink" title="3.4.6 可视化"></a>3.4.6 可视化</h3><p><img src="http://image.nysdy.com/20200902113935.png" alt></p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
-<li></li>
+<li><a href="https://arxiv.org/pdf/2007.01594" target="_blank" rel="noopener">论文原文下载地址</a></li>
 </ul>
 
             </div>
@@ -796,29 +796,30 @@ l_{i j}=\left\{\begin{array}{ll}1 & r_{i j} \leq r_{p o s} \\ 0 & r_{i j}>r_{n e
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/post/Adaptive Graph Encoder for Attributed Graph Embedding/">
+                <a href="/post/COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Adaptive Graph Encoder for Attributed Graph Embedding 阅读笔记">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记">
                         
-                        <span class="card-title">Adaptive Graph Encoder for Attributed Graph Embedding 阅读笔记</span>
+                        <span class="card-title">COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">0. 总览0.1 文章是关于什么的？（what？）图卷积网络，属性图嵌入，自适应学习，拉布拉斯平滑
-0.2 要解决什么问题？（why？|challenge）已经存在的GCN-based 模型有三个主要缺陷：
+                    <div class="summary">0. 导读0.1 文章是关于什么的？（what？）图卷积网络，
+0.2 要解决什么问题？（why？|challenge）
+以前的方法主要集中于处理简单无向图
+大多数现存模型在处理多关系图示遭受参数过大或者只学习节点表示
 
-作者实验显示图卷积网络的滤波器</div>
+0.3 用什么方法</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-31
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-03
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -831,20 +832,15 @@ l_{i j}=\left\{\begin{array}{ll}1 & r_{i j} \leq r_{p o s} \\ 0 & r_{i j}>r_{n e
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/KG/" target="_blank">
+                        <span class="chip bg-color">KG</span>
+                    </a>
+                    
                     <a href="/tags/GCN/" target="_blank">
                         <span class="chip bg-color">GCN</span>
-                    </a>
-                    
-                    <a href="/tags/adaptive-learning/" target="_blank">
-                        <span class="chip bg-color">adaptive learning</span>
-                    </a>
-                    
-                    <a href="/tags/attributed-graph-embedding/" target="_blank">
-                        <span class="chip bg-color">attributed graph embedding</span>
                     </a>
                     
                 </div>
@@ -1007,7 +1003,7 @@ l_{i j}=\left\{\begin{array}{ll}1 & r_{i j} \leq r_{p o s} \\ 0 & r_{i j}>r_{n e
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">56.1k</span>
+                <span class="white-color">57.8k</span>
             
 
             

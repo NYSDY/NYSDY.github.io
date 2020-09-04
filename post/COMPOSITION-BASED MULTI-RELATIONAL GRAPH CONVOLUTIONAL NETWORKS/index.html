@@ -4,10 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs 阅读笔记, NYSDY">
-    <meta name="description" content="0. 导读0.1 文章是关于什么的？（what？）知识图谱，图神经网络，关系预测，链接预测，图注意力模型
-0.2 要解决什么问题？（why？）
-基于CNN的嵌入模型独立的处理三元组，导致无法覆盖在三元组周围的本地邻居中固有隐含的复杂和隐藏信">
+    <meta name="keywords" content="COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记, NYSDY">
+    <meta name="description" content="0. 导读0.1 文章是关于什么的？（what？）图卷积网络，
+0.2 要解决什么问题？（why？|challenge）
+以前的方法主要集中于处理简单无向图
+大多数现存模型在处理多关系图示遭受参数过大或者只学习节点表示
+
+0.3 用什么方法">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs 阅读笔记 | NYSDY</title>
+    <title>COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记 | NYSDY</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -284,13 +287,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs 阅读笔记
+                        COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记
                     </div>
                 </div>
             </div>
@@ -386,6 +389,10 @@
                                 <span class="chip bg-color">KG</span>
                             </a>
                         
+                            <a href="/tags/GCN/" target="_blank">
+                                <span class="chip bg-color">GCN</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -406,21 +413,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-28
+                    2020-09-03
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.2k
+                        1.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        9 分
+                        7 分
                     </div>
                     
                 
@@ -436,126 +443,92 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="0-导读"><a href="#0-导读" class="headerlink" title="0. 导读"></a>0. 导读</h1><h2 id="0-1-文章是关于什么的？（what？）"><a href="#0-1-文章是关于什么的？（what？）" class="headerlink" title="0.1 文章是关于什么的？（what？）"></a>0.1 文章是关于什么的？（what？）</h2><p>知识图谱，图神经网络，关系预测，链接预测，图注意力模型</p>
-<h2 id="0-2-要解决什么问题？（why？）"><a href="#0-2-要解决什么问题？（why？）" class="headerlink" title="0.2 要解决什么问题？（why？）"></a>0.2 要解决什么问题？（why？）</h2><ul>
-<li>基于CNN的嵌入模型独立的处理三元组，导致无法覆盖在三元组周围的本地邻居中固有隐含的复杂和隐藏信息。</li>
-<li>随着模型深度的增加，远方实体的贡献呈指数下降。</li>
+                <h1 id="0-导读"><a href="#0-导读" class="headerlink" title="0. 导读"></a>0. 导读</h1><h2 id="0-1-文章是关于什么的？（what？）"><a href="#0-1-文章是关于什么的？（what？）" class="headerlink" title="0.1 文章是关于什么的？（what？）"></a>0.1 文章是关于什么的？（what？）</h2><p>图卷积网络，</p>
+<h2 id="0-2-要解决什么问题？（why？-challenge）"><a href="#0-2-要解决什么问题？（why？-challenge）" class="headerlink" title="0.2 要解决什么问题？（why？|challenge）"></a>0.2 要解决什么问题？（why？|challenge）</h2><ul>
+<li>以前的方法主要集中于处理简单无向图</li>
+<li>大多数现存模型在处理多关系图示遭受参数过大或者只学习节点表示</li>
 </ul>
 <h2 id="0-3-用什么方法解决？（how？）"><a href="#0-3-用什么方法解决？（how？）" class="headerlink" title="0.3 用什么方法解决？（how？）"></a>0.3 用什么方法解决？（how？）</h2><ul>
-<li>将不同的权重（注意力）分配给附近的节点，并通过迭代方式通过层传播注意力。</li>
-<li>提出的关系组合在n跳邻居之间引入辅助边，这样就很容易允许实体之间的知识流。</li>
-<li>作者设计一个encoder-decoder模型（坐着的生成图注意力模型和ConvKB的组合）</li>
+<li>在关系图中联合嵌入节点和关系的图卷积框架</li>
 </ul>
 <h2 id="0-4文章有什么创新？"><a href="#0-4文章有什么创新？" class="headerlink" title="0.4文章有什么创新？"></a>0.4文章有什么创新？</h2><ul>
-<li>作者是第一个学习新的基于图注意力的嵌入，这些嵌入专门针对KG的关系预测。</li>
+<li>在关系图中联合嵌入节点和关系的图卷积框架</li>
+<li>该框架可以推广到几个现存的多关系GCN模型</li>
 </ul>
-<h2 id="0-5-效果如何？"><a href="#0-5-效果如何？" class="headerlink" title="0.5 效果如何？"></a>0.5 效果如何？</h2><p>基于流行的Freebase（FB15K-237）数据集上Hits @ 1指标的最新方法，作者的方法实现了104％的改进。</p>
-<h2 id="0-6-还存在什么问题？"><a href="#0-6-还存在什么问题？" class="headerlink" title="0.6 还存在什么问题？"></a>0.6 还存在什么问题？</h2><ol>
-<li>分步训练编解码器，容易产生错误传播</li>
-<li>需要transE作为初始嵌入。</li>
-<li>这明明是链接预测，咋整个关系预测，这里可能有笔误</li>
-<li>该方法无法以自上而下的递归方式捕获信息</li>
-</ol>
-<h1 id="1-背景知识"><a href="#1-背景知识" class="headerlink" title="1 背景知识"></a>1 背景知识</h1><h1 id="2-模型"><a href="#2-模型" class="headerlink" title="2 模型"></a>2 模型</h1><h2 id="2-1-Graph-Attention-Networks-GATs-图注意力网络"><a href="#2-1-Graph-Attention-Networks-GATs-图注意力网络" class="headerlink" title="2.1 Graph Attention Networks (GATs) 图注意力网络"></a>2.1 Graph Attention Networks (GATs) 图注意力网络</h2><p>一个单一的GAT层可以表示为：</p>
-<script type="math/tex; mode=display">
-e_{i j}=a\left(\mathbf{W} \overrightarrow{x_{i}}, \mathbf{W} \overrightarrow{x_{j}}\right)</script><ul>
-<li>其中$e_{ij}$是边$(e_i, e_j)$的注意力值，$\mathbf{W}$是线性变换矩阵（把输入特征映射到高维输出特征空间），$a$是注意力函数</li>
-</ul>
-<p>节点$e_i$的的GAT输出特征向量为：</p>
-<script type="math/tex; mode=display">
-\overrightarrow{x_{i}^{\prime}}=\sigma\left(\sum_{j \in \mathcal{N}_{i}} \alpha_{i j} \mathbf{W} \overrightarrow{x_{j}}\right)</script><ul>
-<li>其中$\alpha_{ij}$是$e_{ij}$，其中$a$使用了softmax函数</li>
-</ul>
-<p>作者使用了多头注意力的方式去加固学习过程：</p>
-<script type="math/tex; mode=display">
-\overrightarrow{x_{i}^{\prime}}=\|_{k=1}^{K} \sigma\left(\sum_{j \in \mathcal{N}_{i}} \alpha_{i j}^{k} \mathbf{W}^{k} \overrightarrow{x_{j}}\right)</script><ul>
-<li>其中$k$代表第$k$个头，$|$代表一个串联。（这是第一种连接方式）</li>
-</ul>
-<p>最后的输出结果取得是多头注意力的平均值，即</p>
-<script type="math/tex; mode=display">
-\overrightarrow{x_{i}^{\prime}}=\sigma\left(\frac{1}{K} \sum_{k=1}^{K} \sum_{j \in \mathcal{N}_{i}} \alpha_{i j}^{k} \mathbf{W}^{k} \overrightarrow{x_{j}}\right)</script><ul>
-<li>这是第二种连接方式。</li>
-</ul>
-<h2 id="2-2-引入关系的重要性"><a href="#2-2-引入关系的重要性" class="headerlink" title="2.2 引入关系的重要性"></a>2.2 引入关系的重要性</h2><p>GAT在处理过程中其实忽略了知识图谱中的关系，节点的关系十分重要。作者提出了一个整合节点特征和关系的注意力机制。（所以其实上面写的是GAT的流程，下面写的才是作者实际采用的方式，所以其实可以忽略上面写的直接看下面的也可以）</p>
-<p>作者把尸体嵌入表示为一个矩阵$\mathbf{H} \in \mathbb{R}^{N_{e} \times T}$，相似的关系嵌入表示为$\mathbf{G} \in \mathbb{R}^{N_{r} \times P}$，$T$和$P$分别为实体特征和关系特征的维度。</p>
-<p>作者把三元组$t_{i j}^{k}=\left(e_{i}, r_{k}, e_{j}\right)$表示为：</p>
-<script type="math/tex; mode=display">
-c_{i j k}^{\rightarrow}=\mathbf{W}_{1}\left[\vec{h}_{i}\left\|\vec{h}_{j}\right\| \vec{g}_{k}\right]</script><ul>
-<li>其中，$\vec{h}_{i}, \vec{h}_{j}, \text { and } \vec{g}_{k}$分别代表实体$e_{i}, e_{j}, r_{k}$的嵌入表示。</li>
-</ul>
-<p>作者参考<code>Veliˇckovi´c et al., 2018)</code>的方式是，为三元组设计了一个值来表示三元组的重要性：</p>
-<script type="math/tex; mode=display">
-b_{i j k}=\text { LeakyReLU }\left(\mathbf{W}_{2} c_{i j k}\right)</script><p>同样，作者给予了不同关系一个注意力值：</p>
-<script type="math/tex; mode=display">
-\begin{aligned} \alpha_{i j k} &=\operatorname{softmax}_{j k}\left(b_{i j k}\right) \\ &=\frac{\exp \left(b_{i j k}\right)}{\sum_{n \in \mathcal{N}_{i}} \sum_{r \in \mathcal{R}_{i n}} \exp \left(b_{i n r}\right)} \end{aligned}</script><p>图3展示了$\alpha_{i j k}$的机制：<img src="http://image.nysdy.com/20200829203733.png" alt></p>
-<p>所以一个实体$e_i$的新嵌入表示为：</p>
-<script type="math/tex; mode=display">
-\overrightarrow{h_{i}^{\prime}}=\sigma\left(\sum_{j \in \mathcal{N}_{i}} \sum_{k \in \mathcal{R}_{i j}} \alpha_{i j k} c_{i j k}\right)</script><p>同样，作者采用多头注意力机制：</p>
-<script type="math/tex; mode=display">
-\overrightarrow{h_{i}^{\prime}}=\|_{m=1}^{M} \sigma\left(\sum_{j \in \mathcal{N}_{i}} \alpha_{i j k}^{m} c_{i j k}^{m}\right)</script><ul>
-<li>这里实际是图4中1所示部分。</li>
-</ul>
-<p>这就是图4中展示的图注意力层：<img src="http://image.nysdy.com/20200829210354.png" alt></p>
-<p><strong>作者采用一个线性变化来获得关系嵌入矩阵</strong>：</p>
-<script type="math/tex; mode=display">
-G^{\prime}=G . \mathbf{W}^{R}</script><ul>
-<li>其中，$\mathbf{W}^{R} \in \mathbb{R}^{T \times T^{\prime}}$。</li>
-<li>这里是图4中2所示的部分。</li>
-<li>感觉这里是因为关系嵌入在传播的过程中没有发生变化，强行线性变化使得发生变化。</li>
-</ul>
-<p>在最后一层（Graph Attention Layer 2），作者作者将多头注意力进行取平均操作：</p>
-<script type="math/tex; mode=display">
-\overrightarrow{h_{i}^{\prime}}=\sigma\left(\frac{1}{M} \sum_{m=1}^{M} \sum_{j \in \mathcal{N}_{i}} \sum_{k \in \mathcal{R}_{i j}} \alpha_{i j k}^{m} c_{i j k}^{m}\right)</script><ul>
-<li>这里是图4中4所示的部分</li>
-</ul>
-<p>作者把初始的实体表示矩阵做了一个线性变换，如图4中3所示。即$\mathbf{W}^{E} \mathbf{H}^{t}$操作。</p>
-<p>作者把图4中3和4连接在一起以一下灯饰表示：</p>
-<script type="math/tex; mode=display">
-\mathbf{H}^{\prime \prime}=\mathbf{W}^{E} \mathbf{H}^{t}+\mathbf{H}^{f}</script><h3 id="作者引入辅助关系路径"><a href="#作者引入辅助关系路径" class="headerlink" title="作者引入辅助关系路径"></a>作者引入辅助关系路径</h3><p><img src="http://image.nysdy.com/20200829211155.png" alt></p>
-<p>如图所示，作者强行建立了多跳关系实体的直接连接。</p>
-<p>辅助关系的嵌入为有向路径中所有关系的嵌入和。</p>
+<h2 id="0-5-效果如何？"><a href="#0-5-效果如何？" class="headerlink" title="0.5 效果如何？"></a>0.5 效果如何？</h2><p>在节点分类，链接预测，图分类上都取得了明显的提升。</p>
+<h2 id="0-6-还存在什么问题？"><a href="#0-6-还存在什么问题？" class="headerlink" title="0.6 还存在什么问题？"></a>0.6 还存在什么问题？</h2><h1 id="1-背景知识"><a href="#1-背景知识" class="headerlink" title="1 背景知识"></a>1 背景知识</h1><p>暂无</p>
+<h1 id="2-模型"><a href="#2-模型" class="headerlink" title="2 模型"></a>2 模型</h1><p><strong>模型图结构：</strong><img src="http://image.nysdy.com/20200903213538.png" alt></p>
+<p>作者在图中添加了反关系。</p>
 <blockquote>
-<p>这里作者这个辅助边描述的不够清晰，弄得搞不懂这个辅助边在作者的数据集中是不是已经手动建立了，还是不存在。但是通过图中分配了权重说明作者是建立这个辅助边的。</p>
+<p>The GCN formulation as devised by Marcheggiani &amp; Titov (2017) is based on the assumption that information in a directed edge ﬂows along both directions.</p>
 </blockquote>
-<h2 id="2-3-训练目标"><a href="#2-3-训练目标" class="headerlink" title="2.3 训练目标"></a>2.3 训练目标</h2><p>作者借鉴transE的思想$\vec{h}_{i}+\vec{g}_{k} \approx \vec{h}_{j}$，使用L1距离计算方式得到：</p>
+<p>多关系图表示为：$\mathcal{G}=(\mathcal{V}, \mathcal{R}, \mathcal{E}, \mathcal{X}, \mathcal{Z})$， 其中$\boldsymbol{\mathcal { Z }} \in \mathbb{R}|\mathcal{R}| \times d_{0}$表示初始关系特征。作者拓展了自反边和关系：</p>
 <script type="math/tex; mode=display">
-d_{t_{i j}}=\left\|\overrightarrow{h_{i}}+\overrightarrow{g_{k}}-\overrightarrow{h_{j}}\right\|_{1}</script><ul>
-<li>其中$t_{i j}^{k}=\left(e_{i}, r_{k}, e_{j}\right)$</li>
+\left.\mathcal{E}^{\prime}=\mathcal{E} \cup\left\{\left(v, u, r^{-1}\right) \mid(u, v, r) \in \mathcal{E}\right\} \cup\{(u, u, \top) \mid u \in \mathcal{V})\right\}</script><script type="math/tex; mode=display">
+\mathcal{R}^{\prime}=\mathcal{R} \cup \mathcal{R}_{\text {inv}} \cup\{\top\}</script><ul>
+<li>其中$ \mathcal{R}_{\text {inv}}=\left\{r^{-1} \mid r \in \mathcal{R}\right\}$代表自反关系，$\top$代表自循环。</li>
 </ul>
-<p>作者采用hinge-loss：</p>
+<h2 id="基于关系的合成"><a href="#基于关系的合成" class="headerlink" title="基于关系的合成"></a>基于关系的合成</h2><p>CompGCN学习了一个关系表示$\boldsymbol{h}_{r} \in \mathbb{R}^{d}, \forall r \in \mathcal{R}$， 节点嵌入：$\boldsymbol{h}_{v} \in \mathbb{R}^{d}, \forall v \in \mathcal{V}$把关系表示成向量可以避免过渡参数化问题，同时作者利用可以得到的关系特征作为初始表示。作者利用(Bordes et al., 2013; Nickel et al., 2016)使用的关系实体结合操作得到如下形式：</p>
 <script type="math/tex; mode=display">
-L(\Omega)=\sum_{t_{i j} \in S} \sum_{t_{i j}^{\prime} \in S^{\prime}} \max \left\{d_{t_{i j}^{\prime}}-d_{t_{i j}}+\gamma, 0\right\}</script><ul>
-<li>其中，$\gamma &gt; 0$是超参数，</li>
-<li>$S^{\prime}=\underbrace{\left\{t_{i^{\prime} j}^{k} \mid e_{i}^{\prime} \in \mathcal{E} \backslash e_{i}\right\}}_{\text {replace head entity }} \cup \underbrace{\left\{t_{i j^{\prime}}^{k} \mid e_{j}^{\prime} \in \mathcal{E} \backslash e_{j}\right\}}_{\text {replace tail entity }}$</li>
+\boldsymbol{e}_{o}=\phi\left(\boldsymbol{e}_{s}, \boldsymbol{e}_{r}\right)</script><ul>
+<li>$\phi: \mathbb{R}^{d} \times \mathbb{R}^{d} \rightarrow \mathbb{R}^{d}$是一个结合操作（作者使用了transE， multiplication， circular-correlation—方式）。$s,r,o$分别表示主语，关系和宾语，$\boldsymbol{e}_{(\cdot)} \in \mathbb{R}^{d}$表示他们的相关嵌入。</li>
 </ul>
-<h2 id="2-4-解码器"><a href="#2-4-解码器" class="headerlink" title="2.4 解码器"></a>2.4 解码器</h2><p>作者使用ConvKB作为一个解码器。卷积层的目的是分析每个维度上的三重$t_{i j}^{k}$的全局嵌入特性，并概括模型中的过渡特性.</p>
-<p>多特征图的分数函数写成：</p>
+<h2 id="CompGCN"><a href="#CompGCN" class="headerlink" title="CompGCN"></a>CompGCN</h2><p>节点更新公式：</p>
 <script type="math/tex; mode=display">
-f\left(t_{i j}^{k}\right)=\left(\|_{m=1}^{\Omega} \operatorname{ReLU}\left(\left[\vec{h}_{i}, \vec{g}_{k}, \vec{h}_{j}\right] * \omega^{m}\right)\right) . \mathbf{W}</script><ul>
-<li>其中，$\omega^{m}$是第$m$个卷积核，$*$是卷积操作。$\mathbf{W} \in \mathbb{R}^{\Omega k \times 1}$是线性变换来计算三元组最终分数。</li>
+\boldsymbol{h}_{v}=f\left(\sum_{(u, r) \in \mathcal{N}(v)} \boldsymbol{W}_{\lambda(r)} \phi\left(\boldsymbol{x}_{u}, \boldsymbol{z}_{r}\right)\right)</script><ul>
+<li>其中$\boldsymbol{x}_{u}, \boldsymbol{Z}_{r}$分别代表节点$u$和关系$r$，$h_v$代表节点$v$被更新表示。 </li>
+<li>$\boldsymbol{W}_{\lambda(r)} \in \mathbb{R}^{d_{1} \times d_{0}}$代表关系类型的特定参数。</li>
 </ul>
-<p>最后模型被训练的损失函数为：</p>
+<p>其中作者使用了方向特定的权重，$\lambda(r)=\operatorname{dir}(r)$，被给与以下形式：</p>
 <script type="math/tex; mode=display">
-\begin{array}{l}\mathcal{L}=\sum_{t_{i j}^{k} \in\left\{S \cup S^{\prime}\right\}} \log \left(1+\exp \left(l_{t_{i j}^{k} . f}\left(t_{i j}^{k}\right)\right)\right)+\frac{\lambda}{2}\|\mathbf{W}\|_{2}^{2} \\ \text { where } l_{t_{i j}^{k}}=\left\{\begin{array}{ll}1 & \text { for } t_{i j}^{k} \in S \\ -1 & \text { for } t_{i j}^{k} \in S^{\prime}\end{array}\right.\end{array}</script><h1 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h1><h2 id="3-1-数据集"><a href="#3-1-数据集" class="headerlink" title="3.1 数据集"></a>3.1 数据集</h2><p><img src="http://image.nysdy.com/20200829214116.png" alt></p>
-<h2 id="3-2-训练协议"><a href="#3-2-训练协议" class="headerlink" title="3.2 训练协议"></a>3.2 训练协议</h2><p>TransE产生的实体和关系嵌入（Bordes等，2013； Nguyen等，2018）用于初始化我们的嵌入。（用transE作为初始化嵌入，这个模型越来越有取巧的嫌疑了）</p>
-<p>作者遵循两步训练过程：</p>
-<ol>
-<li>即我们首先训练广义GAT以编码有关图实体和关系的信息，</li>
-<li>然后训练诸如ConvKB（Nguyen等人，2018）的解码器模型以执行关系预测任务。</li>
-</ol>
-<h2 id="3-3-评估标准"><a href="#3-3-评估标准" class="headerlink" title="3.3 评估标准"></a>3.3 评估标准</h2><p>这明明是链接预测，咋整个关系预测，我这里怀疑作者是否有好好的研究知识表示相关内容</p>
-<h2 id="3-4-实验结果"><a href="#3-4-实验结果" class="headerlink" title="3.4 实验结果"></a>3.4 实验结果</h2><p><img src="http://image.nysdy.com/20200829214539.png" alt></p>
-<p><img src="http://image.nysdy.com/20200829214911.png" alt></p>
-<p>这图根本看不出来啥呀。</p>
-<h3 id="pagerank"><a href="#pagerank" class="headerlink" title="pagerank"></a>pagerank</h3><p>这个接触过，不知道作用，</p>
-<p><img src="http://image.nysdy.com/20200829215051.png" alt></p>
-<h3 id="消融实验"><a href="#消融实验" class="headerlink" title="消融实验"></a>消融实验</h3><p><img src="http://image.nysdy.com/20200829215300.png" alt></p>
-<p>这里作者对于两个消融实验也不多描述清楚一下：</p>
-<ol>
-<li>-PG这个不清楚是移除了啥，那个辅助关系本来也没搞懂。但这个我觉得本来传播模型的时候就带入了多跳传输。</li>
-<li>-Relation，这个应该是直接采用GAT的方式，没有考虑关系</li>
-</ol>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>- </p>
+\boldsymbol{W}_{\operatorname{dir}(r)}=\left\{\begin{array}{ll}\boldsymbol{W}_{O}, & r \in \mathcal{R} \\ \boldsymbol{W}_{I}, & r \in \mathcal{R}_{i n v} \\ \boldsymbol{W}_{S}, & r=\top(\text {self-loop})\end{array}\right.</script><p>在节点更细以后，关系嵌入被转换为以下形式：</p>
+<script type="math/tex; mode=display">
+\boldsymbol{h}_{r}=\boldsymbol{W}_{\mathrm{rel}} \boldsymbol{z}_{r}</script><ul>
+<li>$\boldsymbol{W}_{\mathrm{rel}} \in \mathbb{R}^{d_{1} \times d_{0}}$是一个可学习的转换矩阵，把所有的关系映射到与节点相同的嵌入空间，并再下一层可以被利用。</li>
+</ul>
+<p>作者展示了各种GCN每层的参数对比</p>
+<p><img src="http://image.nysdy.com/20200904151209.png" alt></p>
+<h3 id="随着关系数量的增加而缩放"><a href="#随着关系数量的增加而缩放" class="headerlink" title="随着关系数量的增加而缩放"></a>随着关系数量的增加而缩放</h3><p>作者使用了Schlichtkrull等人（2017）提出的基础公式的一种变体。 它们不是独立定义每个关系的嵌入，而是表示为一组基本向量的线性组合。 正式地，让$\left\{\boldsymbol{v}_{1}, \boldsymbol{v}_{2}, \ldots, \boldsymbol{v}_{\mathcal{B}}\right\}$为一组可学习的基础向量。 然后，初始关系表示为：</p>
+<script type="math/tex; mode=display">
+\boldsymbol{z}_{r}=\sum_{b=1}^{\mathcal{B}} \alpha_{b r} \boldsymbol{v}_{b}</script><ul>
+<li>$\alpha_{b r} \in \mathbb{R}$是关系和基础特定的可学习标量权重。</li>
+</ul>
+<h3 id="关于与Relational-GCN的比较注意"><a href="#关于与Relational-GCN的比较注意" class="headerlink" title="关于与Relational-GCN的比较注意"></a>关于与Relational-GCN的比较注意</h3><p>这与Schlichtkrull等人的基础公式不同，其中为每个GCN层定义了一组单独的基础矩阵。 相比之下，COMPGCN使用嵌入矢量代替矩阵，并且仅在第一层定义基本矢量。 后面的层根据等式4通过转换共享关系。这使作者的模型比Relational-GCN更有效的参数。</p>
+<p>通过堆叠COMPGCN层，可以得到：</p>
+<script type="math/tex; mode=display">
+\boldsymbol{h}_{v}^{k+1}=f\left(\sum_{(u, r) \in \mathcal{N}(v)} \boldsymbol{W}_{\lambda(r)}^{k} \phi\left(\boldsymbol{h}_{u}^{k}, \boldsymbol{h}_{r}^{k}\right)\right)</script><p>相似的，可以得到堆叠的关系表示：</p>
+<script type="math/tex; mode=display">
+\boldsymbol{h}_{r}^{k+1}=\boldsymbol{W}_{\mathrm{rel}}^{k} \boldsymbol{h}_{r}^{k}</script><p>这里$\boldsymbol{h}_{v}^{0} \text { and } \boldsymbol{h}_{r}^{0}$代表初始的节点和关系特征。</p>
+<h3 id="Proposition-4-1"><a href="#Proposition-4-1" class="headerlink" title="Proposition 4.1."></a>Proposition 4.1.</h3><blockquote>
+<p>COMPGCN generalizes the following Graph Convolutional based methods: KipfGCN (Kipf &amp; Welling, 2016), Relational GCN (Schlichtkrull et al., 2017), Directed GCN (Marcheggiani &amp; Titov, 2017), and Weighted GCN (Shang et al., 2019</p>
+</blockquote>
+<p>证明：例如对于Kipf-GCN，这可以通过使权重$\left(\boldsymbol{W}_{\lambda(r)}\right)$和合成函数$(\phi)$与关系无关来简单地获得，即$\boldsymbol{W}_{\lambda(r)}=\boldsymbol{W} \text { and } \phi\left(\boldsymbol{h}_{u}, \boldsymbol{h}_{r}\right)=\boldsymbol{h}_{u}$。 对于其他方法，也可以得到类似方法获得，如表2所示。</p>
+<h1 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h1><p>任务：链接预测、节点分类、图分类</p>
+<p>基线：</p>
+<ul>
+<li>Relational-GCN (R-GCN)</li>
+<li>Directed-GCN (D-GCN)</li>
+<li>Directed-GCN (D-GCN)</li>
+</ul>
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p><img src="http://image.nysdy.com/20200904153012.png" alt></p>
+<h2 id="链接预测"><a href="#链接预测" class="headerlink" title="链接预测"></a>链接预测</h2><p><img src="http://image.nysdy.com/20200904155302.png" alt></p>
+<h2 id="与其他GCN作对比"><a href="#与其他GCN作对比" class="headerlink" title="与其他GCN作对比"></a>与其他GCN作对比</h2><p><img src="http://image.nysdy.com/20200904155509.png" alt></p>
+<script type="math/tex; mode=display">
+\begin{array}{l}\text { Subtraction }(\mathbf{S u b}): \phi\left(e_{s}, e_{r}\right)=e_{s}-e_{r} \\ \text { Multiplication (Mult): } \phi\left(e_{s}, e_{r}\right)=e_{s} * e_{r} \\ \text { Circular-correlation (Corr): } \phi\left(e_{s}, e_{r}\right)=e_{s} \star e_{r}\end{array}</script><ul>
+<li>这里有个疑问，对于那些没有关系嵌入的模型要怎么处理，是随机生成，然后通过分数函数来进行更新嘛。</li>
+</ul>
+<p><img src="http://image.nysdy.com/20200904153745.png" alt></p>
+<p>总的来说，作者观察到观察到像循环相关这样的更复杂的算子的性能要好于或比简单的算子（如减法）要好。</p>
+<h2 id="CompGCN的缩放能力"><a href="#CompGCN的缩放能力" class="headerlink" title="CompGCN的缩放能力"></a>CompGCN的缩放能力</h2><p>我们分析了具有不同数量的关系和基向量的COMPGCN的scalability。</p>
+<h3 id="变化关系基向量的影响"><a href="#变化关系基向量的影响" class="headerlink" title="变化关系基向量的影响"></a>变化关系基向量的影响</h3><p><img src="http://image.nysdy.com/20200904160518.png" alt></p>
+<p>模型性能随着基础数量的增加而提高。作者注意到注意到在B = 100的情况下，模型的性能变得与所有关系都有其各自嵌入的情况相当。</p>
+<h3 id="关系数量的影响"><a href="#关系数量的影响" class="headerlink" title="关系数量的影响"></a>关系数量的影响</h3><p><img src="http://image.nysdy.com/20200904161031.png" alt></p>
+<p>作者报告使用5个关联基向量（B = 5）的COMPGCN相对于每个关系都使用单独的向量的相对性能。结果表明，随着关系数量的增加，COMPGCN的参数有效变体也随之缩放。</p>
+<h3 id="与R-GCN相比"><a href="#与R-GCN相比" class="headerlink" title="与R-GCN相比"></a>与R-GCN相比</h3><p><img src="http://image.nysdy.com/20200904160211.png" alt></p>
+<h2 id="节点分类和图分类"><a href="#节点分类和图分类" class="headerlink" title="节点分类和图分类"></a>节点分类和图分类</h2><p><img src="http://image.nysdy.com/20200904161536.png" alt></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a href="https://arxiv.org/pdf/1911.03082" target="_blank" rel="noopener">论文下载地址</a></li>
+</ul>
 
             </div>
             <hr/>
@@ -696,7 +669,7 @@ f\left(t_{i j}^{k}\right)=\left(\|_{m=1}^{\Omega} \operatorname{ReLU}\left(\left
                     </span>
                     <a href="http://nysdy.com" class="b-link-green">NYSDY</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/post/Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs/" class="b-link-green">Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs 阅读笔记</a>
+                    <a href="/post/COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS/" class="b-link-green">COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记</a>
                 </p>
             </div>
         </div>
@@ -718,7 +691,7 @@ f\left(t_{i j}^{k}\right)=\left(\|_{m=1}^{\Omega} \operatorname{ReLU}\left(\left
         repo: 'nysdy.github.io',
         owner: 'nysdy',
         admin: "nysdy",
-        id: '2020-08-28T11-03-01',
+        id: '2020-09-03T15-30-05',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -739,9 +712,65 @@ f\left(t_{i j}^{k}\right)=\left(\|_{m=1}^{\Omega} \operatorname{ReLU}\left(\left
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/post/COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记">
+                        
+                        <span class="card-title">COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">0. 导读0.1 文章是关于什么的？（what？）图卷积网络，
+0.2 要解决什么问题？（why？|challenge）
+以前的方法主要集中于处理简单无向图
+大多数现存模型在处理多关系图示遭受参数过大或者只学习节点表示
+
+0.3 用什么方法</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
+                                    论文阅读笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/KG/" target="_blank">
+                        <span class="chip bg-color">KG</span>
+                    </a>
+                    
+                    <a href="/tags/GCN/" target="_blank">
+                        <span class="chip bg-color">GCN</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/post/Adaptive Graph Encoder for Attributed Graph Embedding/">
                     <div class="card-image">
@@ -758,9 +787,9 @@ f\left(t_{i j}^{k}\right)=\left(\|_{m=1}^{\Omega} \operatorname{ReLU}\left(\left
 
 作者实验显示图卷积网络的滤波器</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -786,68 +815,6 @@ f\left(t_{i j}^{k}\right)=\left(\|_{m=1}^{\Omega} \operatorname{ReLU}\left(\left
                     
                     <a href="/tags/attributed-graph-embedding/" target="_blank">
                         <span class="chip bg-color">attributed graph embedding</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/post/End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion reading note/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion--阅读笔记">
-                        
-                        <span class="card-title">End-to-End Structure-Aware Convolutional Networks for Knowledge Base Completion--阅读笔记</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">0. 总览0.1 要解决什么问题？（what？）知识图谱补全中：
-
-以前的方法只建模关系三元组，忽略了大量图节点相关属性；
-以前的方法并没有增强在嵌入空间中大规模连接结构，完全忽略了图结构。
-
-0.2 用什么方法解决？（how？）用GCN和</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-08-25
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
-                                    论文阅读笔记
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/AAAI/" target="_blank">
-                        <span class="chip bg-color">AAAI</span>
-                    </a>
-                    
-                    <a href="/tags/2019/" target="_blank">
-                        <span class="chip bg-color">2019</span>
-                    </a>
-                    
-                    <a href="/tags/GCN/" target="_blank">
-                        <span class="chip bg-color">GCN</span>
-                    </a>
-                    
-                    <a href="/tags/KGC/" target="_blank">
-                        <span class="chip bg-color">KGC</span>
                     </a>
                     
                 </div>

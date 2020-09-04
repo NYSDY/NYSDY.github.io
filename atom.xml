@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-09-02T08:22:53.962Z</updated>
+  <updated>2020-09-04T08:17:25.676Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记</title>
+    <link href="http://nysdy.com/post/COMPOSITION-BASED%20MULTI-RELATIONAL%20GRAPH%20CONVOLUTIONAL%20NETWORKS/"/>
+    <id>http://nysdy.com/post/COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS/</id>
+    <published>2020-09-03T07:30:05.000Z</published>
+    <updated>2020-09-04T08:17:25.676Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0-导读&quot;&gt;&lt;a href=&quot;#0-导读&quot; class=&quot;headerlink&quot; title=&quot;0. 导读&quot;&gt;&lt;/a&gt;0. 导读&lt;/h1&gt;&lt;h2 id=&quot;0-1-文章是关于什么的？（what？）&quot;&gt;&lt;a href=&quot;#0-1-文章是关于什么的？（what？）&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
+    
+      <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Adaptive Graph Encoder for Attributed Graph Embedding 阅读笔记</title>
     <link href="http://nysdy.com/post/Adaptive%20Graph%20Encoder%20for%20Attributed%20Graph%20Embedding/"/>
     <id>http://nysdy.com/post/Adaptive Graph Encoder for Attributed Graph Embedding/</id>
     <published>2020-08-31T12:02:39.000Z</published>
-    <updated>2020-09-02T08:22:53.962Z</updated>
+    <updated>2020-09-03T07:52:54.819Z</updated>
     
     <summary type="html">
     
@@ -51,7 +79,7 @@
     <link href="http://nysdy.com/post/Learning%20Attention-based%20Embeddings%20for%20Relation%20Prediction%20in%20Knowledge%20Graphs/"/>
     <id>http://nysdy.com/post/Learning Attention-based Embeddings for Relation Prediction in Knowledge Graphs/</id>
     <published>2020-08-28T03:03:01.000Z</published>
-    <updated>2020-08-29T13:55:04.909Z</updated>
+    <updated>2020-09-03T07:55:26.964Z</updated>
     
     <summary type="html">
     
@@ -94,9 +122,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
-    
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
+    
+      <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
     
       <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
     
@@ -109,7 +137,7 @@
     <link href="http://nysdy.com/post/Modeling%20Relational%20Data%20with%20Graph%20Convolutional%20Networks/"/>
     <id>http://nysdy.com/post/Modeling Relational Data with Graph Convolutional Networks/</id>
     <published>2020-08-22T13:53:24.000Z</published>
-    <updated>2020-08-29T09:00:24.572Z</updated>
+    <updated>2020-09-03T13:34:27.388Z</updated>
     
     <summary type="html">
     
@@ -191,11 +219,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
       <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
     
       <category term="temporal KG" scheme="http://nysdy.com/tags/temporal-KG/"/>
-    
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
     
@@ -309,9 +337,9 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="2015" scheme="http://nysdy.com/tags/2015/"/>
     
@@ -542,26 +570,6 @@
     
     
       <category term="RE" scheme="http://nysdy.com/tags/RE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Learning as the Unsupervised Alignment of Conceptual Systems阅读笔记</title>
-    <link href="http://nysdy.com/post/Learning_as_the_Unsupervised_Alignment_of_Conceptual_Systems/"/>
-    <id>http://nysdy.com/post/Learning_as_the_Unsupervised_Alignment_of_Conceptual_Systems/</id>
-    <published>2019-06-25T06:42:57.000Z</published>
-    <updated>2019-06-26T04:02:25.369Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;这篇文章没怎么看懂，主要思想应该是代表同时概念的不同形式（文本，图像，语音等）应该具有相似的分布，以此来进行无监督的概念对齐。这种思路挺不错的，不过还没有深入的想法，算是拓展视野吧！&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
     
   </entry>
   
