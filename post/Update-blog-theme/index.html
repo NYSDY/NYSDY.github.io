@@ -415,14 +415,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        4.8k
+                        5.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        19 分
+                        23 分
                     </div>
                     
                 
@@ -936,8 +936,101 @@ local_search:
 <span class="token punctuation">}</span>
 <span class="token keyword">else</span> <span class="token keyword">return</span> b<span class="token punctuation">.</span>date <span class="token operator">-</span> a<span class="token punctuation">.</span>date<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 都没定义按照文章日期降序排</span>
 </code></pre>
+<h2 id="添加评论插件"><a href="#添加评论插件" class="headerlink" title="添加评论插件"></a>添加评论插件</h2><h2 id="Valine"><a href="#Valine" class="headerlink" title="Valine"></a>Valine</h2><p>Valine官网：<a href="https://valine.js.org/" target="_blank" rel="noopener">Valine</a><br>安装步骤：</p>
+<hr>
+<p><strong>获取 APP ID 和 APP KEY</strong></p>
+<ul>
+<li><a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">点击这里</a>登录或注册Leancloud，或者<a href="https://avoscloud.com/" target="_blank" rel="noopener">点击这里</a></li>
+<li><a href="https://leancloud.cn/dashboard/applist.html#/newapp" target="_blank" rel="noopener">点击这里</a>创建应用，应用名随意填写。</li>
+<li>选择刚刚创建的应用&gt;设置&gt;选择应用 Key，然后你就能看到你的APP ID和APP KEY了，参考下图：<img src="http://image.nysdy.com/20200914104550.png" alt></li>
+<li>为了您的数据安全，请填写应用&gt;设置&gt;安全设置中的Web 安全域名</li>
+</ul>
+<p><strong>修改主题下的_config.yml文件，添加valine配置</strong></p>
+<pre class=" language-txt"><code class="language-txt"># valine配置
+valine_appid: '填写leancloud的appid'
+valine_appkey: '填写leancloud的appkey'
+</code></pre>
+<p><strong>修改themes/matery/layout/_partial/article.ejs，添加一段代码</strong></p>
+<pre><code>&lt;% if (theme.valine_appid &amp;&amp; theme.valine_appkey){ %&gt;
+    &lt;%- partial(&#39;post/valine&#39;, {
+        key: post.slug,
+        title: post.title,
+        url: config.url+url_for(post.path)
+      }) %&gt;
+    &lt;% } %&gt;
+</code></pre><p>注意：这段代码不可在尾部添加，应该添加至</p>
+<pre><code>&lt;% if (!index &amp;&amp; post.comments){ %&gt;
+//添加到这里
+&lt;% } %&gt;
+</code></pre><p>否则会出现主页冒出评论框的状况。</p>
+<p><strong>新增themes/matery/layout/_partial/post/valine.ejs</strong></p>
+<pre><code>&lt;div id=&quot;comment&quot;&gt;&lt;/div&gt;
+&lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&#39;//unpkg.com/valine/dist/Valine.min.js&#39;&gt;&lt;/script&gt;
+&lt;script&gt;
+new Valine({
+    el: &#39;#comment&#39; ,
+    notify:false, 
+    verify:false, 
+    appId: &#39;&lt;%=theme.valine_appid%&gt;&#39;,
+    appKey: &#39;&lt;%=theme.valine_appkey%&gt;&#39;,
+    placeholder: &#39;ヾﾉ≧∀≦)o欢迎评论!&#39;,
+    path:window.location.pathname, 
+    avatar:&#39;mm&#39; 
+});
+&lt;/script&gt;
+</code></pre><h3 id="Valine-评论系统中的邮件提醒设置"><a href="#Valine-评论系统中的邮件提醒设置" class="headerlink" title="Valine 评论系统中的邮件提醒设置"></a>Valine 评论系统中的邮件提醒设置</h3><ul>
+<li>进入Leancloud&gt;选择你的评论所存放的应用&gt;设置&gt;邮件模板，按下图设置好用于重置密码的邮件主题&gt;然后保存:</li>
+</ul>
+<p><img src="http://image.nysdy.com/20200914105503.png" alt></p>
+<ul>
+<li>修改邮件主题：你在的评论收到了新的回复</li>
+<li>修改内容：将下面的代码复制到“内容”中，并将其中的你的网址首页链接改为你的网址首页链接。</li>
+</ul>
+<pre><code>&lt;p&gt;Hi, {{username}}&lt;/p&gt;
+&lt;p&gt;
+你在 {{appname}} 的评论收到了新的回复，请点击查看：
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;你的网址首页链接&quot; style=&quot;display: inline-block; padding: 10px 20px; border-radius: 4px; background-color: #3090e4; color: #fff; text-decoration: none;&quot;&gt;马上查看&lt;/a&gt;&lt;/p&gt;
+</code></pre><ul>
+<li>点击“保存”按钮。</li>
+<li>修改yilia主题配置文件，位置：你的网站根目录\themes\yilia\layout_partial\post\valine.ejs，将notify和verify的属性修改为true。</li>
+</ul>
+<pre><code>&lt;div id=&quot;comment&quot;&gt;&lt;/div&gt;
+&lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&#39;//unpkg.com/valine/dist/Valine.min.js&#39;&gt;&lt;/script&gt;
+&lt;script&gt;
+new Valine({
+    el: &#39;#comment&#39; ,
+    notify:true, 
+    verify:true, 
+    appId: &#39;&lt;%=theme.valine_appid%&gt;&#39;,
+    appKey: &#39;&lt;%=theme.valine_appkey%&gt;&#39;,
+    placeholder: &#39;吾以为inkbottle必有高论，岂期出此鄙言！吾有一言，诸军静听&#39;,
+    path:window.location.pathname, 
+    avatar:&#39;mm&#39; 
+});
+&lt;/script&gt;
+</code></pre><ul>
+<li>配置完毕后，重新部署，需等待一段时间。</li>
+</ul>
+<pre><code>hexo g -d
+</code></pre><ul>
+<li>进行测试，查看自己评论的回复能否收到邮件提醒。</li>
+<li>配置完成！</li>
+</ul>
+<blockquote>
+<p>注意事项：</p>
+<ul>
+<li>发送次数过多，可能会暂时被Leancloud 屏蔽邮件发送功能</li>
+<li>由于邮件提醒功能使用的Leancloud的密码重置邮件提醒，只能传递昵称、邮箱两个属性，所以邮件提醒链&gt; 接无法直达指定文章页。请悉知。</li>
+<li>开启邮件提醒会默认开启验证码选项。</li>
+<li>该功能目前还在测试阶段，谨慎使用。</li>
+<li>目前邮件提醒正处于测试阶段，仅在子级对存在邮件地址的父级发表评论时发送邮件</li>
+</ul>
+</blockquote>
 <h1 id="待解决"><a href="#待解决" class="headerlink" title="待解决"></a>待解决</h1><ul>
-<li>公安备案——进行中</li>
+<li></li>
 <li>代码块形式</li>
 </ul>
 <h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><ul>
@@ -945,6 +1038,7 @@ local_search:
 <li><a href="https://godweiyang.com/2018/04/13/hexo-blog/#toc-heading-19" target="_blank" rel="noopener">韦阳的博客</a></li>
 <li><a href="https://shengbinyu.top/mathjaxprism.html" target="_blank" rel="noopener">https://shengbinyu.top/mathjaxprism.html</a></li>
 <li><a href="https://yashuning.github.io/2018/06/29/hexo-Next-主题添加搜索功能/" target="_blank" rel="noopener">https://yashuning.github.io/2018/06/29/hexo-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/</a></li>
+<li><a href="https://ink-bottle.github.io/2019/03/03/hexo-%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0Valine-gitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" target="_blank" rel="noopener">https://ink-bottle.github.io/2019/03/03/hexo-%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0Valine-gitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/</a></li>
 </ul>
 
             </div>
@@ -1093,35 +1187,272 @@ local_search:
     </div>
 
     
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
 
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments input[type=text],
+    #vcomments input[type=email],
+    #vcomments input[type=url],
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
 </div>
 
-<script src="/libs/gitalk/gitalk.min.js"></script>
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
 <script>
-    let gitalk = new Gitalk({
-        clientID: '8edbf1351829fc2cbdfc',
-        clientSecret: 'f769bae40325e3cd028f294d49e9d4247b87c3c6',
-        repo: 'nysdy.github.io',
-        owner: 'nysdy',
-        admin: "nysdy",
-        id: '2020-03-26T14-54-40',
-        distractionFreeMode: false  // Facebook-like distraction free mode
+    new Valine({
+        el: '#vcomments',
+        appId: 'u8Y7CLQ4wr5gIi2xYsV9LuUI-gzGzoHsz',
+        appKey: 'h3If8qD2dumISiw6fEWbDmVc',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
     });
-
-    gitalk.render('gitalk-container');
 </script>
-    
-
-    
-
-    
-
-    
-
     
 
     
@@ -1229,12 +1560,12 @@ what problem it solves?提出了一个Diachronic</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/2016/" target="_blank">
-                        <span class="chip bg-color">2016</span>
-                    </a>
-                    
                     <a href="/tags/KGE/" target="_blank">
                         <span class="chip bg-color">KGE</span>
+                    </a>
+                    
+                    <a href="/tags/2016/" target="_blank">
+                        <span class="chip bg-color">2016</span>
                     </a>
                     
                     <a href="/tags/ACL/" target="_blank">
@@ -1354,7 +1685,7 @@ what problem it solves?提出了一个Diachronic</div>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">57.8k</span>
+                <span class="white-color">58.7k</span>
             
 
             
