@@ -4,14 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="DocRED A Large-Scale Document-Level Relation Extraction Dataset阅读笔记, NYSDY">
-    <meta name="description" content="
-这是一个介绍数据集的论文，主要是文档级别的关系抽取数据集。
-论文下载地址
+    <meta name="keywords" content="DeepWalk: Online Learning of Social Representations 阅读笔记, NYSDY">
+    <meta name="description" content="0. 导读0.1 文章是关于什么的？（what？）0.2 要解决什么问题？（why？|challenge）
+0.3 用什么方法解决？（how？）
 
-Problem Statementexisting datasets for document-level RE 
 
-either only have a sma">
+0.4文章有什么创新？
+0.5 效果如何？
+
+0.6 还存在什么问题？1 背景知识2 模型">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +20,7 @@ either only have a sma">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>DocRED A Large-Scale Document-Level Relation Extraction Dataset阅读笔记 | NYSDY</title>
+    <title>DeepWalk: Online Learning of Social Representations 阅读笔记 | NYSDY</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -288,13 +289,13 @@ either only have a sma">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        DocRED A Large-Scale Document-Level Relation Extraction Dataset阅读笔记
+                        DeepWalk: Online Learning of Social Representations 阅读笔记
                     </div>
                 </div>
             </div>
@@ -384,29 +385,12 @@ either only have a sma">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/RE/" target="_blank">
-                                <span class="chip bg-color">RE</span>
-                            </a>
-                        
-                            <a href="/tags/dataset/" target="_blank">
-                                <span class="chip bg-color">dataset</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
-                                论文阅读笔记
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -414,14 +398,14 @@ either only have a sma">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-07-01
+                    2020-09-13
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        137
+                        74
                     </div>
                     
 
@@ -444,26 +428,14 @@ either only have a sma">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>这是一个介绍数据集的论文，主要是文档级别的关系抽取数据集。</p>
-<p><a href="http://arxiv.org/abs/1906.06127" target="_blank" rel="noopener">论文下载地址</a></p>
-</blockquote>
-<h1 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h1><p>existing datasets for document-level RE </p>
-<ul>
-<li>either only have a small number of manually-annotated relations and entities, </li>
-<li>or exhibit noisy annotations from distant supervision, </li>
-<li>or serve specific domains or approaches.</li>
+                <h1 id="0-导读"><a href="#0-导读" class="headerlink" title="0. 导读"></a>0. 导读</h1><h2 id="0-1-文章是关于什么的？（what？）"><a href="#0-1-文章是关于什么的？（what？）" class="headerlink" title="0.1 文章是关于什么的？（what？）"></a>0.1 文章是关于什么的？（what？）</h2><h2 id="0-2-要解决什么问题？（why？-challenge）"><a href="#0-2-要解决什么问题？（why？-challenge）" class="headerlink" title="0.2 要解决什么问题？（why？|challenge）"></a>0.2 要解决什么问题？（why？|challenge）</h2><ul>
+<li><h2 id="0-3-用什么方法解决？（how？）"><a href="#0-3-用什么方法解决？（how？）" class="headerlink" title="0.3 用什么方法解决？（how？）"></a>0.3 用什么方法解决？（how？）</h2></li>
+<li></li>
 </ul>
-<h1 id="Contribution-DocRED"><a href="#Contribution-DocRED" class="headerlink" title="Contribution (DocRED)"></a>Contribution (DocRED)</h1><ul>
-<li>constructed from Wikipedia and Wikidata</li>
-<li>DocRED contains 132, 375 entities and 56, 354 relational facts annotated on 5, 053 Wikipedia documents</li>
-<li>As at least 40.7% of the relational facts in DocRED can only be extracted from multiple sentences</li>
-<li><p>also provide large-scale distantly supervised data to support weakly supervised RE research</p>
-</li>
-<li><p>indicate the existing methods deal with the taks document level RE is  more difficult sentence-level RE.</p>
-</li>
+<h2 id="0-4文章有什么创新？"><a href="#0-4文章有什么创新？" class="headerlink" title="0.4文章有什么创新？"></a>0.4文章有什么创新？</h2><ul>
+<li><h2 id="0-5-效果如何？"><a href="#0-5-效果如何？" class="headerlink" title="0.5 效果如何？"></a>0.5 效果如何？</h2></li>
 </ul>
-<h1 id="data"><a href="#data" class="headerlink" title="data"></a>data</h1><p><img src="http://image.nysdy.com/20190701156194521958350.jpg" alt="20190701156194521958350.jpg"></p>
+<h2 id="0-6-还存在什么问题？"><a href="#0-6-还存在什么问题？" class="headerlink" title="0.6 还存在什么问题？"></a>0.6 还存在什么问题？</h2><h1 id="1-背景知识"><a href="#1-背景知识" class="headerlink" title="1 背景知识"></a>1 背景知识</h1><h1 id="2-模型"><a href="#2-模型" class="headerlink" title="2 模型"></a>2 模型</h1><h1 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h1><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>- </p>
 
             </div>
             <hr/>
@@ -604,7 +576,7 @@ either only have a sma">
                     </span>
                     <a href="http://nysdy.com" class="b-link-green">NYSDY</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/post/DocRED_A_Large-Scale_Document-Level_Relation_Extraction_Dataset/" class="b-link-green">DocRED A Large-Scale Document-Level Relation Extraction Dataset阅读笔记</a>
+                    <a href="/post/null/" class="b-link-green">DeepWalk: Online Learning of Social Representations 阅读笔记</a>
                 </p>
             </div>
         </div>
@@ -626,7 +598,7 @@ either only have a sma">
         repo: 'nysdy.github.io',
         owner: 'nysdy',
         admin: "nysdy",
-        id: '2019-07-01T09-11-49',
+        id: '2020-09-13T15-45-17',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -647,58 +619,42 @@ either only have a sma">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/post/Universal_Representation_Learning_of_Knowledge_Bases_by_Jointly_Embedding_Instances_and_Ontological_Concepts/">
+                <a href="/post/null/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Universal Representation Learning of Knowledge Bases by Jointly Embedding Instances and Ontological Concepts阅读笔记">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="DeepWalk: Online Learning of Social Representations 阅读笔记">
                         
-                        <span class="card-title">Universal Representation Learning of Knowledge Bases by Jointly Embedding Instances and Ontological Concepts阅读笔记</span>
+                        <span class="card-title">DeepWalk: Online Learning of Social Representations 阅读笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-
-论文下载地址
+                    <div class="summary">0. 导读0.1 文章是关于什么的？（what？）0.2 要解决什么问题？（why？|challenge）
+0.3 用什么方法解决？（how？）
 
 
-Problem StatementExisting KG embedding models merely focus on representing of an ontology view for abstract </div>
+0.4文章有什么创新？
+0.5 效果如何？
+
+0.6 还存在什么问题？1 背景知识2 模型</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-13
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
-                                    论文阅读笔记
-                                </a>
-                            
-                            <a href="/categories/论文阅读笔记/KG/" class="post-category" target="_blank">
-                                    KG
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            NYSDY
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/KGE/" target="_blank">
-                        <span class="chip bg-color">KGE</span>
-                    </a>
-                    
-                    <a href="/tags/ontology/" target="_blank">
-                        <span class="chip bg-color">ontology</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -709,21 +665,25 @@ Problem StatementExisting KG embedding models merely focus on representing of an
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/Learning_Entity_and_Relation_Embeddings_for_Knowledge_Graph_Completion/">
+                <a href="/post/COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Learning Entity and Relation Embeddings for Knowledge Graph Completion阅读笔记">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记">
                         
-                        <span class="card-title">Learning Entity and Relation Embeddings for Knowledge Graph Completion阅读笔记</span>
+                        <span class="card-title">COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-TransR embeds entities and relations in distinct entity space and relation space, and learns embeddings via translation</div>
+                    <div class="summary">0. 导读0.1 文章是关于什么的？（what？）图卷积网络，
+0.2 要解决什么问题？（why？|challenge）
+以前的方法主要集中于处理简单无向图
+大多数现存模型在处理多关系图示遭受参数过大或者只学习节点表示
+
+0.3 用什么方法</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-26
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-03
                             </span>
                         <span class="publish-author">
                             
@@ -740,16 +700,12 @@ TransR embeds entities and relations in distinct entity space and relation space
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/KGE/" target="_blank">
-                        <span class="chip bg-color">KGE</span>
+                    <a href="/tags/KG/" target="_blank">
+                        <span class="chip bg-color">KG</span>
                     </a>
                     
-                    <a href="/tags/KGR/" target="_blank">
-                        <span class="chip bg-color">KGR</span>
-                    </a>
-                    
-                    <a href="/tags/TransR/" target="_blank">
-                        <span class="chip bg-color">TransR</span>
+                    <a href="/tags/GCN/" target="_blank">
+                        <span class="chip bg-color">GCN</span>
                     </a>
                     
                 </div>
@@ -850,6 +806,13 @@ TransR embeds entities and relations in distinct entity space and relation space
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">

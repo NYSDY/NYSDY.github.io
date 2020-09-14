@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-09-04T08:17:25.676Z</updated>
+  <updated>2020-09-13T11:59:55.051Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DeepWalk: Online Learning of Social Representations 阅读笔记</title>
+    <link href="http://nysdy.com/post/null/"/>
+    <id>http://nysdy.com/post/null/</id>
+    <published>2020-09-13T07:45:17.000Z</published>
+    <updated>2020-09-13T11:59:55.051Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0-导读&quot;&gt;&lt;a href=&quot;#0-导读&quot; class=&quot;headerlink&quot; title=&quot;0. 导读&quot;&gt;&lt;/a&gt;0. 导读&lt;/h1&gt;&lt;h2 id=&quot;0-1-文章是关于什么的？（what？）&quot;&gt;&lt;a href=&quot;#0-1-文章是关于什么的？（what？）&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记</title>
@@ -281,9 +303,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="ACL" scheme="http://nysdy.com/tags/ACL/"/>
     
@@ -308,11 +330,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
   </entry>
   
@@ -337,9 +359,9 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
-    
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
     
       <category term="2015" scheme="http://nysdy.com/tags/2015/"/>
     
@@ -547,29 +569,6 @@
       <category term="KGR" scheme="http://nysdy.com/tags/KGR/"/>
     
       <category term="TransR" scheme="http://nysdy.com/tags/TransR/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Neural Relation Extraction with Selective Attention over Instances阅读笔记</title>
-    <link href="http://nysdy.com/post/Neural_Relation_Extraction_with_Selective_Attention_over_Instances/"/>
-    <id>http://nysdy.com/post/Neural_Relation_Extraction_with_Selective_Attention_over_Instances/</id>
-    <published>2019-06-26T05:49:57.000Z</published>
-    <updated>2019-06-26T08:12:44.937Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;这篇文章之前看过😂。&lt;/p&gt;
-&lt;p&gt;论下载地址&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="RE" scheme="http://nysdy.com/tags/RE/"/>
     
   </entry>
   
