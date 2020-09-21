@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-09-17T02:45:01.412Z</updated>
+  <updated>2020-09-21T12:32:01.419Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NASE Learning Knowledge Graph Embedding for Link Prediction via Neural Architecture Search 阅读笔记</title>
+    <link href="http://nysdy.com/post/Learning%20Knowledge%20Graph%20Embedding%20for%20Link%20Prediction%20via%20Neural%20Architecture%20Search/"/>
+    <id>http://nysdy.com/post/Learning Knowledge Graph Embedding for Link Prediction via Neural Architecture Search/</id>
+    <published>2020-09-21T07:21:35.000Z</published>
+    <updated>2020-09-21T12:32:01.419Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0-导读&quot;&gt;&lt;a href=&quot;#0-导读&quot; class=&quot;headerlink&quot; title=&quot;0. 导读&quot;&gt;&lt;/a&gt;0. 导读&lt;/h1&gt;&lt;h2 id=&quot;0-1-文章是关于什么的？（what？）&quot;&gt;&lt;a href=&quot;#0-1-文章是关于什么的？（what？）&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Link Prediction" scheme="http://nysdy.com/tags/Link-Prediction/"/>
+    
+      <category term="Knowledge Representation" scheme="http://nysdy.com/tags/Knowledge-Representation/"/>
+    
+      <category term="没读懂" scheme="http://nysdy.com/tags/%E6%B2%A1%E8%AF%BB%E6%87%82/"/>
+    
+  </entry>
   
   <entry>
     <title>AM-GCN: Adaptive Multi-channel Graph Convolutional Networks 阅读笔记</title>
@@ -546,36 +576,6 @@
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="ontology" scheme="http://nysdy.com/tags/ontology/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DocRED A Large-Scale Document-Level Relation Extraction Dataset阅读笔记</title>
-    <link href="http://nysdy.com/post/DocRED_A_Large-Scale_Document-Level_Relation_Extraction_Dataset/"/>
-    <id>http://nysdy.com/post/DocRED_A_Large-Scale_Document-Level_Relation_Extraction_Dataset/</id>
-    <published>2019-07-01T01:11:49.000Z</published>
-    <updated>2019-07-01T01:49:37.278Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;这是一个介绍数据集的论文，主要是文档级别的关系抽取数据集。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://arxiv.org/abs/1906.06127&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="RE" scheme="http://nysdy.com/tags/RE/"/>
-    
-      <category term="dataset" scheme="http://nysdy.com/tags/dataset/"/>
     
   </entry>
   
