@@ -4,12 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Learning as the Unsupervised Alignment of Conceptual Systems阅读笔记, NYSDY">
-    <meta name="description" content="
-这篇文章没怎么看懂，主要思想应该是代表同时概念的不同形式（文本，图像，语音等）应该具有相似的分布，以此来进行无监督的概念对齐。这种思路挺不错的，不过还没有深入的想法，算是拓展视野吧！
+    <meta name="keywords" content="DeepWalk: Online Learning of Social Representations 阅读笔记, NYSDY">
+    <meta name="description" content="0. 导读0.1 文章是关于什么的？（what？）0.2 要解决什么问题？（why？|challenge）
+0.3 用什么方法解决？（how？）
 
 
-KEYThe key insight is tha">
+0.4文章有什么创新？
+0.5 效果如何？
+
+0.6 还存在什么问题？1 背景知识2 模型">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@ KEYThe key insight is tha">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Learning as the Unsupervised Alignment of Conceptual Systems阅读笔记 | NYSDY</title>
+    <title>DeepWalk: Online Learning of Social Representations 阅读笔记 | NYSDY</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -286,13 +289,13 @@ KEYThe key insight is tha">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Learning as the Unsupervised Alignment of Conceptual Systems阅读笔记
+                        DeepWalk: Online Learning of Social Representations 阅读笔记
                     </div>
                 </div>
             </div>
@@ -404,14 +407,14 @@ KEYThe key insight is tha">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-25
+                    2020-09-13
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        200
+                        92
                     </div>
                     
 
@@ -434,16 +437,20 @@ KEYThe key insight is tha">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>这篇文章没怎么看懂，主要思想应该是代表同时概念的不同形式（文本，图像，语音等）应该具有相似的分布，以此来进行无监督的概念对齐。这种思路挺不错的，不过还没有深入的想法，算是拓展视野吧！</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="KEY"><a href="#KEY" class="headerlink" title="KEY"></a>KEY</h1><p>The key insight is that each concept has a unique signature within one conceptual system (e.g., images) that is recapitulated in other systems (e.g., text or audio)</p>
-<h1 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h1><ul>
-<li>For supervised approaches, as the number of concepts grows, so does the number of required training examples</li>
-<li>V. W. Quine argued, even supervised instruction contains a substantial amount of ambiguity (Quine, 1960).Quine suggested that meaning may derive from something’s place within a conceptual system.</li>
+                <h1 id="0-导读"><a href="#0-导读" class="headerlink" title="0. 导读"></a>0. 导读</h1><h2 id="0-1-文章是关于什么的？（what？）"><a href="#0-1-文章是关于什么的？（what？）" class="headerlink" title="0.1 文章是关于什么的？（what？）"></a>0.1 文章是关于什么的？（what？）</h2><h2 id="0-2-要解决什么问题？（why？-challenge）"><a href="#0-2-要解决什么问题？（why？-challenge）" class="headerlink" title="0.2 要解决什么问题？（why？|challenge）"></a>0.2 要解决什么问题？（why？|challenge）</h2><ul>
+<li><h2 id="0-3-用什么方法解决？（how？）"><a href="#0-3-用什么方法解决？（how？）" class="headerlink" title="0.3 用什么方法解决？（how？）"></a>0.3 用什么方法解决？（how？）</h2></li>
+<li></li>
 </ul>
-<h1 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h1><p>In order to solve Quinne’s problem, we align a system of word labels and a system of visual semantics that both refer to the same underlying reality and therefore have related structure that can be discovered by unsupervised means (Figure 1）</p>
+<h2 id="0-4文章有什么创新？"><a href="#0-4文章有什么创新？" class="headerlink" title="0.4文章有什么创新？"></a>0.4文章有什么创新？</h2><ul>
+<li><h2 id="0-5-效果如何？"><a href="#0-5-效果如何？" class="headerlink" title="0.5 效果如何？"></a>0.5 效果如何？</h2></li>
+</ul>
+<h2 id="0-6-还存在什么问题？"><a href="#0-6-还存在什么问题？" class="headerlink" title="0.6 还存在什么问题？"></a>0.6 还存在什么问题？</h2><h1 id="1-背景知识"><a href="#1-背景知识" class="headerlink" title="1 背景知识"></a>1 背景知识</h1><h1 id="2-模型"><a href="#2-模型" class="headerlink" title="2 模型"></a>2 模型</h1><p>DeepWalk由两部分组成：</p>
+<ol>
+<li>随机游走发生器</li>
+<li>更新过程</li>
+</ol>
+<p><img src="http://image.nysdy.com/20200915151832.png" alt></p>
+<h1 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h1><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>- </p>
 
             </div>
             <hr/>
@@ -584,7 +591,7 @@ KEYThe key insight is tha">
                     </span>
                     <a href="http://nysdy.com" class="b-link-green">NYSDY</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/post/Learning_as_the_Unsupervised_Alignment_of_Conceptual_Systems/" class="b-link-green">Learning as the Unsupervised Alignment of Conceptual Systems阅读笔记</a>
+                    <a href="/post/DeepWalk Online Learning of Social Representations/" class="b-link-green">DeepWalk: Online Learning of Social Representations 阅读笔记</a>
                 </p>
             </div>
         </div>
@@ -868,32 +875,30 @@ KEYThe key insight is tha">
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/post/Neural_Relation_Extraction_with_Selective_Attention_over_Instances/">
+                <a href="/post/install Ubuntu18.04/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Neural Relation Extraction with Selective Attention over Instances阅读笔记">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="安装Ubuntu18.04">
                         
-                        <span class="card-title">Neural Relation Extraction with Selective Attention over Instances阅读笔记</span>
+                        <span class="card-title">安装Ubuntu18.04</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-这篇文章之前看过😂。
-论下载地址
-
-
-Problem Statement​    Distant supervision inevitably accompanies with the wrong labelling problem, </div>
+                    <div class="summary">t630安装Ubuntu18.04
+刻录u盘必须用过主引导分区格式。可以用制作启动盘工具
+系统尽量选择sever版本，不需要图形界面。
+采用UEFI方式安装，dell一般只支持这一种方式安装。重启服务器按F2，在boot中设置为UEFI格式</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-26
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-14
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
-                                    论文阅读笔记
+                            <a href="/categories/技术/" class="post-category" target="_blank">
+                                    技术
                                 </a>
                             
                             
@@ -903,8 +908,16 @@ Problem Statement​    Distant supervision inevitably accompanies with the wron
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/RE/" target="_blank">
-                        <span class="chip bg-color">RE</span>
+                    <a href="/tags/ubantu/" target="_blank">
+                        <span class="chip bg-color">ubantu</span>
+                    </a>
+                    
+                    <a href="/tags/ssh/" target="_blank">
+                        <span class="chip bg-color">ssh</span>
+                    </a>
+                    
+                    <a href="/tags/显卡/" target="_blank">
+                        <span class="chip bg-color">显卡</span>
                     </a>
                     
                 </div>
@@ -918,21 +931,25 @@ Problem Statement​    Distant supervision inevitably accompanies with the wron
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/ERNIE_Enhanced_Language_Representation_with_Informative_Entities/">
+                <a href="/post/COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="ERNIE Enhanced Language Representation with Informative Entities阅读笔记">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记">
                         
-                        <span class="card-title">ERNIE Enhanced Language Representation with Informative Entities阅读笔记</span>
+                        <span class="card-title">COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-该篇论文借鉴BERT，试图将实体信息（TransE）融入token(singal word)中，通过类似实体对齐的方法将实体与token对齐（并采取mask方式进行预训练），通过infromation fusion 将token与实体融合</div>
+                    <div class="summary">0. 导读0.1 文章是关于什么的？（what？）图卷积网络，
+0.2 要解决什么问题？（why？|challenge）
+以前的方法主要集中于处理简单无向图
+大多数现存模型在处理多关系图示遭受参数过大或者只学习节点表示
+
+0.3 用什么方法</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-24
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-03
                             </span>
                         <span class="publish-author">
                             
@@ -940,10 +957,6 @@ Problem Statement​    Distant supervision inevitably accompanies with the wron
                             
                             <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
                                     论文阅读笔记
-                                </a>
-                            
-                            <a href="/categories/论文阅读笔记/KG/" class="post-category" target="_blank">
-                                    KG
                                 </a>
                             
                             
@@ -957,12 +970,8 @@ Problem Statement​    Distant supervision inevitably accompanies with the wron
                         <span class="chip bg-color">KG</span>
                     </a>
                     
-                    <a href="/tags/KGR/" target="_blank">
-                        <span class="chip bg-color">KGR</span>
-                    </a>
-                    
-                    <a href="/tags/BERT/" target="_blank">
-                        <span class="chip bg-color">BERT</span>
+                    <a href="/tags/GCN/" target="_blank">
+                        <span class="chip bg-color">GCN</span>
                     </a>
                     
                 </div>
@@ -1063,6 +1072,13 @@ Problem Statement​    Distant supervision inevitably accompanies with the wron
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">

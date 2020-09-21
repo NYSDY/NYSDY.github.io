@@ -103,6 +103,30 @@
   </entry>
   
   <entry>
+    <title>DeepWalk: Online Learning of Social Representations 阅读笔记</title>
+    <link href="http://nysdy.com/post/DeepWalk%20Online%20Learning%20of%20Social%20Representations/"/>
+    <id>http://nysdy.com/post/DeepWalk Online Learning of Social Representations/</id>
+    <published>2020-09-13T07:45:17.000Z</published>
+    <updated>2020-09-21T12:32:53.274Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0-导读&quot;&gt;&lt;a href=&quot;#0-导读&quot; class=&quot;headerlink&quot; title=&quot;0. 导读&quot;&gt;&lt;/a&gt;0. 导读&lt;/h1&gt;&lt;h2 id=&quot;0-1-文章是关于什么的？（what？）&quot;&gt;&lt;a href=&quot;#0-1-文章是关于什么的？（what？）&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记</title>
     <link href="http://nysdy.com/post/COMPOSITION-BASED%20MULTI-RELATIONAL%20GRAPH%20CONVOLUTIONAL%20NETWORKS/"/>
     <id>http://nysdy.com/post/COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS/</id>
@@ -549,33 +573,6 @@
       <category term="ontology" scheme="http://nysdy.com/tags/ontology/"/>
     
       <category term="concept" scheme="http://nysdy.com/tags/concept/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Universal Representation Learning of Knowledge Bases by Jointly Embedding Instances and Ontological Concepts阅读笔记</title>
-    <link href="http://nysdy.com/post/Universal_Representation_Learning_of_Knowledge_Bases_by_Jointly_Embedding_Instances_and_Ontological_Concepts/"/>
-    <id>http://nysdy.com/post/Universal_Representation_Learning_of_Knowledge_Bases_by_Jointly_Embedding_Instances_and_Ontological_Concepts/</id>
-    <published>2019-07-17T08:45:52.000Z</published>
-    <updated>2019-07-25T08:41:32.245Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://web.cs.ucla.edu/~yzsun/papers/2019_KDD_JOIE.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
-    
-    
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
-      <category term="ontology" scheme="http://nysdy.com/tags/ontology/"/>
     
   </entry>
   
