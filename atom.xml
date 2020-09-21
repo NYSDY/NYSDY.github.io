@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-09-17T02:42:11.187Z</updated>
+  <updated>2020-09-17T02:45:01.412Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://nysdy.com/post/Adaptive%20Multi-channel%20Graph%20Convolutional%20Networks/"/>
     <id>http://nysdy.com/post/Adaptive Multi-channel Graph Convolutional Networks/</id>
     <published>2020-09-16T02:32:15.000Z</published>
-    <updated>2020-09-17T02:42:11.187Z</updated>
+    <updated>2020-09-17T02:45:01.412Z</updated>
     
     <summary type="html">
     
@@ -337,11 +337,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="ACL" scheme="http://nysdy.com/tags/ACL/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
   </entry>
   
@@ -364,9 +364,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
     
@@ -393,9 +393,9 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
-    
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
     
       <category term="2015" scheme="http://nysdy.com/tags/2015/"/>
     

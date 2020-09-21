@@ -302,11 +302,11 @@
       
         <tags>
             
-            <tag> KGE </tag>
-            
             <tag> 2016 </tag>
             
             <tag> ACL </tag>
+            
+            <tag> KGE </tag>
             
         </tags>
       
@@ -331,9 +331,9 @@
       
         <tags>
             
-            <tag> KGE </tag>
-            
             <tag> 2016 </tag>
+            
+            <tag> KGE </tag>
             
             <tag> AAAI </tag>
             
@@ -362,9 +362,9 @@
       
         <tags>
             
-            <tag> TransA </tag>
-            
             <tag> KGE </tag>
+            
+            <tag> TransA </tag>
             
             <tag> 2015 </tag>
             
