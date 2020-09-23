@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-09-21T12:32:01.419Z</updated>
+  <updated>2020-09-23T15:09:21.120Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Convolutional 2D Knowledge Graph Embeddings 阅读笔记</title>
+    <link href="http://nysdy.com/post/Convolutional%202D%20Knowledge%20Graph%20Embeddings/"/>
+    <id>http://nysdy.com/post/Convolutional 2D Knowledge Graph Embeddings/</id>
+    <published>2020-09-22T08:20:14.000Z</published>
+    <updated>2020-09-23T15:09:21.120Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0-导读&quot;&gt;&lt;a href=&quot;#0-导读&quot; class=&quot;headerlink&quot; title=&quot;0. 导读&quot;&gt;&lt;/a&gt;0. 导读&lt;/h1&gt;&lt;h2 id=&quot;0-1-文章是关于什么的？（what？）&quot;&gt;&lt;a href=&quot;#0-1-文章是关于什么的？（what？）&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Link Prediction" scheme="http://nysdy.com/tags/Link-Prediction/"/>
+    
+      <category term="CNN" scheme="http://nysdy.com/tags/CNN/"/>
+    
+      <category term="Knowledge Representation" scheme="http://nysdy.com/tags/Knowledge-Representation/"/>
+    
+  </entry>
+  
+  <entry>
     <title>NASE Learning Knowledge Graph Embedding for Link Prediction via Neural Architecture Search 阅读笔记</title>
     <link href="http://nysdy.com/post/Learning%20Knowledge%20Graph%20Embedding%20for%20Link%20Prediction%20via%20Neural%20Architecture%20Search/"/>
     <id>http://nysdy.com/post/Learning Knowledge Graph Embedding for Link Prediction via Neural Architecture Search/</id>
     <published>2020-09-21T07:21:35.000Z</published>
-    <updated>2020-09-21T12:32:01.419Z</updated>
+    <updated>2020-09-21T12:35:49.232Z</updated>
     
     <summary type="html">
     
@@ -232,9 +262,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
-    
       <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
+    
+      <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
     
       <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
     
@@ -264,13 +294,13 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="Link Prediction" scheme="http://nysdy.com/tags/Link-Prediction/"/>
+    
       <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
     
       <category term="ESWC" scheme="http://nysdy.com/tags/ESWC/"/>
     
       <category term="2018" scheme="http://nysdy.com/tags/2018/"/>
-    
-      <category term="Link Prediction" scheme="http://nysdy.com/tags/Link-Prediction/"/>
     
       <category term="Entity Classification" scheme="http://nysdy.com/tags/Entity-Classification/"/>
     
@@ -329,11 +359,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
     
       <category term="temporal KG" scheme="http://nysdy.com/tags/temporal-KG/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
     
@@ -391,11 +421,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="ACL" scheme="http://nysdy.com/tags/ACL/"/>
-    
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
   </entry>
   
@@ -418,9 +448,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
-    
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
     
@@ -544,35 +574,6 @@
     
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Knowledge graph embedding with concepts阅读笔记</title>
-    <link href="http://nysdy.com/post/Knowledge_graph_embedding_with_concepts/"/>
-    <id>http://nysdy.com/post/Knowledge_graph_embedding_with_concepts/</id>
-    <published>2019-07-25T05:19:44.000Z</published>
-    <updated>2020-08-23T08:18:37.110Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;这篇论文，运用skip-gram方法，将实体对应相关概念引入实体向量表示，以增强表示效果。实体和概念在同一空间中，但是概念是空间中的一个超平面（类似于transH）。文中举例很多例子来辅助说明，使得文章可读性大幅提升。文中实验最后俩个比较有意思。本文值得思考借鉴的东西不少，值得再好好回顾。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S0950705118304945/pdfft?md5=b9bad12f2bc771990ad0feaefa7402d4&amp;amp;pid=1-s2.0-S0950705118304945-main.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
-    
-    
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
-      <category term="ontology" scheme="http://nysdy.com/tags/ontology/"/>
-    
-      <category term="concept" scheme="http://nysdy.com/tags/concept/"/>
     
   </entry>
   
