@@ -705,6 +705,180 @@ new Valine({
       </tags>
   </entry>
   <entry>
+    <title>在macOS Catalina中配置VS Code C++开发环境</title>
+    <url>/post/Configure%20VS%20Code%20C++%20development%20environment%20in%20macOS%20Catalina/</url>
+    <content><![CDATA[<h1 id="一、安装VS-Code及扩展"><a href="#一、安装VS-Code及扩展" class="headerlink" title="一、安装VS Code及扩展"></a>一、安装VS Code及扩展</h1><ol>
+<li>在官网下载安装mac版本VS Code</li>
+<li>安装C/C++、C/C++ Clang Command Adapter及<strong>CodeLLDB</strong>扩展</li>
+<li>按⇧⌘P，输入shell，选择如图命令</li>
+</ol>
+<p><img src="http://image.nysdy.com/20200926121753.png" alt></p>
+<h1 id="二、搭建测试项目"><a href="#二、搭建测试项目" class="headerlink" title="二、搭建测试项目"></a>二、搭建测试项目</h1><p>在Terminal输入以下命令</p>
+<pre class=" language-shell"><code class="language-shell">mkdir projects
+cd projects
+mkdir hello
+cd hello
+code .
+</code></pre>
+<p>上述输入<code>code .</code>后，会直接在vscode中打开hello文件夹。</p>
+<p>上述步骤也可以在vscode中创建一个新的<code>hello</code>文件夹代替。</p>
+<h1 id="三、设置编译器路径"><a href="#三、设置编译器路径" class="headerlink" title="三、设置编译器路径"></a>三、设置编译器路径</h1><p>⇧⌘P，输入C/C++，选择Edit Configurations (UI)。Edit Configurations (JSON)应该也可以，没有测试过<img src="http://image.nysdy.com/20200926122158.png" alt></p>
+<p>保持默认设置即可，中间设置的解释可参考开头官网链接<img src="http://image.nysdy.com/20200926122327.png" alt></p>
+<h1 id="四、创建build-task"><a href="#四、创建build-task" class="headerlink" title="四、创建build task"></a>四、创建build task</h1><ol>
+<li>按<code>⇧⌘P</code>，输入Task</li>
+<li>选择tasks: Configure Default Build Task</li>
+<li>选择Create tasks.json file from template</li>
+<li>选择Others</li>
+<li>VS Code会创建一个tasks.json，在编辑器中打开</li>
+<li>按照如下设置task.json</li>
+</ol>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    // See https<span class="token operator">:</span>//go.microsoft.com/fwlink/?LinkId=<span class="token number">733558</span>
+    // for the documentation about the tasks.json format
+
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"2.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"tasks"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"Build with Clang"</span><span class="token punctuation">,</span>//这个任务的名字在launch.json最后一项配置
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"shell"</span><span class="token punctuation">,</span>
+            <span class="token property">"command"</span><span class="token operator">:</span> <span class="token string">"clang++"</span><span class="token punctuation">,</span>
+            <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"-std=c++17"</span><span class="token punctuation">,</span>
+                <span class="token string">"-stdlib=libc++"</span><span class="token punctuation">,</span>
+                //<span class="token string">"test.cpp"</span><span class="token punctuation">,</span>这里是官方写法，不具有普遍性，注意两个配置文件的统一性即可
+                <span class="token string">"${fileBasenameNoExtension}.cpp"</span><span class="token punctuation">,</span>
+                <span class="token string">"-o"</span><span class="token punctuation">,</span>
+                //<span class="token string">"test.out"</span><span class="token punctuation">,</span>
+                <span class="token string">"${fileBasenameNoExtension}"</span><span class="token punctuation">,</span>
+                <span class="token string">"--debug"</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"group"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token property">"kind"</span><span class="token operator">:</span> <span class="token string">"build"</span><span class="token punctuation">,</span>
+                <span class="token property">"isDefault"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h1 id="五、设置debug-setting"><a href="#五、设置debug-setting" class="headerlink" title="五、设置debug setting"></a>五、设置debug setting</h1><ol>
+<li>按<code>⇧⌘P</code>，输入launch，选择Debug：Open launch.json</li>
+<li>选择LLDB</li>
+<li>生成如下launch.json文件，在编辑器打开</li>
+<li>替换成如下内容</li>
+</ol>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问<span class="token operator">:</span> https<span class="token operator">:</span>//go.microsoft.com/fwlink/?linkid=<span class="token number">830387</span>
+
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"configurations"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"lldb"</span><span class="token punctuation">,</span>
+            <span class="token property">"request"</span><span class="token operator">:</span> <span class="token string">"launch"</span><span class="token punctuation">,</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Debug"</span><span class="token punctuation">,</span>
+            //<span class="token property">"program"</span><span class="token operator">:</span> <span class="token string">"${workspaceFolder}/test.out"</span><span class="token punctuation">,</span>
+            //上一行是官方写法，但是不同的cpp调试都要改配置，非常麻烦
+            <span class="token property">"program"</span><span class="token operator">:</span> <span class="token string">"${workspaceFolder}/${fileBasenameNoExtension}"</span><span class="token punctuation">,</span>
+            <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"cwd"</span><span class="token operator">:</span> <span class="token string">"${workspaceFolder}"</span><span class="token punctuation">,</span>
+            <span class="token property">"preLaunchTask"</span><span class="token operator">:</span> <span class="token string">"Build with Clang"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h1 id="六、添加源文件"><a href="#六、添加源文件" class="headerlink" title="六、添加源文件"></a>六、添加源文件</h1><p>在<code>hello</code>文件夹下创建<code>helloworld.cpp</code>，输入如下代码</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+
+    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> msg <span class="token punctuation">{</span><span class="token string">"Hello"</span><span class="token punctuation">,</span> <span class="token string">"C++"</span><span class="token punctuation">,</span> <span class="token string">"World"</span><span class="token punctuation">,</span> <span class="token string">"from"</span><span class="token punctuation">,</span> <span class="token string">"VS Code!"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> string<span class="token operator">&amp;</span> word <span class="token operator">:</span> msg<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> word <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h1 id="七、Build"><a href="#七、Build" class="headerlink" title="七、Build"></a>七、Build</h1><p>按<code>⇧⌘B</code>来编译</p>
+<p>会出现如下提示<img src="http://image.nysdy.com/20200926123016.png" alt></p>
+<h1 id="八、运行-amp-Debug"><a href="#八、运行-amp-Debug" class="headerlink" title="八、运行&amp;Debug"></a>八、运行&amp;Debug</h1><p>点击Debug  即可直接运行出结果</p>
+<p><img src="http://image.nysdy.com/20200926123236.png" alt></p>
+<p>设置断点，点击Debug</p>
+<p><img src="http://image.nysdy.com/20200926130522.png" alt></p>
+<p>如果改变<code>hello.cpp</code>的文件位置，则task.json和launch.json需要相应作出改变，如下所示：</p>
+<p>lauch.json:</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问<span class="token operator">:</span> https<span class="token operator">:</span>//go.microsoft.com/fwlink/?linkid=<span class="token number">830387</span>
+
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"configurations"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"lldb"</span><span class="token punctuation">,</span>
+            <span class="token property">"request"</span><span class="token operator">:</span> <span class="token string">"launch"</span><span class="token punctuation">,</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Debug"</span><span class="token punctuation">,</span>
+            //<span class="token property">"program"</span><span class="token operator">:</span> <span class="token string">"${workspaceFolder}/test.out"</span><span class="token punctuation">,</span>
+            //上一行是官方写法，但是不同的cpp调试都要改配置，非常麻烦
+            <span class="token property">"program"</span><span class="token operator">:</span> <span class="token string">"${workspaceFolder}/src/${fileBasenameNoExtension}"</span><span class="token punctuation">,</span>
+            <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"cwd"</span><span class="token operator">:</span> <span class="token string">"${workspaceFolder}"</span><span class="token punctuation">,</span>
+            <span class="token property">"preLaunchTask"</span><span class="token operator">:</span> <span class="token string">"Build with Clang"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>task.json:</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    // See https<span class="token operator">:</span>//go.microsoft.com/fwlink/?LinkId=<span class="token number">733558</span>
+    // for the documentation about the tasks.json format
+
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"2.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"tasks"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"Build with Clang"</span><span class="token punctuation">,</span>//这个任务的名字在launch.json最后一项配置
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"shell"</span><span class="token punctuation">,</span>
+            <span class="token property">"command"</span><span class="token operator">:</span> <span class="token string">"clang++"</span><span class="token punctuation">,</span>
+            <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"-std=c++17"</span><span class="token punctuation">,</span>
+                <span class="token string">"-stdlib=libc++"</span><span class="token punctuation">,</span>
+                //<span class="token string">"test.cpp"</span><span class="token punctuation">,</span>这里是官方写法，不具有普遍性，注意两个配置文件的统一性即可
+                <span class="token string">"./src/${fileBasenameNoExtension}.cpp"</span><span class="token punctuation">,</span>
+                <span class="token string">"-o"</span><span class="token punctuation">,</span>
+                //<span class="token string">"test.out"</span><span class="token punctuation">,</span>
+                <span class="token string">"./src/${fileBasenameNoExtension}"</span><span class="token punctuation">,</span>
+                <span class="token string">"--debug"</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"group"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token property">"kind"</span><span class="token operator">:</span> <span class="token string">"build"</span><span class="token punctuation">,</span>
+                <span class="token property">"isDefault"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+</code></pre>
+<p>运行结果和文件结构如下所示：<img src="http://image.nysdy.com/20200926130948.png" alt></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/100896963" target="_blank" rel="noopener">在macOS Catalina中配置VS Code C++开发环境</a></li>
+<li>[官网链接](</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>vscode</tag>
+        <tag>mac</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Convolutional 2D Knowledge Graph Embeddings 阅读笔记</title>
     <url>/post/Convolutional%202D%20Knowledge%20Graph%20Embeddings/</url>
     <content><![CDATA[<h1 id="0-导读"><a href="#0-导读" class="headerlink" title="0. 导读"></a>0. 导读</h1><h2 id="0-1-文章是关于什么的？（what？）"><a href="#0-1-文章是关于什么的？（what？）" class="headerlink" title="0.1 文章是关于什么的？（what？）"></a>0.1 文章是关于什么的？（what？）</h2><p>用知识表示来做链接预测，其中使用了2D的卷积操作</p>
@@ -1844,9 +2018,9 @@ f(s, r, o)=e_{s}^{T} R_{r} e_{o}</script><p>最后作者得出自己的损失函
         <category>论文阅读笔记</category>
       </categories>
       <tags>
+        <tag>KGE</tag>
         <tag>KG</tag>
         <tag>temporal KG</tag>
-        <tag>KGE</tag>
         <tag>2019</tag>
       </tags>
   </entry>
@@ -1875,9 +2049,9 @@ f(s, r, o)=e_{s}^{T} R_{r} e_{o}</script><p>最后作者得出自己的损失函
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>KGE</tag>
         <tag>2016</tag>
         <tag>ACL</tag>
+        <tag>KGE</tag>
       </tags>
   </entry>
   <entry>
@@ -1957,8 +2131,8 @@ $L=\sum_{(h, r, t) \in \Delta\left(h^{\prime}, r, t\right) \in \Delta^{\prime}}\
         <category>论文阅读笔记</category>
       </categories>
       <tags>
-        <tag>KGE</tag>
         <tag>2016</tag>
+        <tag>KGE</tag>
         <tag>AAAI</tag>
       </tags>
   </entry>
