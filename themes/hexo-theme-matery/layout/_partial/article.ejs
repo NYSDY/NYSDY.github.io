@@ -1,0 +1,9 @@
+<% if (!index && post.comments){ %>
+<% if (theme.valine_appid && theme.valine_appkey){ %>
+    <%- partial('post/valine', {
+        key: post.slug,
+        title: post.title,
+        url: config.url+url_for(post.path)
+      }) %>
+    <% } %>
+<% } %>
