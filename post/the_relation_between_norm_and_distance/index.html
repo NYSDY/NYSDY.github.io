@@ -4,15 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="DeepWalk: Online Learning of Social Representations 阅读笔记, NYSDY">
-    <meta name="description" content="0. 导读0.1 文章是关于什么的？（what？）0.2 要解决什么问题？（why？|challenge）
-0.3 用什么方法解决？（how？）
-
-
-0.4文章有什么创新？
-0.5 效果如何？
-
-0.6 还存在什么问题？1 背景知识2 模型">
+    <meta name="keywords" content="范数与距离的联系, NYSDY">
+    <meta name="description" content="1 范数向量的范数可以简单形象的理解为向量的长度，或者向量到零点的距离，或者相应的两个点之间的距离。
+常用的向量的范数：
+L0范数:为x向量各个非零元素的个数。L2范数:为x向量各个元素平方和的1/2次方。L2范数又称Euclidean范数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>DeepWalk: Online Learning of Social Representations 阅读笔记 | NYSDY</title>
+    <title>范数与距离的联系 | NYSDY</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -289,13 +284,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        DeepWalk: Online Learning of Social Representations 阅读笔记
+                        范数与距离的联系
                     </div>
                 </div>
             </div>
@@ -385,12 +380,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/范数/" target="_blank">
+                                <span class="chip bg-color">范数</span>
+                            </a>
+                        
+                            <a href="/tags/度量距离/" target="_blank">
+                                <span class="chip bg-color">度量距离</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/数学基础/" class="post-category" target="_blank">
+                                数学基础
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -398,21 +410,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-13
+                    2020-10-18
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        74
+                        1.3k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        4 分
                     </div>
                     
                 
@@ -428,15 +440,47 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="0-导读"><a href="#0-导读" class="headerlink" title="0. 导读"></a>0. 导读</h1><h2 id="0-1-文章是关于什么的？（what？）"><a href="#0-1-文章是关于什么的？（what？）" class="headerlink" title="0.1 文章是关于什么的？（what？）"></a>0.1 文章是关于什么的？（what？）</h2><h2 id="0-2-要解决什么问题？（why？-challenge）"><a href="#0-2-要解决什么问题？（why？-challenge）" class="headerlink" title="0.2 要解决什么问题？（why？|challenge）"></a>0.2 要解决什么问题？（why？|challenge）</h2><ul>
-<li><h2 id="0-3-用什么方法解决？（how？）"><a href="#0-3-用什么方法解决？（how？）" class="headerlink" title="0.3 用什么方法解决？（how？）"></a>0.3 用什么方法解决？（how？）</h2></li>
-<li></li>
+                <h1 id="1-范数"><a href="#1-范数" class="headerlink" title="1 范数"></a>1 范数</h1><p>向量的范数可以简单形象的理解为向量的长度，或者向量到零点的距离，或者相应的两个点之间的距离。</p>
+<p>常用的向量的范数：</p>
+<p><strong>L0范数</strong>:为x向量各个非零元素的个数。<br><strong>L2范数</strong>:为x向量各个元素平方和的1/2次方。L2范数又称Euclidean范数或者Frobenius范数<br><strong>Lp范数</strong>:为x向量各个元素绝对值p次方和的1/p次方</p>
+<p><strong>L∞范数</strong>:为x向量各个元素绝对值最大那个元素的绝对值，如下：$|\mathrm{x}| \infty=\max \left(\left|\mathrm{x}_{1}\right|,\left|\mathrm{x}_{2}\right|, \ldots,\left|\mathrm{x}_{\mathrm{n}}\right|\right)$</p>
+<h2 id="联系和区别"><a href="#联系和区别" class="headerlink" title="联系和区别"></a>联系和区别</h2><p>也就是如果我们使用L0范数，即希望w的大部分元素都是0. （w是稀疏的）所以可以用于ML中做稀疏编码，特征选择。通过最小化L0范数，来寻找最少最优的稀疏特征项。但不幸的是，L0范数的最优化问题是一个<strong>NP hard</strong>问题，而且理论上有证明，<strong>L1范数是L0范数的最优凸近似</strong>，因此通常使用L1范数来代替。</p>
+<p>L1范数的解通常是<strong>稀疏性</strong>的，倾向于选择数目较少的一些非常大的值或者数目较多的insignificant的小值。</p>
+<p>L2范数越小，可以使得w的每个元素都很小，接近于0，但与L1范数不同的是他不会让它等于0而是接近于0.<br>由于<strong>L1范数并没有平滑的函数</strong>表示，起初L1最优化问题解决起来非常困难，但随着计算机技术的到来，利用很多凸优化算法使得L1最优化成为可能。</p>
+<h1 id="2-距离"><a href="#2-距离" class="headerlink" title="2 距离"></a>2 距离</h1><p><strong>欧式距离（对应L2范数）</strong>：最常见的两点之间或多点之间的距离表示法，又称之为欧几里得度量，它定义于欧几里得空间中。n维空间中两个点x1(x11,x12,…,x1n)与 x2(x21,x22,…,x2n)间的欧氏距离：$d_{12}=\sqrt{\sum_{k=1}^{n}\left(x_{1 k}-x_{2 k}\right)^{2}}$， 也可以用表示成向量运算的形式：$d_{12}=\sqrt{(a-b)(a-b)^{T}}$</p>
+<p><strong>曼哈顿距离(对应L1-范数)</strong>：也就是在欧几里得空间的固定直角坐标系上两点所形成的线段对轴产生的投影的距离总和。例如在平面上，坐标（x1, y1）的点P1与坐标（x2, y2）的点P2的曼哈顿距离为：$\left|x_{1}-x_{2}\right|+\left|y_{1}-y_{2}\right|$, 要注意的是，曼哈顿距离依赖座标系统的转度，而非系统在座标轴上的平移或映射。</p>
+<p><strong>切比雪夫距离(对应L∞范数)</strong>:若二个向量或二个点x1和x2，其坐标分别为(x11, x12, x13, … , x1n)和(x21, x22, x23, … , x2n)，则二者的切比雪夫距离为：d = max(|x1i - x2i|)，i从1到n。</p>
+<p><strong>闵可夫斯基距离(Minkowski Distance)</strong>，闵氏距离不是一种距离，而是一组距离的定义。对应Lp范数，p为参数。</p>
+<p>闵氏距离的定义：两个n维变量（或者两个n维空间点）x1(x11,x12,…,x1n)与 x2(x21,x22,…,x2n)间的闵可夫斯基距离定义为： $d_{12}=\sqrt[p]{\sum_{k=1}^{n}\left|x_{1 k}-x_{2 k}\right|^{p}}$</p>
+<ul>
+<li>其中p是一个变参数。</li>
+<li>当p=1时，就是曼哈顿距离，</li>
+<li>当p=2时，就是欧氏距离，</li>
+<li>当p→∞时，就是切比雪夫距离，    </li>
 </ul>
-<h2 id="0-4文章有什么创新？"><a href="#0-4文章有什么创新？" class="headerlink" title="0.4文章有什么创新？"></a>0.4文章有什么创新？</h2><ul>
-<li><h2 id="0-5-效果如何？"><a href="#0-5-效果如何？" class="headerlink" title="0.5 效果如何？"></a>0.5 效果如何？</h2></li>
+<p>根据变参数的不同，闵氏距离可以表示一类的距离。</p>
+<p>下图是二维空间p取不同值时，与原点的$L_p$距离为1的图形。</p>
+<p><img src="http://image.nysdy.com/20201018161325.png" alt></p>
+<p><a href="https://zhuanlan.zhihu.com/p/46626607" target="_blank" rel="noopener">Mahalanobis距离</a>：也称作马氏距离。在近邻分类法中，常采用欧式距离和马氏距离。</p>
+<p>一些参考资料供进一步理解：</p>
+<ul>
+<li><a href="https://blog.csdn.net/v_july_v/article/details/8203674" target="_blank" rel="noopener">从K近邻算法、距离度量谈到KD树、SIFT+BBF算法</a></li>
 </ul>
-<h2 id="0-6-还存在什么问题？"><a href="#0-6-还存在什么问题？" class="headerlink" title="0.6 还存在什么问题？"></a>0.6 还存在什么问题？</h2><h1 id="1-背景知识"><a href="#1-背景知识" class="headerlink" title="1 背景知识"></a>1 背景知识</h1><h1 id="2-模型"><a href="#2-模型" class="headerlink" title="2 模型"></a>2 模型</h1><h1 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h1><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>- </p>
-
+<h1 id="3-在机器学习中的应用"><a href="#3-在机器学习中的应用" class="headerlink" title="3 在机器学习中的应用"></a>3 在机器学习中的应用</h1><p>L1范数和L2范数，用于机器学习的L1正则化、L2正则化。对于线性回归模型，使用L1正则化的模型建叫做Lasso回归，使用L2正则化的模型叫做Ridge回归（岭回归）。</p>
+<p>其作用是：</p>
+<p>L1正则化是指权值向量w中各个元素的绝对值之和，可以产生稀疏权值矩阵（稀疏矩阵指的是很多元素为0，只有少数元素是非零值的矩阵，即得到的线性回归模型的大部分系数都是0. ），即产生一个稀疏模型，可以用于特征选择；</p>
+<p>L2正则化是指权值向量w中各个元素的平方和然后再求平方根，可以防止模型过拟合（overfitting）；一定程度上，L1也可以防止过拟合。</p>
+<p>至于为什么L1正则化能增加稀疏性，L2正则化能防止过拟合，原理可查看参考资料：</p>
+<ul>
+<li><a href="https://blog.csdn.net/jinping_shi/article/details/52433975" target="_blank" rel="noopener">机器学习中正则化项L1和L2的直观理解</a></li>
+</ul>
+<h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a><strong>参考链接：</strong></h1><ol>
+<li><a href="https://blog.csdn.net/kingzone_2008/article/details/15073987" target="_blank" rel="noopener">范数与距离的关系以及在机器学习中的应用</a></li>
+<li><a href="https://blog.csdn.net/SanyHo/article/details/105803103" target="_blank" rel="noopener">https://blog.csdn.net/SanyHo/article/details/105803103</a></li>
+<li><a href="https://blog.csdn.net/SanyHo/article/details/105803103" target="_blank" rel="noopener">曼哈顿距离（L1范数）&amp; 欧式距离（L2范数）区别</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/46626607" target="_blank" rel="noopener">马氏距离(Mahalanobis Distance)</a></li>
+</ol>
+<h1 id><a href="#" class="headerlink" title=" "></a> </h1>
             </div>
             <hr/>
 
@@ -576,7 +620,7 @@
                     </span>
                     <a href="http://nysdy.com" class="b-link-green">NYSDY</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/post/null/" class="b-link-green">DeepWalk: Online Learning of Social Representations 阅读笔记</a>
+                    <a href="/post/the_relation_between_norm_and_distance/" class="b-link-green">范数与距离的联系</a>
                 </p>
             </div>
         </div>
@@ -856,31 +900,84 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/post/install Ubuntu18.04/">
+                <a href="/post/the_relation_between_norm_and_distance/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="安装Ubuntu18.04">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="范数与距离的联系">
                         
-                        <span class="card-title">安装Ubuntu18.04</span>
+                        <span class="card-title">范数与距离的联系</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">安装Ubuntu18.04
-刻录u盘必须用过主引导分区格式。可以用制作启动盘工具
-系统尽量选择sever版本，不需要图形界面。
-采用UEFI方式安装，dell一般只支持这一种方式安装。重启服务器按F2，在boot中设置为UEFI格式。
-
-
-</div>
+                    <div class="summary">1 范数向量的范数可以简单形象的理解为向量的长度，或者向量到零点的距离，或者相应的两个点之间的距离。
+常用的向量的范数：
+L0范数:为x向量各个非零元素的个数。L2范数:为x向量各个元素平方和的1/2次方。L2范数又称Euclidean范数</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-14
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-10-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/数学基础/" class="post-category" target="_blank">
+                                    数学基础
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/范数/" target="_blank">
+                        <span class="chip bg-color">范数</span>
+                    </a>
+                    
+                    <a href="/tags/度量距离/" target="_blank">
+                        <span class="chip bg-color">度量距离</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/Configure VS Code C++ development environment in macOS Catalina/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="在macOS Catalina中配置VS Code C++开发环境">
+                        
+                        <span class="card-title">在macOS Catalina中配置VS Code C++开发环境</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">一、安装VS Code及扩展
+在官网下载安装mac版本VS Code
+安装C/C++、C/C++ Clang Command Adapter及CodeLLDB扩展
+按⇧⌘P，输入shell，选择如图命令
+
+
+二、搭建测试项目在Termina</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -896,70 +993,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ubantu/" target="_blank">
-                        <span class="chip bg-color">ubantu</span>
+                    <a href="/tags/C/" target="_blank">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/ssh/" target="_blank">
-                        <span class="chip bg-color">ssh</span>
+                    <a href="/tags/vscode/" target="_blank">
+                        <span class="chip bg-color">vscode</span>
                     </a>
                     
-                    <a href="/tags/显卡/" target="_blank">
-                        <span class="chip bg-color">显卡</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/post/COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记">
-                        
-                        <span class="card-title">COMPOSITION-BASED MULTI-RELATIONAL GRAPH CONVOLUTIONAL NETWORKS 阅读笔记</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">0. 导读0.1 文章是关于什么的？（what？）图卷积网络，
-0.2 要解决什么问题？（why？|challenge）
-以前的方法主要集中于处理简单无向图
-大多数现存模型在处理多关系图示遭受参数过大或者只学习节点表示
-
-0.3 用什么方法</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-03
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
-                                    论文阅读笔记
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/KG/" target="_blank">
-                        <span class="chip bg-color">KG</span>
-                    </a>
-                    
-                    <a href="/tags/GCN/" target="_blank">
-                        <span class="chip bg-color">GCN</span>
+                    <a href="/tags/mac/" target="_blank">
+                        <span class="chip bg-color">mac</span>
                     </a>
                     
                 </div>
@@ -1075,7 +1118,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">60.3k</span>
+                <span class="white-color">68.1k</span>
             
 
             
