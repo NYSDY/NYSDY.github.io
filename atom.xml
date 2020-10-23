@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-10-18T08:33:39.387Z</updated>
+  <updated>2020-10-23T13:28:26.255Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何理解卷积</title>
+    <link href="http://nysdy.com/post/how_to_understand_convolution/"/>
+    <id>http://nysdy.com/post/how_to_understand_convolution/</id>
+    <published>2020-10-23T13:24:14.000Z</published>
+    <updated>2020-10-23T13:28:26.255Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本文大量参考链接中文章形成，如有需要，请自行跳转。&lt;/p&gt;
+&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="数学基础" scheme="http://nysdy.com/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="卷积" scheme="http://nysdy.com/tags/%E5%8D%B7%E7%A7%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>范数与距离的联系</title>
@@ -321,9 +348,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
-    
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
+    
+      <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
     
       <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
     
@@ -480,11 +507,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="ACL" scheme="http://nysdy.com/tags/ACL/"/>
-    
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
   </entry>
   
@@ -507,9 +534,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
-    
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
     
@@ -536,9 +563,9 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="2015" scheme="http://nysdy.com/tags/2015/"/>
     
@@ -569,26 +596,6 @@
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="2014" scheme="http://nysdy.com/tags/2014/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Embedding Edge-attributed Relational Hierarchies阅读笔记</title>
-    <link href="http://nysdy.com/post/Embedding_Edge-attributed_Relational_Hierarchies/"/>
-    <id>http://nysdy.com/post/Embedding_Edge-attributed_Relational_Hierarchies/</id>
-    <published>2019-08-28T08:12:30.000Z</published>
-    <updated>2020-08-23T08:17:19.587Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;http://yellowstone.cs.ucla.edu/~muhao/articles/_SIGIR__hre.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
     
   </entry>
   

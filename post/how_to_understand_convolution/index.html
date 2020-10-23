@@ -4,13 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="2016 TransG : A Generative Model for Knowledge Graph Embedding阅读笔记, NYSDY">
-    <meta name="description" content="
-论文下载地址
-
-解决问题multiple relation semantics（多重关系语义）：一个关系可能具有与对应的三元组关联的实体对揭示的多种含义。
-
-这里以TransE的可视化为例，表明：特定关系有不同的聚类，并且不同的聚类表示不">
+    <meta name="keywords" content="如何理解卷积, NYSDY">
+    <meta name="description" content="本文大量参考链接中文章形成，如有需要，请自行跳转。
+引言
+如何通俗易懂地理解卷积？连续形式的一维卷积在泛函分析中，卷积是通过两个函数f(x)和g(x)生成第三个函数的一种算子，它代表的意义是：两个函数中的一个(取g(x)，可以任意取)函数，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>2016 TransG : A Generative Model for Knowledge Graph Embedding阅读笔记 | NYSDY</title>
+    <title>如何理解卷积 | NYSDY</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -287,13 +284,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        2016 TransG : A Generative Model for Knowledge Graph Embedding阅读笔记
+                        如何理解卷积
                     </div>
                 </div>
             </div>
@@ -385,16 +382,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/KGE/" target="_blank">
-                                <span class="chip bg-color">KGE</span>
-                            </a>
-                        
-                            <a href="/tags/2016/" target="_blank">
-                                <span class="chip bg-color">2016</span>
-                            </a>
-                        
-                            <a href="/tags/ACL/" target="_blank">
-                                <span class="chip bg-color">ACL</span>
+                            <a href="/tags/卷积/" target="_blank">
+                                <span class="chip bg-color">卷积</span>
                             </a>
                         
                     </div>
@@ -405,8 +394,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
-                                论文阅读笔记
+                            <a href="/categories/数学基础/" class="post-category" target="_blank">
+                                数学基础
                             </a>
                         
                     </div>
@@ -417,21 +406,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-12
+                    2020-10-23
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        223
+                        971
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -447,23 +436,42 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p><a href="https://www.aclweb.org/anthology/P16-1219.pdf" target="_blank" rel="noopener">论文下载地址</a></p>
-</blockquote>
-<h1 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h1><p>multiple relation semantics（多重关系语义）：一个关系可能具有与对应的三元组关联的实体对揭示的多种含义。</p>
-<p><img src="http://image.nysdy.com/20191015092730.png" alt></p>
-<p>这里以TransE的可视化为例，表明：特定关系有不同的聚类，并且不同的聚类表示不同的潜在语义，证实了该问题的存在性。</p>
-<h3 id="该现象产生原因"><a href="#该现象产生原因" class="headerlink" title="该现象产生原因"></a>该现象产生原因</h3><ul>
-<li>人为简化<ul>
-<li>知识库策展人不能涉及太多相似关系，因此将多个相似关系抽象为一个特定关系是一种常见的技巧</li>
+                <p>本文大量参考链接中文章形成，如有需要，请自行跳转。</p>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p><img src="http://image.nysdy.com/20201023174243.png" alt></p>
+<h2 id="如何通俗易懂地理解卷积？"><a href="#如何通俗易懂地理解卷积？" class="headerlink" title="如何通俗易懂地理解卷积？"></a>如何通俗易懂地理解卷积？</h2><h2 id="连续形式的一维卷积"><a href="#连续形式的一维卷积" class="headerlink" title="连续形式的一维卷积"></a>连续形式的一维卷积</h2><p>在泛函分析中，卷积是通过两个函数f(x)和g(x)生成第三个函数的一种算子，它代表的意义是：<strong>两个函数中的一个(取g(x)，可以任意取)函数，把g(x)经过翻转平移,然后与f(x)的相乘，得到的一个新的函数，对这个函数积分，也就是对这个新的函数求它所围成的曲边梯形的面积。</strong></p>
+<p>设f(t),g(t)是两个可积函数，f(t)与g(t)的卷积记为f ( t ) ∗ g ( t ) f(t)<em>g(t)</em>f<em>(</em>t<em>)∗</em>g<em>(</em>t*)，它是其中一个函数翻转并平移后与另一个函数乘积的积分，是一个自变量是平移量的函数。也就是：</p>
+<script type="math/tex; mode=display">
+f(t) * g(t)=\int_{-\infty}^{+\infty} f(\tau) g(t-\tau) d \tau=\int_{-\infty}^{+\infty} f(t-\tau) g(\tau) d \tau</script><p><img src="http://image.nysdy.com/20201023170757.png" alt></p>
+<h2 id="离散形式的一维卷积"><a href="#离散形式的一维卷积" class="headerlink" title="离散形式的一维卷积"></a>离散形式的一维卷积</h2><p>对于定义在整数$\mathbb{Z}$上的函数f,g,卷积定义为</p>
+<script type="math/tex; mode=display">
+(f * g)(t)=\sum_{\tau=-\infty}^{\infty} f(\tau) g(t-\tau)</script><h1 id="实例-掷骰子问题"><a href="#实例-掷骰子问题" class="headerlink" title="实例:掷骰子问题"></a>实例:掷骰子问题</h1><p>光看数学定义可能会觉得非常抽象，下面举一个掷骰子的问题，该实例参考了知乎问题”如何通俗易懂地解释卷积”的回答。</p>
+<p>想象现在有两个骰子，两个骰子分别是f跟g，f(1)表示骰子f向上一面为数字1的概率。同时抛掷这两个骰子1次，它们正面朝上数字和为4的概率是多少呢？相信读者很快就能想出它包含了三种情况，分别是：</p>
+<ul>
+<li>f向上为1，g向上为3；</li>
+<li>f向上为2，g向上为2；</li>
+<li>f向上为3，g向上为1；</li>
 </ul>
-</li>
-<li>知识性质<ul>
-<li>语言和知识表示形式常常涉及不明确的信息。 知识的模糊性意味着语义上的混合</li>
-</ul>
-</li>
-</ul>
-<h1 id="TransG"><a href="#TransG" class="headerlink" title="TransG"></a>TransG</h1><p>利用贝叶斯非参数无限混合模型通过为关系生成多个翻译组件来处理多个关系语义</p>
+<p>最后这三种情况出现的概率和即问题的答案，如果写成公式，就是$\sum_{\tau=1}^{3} f(\tau) g(4-\tau)$。可以形象地绘制成下图：<img src="http://image.nysdy.com/20201023171053.png" alt></p>
+<p>果稍微扩展一点，比如说认为 f(0) 或者 g(0)等是可以取到的，只是它们的值为0而已。$\sum_{\tau=-\infty}^{\infty} f(\tau) g(4-\tau)$。仔细观察，这其实就是卷积(f∗g)(4)。如果将它写成内积的形式，卷积其实就是</p>
+<script type="math/tex; mode=display">
+[f(-\infty), \cdots, f(1), \cdots, f(\infty)] \cdot[g(\infty), \cdots, g(3), \cdots, g(-\infty)]</script><p>这么一看，是不是就对卷积的名字理解更深刻了呢? <strong>所谓卷积，其实就是把一个函数卷(翻)过来，然后与另一个函数求内积。</strong></p>
+<p>对应到不同方面，卷积可以有不同的解释：g 既可以看作我们在深度学习里常说的核(Kernel)，也可以对应到信号处理中的滤波器(Filter)。而 f 可以是我们所说的机器学习中的特征(Feature)，也可以是信号处理中的信号(Signal)。f和g的卷积 (f∗g)就可以看作是对f的加权求和。下面两个动图就分别对应信号处理与深度学习中卷积操作的过程。<img src="http://image.nysdy.com/20201023172027.gif" alt></p>
+<p><img src="http://image.nysdy.com/20201023172055.gif" alt></p>
+<p><img src="http://image.nysdy.com/20201023174420.png" alt></p>
+<h2 id="矩阵中卷积计算"><a href="#矩阵中卷积计算" class="headerlink" title="矩阵中卷积计算"></a>矩阵中卷积计算</h2><p>以下图中f*g卷积为例，要注意一点，为了运用卷积，$g$虽然和$g$同维度，但下标有点不一样：</p>
+<p><img src="http://image.nysdy.com/20201023210222.png" alt></p>
+<p><img src="http://image.nysdy.com/20201023174852.png" alt></p>
+<p>这里以一个动图来说明下计算过程：</p>
+<p><img src="http://image.nysdy.com/20201023210323.gif" alt></p>
+<p>写成卷积公式就是：</p>
+<script type="math/tex; mode=display">
+(f * g)(1,1)=\sum_{k=0}^{2} \sum_{h=0}^{2} f(h, k) g(1-h, 1-k)</script><p>这样相当于实现了$g$这个矩阵在原来图像上的划动（准确来说，下面这幅图把$g$矩阵旋转了180度）：</p>
+<p><img src="http://image.nysdy.com/20201023211303.gif" alt></p>
+<p>所以一般在用的是卷积核实际上是进行过180度旋转的。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a href="https://blog.csdn.net/yyl424525/article/details/100058264" target="_blank" rel="noopener">图卷积网络 GCN Graph Convolutional Network（谱域GCN）的理解和详细推导-持续更新</a></li>
+<li><a href="https://www.zhihu.com/question/22298352" target="_blank" rel="noopener">如何通俗易懂地解释卷积？</a></li>
+</ol>
 
             </div>
             <hr/>
@@ -604,7 +612,7 @@
                     </span>
                     <a href="http://nysdy.com" class="b-link-green">NYSDY</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/post/TransG_:_A_Generative_Model_for_Knowledge_Graph_Embedding/" class="b-link-green">2016 TransG : A Generative Model for Knowledge Graph Embedding阅读笔记</a>
+                    <a href="/post/how_to_understand_convolution/" class="b-link-green">如何理解卷积</a>
                 </p>
             </div>
         </div>
@@ -884,46 +892,46 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/post/Update-blog-theme/">
+                <a href="/post/how_to_understand_convolution/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="更新博客主题">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="如何理解卷积">
                         
-                        <span class="card-title">更新博客主题</span>
+                        <span class="card-title">如何理解卷积</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">正好赶上最近有空，修改升级一下自己的博客，之前用的是next主题，偶然间发现了matery主题，感觉更加漂亮一些，就决定更换一下，顺便记录自己的一些更换操作。
-配置切换主题
-下载相应主题放入\theme路径下即可
-
-修改 Hexo 根目录下</div>
+                    <div class="summary">本文大量参考链接中文章形成，如有需要，请自行跳转。
+引言
+如何通俗易懂地理解卷积？连续形式的一维卷积在泛函分析中，卷积是通过两个函数f(x)和g(x)生成第三个函数的一种算子，它代表的意义是：两个函数中的一个(取g(x)，可以任意取)函数，</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-10-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/博客/" class="post-category" target="_blank">
-                                    博客
+                            <a href="/categories/数学基础/" class="post-category" target="_blank">
+                                    数学基础
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/" target="_blank">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/卷积/" target="_blank">
+                        <span class="chip bg-color">卷积</span>
                     </a>
                     
                 </div>
@@ -937,32 +945,29 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/2016_Knowledge_Graph_Completion_with_Adaptive_Sparse_Transfer_Matrix/">
+                <a href="/post/the_relation_between_norm_and_distance/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="2016 Knowledge Graph Completion with Adaptive Sparse Transfer Matrix阅读笔记">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="范数与距离的联系">
                         
-                        <span class="card-title">2016 Knowledge Graph Completion with Adaptive Sparse Transfer Matrix阅读笔记</span>
+                        <span class="card-title">范数与距离的联系</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-为解决heterogeneity和imbalance问题，作者针对同一关系链接实体对的数量和同一关系不同头尾实体数量，分别设计了不同稀疏程度的转移矩阵。存在缺点：并没有同时解决这两个问题。
-论文下载地址
-
-
-Problem Stateme</div>
+                    <div class="summary">1 范数向量的范数可以简单形象的理解为向量的长度，或者向量到零点的距离，或者相应的两个点之间的距离。
+常用的向量的范数：
+L0范数:为x向量各个非零元素的个数。L2范数:为x向量各个元素平方和的1/2次方。L2范数又称Euclidean范数</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-10
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-10-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/论文阅读笔记/" class="post-category" target="_blank">
-                                    论文阅读笔记
+                            <a href="/categories/数学基础/" class="post-category" target="_blank">
+                                    数学基础
                                 </a>
                             
                             
@@ -972,16 +977,12 @@ Problem Stateme</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/KGE/" target="_blank">
-                        <span class="chip bg-color">KGE</span>
+                    <a href="/tags/范数/" target="_blank">
+                        <span class="chip bg-color">范数</span>
                     </a>
                     
-                    <a href="/tags/2016/" target="_blank">
-                        <span class="chip bg-color">2016</span>
-                    </a>
-                    
-                    <a href="/tags/AAAI/" target="_blank">
-                        <span class="chip bg-color">AAAI</span>
+                    <a href="/tags/度量距离/" target="_blank">
+                        <span class="chip bg-color">度量距离</span>
                     </a>
                     
                 </div>
@@ -1082,6 +1083,13 @@ Problem Stateme</div>
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
