@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-10-23T13:28:26.255Z</updated>
+  <updated>2020-11-18T03:49:01.177Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>pycharm 远程调试</title>
+    <link href="http://nysdy.com/post/pycharm_remote_debug/"/>
+    <id>http://nysdy.com/post/pycharm_remote_debug/</id>
+    <published>2020-11-18T03:47:23.000Z</published>
+    <updated>2020-11-18T03:49:01.177Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Remote篇——PyCharm远程运行、调试环境配置&quot;&gt;&lt;a href=&quot;#Remote篇——PyCharm远程运行、调试环境配置&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://nysdy.com/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://nysdy.com/tags/python/"/>
+    
+      <category term="pycharm" scheme="http://nysdy.com/tags/pycharm/"/>
+    
+      <category term="sftp" scheme="http://nysdy.com/tags/sftp/"/>
+    
+  </entry>
   
   <entry>
     <title>如何理解卷积</title>
@@ -264,9 +294,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
-    
       <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
+    
+      <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
     
   </entry>
   
@@ -350,9 +380,9 @@
     
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
     
-      <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
-    
       <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
+    
+      <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
     
       <category term="KGC" scheme="http://nysdy.com/tags/KGC/"/>
     
@@ -507,9 +537,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
       <category term="ACL" scheme="http://nysdy.com/tags/ACL/"/>
     
@@ -534,11 +564,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
     
   </entry>
   
@@ -563,39 +593,13 @@
       <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
     
     
-      <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
-    
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
     
       <category term="2015" scheme="http://nysdy.com/tags/2015/"/>
     
       <category term="arxiv" scheme="http://nysdy.com/tags/arxiv/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Transition-based Knowledge Graph Embedding with Relational Mapping Properties阅读笔记</title>
-    <link href="http://nysdy.com/post/Transition-based_Knowledge_Graph_Embedding_with_Relational_Mapping_Properties/"/>
-    <id>http://nysdy.com/post/Transition-based_Knowledge_Graph_Embedding_with_Relational_Mapping_Properties/</id>
-    <published>2019-08-31T13:36:06.000Z</published>
-    <updated>2020-08-23T08:17:08.961Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://link.zhihu.com/?target=https%3A//pdfs.semanticscholar.org/0ddd/f37145689e5f2899f8081d9971882e6ff1e9.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
-    
-    
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
-      <category term="2014" scheme="http://nysdy.com/tags/2014/"/>
     
   </entry>
   
