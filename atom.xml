@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nysdy.com/"/>
-  <updated>2020-11-18T03:49:01.177Z</updated>
+  <updated>2020-12-21T14:16:38.960Z</updated>
   <id>http://nysdy.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Learning Hierarchy-Aware Knowledge Graph Embeddings for Link Prediction论文阅读笔记</title>
+    <link href="http://nysdy.com/post/Learning_Hierarchy-Aware_Knowledge_Graph_Embeddings_for_Link_Prediction/"/>
+    <id>http://nysdy.com/post/Learning_Hierarchy-Aware_Knowledge_Graph_Embeddings_for_Link_Prediction/</id>
+    <published>2020-12-21T14:13:58.000Z</published>
+    <updated>2020-12-21T14:16:38.960Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0. 前言&quot;&gt;&lt;/a&gt;0. 前言&lt;/h1&gt;&lt;h3 id=&quot;1-作者试图解决什么问题？&quot;&gt;&lt;a href=&quot;#1-作者试图解决什么问题？&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="hierarchy" scheme="http://nysdy.com/tags/hierarchy/"/>
+    
+      <category term="knowledge graph" scheme="http://nysdy.com/tags/knowledge-graph/"/>
+    
+  </entry>
   
   <entry>
     <title>pycharm 远程调试</title>
@@ -294,9 +324,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
-    
       <category term="KG" scheme="http://nysdy.com/tags/KG/"/>
+    
+      <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
     
   </entry>
   
@@ -380,9 +410,9 @@
     
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
     
-      <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
-    
       <category term="2019" scheme="http://nysdy.com/tags/2019/"/>
+    
+      <category term="GCN" scheme="http://nysdy.com/tags/GCN/"/>
     
       <category term="KGC" scheme="http://nysdy.com/tags/KGC/"/>
     
@@ -427,7 +457,7 @@
     <link href="http://nysdy.com/post/ubantu%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85pytorch-GPU%E7%89%88%E6%9C%AC/"/>
     <id>http://nysdy.com/post/ubantu系统安装pytorch-GPU版本/</id>
     <published>2020-08-21T07:50:16.000Z</published>
-    <updated>2020-09-02T03:28:00.797Z</updated>
+    <updated>2020-11-25T08:35:51.526Z</updated>
     
     <summary type="html">
     
@@ -537,9 +567,9 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
-    
       <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
+      <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="ACL" scheme="http://nysdy.com/tags/ACL/"/>
     
@@ -564,42 +594,11 @@
       <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
+    
       <category term="2016" scheme="http://nysdy.com/tags/2016/"/>
     
       <category term="AAAI" scheme="http://nysdy.com/tags/AAAI/"/>
-    
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2015 TransA An Adaptive Approach for Knowledge Graph Embeddin阅读笔记</title>
-    <link href="http://nysdy.com/post/2015_TransA_An_Adaptive_Approach_for_Knowledge_Graph_Embeddin/"/>
-    <id>http://nysdy.com/post/2015_TransA_An_Adaptive_Approach_for_Knowledge_Graph_Embeddin/</id>
-    <published>2019-09-02T06:32:48.000Z</published>
-    <updated>2020-08-23T08:14:35.435Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;这篇文章具体的公式操作比较难以理解，但是对于我来说，它的每一维度加权和最后判断时也应该考虑不同维度差异和我的思路比较像。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://arxiv.org/pdf/1509.05490&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载地址&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="论文阅读笔记" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="KG" scheme="http://nysdy.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/KG/"/>
-    
-    
-      <category term="KGE" scheme="http://nysdy.com/tags/KGE/"/>
-    
-      <category term="TransA" scheme="http://nysdy.com/tags/TransA/"/>
-    
-      <category term="2015" scheme="http://nysdy.com/tags/2015/"/>
-    
-      <category term="arxiv" scheme="http://nysdy.com/tags/arxiv/"/>
     
   </entry>
   
